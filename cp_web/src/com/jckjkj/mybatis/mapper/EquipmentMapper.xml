@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jckjkj.mybatis.dao.EquipmentMapper" >
+  <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.Equipment" >
+    <id column="equid" property="equid" jdbcType="VARCHAR" />
+    <result column="stationid" property="stationid" jdbcType="INTEGER" />
+    <result column="equtype" property="equtype" jdbcType="VARCHAR" />
+    <result column="equip" property="equip" jdbcType="VARCHAR" />
+    <result column="equname" property="equname" jdbcType="VARCHAR" />
+    <result column="equsubnetmask" property="equsubnetmask" jdbcType="VARCHAR" />
+    <result column="equgateway" property="equgateway" jdbcType="VARCHAR" />
+    <result column="equos" property="equos" jdbcType="VARCHAR" />
+    <result column="equosuser" property="equosuser" jdbcType="VARCHAR" />
+    <result column="equospwd" property="equospwd" jdbcType="VARCHAR" />
+    <result column="equsoftwareuser" property="equsoftwareuser" jdbcType="VARCHAR" />
+    <result column="equsoftwarepwd" property="equsoftwarepwd" jdbcType="VARCHAR" />
+    <result column="equport" property="equport" jdbcType="VARCHAR" />
+    <result column="equntpadd" property="equntpadd" jdbcType="VARCHAR" />
+    <result column="equsoftwarename" property="equsoftwarename" jdbcType="VARCHAR" />
+    <result column="equbrand" property="equbrand" jdbcType="VARCHAR" />
+    <result column="equmodel" property="equmodel" jdbcType="VARCHAR" />
+    <result column="equclass" property="equclass" jdbcType="VARCHAR" />
+    <result column="equadmissiondate" property="equadmissiondate" jdbcType="DATE" />
+    <result column="equdevorg" property="equdevorg" jdbcType="VARCHAR" />
+    <result column="equremarks" property="equremarks" jdbcType="VARCHAR" />
+    <result column="equremarks2" property="equremarks2" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    equid, stationid, equtype, equip, equname, equsubnetmask, equgateway, equos, equosuser, 
+    equospwd, equsoftwareuser, equsoftwarepwd, equport, equntpadd, equsoftwarename, equbrand, 
+    equmodel, equclass, equadmissiondate, equdevorg, equremarks, equremarks2
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jckjkj.mybatis.model.EquipmentExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from x_equipment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from x_equipment
+    where equid = #{equid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from x_equipment
+    where equid = #{equid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.jckjkj.mybatis.model.EquipmentExample" >
+    delete from x_equipment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.jckjkj.mybatis.model.Equipment" >
+    insert into x_equipment (equid, stationid, equtype, 
+      equip, equname, equsubnetmask, 
+      equgateway, equos, equosuser, 
+      equospwd, equsoftwareuser, equsoftwarepwd, 
+      equport, equntpadd, equsoftwarename, 
+      equbrand, equmodel, equclass, 
+      equadmissiondate, equdevorg, equremarks, 
+      equremarks2)
+    values (#{equid,jdbcType=VARCHAR}, #{stationid,jdbcType=INTEGER}, #{equtype,jdbcType=VARCHAR}, 
+      #{equip,jdbcType=VARCHAR}, #{equname,jdbcType=VARCHAR}, #{equsubnetmask,jdbcType=VARCHAR}, 
+      #{equgateway,jdbcType=VARCHAR}, #{equos,jdbcType=VARCHAR}, #{equosuser,jdbcType=VARCHAR}, 
+      #{equospwd,jdbcType=VARCHAR}, #{equsoftwareuser,jdbcType=VARCHAR}, #{equsoftwarepwd,jdbcType=VARCHAR}, 
+      #{equport,jdbcType=VARCHAR}, #{equntpadd,jdbcType=VARCHAR}, #{equsoftwarename,jdbcType=VARCHAR}, 
+      #{equbrand,jdbcType=VARCHAR}, #{equmodel,jdbcType=VARCHAR}, #{equclass,jdbcType=VARCHAR}, 
+      #{equadmissiondate,jdbcType=DATE}, #{equdevorg,jdbcType=VARCHAR}, #{equremarks,jdbcType=VARCHAR}, 
+      #{equremarks2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.Equipment" >
+    insert into x_equipment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="equid != null" >
+        equid,
+      </if>
+      <if test="stationid != null" >
+        stationid,
+      </if>
+      <if test="equtype != null" >
+        equtype,
+      </if>
+      <if test="equip != null" >
+        equip,
+      </if>
+      <if test="equname != null" >
+        equname,
+      </if>
+      <if test="equsubnetmask != null" >
+        equsubnetmask,
+      </if>
+      <if test="equgateway != null" >
+        equgateway,
+      </if>
+      <if test="equos != null" >
+        equos,
+      </if>
+      <if test="equosuser != null" >
+        equosuser,
+      </if>
+      <if test="equospwd != null" >
+        equospwd,
+      </if>
+      <if test="equsoftwareuser != null" >
+        equsoftwareuser,
+      </if>
+      <if test="equsoftwarepwd != null" >
+        equsoftwarepwd,
+      </if>
+      <if test="equport != null" >
+        equport,
+      </if>
+      <if test="equntpadd != null" >
+        equntpadd,
+      </if>
+      <if test="equsoftwarename != null" >
+        equsoftwarename,
+      </if>
+      <if test="equbrand != null" >
+        equbrand,
+      </if>
+      <if test="equmodel != null" >
+        equmodel,
+      </if>
+      <if test="equclass != null" >
+        equclass,
+      </if>
+      <if test="equadmissiondate != null" >
+        equadmissiondate,
+      </if>
+      <if test="equdevorg != null" >
+        equdevorg,
+      </if>
+      <if test="equremarks != null" >
+        equremarks,
+      </if>
+      <if test="equremarks2 != null" >
+        equremarks2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="equid != null" >
+        #{equid,jdbcType=VARCHAR},
+      </if>
+      <if test="stationid != null" >
+        #{stationid,jdbcType=INTEGER},
+      </if>
+      <if test="equtype != null" >
+        #{equtype,jdbcType=VARCHAR},
+      </if>
+      <if test="equip != null" >
+        #{equip,jdbcType=VARCHAR},
+      </if>
+      <if test="equname != null" >
+        #{equname,jdbcType=VARCHAR},
+      </if>
+      <if test="equsubnetmask != null" >
+        #{equsubnetmask,jdbcType=VARCHAR},
+      </if>
+      <if test="equgateway != null" >
+        #{equgateway,jdbcType=VARCHAR},
+      </if>
+      <if test="equos != null" >
+        #{equos,jdbcType=VARCHAR},
+      </if>
+      <if test="equosuser != null" >
+        #{equosuser,jdbcType=VARCHAR},
+      </if>
+      <if test="equospwd != null" >
+        #{equospwd,jdbcType=VARCHAR},
+      </if>
+      <if test="equsoftwareuser != null" >
+        #{equsoftwareuser,jdbcType=VARCHAR},
+      </if>
+      <if test="equsoftwarepwd != null" >
+        #{equsoftwarepwd,jdbcType=VARCHAR},
+      </if>
+      <if test="equport != null" >
+        #{equport,jdbcType=VARCHAR},
+      </if>
+      <if test="equntpadd != null" >
+        #{equntpadd,jdbcType=VARCHAR},
+      </if>
+      <if test="equsoftwarename != null" >
+        #{equsoftwarename,jdbcType=VARCHAR},
+      </if>
+      <if test="equbrand != null" >
+        #{equbrand,jdbcType=VARCHAR},
+      </if>
+      <if test="equmodel != null" >
+        #{equmodel,jdbcType=VARCHAR},
+      </if>
+      <if test="equclass != null" >
+        #{equclass,jdbcType=VARCHAR},
+      </if>
+      <if test="equadmissiondate != null" >
+        #{equadmissiondate,jdbcType=DATE},
+      </if>
+      <if test="equdevorg != null" >
+        #{equdevorg,jdbcType=VARCHAR},
+      </if>
+      <if test="equremarks != null" >
+        #{equremarks,jdbcType=VARCHAR},
+      </if>
+      <if test="equremarks2 != null" >
+        #{equremarks2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.jckjkj.mybatis.model.EquipmentExample" resultType="java.lang.Integer" >
+    select count(*) from x_equipment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update x_equipment
+    <set >
+      <if test="record.equid != null" >
+        equid = #{record.equid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stationid != null" >
+        stationid = #{record.stationid,jdbcType=INTEGER},
+      </if>
+      <if test="record.equtype != null" >
+        equtype = #{record.equtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.equip != null" >
+        equip = #{record.equip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.equname != null" >
+        equname = #{record.equname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.equsubnetmask != null" >
+        equsubnetmask = #{record.equsubnetmask,jdbcType=VARCHAR},
+      </if>
+      <if test="record.equgateway != null" >
+        equgateway = #{record.equgateway,jdbcType=VARCHAR},
+      </if>
+      <if test="record.equos != null" >
+        equos = #{record.equos,jdbcType=VARCHAR},
+      </if>
+      <if test="record.equosuser != null" >
+        equosuser = #{record.equosuser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.equospwd != null" >
+        equospwd = #{record.equospwd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.equsoftwareuser != null" >
+        equsoftwareuser = #{record.equsoftwareuser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.equsoftwarepwd != null" >
+        equsoftwarepwd = #{record.equsoftwarepwd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.equport != null" >
+        equport = #{record.equport,jdbcType=VARCHAR},
+      </if>
+      <if test="record.equntpadd != null" >
+        equntpadd = #{record.equntpadd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.equsoftwarename != null" >
+        equsoftwarename = #{record.equsoftwarename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.equbrand != null" >
+        equbrand = #{record.equbrand,jdbcType=VARCHAR},
+      </if>
+      <if test="record.equmodel != null" >
+        equmodel = #{record.equmodel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.equclass != null" >
+        equclass = #{record.equclass,jdbcType=VARCHAR},
+      </if>
+      <if test="record.equadmissiondate != null" >
+        equadmissiondate = #{record.equadmissiondate,jdbcType=DATE},
+      </if>
+      <if test="record.equdevorg != null" >
+        equdevorg = #{record.equdevorg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.equremarks != null" >
+        equremarks = #{record.equremarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.equremarks2 != null" >
+        equremarks2 = #{record.equremarks2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update x_equipment
+    set equid = #{record.equid,jdbcType=VARCHAR},
+      stationid = #{record.stationid,jdbcType=INTEGER},
+      equtype = #{record.equtype,jdbcType=VARCHAR},
+      equip = #{record.equip,jdbcType=VARCHAR},
+      equname = #{record.equname,jdbcType=VARCHAR},
+      equsubnetmask = #{record.equsubnetmask,jdbcType=VARCHAR},
+      equgateway = #{record.equgateway,jdbcType=VARCHAR},
+      equos = #{record.equos,jdbcType=VARCHAR},
+      equosuser = #{record.equosuser,jdbcType=VARCHAR},
+      equospwd = #{record.equospwd,jdbcType=VARCHAR},
+      equsoftwareuser = #{record.equsoftwareuser,jdbcType=VARCHAR},
+      equsoftwarepwd = #{record.equsoftwarepwd,jdbcType=VARCHAR},
+      equport = #{record.equport,jdbcType=VARCHAR},
+      equntpadd = #{record.equntpadd,jdbcType=VARCHAR},
+      equsoftwarename = #{record.equsoftwarename,jdbcType=VARCHAR},
+      equbrand = #{record.equbrand,jdbcType=VARCHAR},
+      equmodel = #{record.equmodel,jdbcType=VARCHAR},
+      equclass = #{record.equclass,jdbcType=VARCHAR},
+      equadmissiondate = #{record.equadmissiondate,jdbcType=DATE},
+      equdevorg = #{record.equdevorg,jdbcType=VARCHAR},
+      equremarks = #{record.equremarks,jdbcType=VARCHAR},
+      equremarks2 = #{record.equremarks2,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jckjkj.mybatis.model.Equipment" >
+    update x_equipment
+    <set >
+      <if test="stationid != null" >
+        stationid = #{stationid,jdbcType=INTEGER},
+      </if>
+      <if test="equtype != null" >
+        equtype = #{equtype,jdbcType=VARCHAR},
+      </if>
+      <if test="equip != null" >
+        equip = #{equip,jdbcType=VARCHAR},
+      </if>
+      <if test="equname != null" >
+        equname = #{equname,jdbcType=VARCHAR},
+      </if>
+      <if test="equsubnetmask != null" >
+        equsubnetmask = #{equsubnetmask,jdbcType=VARCHAR},
+      </if>
+      <if test="equgateway != null" >
+        equgateway = #{equgateway,jdbcType=VARCHAR},
+      </if>
+      <if test="equos != null" >
+        equos = #{equos,jdbcType=VARCHAR},
+      </if>
+      <if test="equosuser != null" >
+        equosuser = #{equosuser,jdbcType=VARCHAR},
+      </if>
+      <if test="equospwd != null" >
+        equospwd = #{equospwd,jdbcType=VARCHAR},
+      </if>
+      <if test="equsoftwareuser != null" >
+        equsoftwareuser = #{equsoftwareuser,jdbcType=VARCHAR},
+      </if>
+      <if test="equsoftwarepwd != null" >
+        equsoftwarepwd = #{equsoftwarepwd,jdbcType=VARCHAR},
+      </if>
+      <if test="equport != null" >
+        equport = #{equport,jdbcType=VARCHAR},
+      </if>
+      <if test="equntpadd != null" >
+        equntpadd = #{equntpadd,jdbcType=VARCHAR},
+      </if>
+      <if test="equsoftwarename != null" >
+        equsoftwarename = #{equsoftwarename,jdbcType=VARCHAR},
+      </if>
+      <if test="equbrand != null" >
+        equbrand = #{equbrand,jdbcType=VARCHAR},
+      </if>
+      <if test="equmodel != null" >
+        equmodel = #{equmodel,jdbcType=VARCHAR},
+      </if>
+      <if test="equclass != null" >
+        equclass = #{equclass,jdbcType=VARCHAR},
+      </if>
+      <if test="equadmissiondate != null" >
+        equadmissiondate = #{equadmissiondate,jdbcType=DATE},
+      </if>
+      <if test="equdevorg != null" >
+        equdevorg = #{equdevorg,jdbcType=VARCHAR},
+      </if>
+      <if test="equremarks != null" >
+        equremarks = #{equremarks,jdbcType=VARCHAR},
+      </if>
+      <if test="equremarks2 != null" >
+        equremarks2 = #{equremarks2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where equid = #{equid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.Equipment" >
+    update x_equipment
+    set stationid = #{stationid,jdbcType=INTEGER},
+      equtype = #{equtype,jdbcType=VARCHAR},
+      equip = #{equip,jdbcType=VARCHAR},
+      equname = #{equname,jdbcType=VARCHAR},
+      equsubnetmask = #{equsubnetmask,jdbcType=VARCHAR},
+      equgateway = #{equgateway,jdbcType=VARCHAR},
+      equos = #{equos,jdbcType=VARCHAR},
+      equosuser = #{equosuser,jdbcType=VARCHAR},
+      equospwd = #{equospwd,jdbcType=VARCHAR},
+      equsoftwareuser = #{equsoftwareuser,jdbcType=VARCHAR},
+      equsoftwarepwd = #{equsoftwarepwd,jdbcType=VARCHAR},
+      equport = #{equport,jdbcType=VARCHAR},
+      equntpadd = #{equntpadd,jdbcType=VARCHAR},
+      equsoftwarename = #{equsoftwarename,jdbcType=VARCHAR},
+      equbrand = #{equbrand,jdbcType=VARCHAR},
+      equmodel = #{equmodel,jdbcType=VARCHAR},
+      equclass = #{equclass,jdbcType=VARCHAR},
+      equadmissiondate = #{equadmissiondate,jdbcType=DATE},
+      equdevorg = #{equdevorg,jdbcType=VARCHAR},
+      equremarks = #{equremarks,jdbcType=VARCHAR},
+      equremarks2 = #{equremarks2,jdbcType=VARCHAR}
+    where equid = #{equid,jdbcType=VARCHAR}
+  </update>
+</mapper>

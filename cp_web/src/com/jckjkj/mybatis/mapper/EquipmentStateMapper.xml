@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jckjkj.mybatis.dao.EquipmentStateMapper" >
+  <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.EquipmentState" >
+    <id column="equstateid" property="equstateid" jdbcType="BIGINT" />
+    <result column="equid" property="equid" jdbcType="VARCHAR" />
+    <result column="warningclass" property="warningclass" jdbcType="VARCHAR" />
+    <result column="warninggrade" property="warninggrade" jdbcType="VARCHAR" />
+    <result column="warningstate" property="warningstate" jdbcType="VARCHAR" />
+    <result column="warningsourcename" property="warningsourcename" jdbcType="VARCHAR" />
+    <result column="warningsourceip" property="warningsourceip" jdbcType="VARCHAR" />
+    <result column="warningcount" property="warningcount" jdbcType="INTEGER" />
+    <result column="recentlyfaulttime" property="recentlyfaulttime" jdbcType="DATE" />
+    <result column="warningcontent" property="warningcontent" jdbcType="VARCHAR" />
+    <result column="ifreparing" property="ifreparing" jdbcType="BIT" />
+    <result column="refreshtime" property="refreshtime" jdbcType="DATE" />
+    <result column="equtype" property="equtype" jdbcType="ARRAY" />
+    <result column="equip" property="equip" jdbcType="ARRAY" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    equstateid, equid, warningclass, warninggrade, warningstate, warningsourcename, warningsourceip, 
+    warningcount, recentlyfaulttime, warningcontent, ifreparing, refreshtime, equtype, 
+    equip
+  </sql>
+  
+ 
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jckjkj.mybatis.model.EquipmentStateExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from x_equipmentstate
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from x_equipmentstate
+    where equstateid = #{equstateid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from x_equipmentstate
+    where equstateid = #{equstateid,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.jckjkj.mybatis.model.EquipmentStateExample" >
+    delete from x_equipmentstate
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.jckjkj.mybatis.model.EquipmentState" >
+    insert into x_equipmentstate (equstateid, equid, warningclass, 
+      warninggrade, warningstate, warningsourcename, 
+      warningsourceip, warningcount, recentlyfaulttime, 
+      warningcontent, ifreparing, refreshtime, 
+      equtype, equip)
+    values (#{equstateid,jdbcType=BIGINT}, #{equid,jdbcType=VARCHAR}, #{warningclass,jdbcType=VARCHAR}, 
+      #{warninggrade,jdbcType=VARCHAR}, #{warningstate,jdbcType=VARCHAR}, #{warningsourcename,jdbcType=VARCHAR}, 
+      #{warningsourceip,jdbcType=VARCHAR}, #{warningcount,jdbcType=INTEGER}, #{recentlyfaulttime,jdbcType=DATE}, 
+      #{warningcontent,jdbcType=VARCHAR}, #{ifreparing,jdbcType=BIT}, #{refreshtime,jdbcType=DATE}, 
+      #{equtype,jdbcType=ARRAY}, #{equip,jdbcType=ARRAY})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.EquipmentState" >
+    insert into x_equipmentstate
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="equstateid != null" >
+        equstateid,
+      </if>
+      <if test="equid != null" >
+        equid,
+      </if>
+      <if test="warningclass != null" >
+        warningclass,
+      </if>
+      <if test="warninggrade != null" >
+        warninggrade,
+      </if>
+      <if test="warningstate != null" >
+        warningstate,
+      </if>
+      <if test="warningsourcename != null" >
+        warningsourcename,
+      </if>
+      <if test="warningsourceip != null" >
+        warningsourceip,
+      </if>
+      <if test="warningcount != null" >
+        warningcount,
+      </if>
+      <if test="recentlyfaulttime != null" >
+        recentlyfaulttime,
+      </if>
+      <if test="warningcontent != null" >
+        warningcontent,
+      </if>
+      <if test="ifreparing != null" >
+        ifreparing,
+      </if>
+      <if test="refreshtime != null" >
+        refreshtime,
+      </if>
+      <if test="equtype != null" >
+        equtype,
+      </if>
+      <if test="equip != null" >
+        equip,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="equstateid != null" >
+        #{equstateid,jdbcType=BIGINT},
+      </if>
+      <if test="equid != null" >
+        #{equid,jdbcType=VARCHAR},
+      </if>
+      <if test="warningclass != null" >
+        #{warningclass,jdbcType=VARCHAR},
+      </if>
+      <if test="warninggrade != null" >
+        #{warninggrade,jdbcType=VARCHAR},
+      </if>
+      <if test="warningstate != null" >
+        #{warningstate,jdbcType=VARCHAR},
+      </if>
+      <if test="warningsourcename != null" >
+        #{warningsourcename,jdbcType=VARCHAR},
+      </if>
+      <if test="warningsourceip != null" >
+        #{warningsourceip,jdbcType=VARCHAR},
+      </if>
+      <if test="warningcount != null" >
+        #{warningcount,jdbcType=INTEGER},
+      </if>
+      <if test="recentlyfaulttime != null" >
+        #{recentlyfaulttime,jdbcType=DATE},
+      </if>
+      <if test="warningcontent != null" >
+        #{warningcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="ifreparing != null" >
+        #{ifreparing,jdbcType=BIT},
+      </if>
+      <if test="refreshtime != null" >
+        #{refreshtime,jdbcType=DATE},
+      </if>
+      <if test="equtype != null" >
+        #{equtype,jdbcType=ARRAY},
+      </if>
+      <if test="equip != null" >
+        #{equip,jdbcType=ARRAY},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.jckjkj.mybatis.model.EquipmentStateExample" resultType="java.lang.Integer" >
+    select count(*) from x_equipmentstate
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update x_equipmentstate
+    <set >
+      <if test="record.equstateid != null" >
+        equstateid = #{record.equstateid,jdbcType=BIGINT},
+      </if>
+      <if test="record.equid != null" >
+        equid = #{record.equid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.warningclass != null" >
+        warningclass = #{record.warningclass,jdbcType=VARCHAR},
+      </if>
+      <if test="record.warninggrade != null" >
+        warninggrade = #{record.warninggrade,jdbcType=VARCHAR},
+      </if>
+      <if test="record.warningstate != null" >
+        warningstate = #{record.warningstate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.warningsourcename != null" >
+        warningsourcename = #{record.warningsourcename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.warningsourceip != null" >
+        warningsourceip = #{record.warningsourceip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.warningcount != null" >
+        warningcount = #{record.warningcount,jdbcType=INTEGER},
+      </if>
+      <if test="record.recentlyfaulttime != null" >
+        recentlyfaulttime = #{record.recentlyfaulttime,jdbcType=DATE},
+      </if>
+      <if test="record.warningcontent != null" >
+        warningcontent = #{record.warningcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ifreparing != null" >
+        ifreparing = #{record.ifreparing,jdbcType=BIT},
+      </if>
+      <if test="record.refreshtime != null" >
+        refreshtime = #{record.refreshtime,jdbcType=DATE},
+      </if>
+      <if test="record.equtype != null" >
+        equtype = #{record.equtype,jdbcType=ARRAY},
+      </if>
+      <if test="record.equip != null" >
+        equip = #{record.equip,jdbcType=ARRAY},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update x_equipmentstate
+    set equstateid = #{record.equstateid,jdbcType=BIGINT},
+      equid = #{record.equid,jdbcType=VARCHAR},
+      warningclass = #{record.warningclass,jdbcType=VARCHAR},
+      warninggrade = #{record.warninggrade,jdbcType=VARCHAR},
+      warningstate = #{record.warningstate,jdbcType=VARCHAR},
+      warningsourcename = #{record.warningsourcename,jdbcType=VARCHAR},
+      warningsourceip = #{record.warningsourceip,jdbcType=VARCHAR},
+      warningcount = #{record.warningcount,jdbcType=INTEGER},
+      recentlyfaulttime = #{record.recentlyfaulttime,jdbcType=DATE},
+      warningcontent = #{record.warningcontent,jdbcType=VARCHAR},
+      ifreparing = #{record.ifreparing,jdbcType=BIT},
+      refreshtime = #{record.refreshtime,jdbcType=DATE},
+      equtype = #{record.equtype,jdbcType=ARRAY},
+      equip = #{record.equip,jdbcType=ARRAY}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jckjkj.mybatis.model.EquipmentState" >
+    update x_equipmentstate
+    <set >
+      <if test="equid != null" >
+        equid = #{equid,jdbcType=VARCHAR},
+      </if>
+      <if test="warningclass != null" >
+        warningclass = #{warningclass,jdbcType=VARCHAR},
+      </if>
+      <if test="warninggrade != null" >
+        warninggrade = #{warninggrade,jdbcType=VARCHAR},
+      </if>
+      <if test="warningstate != null" >
+        warningstate = #{warningstate,jdbcType=VARCHAR},
+      </if>
+      <if test="warningsourcename != null" >
+        warningsourcename = #{warningsourcename,jdbcType=VARCHAR},
+      </if>
+      <if test="warningsourceip != null" >
+        warningsourceip = #{warningsourceip,jdbcType=VARCHAR},
+      </if>
+      <if test="warningcount != null" >
+        warningcount = #{warningcount,jdbcType=INTEGER},
+      </if>
+      <if test="recentlyfaulttime != null" >
+        recentlyfaulttime = #{recentlyfaulttime,jdbcType=DATE},
+      </if>
+      <if test="warningcontent != null" >
+        warningcontent = #{warningcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="ifreparing != null" >
+        ifreparing = #{ifreparing,jdbcType=BIT},
+      </if>
+      <if test="refreshtime != null" >
+        refreshtime = #{refreshtime,jdbcType=DATE},
+      </if>
+      <if test="equtype != null" >
+        equtype = #{equtype,jdbcType=ARRAY},
+      </if>
+      <if test="equip != null" >
+        equip = #{equip,jdbcType=ARRAY},
+      </if>
+    </set>
+    where equstateid = #{equstateid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.EquipmentState" >
+    update x_equipmentstate
+    set equid = #{equid,jdbcType=VARCHAR},
+      warningclass = #{warningclass,jdbcType=VARCHAR},
+      warninggrade = #{warninggrade,jdbcType=VARCHAR},
+      warningstate = #{warningstate,jdbcType=VARCHAR},
+      warningsourcename = #{warningsourcename,jdbcType=VARCHAR},
+      warningsourceip = #{warningsourceip,jdbcType=VARCHAR},
+      warningcount = #{warningcount,jdbcType=INTEGER},
+      recentlyfaulttime = #{recentlyfaulttime,jdbcType=DATE},
+      warningcontent = #{warningcontent,jdbcType=VARCHAR},
+      ifreparing = #{ifreparing,jdbcType=BIT},
+      refreshtime = #{refreshtime,jdbcType=DATE},
+      equtype = #{equtype,jdbcType=ARRAY},
+      equip = #{equip,jdbcType=ARRAY}
+    where equstateid = #{equstateid,jdbcType=BIGINT}
+  </update>
+</mapper>

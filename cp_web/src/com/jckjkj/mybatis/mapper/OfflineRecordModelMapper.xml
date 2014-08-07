@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jckjkj.mybatis.dao.OfflineRecordModelMapper" >
+  <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.OfflineRecordModel" >
+    <result column="equid" property="equid" jdbcType="VARCHAR" />
+    <result column="online" property="online" jdbcType="BIT" />
+    <result column="recorddate" property="recorddate" jdbcType="TIMESTAMP" />
+    <result column="warningtitle" property="warningtitle" jdbcType="VARCHAR" />
+    <result column="warningdescribe" property="warningdescribe" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    equid, online, recorddate, warningtitle, warningdescribe
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jckjkj.mybatis.model.OfflineRecordModelExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from x_offlinerecord
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.jckjkj.mybatis.model.OfflineRecordModelExample" >
+    delete from x_offlinerecord
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.jckjkj.mybatis.model.OfflineRecordModel" >
+    insert into x_offlinerecord (equid, online, recorddate, 
+      warningtitle, warningdescribe)
+    values (#{equid,jdbcType=VARCHAR}, #{online,jdbcType=BIT}, #{recorddate,jdbcType=TIMESTAMP}, 
+      #{warningtitle,jdbcType=VARCHAR}, #{warningdescribe,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.OfflineRecordModel" >
+    insert into x_offlinerecord
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="equid != null" >
+        equid,
+      </if>
+      <if test="online != null" >
+        online,
+      </if>
+      <if test="recorddate != null" >
+        recorddate,
+      </if>
+      <if test="warningtitle != null" >
+        warningtitle,
+      </if>
+      <if test="warningdescribe != null" >
+        warningdescribe,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="equid != null" >
+        #{equid,jdbcType=VARCHAR},
+      </if>
+      <if test="online != null" >
+        #{online,jdbcType=BIT},
+      </if>
+      <if test="recorddate != null" >
+        #{recorddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="warningtitle != null" >
+        #{warningtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="warningdescribe != null" >
+        #{warningdescribe,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.jckjkj.mybatis.model.OfflineRecordModelExample" resultType="java.lang.Integer" >
+    select count(*) from x_offlinerecord
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update x_offlinerecord
+    <set >
+      <if test="record.equid != null" >
+        equid = #{record.equid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.online != null" >
+        online = #{record.online,jdbcType=BIT},
+      </if>
+      <if test="record.recorddate != null" >
+        recorddate = #{record.recorddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.warningtitle != null" >
+        warningtitle = #{record.warningtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.warningdescribe != null" >
+        warningdescribe = #{record.warningdescribe,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update x_offlinerecord
+    set equid = #{record.equid,jdbcType=VARCHAR},
+      online = #{record.online,jdbcType=BIT},
+      recorddate = #{record.recorddate,jdbcType=TIMESTAMP},
+      warningtitle = #{record.warningtitle,jdbcType=VARCHAR},
+      warningdescribe = #{record.warningdescribe,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>
