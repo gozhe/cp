@@ -2,12 +2,8 @@ package com.jckjkj.mybatis.dao;
 
 import com.jckjkj.mybatis.model.EquipmentState;
 import com.jckjkj.mybatis.model.EquipmentStateExample;
-
-import java.util.HashMap;
 import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
 
 public interface EquipmentStateMapper {
     int countByExample(EquipmentStateExample example);
@@ -31,7 +27,4 @@ public interface EquipmentStateMapper {
     int updateByPrimaryKeySelective(EquipmentState record);
 
     int updateByPrimaryKey(EquipmentState record);
-    
-    @Select("select * from x_equipmentstate")
-    List<EquipmentState> selectAll();
 }

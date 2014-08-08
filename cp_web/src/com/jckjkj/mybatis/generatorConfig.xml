@@ -3,70 +3,58 @@
   PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
   "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
-	<classPathEntry
-		location="F:\course\java\postgresql-9.3-1102.jdbc4.jar" /><!--需要绝对路径!-->
-	<context id="mybatisDemoForMysql" targetRuntime="MyBatis3">
-		<!-- 控制注释 -->
+	<properties resource="init.properties" />
+	<classPathEntry location="${classPath}" />
+
+	<context id="postgresql">
 		<commentGenerator>
-			<!-- 是否去除所有自动生成的注释文件 -->
 			<property name="suppressAllComments" value="true" />
-			<!-- 是否去除所有自动生成的文件的时间戳，默认为false -->
 			<property name="suppressDate" value="true" />
 		</commentGenerator>
-		<!-- 控制数据库 -->
-		<jdbcConnection driverClass="org.postgresql.Driver"
-			connectionURL="jdbc:postgresql://192.168.1.100:5432/camera_cp"
-			userId="postgres" password="postgres" />
+
+		<jdbcConnection driverClass="${jdbc_driver}"
+			connectionURL="${jdbc_url}" userId="${jdbc_user}" password="${jdbc_password}" />
 
 		<javaTypeResolver>
-			<!-- 把jdbc中的decimal与numberic类型转化为java.math.BigDeciaml形式表示 -->
 			<property name="forceBigDecimals" value="false" />
 		</javaTypeResolver>
-		<!-- 数据库表对应的model -->
+
 		<javaModelGenerator targetPackage="com.jckjkj.mybatis.model"
-			targetProject="src">
-			<property name="enableSubPackages" value="true" />
+			targetProject="${project}">
+			<property name="enableSubPackages" value="false" />
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
-		<!-- 控制Model的xmlMapper文件 -->
+
 		<sqlMapGenerator targetPackage="com.jckjkj.mybatis.mapper"
-			targetProject="src">
-			<property name="enableSubPackages" value="true" />
+			targetProject="${project}">
+			<property name="enableSubPackages" value="false" />
 		</sqlMapGenerator>
-		<!-- 控制mapper接口 -->
+
 		<javaClientGenerator targetPackage="com.jckjkj.mybatis.dao"
-			type="XMLMAPPER" targetProject="src">
-			<property name="enableSubPackages" value="true" />
-			<property name="methodNameCalculator" value="extended" />
+			targetProject="${project}" type="XMLMAPPER">
+			<property name="enableSubPackages" value="false" />
 		</javaClientGenerator>
+
 		<!-- schema你的数据库，tableName表明，domainObjectName对应你的javabean类名，是否生成相应的example -->
-		<!--
-		<table schema="" tableName="t_camera" domainObjectName="CameraModel"/>
-		<table schema="" tableName="t_station" domainObjectName="StationModel"/>
-		<table schema="" tableName="x_auditopinion" domainObjectName="AuditopionModel"/>
-		-->
-		<table schema="" tableName="x_department" domainObjectName="DepartmentModel"/>
-		<!--
-		<table schema="" tableName="x_dictionary" domainObjectName="DictionaryModel"/>
-		<table schema="" tableName="x_equipment" domainObjectName="EquipmentModel"/>
-		<table schema="" tableName="x_equipmentstate" domainObjectName="EquipmentStateModel"/>
-		<table schema="" tableName="x_faultgrade" domainObjectName="FaultGradeModel"/>
-		<table schema="" tableName="x_mobile" domainObjectName="MobileModel"/>
-		<table schema="" tableName="x_module" domainObjectName="ModuleModel"/>
-		<table schema="" tableName="x_offlinerecord" domainObjectName="OfflineRecordModel"/>
-		-->
-		
-		<table schema="" tableName="x_orderlist" domainObjectName="OrderListModel"/>
-		
-		<!--
-		<table schema="" tableName="x_orderstate" domainObjectName="OrderStateModel"/>
-		<table schema="" tableName="x_persion" domainObjectName="PersionModel"/>
-		<table schema="" tableName="x_repairresult" domainObjectName="RepairResultModel"/>
-		<table schema="" tableName="x_role" domainObjectName="RoleModel"/>
-		-->
-		<table schema="" tableName="x_routinginspection" domainObjectName="RoutingInspectionModel"/>
-		<!--
-		<table schema="" tableName="x_user" domainObjectName="UserModel"/>
-		-->
+		<table schema="" tableName="t_camera" domainObjectName="Camera"/>
+		<table schema="" tableName="t_station" domainObjectName="Station"/>
+		<table schema="" tableName="x_auditopinion" domainObjectName="Auditopion"/>
+		<table schema="" tableName="x_department" domainObjectName="Department"/>
+		<table schema="" tableName="x_dictionary" domainObjectName="Dictionary"/>
+		<table schema="" tableName="x_equipment" domainObjectName="Equipment"/>
+		<table schema="" tableName="x_equipmentstate" domainObjectName="EquipmentState"/>
+		<table schema="" tableName="x_faultgrade" domainObjectName="FaultGrade"/>
+		<table schema="" tableName="x_mobile" domainObjectName="Mobile"/>
+		<table schema="" tableName="x_module" domainObjectName="Module"/>
+		<table schema="" tableName="x_offlinerecord" domainObjectName="OfflineRecord"/>
+		<table schema="" tableName="x_orderlist" domainObjectName="OrderList"/>
+		<table schema="" tableName="x_orderstate" domainObjectName="OrderState"/>
+		<table schema="" tableName="x_persion" domainObjectName="Persion"/>
+		<table schema="" tableName="x_repairresult" domainObjectName="RepairResult"/>
+		<table schema="" tableName="x_role" domainObjectName="Role"/>
+		<table schema="" tableName="x_routinginspection" domainObjectName="RoutingInspection"/>
+		<table schema="" tableName="x_user" domainObjectName="User"/>
+
 	</context>
+
 </generatorConfiguration>

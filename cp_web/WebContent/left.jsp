@@ -51,7 +51,7 @@
 						<li class="button"><a href="#" class="blue"><img alt="" src="img/sbjk.png" class="img">巡检管理 <span></span></a></li>
 						<li class="dropdown">
 							<ul>
-								<li><a class="submenu"  href="routecheck/getAll.do"  target="right">巡检列表</a></li>
+								<li><a class="submenu"  href="base/getRoutingInspectionList.do"  target="right">巡检列表</a></li>
 								<li><a class="submenu"  href="#" >巡检管理</a></li>
 
 							</ul>

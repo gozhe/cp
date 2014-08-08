@@ -27,9 +27,9 @@ public class EquipmentState {
 
     private Date refreshtime;
 
-    private Object equtype;
+    private String equtype;
 
-    private Object equip;
+    private String equip;
 
     public Long getEqustateid() {
         return equstateid;
@@ -127,19 +127,19 @@ public class EquipmentState {
         this.refreshtime = refreshtime;
     }
 
-    public Object getEqutype() {
+    public String getEqutype() {
         return equtype;
     }
 
-    public void setEqutype(Object equtype) {
-        this.equtype = equtype;
+    public void setEqutype(String equtype) {
+        this.equtype = equtype == null ? null : equtype.trim();
     }
 
-    public Object getEquip() {
+    public String getEquip() {
         return equip;
     }
 
-    public void setEquip(Object equip) {
-        this.equip = equip;
+    public void setEquip(String equip) {
+        this.equip = equip == null ? null : equip.trim();
     }
 }

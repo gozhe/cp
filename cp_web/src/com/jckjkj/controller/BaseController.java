@@ -10,14 +10,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.jckjkj.mybatis.model.Equipment;
 import com.jckjkj.mybatis.model.EquipmentState;
+import com.jckjkj.mybatis.model.RoutingInspection;
 import com.jckjkj.service.BaseService;
 import com.jckjkj.utils.JsonUtils;
 
 @Controller
 public class BaseController {
+
 	private BaseService baseService;
 
 	public BaseService getBaseService() {
@@ -29,36 +32,51 @@ public class BaseController {
 		this.baseService = baseService;
 	}
 
-	@RequestMapping(value = "getAll.do", method = RequestMethod.GET)
-	public void getAll(HttpServletResponse response) {
+	@RequestMapping(value = "getEquipmentStateList.do", method = RequestMethod.GET)
+	public void getEquipmentStateList(@RequestParam("dptid") String dptid,
+			HttpServletResponse response) {
 		try {
-			List<EquipmentState> list = baseService.getAll();
+			List<EquipmentState> list = baseService
+					.getEquipmentStateList(dptid);
 			String results = JsonUtils.collection2json(list);
 			System.out.println(results);
-			response.setCharacterEncoding("utf-8");         
-			response.setContentType("text/html; charset=UTF-8"); 
-			PrintWriter pw = response.getWriter(); 
+			response.setCharacterEncoding("utf-8");
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter pw = response.getWriter();
 			pw.write(results);
-			pw.flush(); 
+			pw.flush();
 			pw.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
-	@RequestMapping("getEquipAll")
-	public String getEquipmentAll(HttpServletRequest request) {
+	@RequestMapping("getEquipmentDetail.do")
+	public String getEquipmentDetail(@RequestParam("equid") String equid,
+			HttpServletRequest request) {
 		try {
-			List<Equipment> list = baseService.getEquipmentAll();
-			String results = JsonUtils.collection2json(list);
+			Equipment equipment = baseService.getEquipmentDetail(equid);
+			String results = JsonUtils.bean2json(equipment);
 			System.out.println(results);
 			request.setAttribute("addLists", results);
-			return "listAll1";
+			return "_sb/sbxx";
 		} catch (Exception e) {
 			e.printStackTrace();
-			request.setAttribute("InfoMessage",
-					"信息载入失败！具体异常信息：" + e.getMessage());
+			request.setAttribute("InfoMessage", "error" + e.getMessage());
+			return "error";
+		}
+	}
+
+	@RequestMapping("getRoutingInspectionList.do")
+	public String getRoutingInspectionList(HttpServletRequest request) {
+		try {
+			List<RoutingInspection> list = baseService
+					.getRoutingInspectionList();
+			request.setAttribute("ResultList", list);
+			return "_xj/xjgl";
+		} catch (Exception e) {
+			e.printStackTrace();
+			request.setAttribute("InfoMessage", "" + e.getMessage());
 			return "error";
 		}
 	}

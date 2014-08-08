@@ -14,7 +14,7 @@ public class testDbConn {
 		try {
 			Class.forName("org.postgresql.Driver");
 			c = DriverManager.getConnection(
-					"jdbc:postgresql://192.168.1.100:5432/camera_cp", "postgres",
+					"jdbc:postgresql://localhost:5432/camera_cp", "postgres",
 					"postgres");
 		} catch (Exception e) {
 			e.printStackTrace();

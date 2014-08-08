@@ -13,9 +13,9 @@
     <result column="recentlyfaulttime" property="recentlyfaulttime" jdbcType="DATE" />
     <result column="warningcontent" property="warningcontent" jdbcType="VARCHAR" />
     <result column="ifreparing" property="ifreparing" jdbcType="BIT" />
-    <result column="refreshtime" property="refreshtime" jdbcType="DATE" />
-    <result column="equtype" property="equtype" jdbcType="ARRAY" />
-    <result column="equip" property="equip" jdbcType="ARRAY" />
+    <result column="refreshtime" property="refreshtime" jdbcType="TIMESTAMP" />
+    <result column="equtype" property="equtype" jdbcType="VARCHAR" />
+    <result column="equip" property="equip" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -80,8 +80,6 @@
     warningcount, recentlyfaulttime, warningcontent, ifreparing, refreshtime, equtype, 
     equip
   </sql>
-  
- 
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jckjkj.mybatis.model.EquipmentStateExample" >
     select
     <if test="distinct" >
@@ -121,8 +119,8 @@
     values (#{equstateid,jdbcType=BIGINT}, #{equid,jdbcType=VARCHAR}, #{warningclass,jdbcType=VARCHAR}, 
       #{warninggrade,jdbcType=VARCHAR}, #{warningstate,jdbcType=VARCHAR}, #{warningsourcename,jdbcType=VARCHAR}, 
       #{warningsourceip,jdbcType=VARCHAR}, #{warningcount,jdbcType=INTEGER}, #{recentlyfaulttime,jdbcType=DATE}, 
-      #{warningcontent,jdbcType=VARCHAR}, #{ifreparing,jdbcType=BIT}, #{refreshtime,jdbcType=DATE}, 
-      #{equtype,jdbcType=ARRAY}, #{equip,jdbcType=ARRAY})
+      #{warningcontent,jdbcType=VARCHAR}, #{ifreparing,jdbcType=BIT}, #{refreshtime,jdbcType=TIMESTAMP}, 
+      #{equtype,jdbcType=VARCHAR}, #{equip,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.EquipmentState" >
     insert into x_equipmentstate
@@ -205,13 +203,13 @@
         #{ifreparing,jdbcType=BIT},
       </if>
       <if test="refreshtime != null" >
-        #{refreshtime,jdbcType=DATE},
+        #{refreshtime,jdbcType=TIMESTAMP},
       </if>
       <if test="equtype != null" >
-        #{equtype,jdbcType=ARRAY},
+        #{equtype,jdbcType=VARCHAR},
       </if>
       <if test="equip != null" >
-        #{equip,jdbcType=ARRAY},
+        #{equip,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -258,13 +256,13 @@
         ifreparing = #{record.ifreparing,jdbcType=BIT},
       </if>
       <if test="record.refreshtime != null" >
-        refreshtime = #{record.refreshtime,jdbcType=DATE},
+        refreshtime = #{record.refreshtime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.equtype != null" >
-        equtype = #{record.equtype,jdbcType=ARRAY},
+        equtype = #{record.equtype,jdbcType=VARCHAR},
       </if>
       <if test="record.equip != null" >
-        equip = #{record.equip,jdbcType=ARRAY},
+        equip = #{record.equip,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -284,9 +282,9 @@
       recentlyfaulttime = #{record.recentlyfaulttime,jdbcType=DATE},
       warningcontent = #{record.warningcontent,jdbcType=VARCHAR},
       ifreparing = #{record.ifreparing,jdbcType=BIT},
-      refreshtime = #{record.refreshtime,jdbcType=DATE},
-      equtype = #{record.equtype,jdbcType=ARRAY},
-      equip = #{record.equip,jdbcType=ARRAY}
+      refreshtime = #{record.refreshtime,jdbcType=TIMESTAMP},
+      equtype = #{record.equtype,jdbcType=VARCHAR},
+      equip = #{record.equip,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -325,13 +323,13 @@
         ifreparing = #{ifreparing,jdbcType=BIT},
       </if>
       <if test="refreshtime != null" >
-        refreshtime = #{refreshtime,jdbcType=DATE},
+        refreshtime = #{refreshtime,jdbcType=TIMESTAMP},
       </if>
       <if test="equtype != null" >
-        equtype = #{equtype,jdbcType=ARRAY},
+        equtype = #{equtype,jdbcType=VARCHAR},
       </if>
       <if test="equip != null" >
-        equip = #{equip,jdbcType=ARRAY},
+        equip = #{equip,jdbcType=VARCHAR},
       </if>
     </set>
     where equstateid = #{equstateid,jdbcType=BIGINT}
@@ -348,9 +346,9 @@
       recentlyfaulttime = #{recentlyfaulttime,jdbcType=DATE},
       warningcontent = #{warningcontent,jdbcType=VARCHAR},
       ifreparing = #{ifreparing,jdbcType=BIT},
-      refreshtime = #{refreshtime,jdbcType=DATE},
-      equtype = #{equtype,jdbcType=ARRAY},
-      equip = #{equip,jdbcType=ARRAY}
+      refreshtime = #{refreshtime,jdbcType=TIMESTAMP},
+      equtype = #{equtype,jdbcType=VARCHAR},
+      equip = #{equip,jdbcType=VARCHAR}
     where equstateid = #{equstateid,jdbcType=BIGINT}
   </update>
 </mapper>

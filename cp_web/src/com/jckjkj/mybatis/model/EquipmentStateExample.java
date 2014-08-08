@@ -873,52 +873,52 @@ public class EquipmentStateExample {
         }
 
         public Criteria andRefreshtimeEqualTo(Date value) {
-            addCriterionForJDBCDate("refreshtime =", value, "refreshtime");
+            addCriterion("refreshtime =", value, "refreshtime");
             return (Criteria) this;
         }
 
         public Criteria andRefreshtimeNotEqualTo(Date value) {
-            addCriterionForJDBCDate("refreshtime <>", value, "refreshtime");
+            addCriterion("refreshtime <>", value, "refreshtime");
             return (Criteria) this;
         }
 
         public Criteria andRefreshtimeGreaterThan(Date value) {
-            addCriterionForJDBCDate("refreshtime >", value, "refreshtime");
+            addCriterion("refreshtime >", value, "refreshtime");
             return (Criteria) this;
         }
 
         public Criteria andRefreshtimeGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("refreshtime >=", value, "refreshtime");
+            addCriterion("refreshtime >=", value, "refreshtime");
             return (Criteria) this;
         }
 
         public Criteria andRefreshtimeLessThan(Date value) {
-            addCriterionForJDBCDate("refreshtime <", value, "refreshtime");
+            addCriterion("refreshtime <", value, "refreshtime");
             return (Criteria) this;
         }
 
         public Criteria andRefreshtimeLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("refreshtime <=", value, "refreshtime");
+            addCriterion("refreshtime <=", value, "refreshtime");
             return (Criteria) this;
         }
 
         public Criteria andRefreshtimeIn(List<Date> values) {
-            addCriterionForJDBCDate("refreshtime in", values, "refreshtime");
+            addCriterion("refreshtime in", values, "refreshtime");
             return (Criteria) this;
         }
 
         public Criteria andRefreshtimeNotIn(List<Date> values) {
-            addCriterionForJDBCDate("refreshtime not in", values, "refreshtime");
+            addCriterion("refreshtime not in", values, "refreshtime");
             return (Criteria) this;
         }
 
         public Criteria andRefreshtimeBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("refreshtime between", value1, value2, "refreshtime");
+            addCriterion("refreshtime between", value1, value2, "refreshtime");
             return (Criteria) this;
         }
 
         public Criteria andRefreshtimeNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("refreshtime not between", value1, value2, "refreshtime");
+            addCriterion("refreshtime not between", value1, value2, "refreshtime");
             return (Criteria) this;
         }
 
@@ -932,52 +932,62 @@ public class EquipmentStateExample {
             return (Criteria) this;
         }
 
-        public Criteria andEqutypeEqualTo(Object value) {
+        public Criteria andEqutypeEqualTo(String value) {
             addCriterion("equtype =", value, "equtype");
             return (Criteria) this;
         }
 
-        public Criteria andEqutypeNotEqualTo(Object value) {
+        public Criteria andEqutypeNotEqualTo(String value) {
             addCriterion("equtype <>", value, "equtype");
             return (Criteria) this;
         }
 
-        public Criteria andEqutypeGreaterThan(Object value) {
+        public Criteria andEqutypeGreaterThan(String value) {
             addCriterion("equtype >", value, "equtype");
             return (Criteria) this;
         }
 
-        public Criteria andEqutypeGreaterThanOrEqualTo(Object value) {
+        public Criteria andEqutypeGreaterThanOrEqualTo(String value) {
             addCriterion("equtype >=", value, "equtype");
             return (Criteria) this;
         }
 
-        public Criteria andEqutypeLessThan(Object value) {
+        public Criteria andEqutypeLessThan(String value) {
             addCriterion("equtype <", value, "equtype");
             return (Criteria) this;
         }
 
-        public Criteria andEqutypeLessThanOrEqualTo(Object value) {
+        public Criteria andEqutypeLessThanOrEqualTo(String value) {
             addCriterion("equtype <=", value, "equtype");
             return (Criteria) this;
         }
 
-        public Criteria andEqutypeIn(List<Object> values) {
+        public Criteria andEqutypeLike(String value) {
+            addCriterion("equtype like", value, "equtype");
+            return (Criteria) this;
+        }
+
+        public Criteria andEqutypeNotLike(String value) {
+            addCriterion("equtype not like", value, "equtype");
+            return (Criteria) this;
+        }
+
+        public Criteria andEqutypeIn(List<String> values) {
             addCriterion("equtype in", values, "equtype");
             return (Criteria) this;
         }
 
-        public Criteria andEqutypeNotIn(List<Object> values) {
+        public Criteria andEqutypeNotIn(List<String> values) {
             addCriterion("equtype not in", values, "equtype");
             return (Criteria) this;
         }
 
-        public Criteria andEqutypeBetween(Object value1, Object value2) {
+        public Criteria andEqutypeBetween(String value1, String value2) {
             addCriterion("equtype between", value1, value2, "equtype");
             return (Criteria) this;
         }
 
-        public Criteria andEqutypeNotBetween(Object value1, Object value2) {
+        public Criteria andEqutypeNotBetween(String value1, String value2) {
             addCriterion("equtype not between", value1, value2, "equtype");
             return (Criteria) this;
         }
@@ -992,52 +1002,62 @@ public class EquipmentStateExample {
             return (Criteria) this;
         }
 
-        public Criteria andEquipEqualTo(Object value) {
+        public Criteria andEquipEqualTo(String value) {
             addCriterion("equip =", value, "equip");
             return (Criteria) this;
         }
 
-        public Criteria andEquipNotEqualTo(Object value) {
+        public Criteria andEquipNotEqualTo(String value) {
             addCriterion("equip <>", value, "equip");
             return (Criteria) this;
         }
 
-        public Criteria andEquipGreaterThan(Object value) {
+        public Criteria andEquipGreaterThan(String value) {
             addCriterion("equip >", value, "equip");
             return (Criteria) this;
         }
 
-        public Criteria andEquipGreaterThanOrEqualTo(Object value) {
+        public Criteria andEquipGreaterThanOrEqualTo(String value) {
             addCriterion("equip >=", value, "equip");
             return (Criteria) this;
         }
 
-        public Criteria andEquipLessThan(Object value) {
+        public Criteria andEquipLessThan(String value) {
             addCriterion("equip <", value, "equip");
             return (Criteria) this;
         }
 
-        public Criteria andEquipLessThanOrEqualTo(Object value) {
+        public Criteria andEquipLessThanOrEqualTo(String value) {
             addCriterion("equip <=", value, "equip");
             return (Criteria) this;
         }
 
-        public Criteria andEquipIn(List<Object> values) {
+        public Criteria andEquipLike(String value) {
+            addCriterion("equip like", value, "equip");
+            return (Criteria) this;
+        }
+
+        public Criteria andEquipNotLike(String value) {
+            addCriterion("equip not like", value, "equip");
+            return (Criteria) this;
+        }
+
+        public Criteria andEquipIn(List<String> values) {
             addCriterion("equip in", values, "equip");
             return (Criteria) this;
         }
 
-        public Criteria andEquipNotIn(List<Object> values) {
+        public Criteria andEquipNotIn(List<String> values) {
             addCriterion("equip not in", values, "equip");
             return (Criteria) this;
         }
 
-        public Criteria andEquipBetween(Object value1, Object value2) {
+        public Criteria andEquipBetween(String value1, String value2) {
             addCriterion("equip between", value1, value2, "equip");
             return (Criteria) this;
         }
 
-        public Criteria andEquipNotBetween(Object value1, Object value2) {
+        public Criteria andEquipNotBetween(String value1, String value2) {
             addCriterion("equip not between", value1, value2, "equip");
             return (Criteria) this;
         }

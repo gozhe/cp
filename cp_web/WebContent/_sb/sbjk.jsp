@@ -56,7 +56,7 @@ function getData(){
 	var data=null;
 	var arrayObj =null;
 	$.ajax({
-		url:"<%=request.getContextPath()%>/base/getAll.do",
+		url:"<%=path%>/base/getEquipmentStateList.do?dptid=001",
 		async:false,
 		success:function(objs){
 			//alert(objs);
@@ -76,7 +76,7 @@ function getData(){
 					array.push('<img alt="" src="../images/ok.png" style="vertical-align: middle;">'+data[i].warningstate);
 				}
 				array.push(data[i].refreshtime.toString());
-				array.push('<img alt="" src="../images/detail.png" style="vertical-align: middle;"><a href="getDetails.do">详细</a></img>');
+				array.push('<img alt="" src="../images/detail.png" style="vertical-align: middle;"><a href="<%=path%>/base/getEquipmentDetail.do?equid=equ220">详细</a></img>');
 				arrayObj.push(array);
 			}
 		}
