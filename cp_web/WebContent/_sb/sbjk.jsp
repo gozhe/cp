@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -10,13 +10,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>设备监控</title>
 <link rel="stylesheet" type="text/css" href="../css/default.css">
-<link rel="stylesheet" type="text/css" href="../jquery.datatable/css/jquery.dataTables.css">
+<link rel="stylesheet" type="text/css"
+	href="../jquery.datatable/css/jquery.dataTables.css">
 <script type="text/javascript" src="../jquery.datatable/js/jquery.js"></script>
-<script type="text/javascript" src="../jquery.datatable/js/jquery.dataTables.js"></script>
+<script type="text/javascript"
+	src="../jquery.datatable/js/jquery.dataTables.js"></script>
 <script type="text/javascript" src="../js/sb.js"></script>
+
 <script type="text/javascript"> 
 $(document).ready(function() {
-    $('#demo').html('<table cellpadding="0" cellspacing="0" border="0" class="display" id="example"></table>' );
+    $('#tb').html('<table cellpadding="0" cellspacing="0" border="0" class="display" id="example"></table>' );
     $('#example').dataTable( {
         "bPaginate": true, //开关，是否显示分页器
         //"bInfo": true, //开关，是否显示表格的一些信息
@@ -42,16 +45,16 @@ $(document).ready(function() {
  	   },
         "data": getData(),
         "columns": [
-            { "title": "序号" ,"class": "center" },
-            { "title": "设备ID" ,"class": "center" },
-            { "title": "设备类型","class": "center"  },
+            { "title": "状态" ,"class": "center" },
+            { "title": "名称" ,"class": "center" },
+            { "title": "类型","class": "center"  },
             { "title": "IP地址", "class": "center" },
-            { "title": "设备状态", "class": "center" },
-            { "title": "更新时间", "class": "center" },
+            { "title": "监测时间", "class": "center" },
             { "title": "操作", "class": "center" }
         ]
     });    
 });
+
 function getData(){
 	var data=null;
 	var arrayObj =null;
@@ -59,74 +62,91 @@ function getData(){
 		url:"<%=path%>/base/getEquipmentStateList.do?dptid=001",
 		async:false,
 		success:function(objs){
-			//alert(objs);
 			data=eval("("+objs+")");//转换为json对象 
-			//alert(data.length);
 			arrayObj = new Array();
 			for(var i=0;i<data.length;i++){
-				//alert(data[i].equid);
 				var array = new Array();
-				array.push(i+1);
+				if(data[i].warningstate=="报警"){
+					array.push('<img alt="" src="../images/denied.png" style="vertical-align: middle;">');
+				}else{
+					array.push('<img alt="" src="../images/ok.png" style="vertical-align: middle;">');
+				}
 				array.push(data[i].equid);
 				array.push(data[i].equtype);
 				array.push(data[i].equip);
-				if(data[i].warningstate=="报警"){
-					array.push('<img alt="" src="../images/denied.png" style="vertical-align: middle;">'+data[i].warningstate);
-				}else{
-					array.push('<img alt="" src="../images/ok.png" style="vertical-align: middle;">'+data[i].warningstate);
-				}
-				array.push(data[i].refreshtime.toString());
+				array.push(new Date().Format("yyyy-MM-dd hh:mm:ss"));
 				array.push('<img alt="" src="../images/detail.png" style="vertical-align: middle;"><a href="<%=path%>/base/getEquipmentDetail.do?equid=equ220">详细</a></img>');
-				arrayObj.push(array);
-			}
-		}
-	});
-	return arrayObj;
-}
+							arrayObj.push(array);
+						}
+					} 
+				});
+		return arrayObj;
+	};
+	
+	Date.prototype.Format = function (fmt) { //author: meizz 
+	    var o = {
+	        "M+": this.getMonth() + 1, //月份 
+	        "d+": this.getDate(), //日 
+	        "h+": this.getHours(), //小时 
+	        "m+": this.getMinutes(), //分 
+	        "s+": this.getSeconds(), //秒 
+	        "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+	        "S": this.getMilliseconds() //毫秒 
+	    };
+	    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+	    for (var k in o)
+	    if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+	    return fmt;
+	}
 
 </script>
 </head>
 <body>
-<div id="query" style="padding: 10px;">
-	<div>
-	<div><img alt="" src="../images/exit.png" style="vertical-align: middle;">
-	<span></span>设备查询</div>
-	<div>
-		<table>
-			<tr>
-				<td>设备编号:</td>
-				<td><input></td>
-				<td>设备状态:</td>
-				<td><input></td>
-				<td>设备类型:</td>
-				<td><select style="width: 150px;">
-					<option>类型1</option>
-					<option>类型2</option>
-				</select></td>
-				<td><button id="query" style="width: 100px">查询</button></td>
-			</tr>
-		</table>
+	<div id="query" style="padding: 10px;">
+		<div>
+			<div>
+				<img alt="" src="../images/exit.png" style="vertical-align: middle;">
+				<span></span>设备查询
+			</div>
+			<div>
+				<table>
+					<tr>
+						<td>设备编号:</td>
+						<td><input></td>
+						<td>设备状态:</td>
+						<td><input></td>
+						<td>设备类型:</td>
+						<td><select style="width: 150px;">
+								<option>类型1</option>
+								<option>类型2</option>
+						</select></td>
+						<td><button id="query" style="width: 100px">查询</button></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div>
+			<div>
+				<img alt="" src="../images/exit.png" style="vertical-align: middle;">
+				<span></span>设备状态
+			</div>
+			<div>
+				<table>
+					<tr>
+						<td>正常运转:</td>
+						<td>132台</td>
+						<td>故障:</td>
+						<td>12台</td>
+						<td>报修:</td>
+						<td>21台</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<img alt="" src="../images/line.png"
+			style="height: 1px; margin-top: 12px;">
+			
+		<div id="tb" style="margin-top: 4px;"></div>
 	</div>
-	</div>
-	<div>
-	<div><img alt="" src="../images/exit.png" style="vertical-align: middle;">
-	<span></span>设备状态</div>
-	<div>
-		<table>
-			<tr>
-				<td>正常运转:</td>
-				<td>132台</td>
-				<td>故障:</td>
-				<td>12台</td>
-				<td>报修:</td>
-				<td>21台</td>
-			</tr>
-		</table>
-	</div>
-	</div>
-	<img alt="" src="../images/line.png" style="height: 1px;margin-top: 12px;">
-	<div id="demo" style="margin-top: 4px;"></div>
-
-</div>
 </body>
 </html>

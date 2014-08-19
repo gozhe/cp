@@ -22,7 +22,7 @@ import com.jckjkj.mybatis.model.Camera;
 import com.jckjkj.mybatis.model.Department;
 import com.jckjkj.mybatis.model.Station;
 
-public class BaseTableImpl {
+public class BaseTableImpl{
 
 	private CameraMapper cameraMapper;
 	private StationMapper stationMapper;
@@ -35,30 +35,19 @@ public class BaseTableImpl {
 	private MobileMapper mobileMapper;
 	private ModuleMapper moduleMapper;
 	private OfflineRecordMapper offlineRecordMapper;
-	private OrderListMapper orderListMapper;
+	private OrderListMapper orderListMapper; 
 	private PersionMapper persionMapper;
 	private RepairResultMapper repairResultMapper;
 	private RoutingInspectionMapper routingInspectionMapper;
 	private UserMapper userMapper;
 
-	public void inserDataTest(Object o1,Object o2){
-		
-		
+	public void inserDataTest(){
 		
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public void updateDataTest(){
+		
+	}
 	
 	public CameraMapper getCameraMapper() {
 		return cameraMapper;

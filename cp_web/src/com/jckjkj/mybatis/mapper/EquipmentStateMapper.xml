@@ -13,7 +13,7 @@
     <result column="recentlyfaulttime" property="recentlyfaulttime" jdbcType="DATE" />
     <result column="warningcontent" property="warningcontent" jdbcType="VARCHAR" />
     <result column="ifreparing" property="ifreparing" jdbcType="BIT" />
-    <result column="refreshtime" property="refreshtime" jdbcType="TIMESTAMP" />
+    <result column="refreshtime" property="refreshtime" jdbcType="DATE" />
     <result column="equtype" property="equtype" jdbcType="VARCHAR" />
     <result column="equip" property="equip" jdbcType="VARCHAR" />
   </resultMap>
@@ -119,7 +119,7 @@
     values (#{equstateid,jdbcType=BIGINT}, #{equid,jdbcType=VARCHAR}, #{warningclass,jdbcType=VARCHAR}, 
       #{warninggrade,jdbcType=VARCHAR}, #{warningstate,jdbcType=VARCHAR}, #{warningsourcename,jdbcType=VARCHAR}, 
       #{warningsourceip,jdbcType=VARCHAR}, #{warningcount,jdbcType=INTEGER}, #{recentlyfaulttime,jdbcType=DATE}, 
-      #{warningcontent,jdbcType=VARCHAR}, #{ifreparing,jdbcType=BIT}, #{refreshtime,jdbcType=TIMESTAMP}, 
+      #{warningcontent,jdbcType=VARCHAR}, #{ifreparing,jdbcType=BIT}, #{refreshtime,jdbcType=DATE}, 
       #{equtype,jdbcType=VARCHAR}, #{equip,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.EquipmentState" >
@@ -203,7 +203,7 @@
         #{ifreparing,jdbcType=BIT},
       </if>
       <if test="refreshtime != null" >
-        #{refreshtime,jdbcType=TIMESTAMP},
+        #{refreshtime,jdbcType=DATE},
       </if>
       <if test="equtype != null" >
         #{equtype,jdbcType=VARCHAR},
@@ -256,7 +256,7 @@
         ifreparing = #{record.ifreparing,jdbcType=BIT},
       </if>
       <if test="record.refreshtime != null" >
-        refreshtime = #{record.refreshtime,jdbcType=TIMESTAMP},
+        refreshtime = #{record.refreshtime,jdbcType=DATE},
       </if>
       <if test="record.equtype != null" >
         equtype = #{record.equtype,jdbcType=VARCHAR},
@@ -282,7 +282,7 @@
       recentlyfaulttime = #{record.recentlyfaulttime,jdbcType=DATE},
       warningcontent = #{record.warningcontent,jdbcType=VARCHAR},
       ifreparing = #{record.ifreparing,jdbcType=BIT},
-      refreshtime = #{record.refreshtime,jdbcType=TIMESTAMP},
+      refreshtime = #{record.refreshtime,jdbcType=DATE},
       equtype = #{record.equtype,jdbcType=VARCHAR},
       equip = #{record.equip,jdbcType=VARCHAR}
     <if test="_parameter != null" >
@@ -323,7 +323,7 @@
         ifreparing = #{ifreparing,jdbcType=BIT},
       </if>
       <if test="refreshtime != null" >
-        refreshtime = #{refreshtime,jdbcType=TIMESTAMP},
+        refreshtime = #{refreshtime,jdbcType=DATE},
       </if>
       <if test="equtype != null" >
         equtype = #{equtype,jdbcType=VARCHAR},
@@ -346,7 +346,7 @@
       recentlyfaulttime = #{recentlyfaulttime,jdbcType=DATE},
       warningcontent = #{warningcontent,jdbcType=VARCHAR},
       ifreparing = #{ifreparing,jdbcType=BIT},
-      refreshtime = #{refreshtime,jdbcType=TIMESTAMP},
+      refreshtime = #{refreshtime,jdbcType=DATE},
       equtype = #{equtype,jdbcType=VARCHAR},
       equip = #{equip,jdbcType=VARCHAR}
     where equstateid = #{equstateid,jdbcType=BIGINT}

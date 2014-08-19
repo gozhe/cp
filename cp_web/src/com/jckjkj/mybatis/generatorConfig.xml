@@ -35,7 +35,9 @@
 			<property name="enableSubPackages" value="false" />
 		</javaClientGenerator>
 
+		
 		<!-- schema你的数据库，tableName表明，domainObjectName对应你的javabean类名，是否生成相应的example -->
+		<!-- 
 		<table schema="" tableName="t_camera" domainObjectName="Camera"/>
 		<table schema="" tableName="t_station" domainObjectName="Station"/>
 		<table schema="" tableName="x_auditopinion" domainObjectName="Auditopion"/>
@@ -54,7 +56,8 @@
 		<table schema="" tableName="x_role" domainObjectName="Role"/>
 		<table schema="" tableName="x_routinginspection" domainObjectName="RoutingInspection"/>
 		<table schema="" tableName="x_user" domainObjectName="User"/>
-
+ 		-->
+ 		<table schema="" tableName="x_equipmentstate" domainObjectName="EquipmentState"/>
 	</context>
 
 </generatorConfiguration>

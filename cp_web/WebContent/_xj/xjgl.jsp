@@ -99,7 +99,7 @@
 		    <tbody>
 		       <c:forEach var="list"  items="${ResultList}">
 			    	<tr class="mid">
-			    		<td>${list.rouid}</td>
+			    		<td align="center">${list.rouid}</td>
 			    		<td>${list.equid}</td>
 			    		<td>${list.equstate}</td>
 			    		<td>${list.signintime}</td>

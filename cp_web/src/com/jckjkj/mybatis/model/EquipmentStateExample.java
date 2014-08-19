@@ -873,52 +873,52 @@ public class EquipmentStateExample {
         }
 
         public Criteria andRefreshtimeEqualTo(Date value) {
-            addCriterion("refreshtime =", value, "refreshtime");
+            addCriterionForJDBCDate("refreshtime =", value, "refreshtime");
             return (Criteria) this;
         }
 
         public Criteria andRefreshtimeNotEqualTo(Date value) {
-            addCriterion("refreshtime <>", value, "refreshtime");
+            addCriterionForJDBCDate("refreshtime <>", value, "refreshtime");
             return (Criteria) this;
         }
 
         public Criteria andRefreshtimeGreaterThan(Date value) {
-            addCriterion("refreshtime >", value, "refreshtime");
+            addCriterionForJDBCDate("refreshtime >", value, "refreshtime");
             return (Criteria) this;
         }
 
         public Criteria andRefreshtimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("refreshtime >=", value, "refreshtime");
+            addCriterionForJDBCDate("refreshtime >=", value, "refreshtime");
             return (Criteria) this;
         }
 
         public Criteria andRefreshtimeLessThan(Date value) {
-            addCriterion("refreshtime <", value, "refreshtime");
+            addCriterionForJDBCDate("refreshtime <", value, "refreshtime");
             return (Criteria) this;
         }
 
         public Criteria andRefreshtimeLessThanOrEqualTo(Date value) {
-            addCriterion("refreshtime <=", value, "refreshtime");
+            addCriterionForJDBCDate("refreshtime <=", value, "refreshtime");
             return (Criteria) this;
         }
 
         public Criteria andRefreshtimeIn(List<Date> values) {
-            addCriterion("refreshtime in", values, "refreshtime");
+            addCriterionForJDBCDate("refreshtime in", values, "refreshtime");
             return (Criteria) this;
         }
 
         public Criteria andRefreshtimeNotIn(List<Date> values) {
-            addCriterion("refreshtime not in", values, "refreshtime");
+            addCriterionForJDBCDate("refreshtime not in", values, "refreshtime");
             return (Criteria) this;
         }
 
         public Criteria andRefreshtimeBetween(Date value1, Date value2) {
-            addCriterion("refreshtime between", value1, value2, "refreshtime");
+            addCriterionForJDBCDate("refreshtime between", value1, value2, "refreshtime");
             return (Criteria) this;
         }
 
         public Criteria andRefreshtimeNotBetween(Date value1, Date value2) {
-            addCriterion("refreshtime not between", value1, value2, "refreshtime");
+            addCriterionForJDBCDate("refreshtime not between", value1, value2, "refreshtime");
             return (Criteria) this;
         }
 
