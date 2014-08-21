@@ -15,6 +15,7 @@ import com.jckjkj.mybatis.model.EquipmentExample;
 import com.jckjkj.mybatis.model.EquipmentState;
 import com.jckjkj.mybatis.model.EquipmentStateExample;
 import com.jckjkj.mybatis.model.OrderList;
+import com.jckjkj.mybatis.model.OrderListExample;
 import com.jckjkj.mybatis.model.RoutingInspection;
 import com.jckjkj.mybatis.model.RoutingInspectionExample;
 import com.jckjkj.mybatis.model.User;
@@ -68,7 +69,9 @@ public class BaseServiceImpl implements BaseService {
 	@Override
 	public List<OrderList> getOrderList() {
 		// TODO Auto-generated method stub
-		return null;
+		OrderListExample example = new OrderListExample();
+		example.createCriteria().andOrderidIsNotNull();
+		return orderListMapper.selectByExample(example);
 	}
 
 	@Override

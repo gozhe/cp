@@ -37,10 +37,8 @@
 						<li class="button"><a href="#" class="orange"><img alt="" src="img/sbjk.png" class="img">工单管理 <span></span></a></li>
 						<li class="dropdown">
 							<ul>
-								<li><a class="submenu"  href="#"
-									onclick="$('.button a').eq(2).click();return false;">工单派发</a></li>
-								<li><a class="submenu" href="#"
-									onclick="$('.button a').eq(2).click();return false;">工单管理</a></li>
+								<li><a class="submenu"  href="_gd/gdpf.jsp" target="right">工单派发</a></li>
+								<li><a class="submenu" href="base/getOrderList.do" target="right">工单管理</a></li>
 
 							</ul>
 						</li>

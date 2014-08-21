@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.jckjkj.mybatis.model.Equipment;
 import com.jckjkj.mybatis.model.EquipmentState;
+import com.jckjkj.mybatis.model.OrderList;
 import com.jckjkj.mybatis.model.RoutingInspection;
 import com.jckjkj.service.BaseService;
 import com.jckjkj.utils.JsonUtils;
@@ -56,9 +57,9 @@ public class BaseController {
 			HttpServletRequest request) {
 		try {
 			Equipment equipment = baseService.getEquipmentDetail(equid);
-			String results = JsonUtils.bean2json(equipment);
-			System.out.println(results);
-			request.setAttribute("addLists", results);
+			//String results = JsonUtils.bean2json(equipment);
+			//System.out.println(results);
+			request.setAttribute("ResultList", equipment);
 			return "_sb/sbxx";
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -74,6 +75,19 @@ public class BaseController {
 					.getRoutingInspectionList();
 			request.setAttribute("ResultList", list);
 			return "_xj/xjgl";
+		} catch (Exception e) {
+			e.printStackTrace();
+			request.setAttribute("InfoMessage", "" + e.getMessage());
+			return "error";
+		}
+	}
+	
+	@RequestMapping("getOrderList.do")
+	public String getOrderList(HttpServletRequest request){
+		try {
+			List<OrderList> list = baseService.getOrderList();
+			request.setAttribute("ResultList", list);
+			return "_gd/gdgl";
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("InfoMessage", "" + e.getMessage());

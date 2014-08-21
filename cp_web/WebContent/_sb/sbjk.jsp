@@ -75,7 +75,7 @@ function getData(){
 				array.push(data[i].equtype);
 				array.push(data[i].equip);
 				array.push(new Date().Format("yyyy-MM-dd hh:mm:ss"));
-				array.push('<img alt="" src="../images/detail.png" style="vertical-align: middle;"><a href="<%=path%>/base/getEquipmentDetail.do?equid=equ220">详细</a></img>');
+				array.push('<img alt="" src="../images/detail.png" style="vertical-align: middle;"><a href="<%=path%>/base/getEquipmentDetail.do?equid=equ01">详细</a></img>');
 							arrayObj.push(array);
 						}
 					} 
