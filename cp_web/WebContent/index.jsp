@@ -13,10 +13,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>昌平区社会面图像信息管理系统</title>
 </head>
-<frameset rows="13%,*" border="0" >
+<frameset rows="12%,*" border="0" >
 	<frame src="top.jsp" name="top" >
-	<frameset cols="25%,75%">
-		<frame src="left.jsp" name="left" >
+	<frameset cols="25%,75%" >
+		<frame src="left.jsp" name="left">
 		<frameset rows="35px,*">
 			<frame src="title.jsp" name="title" >
 			<frame src="_sb/sbjk.jsp" name="right" >
@@ -25,6 +25,6 @@
 	</frameset>
 </frameset>
 <body>
-<p></p>
+<p>1212</p>
 </body>
 </html>

@@ -11,10 +11,8 @@
 <script type="text/javascript" src="jquery.min/jquery.min.js"></script>
 <script type="text/javascript" src="jquery.min/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="js/left.js"></script>
-
-
 </head>
-<body style="margin-top: 0px;">
+<body>
 	<div id="left" style="width: 100%; height: 100%;">
 		<p class="title">系统功能</p>
 		<div>
