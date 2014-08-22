@@ -25,7 +25,7 @@ $(document).ready(function() {
         //"bInfo": true, //开关，是否显示表格的一些信息
  	   "bAutoWidth": false, //自适应宽度
  	   "bJQueryUI": false, //开关，是否启用JQueryUI风格
- 	   "bLengthChange": true, //开关，是否显示每页大小的下拉框
+ 	   "bLengthChange": false, //开关，是否显示每页大小的下拉框
  	   "bFilter": false,/*不用搜索栏*/ 
  	   "oLanguage": {/*汉化*/ 
  		   "sProcessing": "正在加载中......",
@@ -102,7 +102,7 @@ function getData(){
 </script>
 </head>
 <body>
-	<div id="query" style="padding: 10px;">
+	<div id="query" style="padding-left: 25px;padding-top: 10px;padding-right: 25px;">
 		<div>
 			<div>
 				<img alt="" src="../images/exit.png" style="vertical-align: middle;">
@@ -111,16 +111,18 @@ function getData(){
 			<div>
 				<table>
 					<tr>
-						<td>设备编号:</td>
+						<td>编号:</td>
 						<td><input></td>
-						<td>设备状态:</td>
+						<td>名称:</td>
 						<td><input></td>
-						<td>设备类型:</td>
+						<td>分组:</td>
+						<td><input></td>
+						<td>类型:</td>
 						<td><select style="width: 150px;">
 								<option>类型1</option>
 								<option>类型2</option>
 						</select></td>
-						<td><button id="query" style="width: 100px">查询</button></td>
+						<td><button id="query" style="width: 60px">查询</button></td>
 					</tr>
 				</table>
 			</div>
@@ -143,9 +145,6 @@ function getData(){
 				</table>
 			</div>
 		</div>
-		<img alt="" src="../images/line.png"
-			style="height: 1px; margin-top: 12px;">
-			
 		<div id="tb" style="margin-top: 4px;"></div>
 	</div>
 </body>
