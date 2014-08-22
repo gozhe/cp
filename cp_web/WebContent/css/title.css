@@ -1,0 +1,16 @@
+body{
+	margin: 0px;
+	padding: 0px;
+	font-family: 微软雅黑;
+	font-size: 13px;
+	font-weight: normal;
+	background-color: #BCD2EE;
+}
+
+table{
+	border: 0;
+	margin:2px;
+}
+tr{
+	text-align: right;
+}
