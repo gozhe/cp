@@ -18,7 +18,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * JSONºÍJAVAµÄPOJOµÄÏà»¥×ª»»
+ * JSONå’ŒJAVAçš„POJOçš„ç›¸äº’è½¬æ¢
  * 
  * JSONHelper.java
  */
@@ -27,31 +27,31 @@ public class JsonUtils {
 	private static final Logger logger = LoggerFactory
 			.getLogger(JsonUtils.class);
 
-	// ½«Êı×é×ª»»³ÉJSON
+	// å°†æ•°ç»„è½¬æ¢æˆJSON
 	public static String array2json(Object object) {
 		JSONArray jsonArray = JSONArray.fromObject(object);
 		return jsonArray.toString();
 	}
 
-	// ½«JSON×ª»»³ÉÊı×é,ÆäÖĞvalueClzÎªÊı×éÖĞ´æ·ÅµÄ¶ÔÏóµÄClass
+	// å°†JSONè½¬æ¢æˆæ•°ç»„,å…¶ä¸­valueClzä¸ºæ•°ç»„ä¸­å­˜æ”¾çš„å¯¹è±¡çš„Class
 	public static Object json2Array(String json, Class valueClz) {
 		JSONArray jsonArray = JSONArray.fromObject(json);
 		return JSONArray.toArray(jsonArray, valueClz);
 	}
 
-	// ½«Collection×ª»»³ÉJSON
+	// å°†Collectionè½¬æ¢æˆJSON
 	public static String collection2json(Object object) {
 		JSONArray jsonArray = JSONArray.fromObject(object);
 		return jsonArray.toString();
 	}
 
-	// ½«Map×ª»»³ÉJSON
+	// å°†Mapè½¬æ¢æˆJSON
 	public static String map2json(Object object) {
 		JSONObject jsonObject = JSONObject.fromObject(object);
 		return jsonObject.toString();
 	}
 
-	// ½«JSON×ª»»³ÉMap,ÆäÖĞvalueClzÎªMapÖĞvalueµÄClass,keyArrayÎªMapµÄkey
+	// å°†JSONè½¬æ¢æˆMap,å…¶ä¸­valueClzä¸ºMapä¸­valueçš„Class,keyArrayä¸ºMapçš„key
 	public static Map json2Map(Object[] keyArray, String json, Class valueClz) {
 		JSONObject jsonObject = JSONObject.fromObject(json);
 		Map classMap = new HashMap();
@@ -63,31 +63,31 @@ public class JsonUtils {
 		return (Map) JSONObject.toBean(jsonObject, Map.class, classMap);
 	}
 
-	// ½«POJO×ª»»³ÉJSON
+	// å°†POJOè½¬æ¢æˆJSON
 	public static String bean2json(Object object) {
 		JSONObject jsonObject = JSONObject.fromObject(object);
 		return jsonObject.toString();
 	}
 
-	// ½«JSON×ª»»³ÉPOJO,ÆäÖĞbeanClzÎªPOJOµÄClass
+	// å°†JSONè½¬æ¢æˆPOJO,å…¶ä¸­beanClzä¸ºPOJOçš„Class
 	public static Object json2Object(String json, Class beanClz) {
 		return JSONObject.toBean(JSONObject.fromObject(json), beanClz);
 	}
 
 	/**
-	 * json×ª»»Îªjava¶ÔÏó
+	 * jsonè½¬æ¢ä¸ºjavaå¯¹è±¡
 	 * 
 	 * <pre>
 	 * return JackJson.fromJsonToObject(this.answersJson, JackJson.class);
 	 * </pre>
 	 * 
 	 * @param <T>
-	 *            Òª×ª»»µÄ¶ÔÏó
+	 *            è¦è½¬æ¢çš„å¯¹è±¡
 	 * @param json
-	 *            ×Ö·û´®
+	 *            å­—ç¬¦ä¸²
 	 * @param valueType
-	 *            ¶ÔÏóµÄclass
-	 * @return ·µ»Ø¶ÔÏó
+	 *            å¯¹è±¡çš„class
+	 * @return è¿”å›å¯¹è±¡
 	 */
 	public static <T> T fromJsonToObject(String json, Class<T> valueType) {
 		ObjectMapper mapper = new ObjectMapper();
@@ -103,21 +103,21 @@ public class JsonUtils {
 		return null;
 	}
 
-	// ½«String×ª»»³ÉJSON
+	// å°†Stringè½¬æ¢æˆJSON
 	public static String string2json(String key, String value) {
 		JSONObject object = new JSONObject();
 		object.put(key, value);
 		return object.toString();
 	}
 
-	// ½«JSON×ª»»³ÉString
+	// å°†JSONè½¬æ¢æˆString
 	public static String json2String(String json, String key) {
 		JSONObject jsonObject = JSONObject.fromObject(json);
 		return jsonObject.get(key).toString();
 	}
 
 	/***
-	 * ½«List¶ÔÏóĞòÁĞ»¯ÎªJSONÎÄ±¾
+	 * å°†Listå¯¹è±¡åºåˆ—åŒ–ä¸ºJSONæ–‡æœ¬
 	 */
 	public static <T> String toJSONString(List<T> list) {
 		JSONArray jsonArray = JSONArray.fromObject(list);
@@ -126,7 +126,7 @@ public class JsonUtils {
 	}
 
 	/***
-	 * ½«¶ÔÏóĞòÁĞ»¯ÎªJSONÎÄ±¾
+	 * å°†å¯¹è±¡åºåˆ—åŒ–ä¸ºJSONæ–‡æœ¬
 	 * 
 	 * @param object
 	 * @return
@@ -138,7 +138,7 @@ public class JsonUtils {
 	}
 
 	/***
-	 * ½«JSON¶ÔÏóÊı×éĞòÁĞ»¯ÎªJSONÎÄ±¾
+	 * å°†JSONå¯¹è±¡æ•°ç»„åºåˆ—åŒ–ä¸ºJSONæ–‡æœ¬
 	 * 
 	 * @param jsonArray
 	 * @return
@@ -148,7 +148,7 @@ public class JsonUtils {
 	}
 
 	/***
-	 * ½«JSON¶ÔÏóĞòÁĞ»¯ÎªJSONÎÄ±¾
+	 * å°†JSONå¯¹è±¡åºåˆ—åŒ–ä¸ºJSONæ–‡æœ¬
 	 * 
 	 * @param jsonObject
 	 * @return
@@ -158,7 +158,7 @@ public class JsonUtils {
 	}
 
 	/***
-	 * ½«¶ÔÏó×ª»»ÎªList¶ÔÏó
+	 * å°†å¯¹è±¡è½¬æ¢ä¸ºListå¯¹è±¡
 	 * 
 	 * @param object
 	 * @return
@@ -184,7 +184,7 @@ public class JsonUtils {
 	}
 
 	/* *//***
-	 * ½«¶ÔÏó×ª»»ÎªCollection¶ÔÏó
+	 * å°†å¯¹è±¡è½¬æ¢ä¸ºCollectionå¯¹è±¡
 	 * 
 	 * @param object
 	 * @return
@@ -197,7 +197,7 @@ public class JsonUtils {
 	 */
 
 	/***
-	 * ½«¶ÔÏó×ª»»ÎªJSON¶ÔÏóÊı×é
+	 * å°†å¯¹è±¡è½¬æ¢ä¸ºJSONå¯¹è±¡æ•°ç»„
 	 * 
 	 * @param object
 	 * @return
@@ -207,7 +207,7 @@ public class JsonUtils {
 	}
 
 	/***
-	 * ½«¶ÔÏó×ª»»ÎªJSON¶ÔÏó
+	 * å°†å¯¹è±¡è½¬æ¢ä¸ºJSONå¯¹è±¡
 	 * 
 	 * @param object
 	 * @return
@@ -217,7 +217,7 @@ public class JsonUtils {
 	}
 
 	/***
-	 * ½«¶ÔÏó×ª»»ÎªHashMap
+	 * å°†å¯¹è±¡è½¬æ¢ä¸ºHashMap
 	 * 
 	 * @param object
 	 * @return
@@ -236,12 +236,12 @@ public class JsonUtils {
 	}
 
 	/***
-	 * ½«¶ÔÏó×ª»»ÎªList<Map<String,Object>>
+	 * å°†å¯¹è±¡è½¬æ¢ä¸ºList<Map<String,Object>>
 	 * 
 	 * @param object
 	 * @return
 	 */
-	// ·µ»Ø·ÇÊµÌåÀàĞÍ(Map<String,Object>)µÄList
+	// è¿”å›éå®ä½“ç±»å‹(Map<String,Object>)çš„List
 	public static List<Map<String, Object>> toList(Object object) {
 		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 		JSONArray jsonArray = JSONArray.fromObject(object);
@@ -260,7 +260,7 @@ public class JsonUtils {
 	}
 
 	/***
-	 * ½«JSON¶ÔÏóÊı×é×ª»»Îª´«ÈëÀàĞÍµÄList
+	 * å°†JSONå¯¹è±¡æ•°ç»„è½¬æ¢ä¸ºä¼ å…¥ç±»å‹çš„List
 	 * 
 	 * @param <T>
 	 * @param jsonArray
@@ -272,7 +272,7 @@ public class JsonUtils {
 	}
 
 	/***
-	 * ½«¶ÔÏó×ª»»Îª´«ÈëÀàĞÍµÄList
+	 * å°†å¯¹è±¡è½¬æ¢ä¸ºä¼ å…¥ç±»å‹çš„List
 	 * 
 	 * @param <T>
 	 * @param jsonArray
@@ -286,7 +286,7 @@ public class JsonUtils {
 	}
 
 	/***
-	 * ½«JSON¶ÔÏó×ª»»Îª´«ÈëÀàĞÍµÄ¶ÔÏó
+	 * å°†JSONå¯¹è±¡è½¬æ¢ä¸ºä¼ å…¥ç±»å‹çš„å¯¹è±¡
 	 * 
 	 * @param <T>
 	 * @param jsonObject
@@ -298,7 +298,7 @@ public class JsonUtils {
 	}
 
 	/***
-	 * ½«½«¶ÔÏó×ª»»Îª´«ÈëÀàĞÍµÄ¶ÔÏó
+	 * å°†å°†å¯¹è±¡è½¬æ¢ä¸ºä¼ å…¥ç±»å‹çš„å¯¹è±¡
 	 * 
 	 * @param <T>
 	 * @param object
@@ -312,20 +312,20 @@ public class JsonUtils {
 	}
 
 	/***
-	 * ½«JSONÎÄ±¾·´ĞòÁĞ»¯ÎªÖ÷´Ó¹ØÏµµÄÊµÌå
+	 * å°†JSONæ–‡æœ¬ååºåˆ—åŒ–ä¸ºä¸»ä»å…³ç³»çš„å®ä½“
 	 * 
 	 * @param <T>
-	 *            ·ºĞÍT ´ú±íÖ÷ÊµÌåÀàĞÍ
+	 *            æ³›å‹T ä»£è¡¨ä¸»å®ä½“ç±»å‹
 	 * @param <D>
-	 *            ·ºĞÍD ´ú±í´ÓÊµÌåÀàĞÍ
+	 *            æ³›å‹D ä»£è¡¨ä»å®ä½“ç±»å‹
 	 * @param jsonString
-	 *            JSONÎÄ±¾
+	 *            JSONæ–‡æœ¬
 	 * @param mainClass
-	 *            Ö÷ÊµÌåÀàĞÍ
+	 *            ä¸»å®ä½“ç±»å‹
 	 * @param detailName
-	 *            ´ÓÊµÌåÀàÔÚÖ÷ÊµÌåÀàÖĞµÄÊôĞÔÃû³Æ
+	 *            ä»å®ä½“ç±»åœ¨ä¸»å®ä½“ç±»ä¸­çš„å±æ€§åç§°
 	 * @param detailClass
-	 *            ´ÓÊµÌåÀàĞÍ
+	 *            ä»å®ä½“ç±»å‹
 	 * @return
 	 */
 	public static <T, D> T toBean(String jsonString, Class<T> mainClass,
@@ -339,30 +339,30 @@ public class JsonUtils {
 		try {
 			BeanUtils.setProperty(mainEntity, detailName, detailList);
 		} catch (Exception ex) {
-			throw new RuntimeException("Ö÷´Ó¹ØÏµJSON·´ĞòÁĞ»¯ÊµÌåÊ§°Ü£¡");
+			throw new RuntimeException("ä¸»ä»å…³ç³»JSONååºåˆ—åŒ–å®ä½“å¤±è´¥ï¼");
 		}
 
 		return mainEntity;
 	}
 
 	/***
-	 * ½«JSONÎÄ±¾·´ĞòÁĞ»¯ÎªÖ÷´Ó¹ØÏµµÄÊµÌå
+	 * å°†JSONæ–‡æœ¬ååºåˆ—åŒ–ä¸ºä¸»ä»å…³ç³»çš„å®ä½“
 	 * 
-	 * @param <T>·ºĞÍT ´ú±íÖ÷ÊµÌåÀàĞÍ
-	 * @param <D1>·ºĞÍD1 ´ú±í´ÓÊµÌåÀàĞÍ
-	 * @param <D2>·ºĞÍD2 ´ú±í´ÓÊµÌåÀàĞÍ
+	 * @param <T>æ³›å‹T ä»£è¡¨ä¸»å®ä½“ç±»å‹
+	 * @param <D1>æ³›å‹D1 ä»£è¡¨ä»å®ä½“ç±»å‹
+	 * @param <D2>æ³›å‹D2 ä»£è¡¨ä»å®ä½“ç±»å‹
 	 * @param jsonString
-	 *            JSONÎÄ±¾
+	 *            JSONæ–‡æœ¬
 	 * @param mainClass
-	 *            Ö÷ÊµÌåÀàĞÍ
+	 *            ä¸»å®ä½“ç±»å‹
 	 * @param detailName1
-	 *            ´ÓÊµÌåÀàÔÚÖ÷ÊµÌåÀàÖĞµÄÊôĞÔ
+	 *            ä»å®ä½“ç±»åœ¨ä¸»å®ä½“ç±»ä¸­çš„å±æ€§
 	 * @param detailClass1
-	 *            ´ÓÊµÌåÀàĞÍ
+	 *            ä»å®ä½“ç±»å‹
 	 * @param detailName2
-	 *            ´ÓÊµÌåÀàÔÚÖ÷ÊµÌåÀàÖĞµÄÊôĞÔ
+	 *            ä»å®ä½“ç±»åœ¨ä¸»å®ä½“ç±»ä¸­çš„å±æ€§
 	 * @param detailClass2
-	 *            ´ÓÊµÌåÀàĞÍ
+	 *            ä»å®ä½“ç±»å‹
 	 * @return
 	 */
 	public static <T, D1, D2> T toBean(String jsonString, Class<T> mainClass,
@@ -380,34 +380,34 @@ public class JsonUtils {
 			BeanUtils.setProperty(mainEntity, detailName1, detailList1);
 			BeanUtils.setProperty(mainEntity, detailName2, detailList2);
 		} catch (Exception ex) {
-			throw new RuntimeException("Ö÷´Ó¹ØÏµJSON·´ĞòÁĞ»¯ÊµÌåÊ§°Ü£¡");
+			throw new RuntimeException("ä¸»ä»å…³ç³»JSONååºåˆ—åŒ–å®ä½“å¤±è´¥ï¼");
 		}
 
 		return mainEntity;
 	}
 
 	/***
-	 * ½«JSONÎÄ±¾·´ĞòÁĞ»¯ÎªÖ÷´Ó¹ØÏµµÄÊµÌå
+	 * å°†JSONæ–‡æœ¬ååºåˆ—åŒ–ä¸ºä¸»ä»å…³ç³»çš„å®ä½“
 	 * 
-	 * @param <T>·ºĞÍT ´ú±íÖ÷ÊµÌåÀàĞÍ
-	 * @param <D1>·ºĞÍD1 ´ú±í´ÓÊµÌåÀàĞÍ
-	 * @param <D2>·ºĞÍD2 ´ú±í´ÓÊµÌåÀàĞÍ
+	 * @param <T>æ³›å‹T ä»£è¡¨ä¸»å®ä½“ç±»å‹
+	 * @param <D1>æ³›å‹D1 ä»£è¡¨ä»å®ä½“ç±»å‹
+	 * @param <D2>æ³›å‹D2 ä»£è¡¨ä»å®ä½“ç±»å‹
 	 * @param jsonString
-	 *            JSONÎÄ±¾
+	 *            JSONæ–‡æœ¬
 	 * @param mainClass
-	 *            Ö÷ÊµÌåÀàĞÍ
+	 *            ä¸»å®ä½“ç±»å‹
 	 * @param detailName1
-	 *            ´ÓÊµÌåÀàÔÚÖ÷ÊµÌåÀàÖĞµÄÊôĞÔ
+	 *            ä»å®ä½“ç±»åœ¨ä¸»å®ä½“ç±»ä¸­çš„å±æ€§
 	 * @param detailClass1
-	 *            ´ÓÊµÌåÀàĞÍ
+	 *            ä»å®ä½“ç±»å‹
 	 * @param detailName2
-	 *            ´ÓÊµÌåÀàÔÚÖ÷ÊµÌåÀàÖĞµÄÊôĞÔ
+	 *            ä»å®ä½“ç±»åœ¨ä¸»å®ä½“ç±»ä¸­çš„å±æ€§
 	 * @param detailClass2
-	 *            ´ÓÊµÌåÀàĞÍ
+	 *            ä»å®ä½“ç±»å‹
 	 * @param detailName3
-	 *            ´ÓÊµÌåÀàÔÚÖ÷ÊµÌåÀàÖĞµÄÊôĞÔ
+	 *            ä»å®ä½“ç±»åœ¨ä¸»å®ä½“ç±»ä¸­çš„å±æ€§
 	 * @param detailClass3
-	 *            ´ÓÊµÌåÀàĞÍ
+	 *            ä»å®ä½“ç±»å‹
 	 * @return
 	 */
 	public static <T, D1, D2, D3> T toBean(String jsonString,
@@ -429,23 +429,23 @@ public class JsonUtils {
 			BeanUtils.setProperty(mainEntity, detailName2, detailList2);
 			BeanUtils.setProperty(mainEntity, detailName3, detailList3);
 		} catch (Exception ex) {
-			throw new RuntimeException("Ö÷´Ó¹ØÏµJSON·´ĞòÁĞ»¯ÊµÌåÊ§°Ü£¡");
+			throw new RuntimeException("ä¸»ä»å…³ç³»JSONååºåˆ—åŒ–å®ä½“å¤±è´¥ï¼");
 		}
 
 		return mainEntity;
 	}
 
 	/***
-	 * ½«JSONÎÄ±¾·´ĞòÁĞ»¯ÎªÖ÷´Ó¹ØÏµµÄÊµÌå
+	 * å°†JSONæ–‡æœ¬ååºåˆ—åŒ–ä¸ºä¸»ä»å…³ç³»çš„å®ä½“
 	 * 
 	 * @param <T>
-	 *            Ö÷ÊµÌåÀàĞÍ
+	 *            ä¸»å®ä½“ç±»å‹
 	 * @param jsonString
-	 *            JSONÎÄ±¾
+	 *            JSONæ–‡æœ¬
 	 * @param mainClass
-	 *            Ö÷ÊµÌåÀàĞÍ
+	 *            ä¸»å®ä½“ç±»å‹
 	 * @param detailClass
-	 *            ´æ·ÅÁË¶à¸ö´ÓÊµÌåÔÚÖ÷ÊµÌåÖĞÊôĞÔÃû³ÆºÍÀàĞÍ
+	 *            å­˜æ”¾äº†å¤šä¸ªä»å®ä½“åœ¨ä¸»å®ä½“ä¸­å±æ€§åç§°å’Œç±»å‹
 	 * @return
 	 */
 	public static <T> T toBean(String jsonString, Class<T> mainClass,
@@ -457,7 +457,7 @@ public class JsonUtils {
 				Class value = (Class) detailClass.get(key);
 				BeanUtils.setProperty(mainEntity, key.toString(), value);
 			} catch (Exception ex) {
-				throw new RuntimeException("Ö÷´Ó¹ØÏµJSON·´ĞòÁĞ»¯ÊµÌåÊ§°Ü£¡");
+				throw new RuntimeException("ä¸»ä»å…³ç³»JSONååºåˆ—åŒ–å®ä½“å¤±è´¥ï¼");
 			}
 		}
 		return mainEntity;

@@ -10,7 +10,7 @@ public interface OrderStateMapper {
 
     int deleteByExample(OrderStateExample example);
 
-    int deleteByPrimaryKey(Integer osid);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(OrderState record);
 
@@ -18,7 +18,7 @@ public interface OrderStateMapper {
 
     List<OrderState> selectByExample(OrderStateExample example);
 
-    OrderState selectByPrimaryKey(Integer osid);
+    OrderState selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") OrderState record, @Param("example") OrderStateExample example);
 

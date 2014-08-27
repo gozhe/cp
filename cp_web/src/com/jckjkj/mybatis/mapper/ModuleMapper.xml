@@ -2,9 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jckjkj.mybatis.dao.ModuleMapper" >
   <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.Module" >
-    <id column="modelid" property="modelid" jdbcType="INTEGER" />
-    <result column="modelname" property="modelname" jdbcType="VARCHAR" />
-    <result column="modelroleaccess" property="modelroleaccess" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="modulename" property="modulename" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -65,7 +64,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    modelid, modelname, modelroleaccess
+    id, modulename
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jckjkj.mybatis.model.ModuleExample" >
     select
@@ -85,11 +84,11 @@
     select 
     <include refid="Base_Column_List" />
     from x_module
-    where modelid = #{modelid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from x_module
-    where modelid = #{modelid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.jckjkj.mybatis.model.ModuleExample" >
     delete from x_module
@@ -98,33 +97,25 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.jckjkj.mybatis.model.Module" >
-    insert into x_module (modelid, modelname, modelroleaccess
-      )
-    values (#{modelid,jdbcType=INTEGER}, #{modelname,jdbcType=VARCHAR}, #{modelroleaccess,jdbcType=INTEGER}
-      )
+    insert into x_module (id, modulename)
+    values (#{id,jdbcType=INTEGER}, #{modulename,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.Module" >
     insert into x_module
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="modelid != null" >
-        modelid,
+      <if test="id != null" >
+        id,
       </if>
-      <if test="modelname != null" >
-        modelname,
-      </if>
-      <if test="modelroleaccess != null" >
-        modelroleaccess,
+      <if test="modulename != null" >
+        modulename,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="modelid != null" >
-        #{modelid,jdbcType=INTEGER},
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
       </if>
-      <if test="modelname != null" >
-        #{modelname,jdbcType=VARCHAR},
-      </if>
-      <if test="modelroleaccess != null" >
-        #{modelroleaccess,jdbcType=INTEGER},
+      <if test="modulename != null" >
+        #{modulename,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -137,14 +128,11 @@
   <update id="updateByExampleSelective" parameterType="map" >
     update x_module
     <set >
-      <if test="record.modelid != null" >
-        modelid = #{record.modelid,jdbcType=INTEGER},
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.modelname != null" >
-        modelname = #{record.modelname,jdbcType=VARCHAR},
-      </if>
-      <if test="record.modelroleaccess != null" >
-        modelroleaccess = #{record.modelroleaccess,jdbcType=INTEGER},
+      <if test="record.modulename != null" >
+        modulename = #{record.modulename,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -153,9 +141,8 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update x_module
-    set modelid = #{record.modelid,jdbcType=INTEGER},
-      modelname = #{record.modelname,jdbcType=VARCHAR},
-      modelroleaccess = #{record.modelroleaccess,jdbcType=INTEGER}
+    set id = #{record.id,jdbcType=INTEGER},
+      modulename = #{record.modulename,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -163,19 +150,15 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.jckjkj.mybatis.model.Module" >
     update x_module
     <set >
-      <if test="modelname != null" >
-        modelname = #{modelname,jdbcType=VARCHAR},
-      </if>
-      <if test="modelroleaccess != null" >
-        modelroleaccess = #{modelroleaccess,jdbcType=INTEGER},
+      <if test="modulename != null" >
+        modulename = #{modulename,jdbcType=VARCHAR},
       </if>
     </set>
-    where modelid = #{modelid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.Module" >
     update x_module
-    set modelname = #{modelname,jdbcType=VARCHAR},
-      modelroleaccess = #{modelroleaccess,jdbcType=INTEGER}
-    where modelid = #{modelid,jdbcType=INTEGER}
+    set modulename = #{modulename,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

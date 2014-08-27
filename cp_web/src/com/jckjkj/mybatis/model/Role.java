@@ -1,20 +1,20 @@
 package com.jckjkj.mybatis.model;
 
 public class Role {
-    private Long roleid;
+    private Integer id;
 
     private String rolename;
 
     private String roledescription;
 
-    private Integer roleaccess;
+    private Integer moduleid;
 
-    public Long getRoleid() {
-        return roleid;
+    public Integer getId() {
+        return id;
     }
 
-    public void setRoleid(Long roleid) {
-        this.roleid = roleid;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getRolename() {
@@ -33,11 +33,11 @@ public class Role {
         this.roledescription = roledescription == null ? null : roledescription.trim();
     }
 
-    public Integer getRoleaccess() {
-        return roleaccess;
+    public Integer getModuleid() {
+        return moduleid;
     }
 
-    public void setRoleaccess(Integer roleaccess) {
-        this.roleaccess = roleaccess;
+    public void setModuleid(Integer moduleid) {
+        this.moduleid = moduleid;
     }
 }

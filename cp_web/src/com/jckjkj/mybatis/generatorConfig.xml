@@ -35,29 +35,39 @@
 			<property name="enableSubPackages" value="false" />
 		</javaClientGenerator>
 
-		
+
 		<!-- schema你的数据库，tableName表明，domainObjectName对应你的javabean类名，是否生成相应的example -->
-		<!-- 
-		<table schema="" tableName="t_camera" domainObjectName="Camera"/>
-		<table schema="" tableName="t_station" domainObjectName="Station"/>
-		<table schema="" tableName="x_auditopinion" domainObjectName="Auditopion"/>
-		<table schema="" tableName="x_department" domainObjectName="Department"/>
-		<table schema="" tableName="x_dictionary" domainObjectName="Dictionary"/>
-		<table schema="" tableName="x_equipment" domainObjectName="Equipment"/>
-		<table schema="" tableName="x_equipmentstate" domainObjectName="EquipmentState"/>
-		<table schema="" tableName="x_faultgrade" domainObjectName="FaultGrade"/>
-		<table schema="" tableName="x_mobile" domainObjectName="Mobile"/>
-		<table schema="" tableName="x_module" domainObjectName="Module"/>
-		<table schema="" tableName="x_offlinerecord" domainObjectName="OfflineRecord"/>
-		<table schema="" tableName="x_orderlist" domainObjectName="OrderList"/>
-		<table schema="" tableName="x_orderstate" domainObjectName="OrderState"/>
-		<table schema="" tableName="x_persion" domainObjectName="Persion"/>
-		<table schema="" tableName="x_repairresult" domainObjectName="RepairResult"/>
-		<table schema="" tableName="x_role" domainObjectName="Role"/>
-		<table schema="" tableName="x_routinginspection" domainObjectName="RoutingInspection"/>
-		<table schema="" tableName="x_user" domainObjectName="User"/>
- 		-->
- 		<table schema="" tableName="x_equipmentstate" domainObjectName="EquipmentState"/>
+		
+		<table schema="" tableName="t_camera" domainObjectName="Camera" />
+		<table schema="" tableName="t_station" domainObjectName="Station" />
+		<table schema="" tableName="x_auditopinion" domainObjectName="Auditopion" />
+		<table schema="" tableName="x_compact" domainObjectName="Compact" />
+		<table schema="" tableName="x_department" domainObjectName="Department" />
+		<table schema="" tableName="x_dpt_station" domainObjectName="DptStation" />
+		<table schema="" tableName="x_equipment" domainObjectName="Equipment" />
+		<table schema="" tableName="x_equipmentstate" domainObjectName="EquipmentState" />
+		<table schema="" tableName="x_fault" domainObjectName="Fault" />
+		<table schema="" tableName="x_faultgrade" domainObjectName="FaultGrade" />
+		<table schema="" tableName="x_mobile" domainObjectName="Mobile" />
+		<table schema="" tableName="x_mobile_station" domainObjectName="MobileStation" />
+		<table schema="" tableName="x_module" domainObjectName="Module" />
+		<table schema="" tableName="x_orderaudit" domainObjectName="OrderAudit" />
+		<table schema="" tableName="x_orderlist" domainObjectName="OrderList" />
+		<table schema="" tableName="x_orderstate" domainObjectName="OrderState" />
+		<table schema="" tableName="x_passpercent" domainObjectName="PassPercent" />
+		<table schema="" tableName="x_paymentratio" domainObjectName="PaymentRatio" />
+		<table schema="" tableName="x_person" domainObjectName="Person" />
+		<table schema="" tableName="x_postpone" domainObjectName="Postpone" />
+		<table schema="" tableName="x_repair" domainObjectName="Repair" />
+		<table schema="" tableName="x_repairresult" domainObjectName="RepairResult" />
+		<table schema="" tableName="x_role" domainObjectName="Role" />
+		<table schema="" tableName="x_routingaudit" domainObjectName="RoutingAudit" />
+		<table schema="" tableName="x_routinginspection"
+			domainObjectName="RoutingInspection" />
+		<table schema="" tableName="x_routingstate" domainObjectName="RoutingState" />
+		<table schema="" tableName="x_user" domainObjectName="User" />
+		
+		<table schema="" tableName="v_equip_routing" domainObjectName="VEquipRouting" />
 	</context>
 
 </generatorConfiguration>

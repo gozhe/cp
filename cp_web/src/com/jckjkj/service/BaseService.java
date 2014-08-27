@@ -1,6 +1,7 @@
 package com.jckjkj.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.jckjkj.mybatis.model.Equipment;
 import com.jckjkj.mybatis.model.EquipmentState;

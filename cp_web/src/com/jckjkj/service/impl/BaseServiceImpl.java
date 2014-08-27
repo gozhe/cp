@@ -70,7 +70,7 @@ public class BaseServiceImpl implements BaseService {
 	public List<OrderList> getOrderList() {
 		// TODO Auto-generated method stub
 		OrderListExample example = new OrderListExample();
-		example.createCriteria().andOrderidIsNotNull();
+		example.createCriteria().andIdIsNotNull();
 		return orderListMapper.selectByExample(example);
 	}
 
@@ -108,7 +108,7 @@ public class BaseServiceImpl implements BaseService {
 	public List<RoutingInspection> getRoutingInspectionList() {
 		// TODO Auto-generated method stub
 		RoutingInspectionExample example = new RoutingInspectionExample();
-		example.createCriteria().andRouidIsNotNull();
+		example.createCriteria().andIdIsNotNull();
 		return routingInspectionMapper.selectByExample(example);
 	}
 

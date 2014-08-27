@@ -1,18 +1,16 @@
 package com.jckjkj.mybatis.model;
 
 public class OrderState {
-    private Integer osid;
+    private Integer id;
 
     private String osvalue;
 
-    private String osdescription;
-
-    public Integer getOsid() {
-        return osid;
+    public Integer getId() {
+        return id;
     }
 
-    public void setOsid(Integer osid) {
-        this.osid = osid;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getOsvalue() {
@@ -21,13 +19,5 @@ public class OrderState {
 
     public void setOsvalue(String osvalue) {
         this.osvalue = osvalue == null ? null : osvalue.trim();
-    }
-
-    public String getOsdescription() {
-        return osdescription;
-    }
-
-    public void setOsdescription(String osdescription) {
-        this.osdescription = osdescription == null ? null : osdescription.trim();
     }
 }

@@ -1,9 +1,7 @@
 package com.jckjkj.mybatis.model;
 
-import java.math.BigDecimal;
-
 public class Department {
-    private String dptid;
+    private String id;
 
     private String dptdescription;
 
@@ -11,20 +9,14 @@ public class Department {
 
     private String dptsuperior;
 
-    private Object stationlist;
+    private Integer dpttype;
 
-    private Integer cameracount;
-
-    private BigDecimal contractvalue;
-
-    private Integer contractmonth;
-
-    public String getDptid() {
-        return dptid;
+    public String getId() {
+        return id;
     }
 
-    public void setDptid(String dptid) {
-        this.dptid = dptid == null ? null : dptid.trim();
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
     }
 
     public String getDptdescription() {
@@ -51,35 +43,11 @@ public class Department {
         this.dptsuperior = dptsuperior == null ? null : dptsuperior.trim();
     }
 
-    public Object getStationlist() {
-        return stationlist;
+    public Integer getDpttype() {
+        return dpttype;
     }
 
-    public void setStationlist(Object stationlist) {
-        this.stationlist = stationlist;
-    }
-
-    public Integer getCameracount() {
-        return cameracount;
-    }
-
-    public void setCameracount(Integer cameracount) {
-        this.cameracount = cameracount;
-    }
-
-    public BigDecimal getContractvalue() {
-        return contractvalue;
-    }
-
-    public void setContractvalue(BigDecimal contractvalue) {
-        this.contractvalue = contractvalue;
-    }
-
-    public Integer getContractmonth() {
-        return contractmonth;
-    }
-
-    public void setContractmonth(Integer contractmonth) {
-        this.contractmonth = contractmonth;
+    public void setDpttype(Integer dpttype) {
+        this.dpttype = dpttype;
     }
 }

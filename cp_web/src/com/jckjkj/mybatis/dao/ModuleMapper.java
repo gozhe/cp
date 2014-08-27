@@ -10,7 +10,7 @@ public interface ModuleMapper {
 
     int deleteByExample(ModuleExample example);
 
-    int deleteByPrimaryKey(Integer modelid);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Module record);
 
@@ -18,7 +18,7 @@ public interface ModuleMapper {
 
     List<Module> selectByExample(ModuleExample example);
 
-    Module selectByPrimaryKey(Integer modelid);
+    Module selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") Module record, @Param("example") ModuleExample example);
 

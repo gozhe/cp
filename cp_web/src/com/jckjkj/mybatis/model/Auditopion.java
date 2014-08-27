@@ -1,33 +1,23 @@
 package com.jckjkj.mybatis.model;
 
 public class Auditopion {
-    private Integer aoid;
+    private Integer id;
 
-    private String aoopinion;
+    private String value;
 
-    private String aodescription;
-
-    public Integer getAoid() {
-        return aoid;
+    public Integer getId() {
+        return id;
     }
 
-    public void setAoid(Integer aoid) {
-        this.aoid = aoid;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getAoopinion() {
-        return aoopinion;
+    public String getValue() {
+        return value;
     }
 
-    public void setAoopinion(String aoopinion) {
-        this.aoopinion = aoopinion == null ? null : aoopinion.trim();
-    }
-
-    public String getAodescription() {
-        return aodescription;
-    }
-
-    public void setAodescription(String aodescription) {
-        this.aodescription = aodescription == null ? null : aodescription.trim();
+    public void setValue(String value) {
+        this.value = value == null ? null : value.trim();
     }
 }

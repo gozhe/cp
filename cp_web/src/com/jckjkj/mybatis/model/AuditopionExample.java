@@ -104,203 +104,133 @@ public class AuditopionExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andAoidIsNull() {
-            addCriterion("aoid is null");
+        public Criteria andIdIsNull() {
+            addCriterion("id is null");
             return (Criteria) this;
         }
 
-        public Criteria andAoidIsNotNull() {
-            addCriterion("aoid is not null");
+        public Criteria andIdIsNotNull() {
+            addCriterion("id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAoidEqualTo(Integer value) {
-            addCriterion("aoid =", value, "aoid");
+        public Criteria andIdEqualTo(Integer value) {
+            addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andAoidNotEqualTo(Integer value) {
-            addCriterion("aoid <>", value, "aoid");
+        public Criteria andIdNotEqualTo(Integer value) {
+            addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andAoidGreaterThan(Integer value) {
-            addCriterion("aoid >", value, "aoid");
+        public Criteria andIdGreaterThan(Integer value) {
+            addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andAoidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("aoid >=", value, "aoid");
+        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andAoidLessThan(Integer value) {
-            addCriterion("aoid <", value, "aoid");
+        public Criteria andIdLessThan(Integer value) {
+            addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andAoidLessThanOrEqualTo(Integer value) {
-            addCriterion("aoid <=", value, "aoid");
+        public Criteria andIdLessThanOrEqualTo(Integer value) {
+            addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andAoidIn(List<Integer> values) {
-            addCriterion("aoid in", values, "aoid");
+        public Criteria andIdIn(List<Integer> values) {
+            addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andAoidNotIn(List<Integer> values) {
-            addCriterion("aoid not in", values, "aoid");
+        public Criteria andIdNotIn(List<Integer> values) {
+            addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andAoidBetween(Integer value1, Integer value2) {
-            addCriterion("aoid between", value1, value2, "aoid");
+        public Criteria andIdBetween(Integer value1, Integer value2) {
+            addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andAoidNotBetween(Integer value1, Integer value2) {
-            addCriterion("aoid not between", value1, value2, "aoid");
+        public Criteria andIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("id not between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andAoopinionIsNull() {
-            addCriterion("aoopinion is null");
+        public Criteria andValueIsNull() {
+            addCriterion("value is null");
             return (Criteria) this;
         }
 
-        public Criteria andAoopinionIsNotNull() {
-            addCriterion("aoopinion is not null");
+        public Criteria andValueIsNotNull() {
+            addCriterion("value is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAoopinionEqualTo(String value) {
-            addCriterion("aoopinion =", value, "aoopinion");
+        public Criteria andValueEqualTo(String value) {
+            addCriterion("value =", value, "value");
             return (Criteria) this;
         }
 
-        public Criteria andAoopinionNotEqualTo(String value) {
-            addCriterion("aoopinion <>", value, "aoopinion");
+        public Criteria andValueNotEqualTo(String value) {
+            addCriterion("value <>", value, "value");
             return (Criteria) this;
         }
 
-        public Criteria andAoopinionGreaterThan(String value) {
-            addCriterion("aoopinion >", value, "aoopinion");
+        public Criteria andValueGreaterThan(String value) {
+            addCriterion("value >", value, "value");
             return (Criteria) this;
         }
 
-        public Criteria andAoopinionGreaterThanOrEqualTo(String value) {
-            addCriterion("aoopinion >=", value, "aoopinion");
+        public Criteria andValueGreaterThanOrEqualTo(String value) {
+            addCriterion("value >=", value, "value");
             return (Criteria) this;
         }
 
-        public Criteria andAoopinionLessThan(String value) {
-            addCriterion("aoopinion <", value, "aoopinion");
+        public Criteria andValueLessThan(String value) {
+            addCriterion("value <", value, "value");
             return (Criteria) this;
         }
 
-        public Criteria andAoopinionLessThanOrEqualTo(String value) {
-            addCriterion("aoopinion <=", value, "aoopinion");
+        public Criteria andValueLessThanOrEqualTo(String value) {
+            addCriterion("value <=", value, "value");
             return (Criteria) this;
         }
 
-        public Criteria andAoopinionLike(String value) {
-            addCriterion("aoopinion like", value, "aoopinion");
+        public Criteria andValueLike(String value) {
+            addCriterion("value like", value, "value");
             return (Criteria) this;
         }
 
-        public Criteria andAoopinionNotLike(String value) {
-            addCriterion("aoopinion not like", value, "aoopinion");
+        public Criteria andValueNotLike(String value) {
+            addCriterion("value not like", value, "value");
             return (Criteria) this;
         }
 
-        public Criteria andAoopinionIn(List<String> values) {
-            addCriterion("aoopinion in", values, "aoopinion");
+        public Criteria andValueIn(List<String> values) {
+            addCriterion("value in", values, "value");
             return (Criteria) this;
         }
 
-        public Criteria andAoopinionNotIn(List<String> values) {
-            addCriterion("aoopinion not in", values, "aoopinion");
+        public Criteria andValueNotIn(List<String> values) {
+            addCriterion("value not in", values, "value");
             return (Criteria) this;
         }
 
-        public Criteria andAoopinionBetween(String value1, String value2) {
-            addCriterion("aoopinion between", value1, value2, "aoopinion");
+        public Criteria andValueBetween(String value1, String value2) {
+            addCriterion("value between", value1, value2, "value");
             return (Criteria) this;
         }
 
-        public Criteria andAoopinionNotBetween(String value1, String value2) {
-            addCriterion("aoopinion not between", value1, value2, "aoopinion");
-            return (Criteria) this;
-        }
-
-        public Criteria andAodescriptionIsNull() {
-            addCriterion("aodescription is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andAodescriptionIsNotNull() {
-            addCriterion("aodescription is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andAodescriptionEqualTo(String value) {
-            addCriterion("aodescription =", value, "aodescription");
-            return (Criteria) this;
-        }
-
-        public Criteria andAodescriptionNotEqualTo(String value) {
-            addCriterion("aodescription <>", value, "aodescription");
-            return (Criteria) this;
-        }
-
-        public Criteria andAodescriptionGreaterThan(String value) {
-            addCriterion("aodescription >", value, "aodescription");
-            return (Criteria) this;
-        }
-
-        public Criteria andAodescriptionGreaterThanOrEqualTo(String value) {
-            addCriterion("aodescription >=", value, "aodescription");
-            return (Criteria) this;
-        }
-
-        public Criteria andAodescriptionLessThan(String value) {
-            addCriterion("aodescription <", value, "aodescription");
-            return (Criteria) this;
-        }
-
-        public Criteria andAodescriptionLessThanOrEqualTo(String value) {
-            addCriterion("aodescription <=", value, "aodescription");
-            return (Criteria) this;
-        }
-
-        public Criteria andAodescriptionLike(String value) {
-            addCriterion("aodescription like", value, "aodescription");
-            return (Criteria) this;
-        }
-
-        public Criteria andAodescriptionNotLike(String value) {
-            addCriterion("aodescription not like", value, "aodescription");
-            return (Criteria) this;
-        }
-
-        public Criteria andAodescriptionIn(List<String> values) {
-            addCriterion("aodescription in", values, "aodescription");
-            return (Criteria) this;
-        }
-
-        public Criteria andAodescriptionNotIn(List<String> values) {
-            addCriterion("aodescription not in", values, "aodescription");
-            return (Criteria) this;
-        }
-
-        public Criteria andAodescriptionBetween(String value1, String value2) {
-            addCriterion("aodescription between", value1, value2, "aodescription");
-            return (Criteria) this;
-        }
-
-        public Criteria andAodescriptionNotBetween(String value1, String value2) {
-            addCriterion("aodescription not between", value1, value2, "aodescription");
+        public Criteria andValueNotBetween(String value1, String value2) {
+            addCriterion("value not between", value1, value2, "value");
             return (Criteria) this;
         }
     }

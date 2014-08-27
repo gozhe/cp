@@ -2,9 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jckjkj.mybatis.dao.AuditopionMapper" >
   <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.Auditopion" >
-    <id column="aoid" property="aoid" jdbcType="INTEGER" />
-    <result column="aoopinion" property="aoopinion" jdbcType="VARCHAR" />
-    <result column="aodescription" property="aodescription" jdbcType="VARCHAR" />
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="value" property="value" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -65,7 +64,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    aoid, aoopinion, aodescription
+    id, value
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jckjkj.mybatis.model.AuditopionExample" >
     select
@@ -85,11 +84,11 @@
     select 
     <include refid="Base_Column_List" />
     from x_auditopinion
-    where aoid = #{aoid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from x_auditopinion
-    where aoid = #{aoid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.jckjkj.mybatis.model.AuditopionExample" >
     delete from x_auditopinion
@@ -98,33 +97,25 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.jckjkj.mybatis.model.Auditopion" >
-    insert into x_auditopinion (aoid, aoopinion, aodescription
-      )
-    values (#{aoid,jdbcType=INTEGER}, #{aoopinion,jdbcType=VARCHAR}, #{aodescription,jdbcType=VARCHAR}
-      )
+    insert into x_auditopinion (id, value)
+    values (#{id,jdbcType=INTEGER}, #{value,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.Auditopion" >
     insert into x_auditopinion
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="aoid != null" >
-        aoid,
+      <if test="id != null" >
+        id,
       </if>
-      <if test="aoopinion != null" >
-        aoopinion,
-      </if>
-      <if test="aodescription != null" >
-        aodescription,
+      <if test="value != null" >
+        value,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="aoid != null" >
-        #{aoid,jdbcType=INTEGER},
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
       </if>
-      <if test="aoopinion != null" >
-        #{aoopinion,jdbcType=VARCHAR},
-      </if>
-      <if test="aodescription != null" >
-        #{aodescription,jdbcType=VARCHAR},
+      <if test="value != null" >
+        #{value,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -137,14 +128,11 @@
   <update id="updateByExampleSelective" parameterType="map" >
     update x_auditopinion
     <set >
-      <if test="record.aoid != null" >
-        aoid = #{record.aoid,jdbcType=INTEGER},
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.aoopinion != null" >
-        aoopinion = #{record.aoopinion,jdbcType=VARCHAR},
-      </if>
-      <if test="record.aodescription != null" >
-        aodescription = #{record.aodescription,jdbcType=VARCHAR},
+      <if test="record.value != null" >
+        value = #{record.value,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -153,9 +141,8 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update x_auditopinion
-    set aoid = #{record.aoid,jdbcType=INTEGER},
-      aoopinion = #{record.aoopinion,jdbcType=VARCHAR},
-      aodescription = #{record.aodescription,jdbcType=VARCHAR}
+    set id = #{record.id,jdbcType=INTEGER},
+      value = #{record.value,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -163,19 +150,15 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.jckjkj.mybatis.model.Auditopion" >
     update x_auditopinion
     <set >
-      <if test="aoopinion != null" >
-        aoopinion = #{aoopinion,jdbcType=VARCHAR},
-      </if>
-      <if test="aodescription != null" >
-        aodescription = #{aodescription,jdbcType=VARCHAR},
+      <if test="value != null" >
+        value = #{value,jdbcType=VARCHAR},
       </if>
     </set>
-    where aoid = #{aoid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.Auditopion" >
     update x_auditopinion
-    set aoopinion = #{aoopinion,jdbcType=VARCHAR},
-      aodescription = #{aodescription,jdbcType=VARCHAR}
-    where aoid = #{aoid,jdbcType=INTEGER}
+    set value = #{value,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

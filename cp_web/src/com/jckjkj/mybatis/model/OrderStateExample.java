@@ -104,63 +104,63 @@ public class OrderStateExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andOsidIsNull() {
-            addCriterion("osid is null");
+        public Criteria andIdIsNull() {
+            addCriterion("id is null");
             return (Criteria) this;
         }
 
-        public Criteria andOsidIsNotNull() {
-            addCriterion("osid is not null");
+        public Criteria andIdIsNotNull() {
+            addCriterion("id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andOsidEqualTo(Integer value) {
-            addCriterion("osid =", value, "osid");
+        public Criteria andIdEqualTo(Integer value) {
+            addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andOsidNotEqualTo(Integer value) {
-            addCriterion("osid <>", value, "osid");
+        public Criteria andIdNotEqualTo(Integer value) {
+            addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andOsidGreaterThan(Integer value) {
-            addCriterion("osid >", value, "osid");
+        public Criteria andIdGreaterThan(Integer value) {
+            addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andOsidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("osid >=", value, "osid");
+        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andOsidLessThan(Integer value) {
-            addCriterion("osid <", value, "osid");
+        public Criteria andIdLessThan(Integer value) {
+            addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andOsidLessThanOrEqualTo(Integer value) {
-            addCriterion("osid <=", value, "osid");
+        public Criteria andIdLessThanOrEqualTo(Integer value) {
+            addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andOsidIn(List<Integer> values) {
-            addCriterion("osid in", values, "osid");
+        public Criteria andIdIn(List<Integer> values) {
+            addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andOsidNotIn(List<Integer> values) {
-            addCriterion("osid not in", values, "osid");
+        public Criteria andIdNotIn(List<Integer> values) {
+            addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andOsidBetween(Integer value1, Integer value2) {
-            addCriterion("osid between", value1, value2, "osid");
+        public Criteria andIdBetween(Integer value1, Integer value2) {
+            addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andOsidNotBetween(Integer value1, Integer value2) {
-            addCriterion("osid not between", value1, value2, "osid");
+        public Criteria andIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("id not between", value1, value2, "id");
             return (Criteria) this;
         }
 
@@ -231,76 +231,6 @@ public class OrderStateExample {
 
         public Criteria andOsvalueNotBetween(String value1, String value2) {
             addCriterion("osvalue not between", value1, value2, "osvalue");
-            return (Criteria) this;
-        }
-
-        public Criteria andOsdescriptionIsNull() {
-            addCriterion("osdescription is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andOsdescriptionIsNotNull() {
-            addCriterion("osdescription is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andOsdescriptionEqualTo(String value) {
-            addCriterion("osdescription =", value, "osdescription");
-            return (Criteria) this;
-        }
-
-        public Criteria andOsdescriptionNotEqualTo(String value) {
-            addCriterion("osdescription <>", value, "osdescription");
-            return (Criteria) this;
-        }
-
-        public Criteria andOsdescriptionGreaterThan(String value) {
-            addCriterion("osdescription >", value, "osdescription");
-            return (Criteria) this;
-        }
-
-        public Criteria andOsdescriptionGreaterThanOrEqualTo(String value) {
-            addCriterion("osdescription >=", value, "osdescription");
-            return (Criteria) this;
-        }
-
-        public Criteria andOsdescriptionLessThan(String value) {
-            addCriterion("osdescription <", value, "osdescription");
-            return (Criteria) this;
-        }
-
-        public Criteria andOsdescriptionLessThanOrEqualTo(String value) {
-            addCriterion("osdescription <=", value, "osdescription");
-            return (Criteria) this;
-        }
-
-        public Criteria andOsdescriptionLike(String value) {
-            addCriterion("osdescription like", value, "osdescription");
-            return (Criteria) this;
-        }
-
-        public Criteria andOsdescriptionNotLike(String value) {
-            addCriterion("osdescription not like", value, "osdescription");
-            return (Criteria) this;
-        }
-
-        public Criteria andOsdescriptionIn(List<String> values) {
-            addCriterion("osdescription in", values, "osdescription");
-            return (Criteria) this;
-        }
-
-        public Criteria andOsdescriptionNotIn(List<String> values) {
-            addCriterion("osdescription not in", values, "osdescription");
-            return (Criteria) this;
-        }
-
-        public Criteria andOsdescriptionBetween(String value1, String value2) {
-            addCriterion("osdescription between", value1, value2, "osdescription");
-            return (Criteria) this;
-        }
-
-        public Criteria andOsdescriptionNotBetween(String value1, String value2) {
-            addCriterion("osdescription not between", value1, value2, "osdescription");
             return (Criteria) this;
         }
     }

@@ -10,7 +10,7 @@ public interface MobileMapper {
 
     int deleteByExample(MobileExample example);
 
-    int deleteByPrimaryKey(Long mobileid);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Mobile record);
 
@@ -18,7 +18,7 @@ public interface MobileMapper {
 
     List<Mobile> selectByExample(MobileExample example);
 
-    Mobile selectByPrimaryKey(Long mobileid);
+    Mobile selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") Mobile record, @Param("example") MobileExample example);
 

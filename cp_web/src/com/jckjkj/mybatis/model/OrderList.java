@@ -3,7 +3,7 @@ package com.jckjkj.mybatis.model;
 import java.util.Date;
 
 public class OrderList {
-    private String orderid;
+    private String id;
 
     private String equid;
 
@@ -23,20 +23,16 @@ public class OrderList {
 
     private Integer orderstate;
 
-    private Integer auditopinion;
+    private String faultclass1;
 
-    private Date audittime;
+    private Integer ordersource;
 
-    private Date comptime;
-
-    private Integer repairresult;
-
-    public String getOrderid() {
-        return orderid;
+    public String getId() {
+        return id;
     }
 
-    public void setOrderid(String orderid) {
-        this.orderid = orderid == null ? null : orderid.trim();
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
     }
 
     public String getEquid() {
@@ -111,35 +107,19 @@ public class OrderList {
         this.orderstate = orderstate;
     }
 
-    public Integer getAuditopinion() {
-        return auditopinion;
+    public String getFaultclass1() {
+        return faultclass1;
     }
 
-    public void setAuditopinion(Integer auditopinion) {
-        this.auditopinion = auditopinion;
+    public void setFaultclass1(String faultclass1) {
+        this.faultclass1 = faultclass1 == null ? null : faultclass1.trim();
     }
 
-    public Date getAudittime() {
-        return audittime;
+    public Integer getOrdersource() {
+        return ordersource;
     }
 
-    public void setAudittime(Date audittime) {
-        this.audittime = audittime;
-    }
-
-    public Date getComptime() {
-        return comptime;
-    }
-
-    public void setComptime(Date comptime) {
-        this.comptime = comptime;
-    }
-
-    public Integer getRepairresult() {
-        return repairresult;
-    }
-
-    public void setRepairresult(Integer repairresult) {
-        this.repairresult = repairresult;
+    public void setOrdersource(Integer ordersource) {
+        this.ordersource = ordersource;
     }
 }

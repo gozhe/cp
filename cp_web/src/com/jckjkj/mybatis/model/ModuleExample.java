@@ -104,193 +104,133 @@ public class ModuleExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andModelidIsNull() {
-            addCriterion("modelid is null");
+        public Criteria andIdIsNull() {
+            addCriterion("id is null");
             return (Criteria) this;
         }
 
-        public Criteria andModelidIsNotNull() {
-            addCriterion("modelid is not null");
+        public Criteria andIdIsNotNull() {
+            addCriterion("id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andModelidEqualTo(Integer value) {
-            addCriterion("modelid =", value, "modelid");
+        public Criteria andIdEqualTo(Integer value) {
+            addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andModelidNotEqualTo(Integer value) {
-            addCriterion("modelid <>", value, "modelid");
+        public Criteria andIdNotEqualTo(Integer value) {
+            addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andModelidGreaterThan(Integer value) {
-            addCriterion("modelid >", value, "modelid");
+        public Criteria andIdGreaterThan(Integer value) {
+            addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andModelidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("modelid >=", value, "modelid");
+        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andModelidLessThan(Integer value) {
-            addCriterion("modelid <", value, "modelid");
+        public Criteria andIdLessThan(Integer value) {
+            addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andModelidLessThanOrEqualTo(Integer value) {
-            addCriterion("modelid <=", value, "modelid");
+        public Criteria andIdLessThanOrEqualTo(Integer value) {
+            addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andModelidIn(List<Integer> values) {
-            addCriterion("modelid in", values, "modelid");
+        public Criteria andIdIn(List<Integer> values) {
+            addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andModelidNotIn(List<Integer> values) {
-            addCriterion("modelid not in", values, "modelid");
+        public Criteria andIdNotIn(List<Integer> values) {
+            addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andModelidBetween(Integer value1, Integer value2) {
-            addCriterion("modelid between", value1, value2, "modelid");
+        public Criteria andIdBetween(Integer value1, Integer value2) {
+            addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andModelidNotBetween(Integer value1, Integer value2) {
-            addCriterion("modelid not between", value1, value2, "modelid");
+        public Criteria andIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("id not between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andModelnameIsNull() {
-            addCriterion("modelname is null");
+        public Criteria andModulenameIsNull() {
+            addCriterion("modulename is null");
             return (Criteria) this;
         }
 
-        public Criteria andModelnameIsNotNull() {
-            addCriterion("modelname is not null");
+        public Criteria andModulenameIsNotNull() {
+            addCriterion("modulename is not null");
             return (Criteria) this;
         }
 
-        public Criteria andModelnameEqualTo(String value) {
-            addCriterion("modelname =", value, "modelname");
+        public Criteria andModulenameEqualTo(String value) {
+            addCriterion("modulename =", value, "modulename");
             return (Criteria) this;
         }
 
-        public Criteria andModelnameNotEqualTo(String value) {
-            addCriterion("modelname <>", value, "modelname");
+        public Criteria andModulenameNotEqualTo(String value) {
+            addCriterion("modulename <>", value, "modulename");
             return (Criteria) this;
         }
 
-        public Criteria andModelnameGreaterThan(String value) {
-            addCriterion("modelname >", value, "modelname");
+        public Criteria andModulenameGreaterThan(String value) {
+            addCriterion("modulename >", value, "modulename");
             return (Criteria) this;
         }
 
-        public Criteria andModelnameGreaterThanOrEqualTo(String value) {
-            addCriterion("modelname >=", value, "modelname");
+        public Criteria andModulenameGreaterThanOrEqualTo(String value) {
+            addCriterion("modulename >=", value, "modulename");
             return (Criteria) this;
         }
 
-        public Criteria andModelnameLessThan(String value) {
-            addCriterion("modelname <", value, "modelname");
+        public Criteria andModulenameLessThan(String value) {
+            addCriterion("modulename <", value, "modulename");
             return (Criteria) this;
         }
 
-        public Criteria andModelnameLessThanOrEqualTo(String value) {
-            addCriterion("modelname <=", value, "modelname");
+        public Criteria andModulenameLessThanOrEqualTo(String value) {
+            addCriterion("modulename <=", value, "modulename");
             return (Criteria) this;
         }
 
-        public Criteria andModelnameLike(String value) {
-            addCriterion("modelname like", value, "modelname");
+        public Criteria andModulenameLike(String value) {
+            addCriterion("modulename like", value, "modulename");
             return (Criteria) this;
         }
 
-        public Criteria andModelnameNotLike(String value) {
-            addCriterion("modelname not like", value, "modelname");
+        public Criteria andModulenameNotLike(String value) {
+            addCriterion("modulename not like", value, "modulename");
             return (Criteria) this;
         }
 
-        public Criteria andModelnameIn(List<String> values) {
-            addCriterion("modelname in", values, "modelname");
+        public Criteria andModulenameIn(List<String> values) {
+            addCriterion("modulename in", values, "modulename");
             return (Criteria) this;
         }
 
-        public Criteria andModelnameNotIn(List<String> values) {
-            addCriterion("modelname not in", values, "modelname");
+        public Criteria andModulenameNotIn(List<String> values) {
+            addCriterion("modulename not in", values, "modulename");
             return (Criteria) this;
         }
 
-        public Criteria andModelnameBetween(String value1, String value2) {
-            addCriterion("modelname between", value1, value2, "modelname");
+        public Criteria andModulenameBetween(String value1, String value2) {
+            addCriterion("modulename between", value1, value2, "modulename");
             return (Criteria) this;
         }
 
-        public Criteria andModelnameNotBetween(String value1, String value2) {
-            addCriterion("modelname not between", value1, value2, "modelname");
-            return (Criteria) this;
-        }
-
-        public Criteria andModelroleaccessIsNull() {
-            addCriterion("modelroleaccess is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andModelroleaccessIsNotNull() {
-            addCriterion("modelroleaccess is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andModelroleaccessEqualTo(Integer value) {
-            addCriterion("modelroleaccess =", value, "modelroleaccess");
-            return (Criteria) this;
-        }
-
-        public Criteria andModelroleaccessNotEqualTo(Integer value) {
-            addCriterion("modelroleaccess <>", value, "modelroleaccess");
-            return (Criteria) this;
-        }
-
-        public Criteria andModelroleaccessGreaterThan(Integer value) {
-            addCriterion("modelroleaccess >", value, "modelroleaccess");
-            return (Criteria) this;
-        }
-
-        public Criteria andModelroleaccessGreaterThanOrEqualTo(Integer value) {
-            addCriterion("modelroleaccess >=", value, "modelroleaccess");
-            return (Criteria) this;
-        }
-
-        public Criteria andModelroleaccessLessThan(Integer value) {
-            addCriterion("modelroleaccess <", value, "modelroleaccess");
-            return (Criteria) this;
-        }
-
-        public Criteria andModelroleaccessLessThanOrEqualTo(Integer value) {
-            addCriterion("modelroleaccess <=", value, "modelroleaccess");
-            return (Criteria) this;
-        }
-
-        public Criteria andModelroleaccessIn(List<Integer> values) {
-            addCriterion("modelroleaccess in", values, "modelroleaccess");
-            return (Criteria) this;
-        }
-
-        public Criteria andModelroleaccessNotIn(List<Integer> values) {
-            addCriterion("modelroleaccess not in", values, "modelroleaccess");
-            return (Criteria) this;
-        }
-
-        public Criteria andModelroleaccessBetween(Integer value1, Integer value2) {
-            addCriterion("modelroleaccess between", value1, value2, "modelroleaccess");
-            return (Criteria) this;
-        }
-
-        public Criteria andModelroleaccessNotBetween(Integer value1, Integer value2) {
-            addCriterion("modelroleaccess not between", value1, value2, "modelroleaccess");
+        public Criteria andModulenameNotBetween(String value1, String value2) {
+            addCriterion("modulename not between", value1, value2, "modulename");
             return (Criteria) this;
         }
     }

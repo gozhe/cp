@@ -104,63 +104,63 @@ public class FaultGradeExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andFgidIsNull() {
-            addCriterion("fgid is null");
+        public Criteria andIdIsNull() {
+            addCriterion("id is null");
             return (Criteria) this;
         }
 
-        public Criteria andFgidIsNotNull() {
-            addCriterion("fgid is not null");
+        public Criteria andIdIsNotNull() {
+            addCriterion("id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andFgidEqualTo(Integer value) {
-            addCriterion("fgid =", value, "fgid");
+        public Criteria andIdEqualTo(Integer value) {
+            addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andFgidNotEqualTo(Integer value) {
-            addCriterion("fgid <>", value, "fgid");
+        public Criteria andIdNotEqualTo(Integer value) {
+            addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andFgidGreaterThan(Integer value) {
-            addCriterion("fgid >", value, "fgid");
+        public Criteria andIdGreaterThan(Integer value) {
+            addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andFgidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("fgid >=", value, "fgid");
+        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andFgidLessThan(Integer value) {
-            addCriterion("fgid <", value, "fgid");
+        public Criteria andIdLessThan(Integer value) {
+            addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andFgidLessThanOrEqualTo(Integer value) {
-            addCriterion("fgid <=", value, "fgid");
+        public Criteria andIdLessThanOrEqualTo(Integer value) {
+            addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andFgidIn(List<Integer> values) {
-            addCriterion("fgid in", values, "fgid");
+        public Criteria andIdIn(List<Integer> values) {
+            addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andFgidNotIn(List<Integer> values) {
-            addCriterion("fgid not in", values, "fgid");
+        public Criteria andIdNotIn(List<Integer> values) {
+            addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andFgidBetween(Integer value1, Integer value2) {
-            addCriterion("fgid between", value1, value2, "fgid");
+        public Criteria andIdBetween(Integer value1, Integer value2) {
+            addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andFgidNotBetween(Integer value1, Integer value2) {
-            addCriterion("fgid not between", value1, value2, "fgid");
+        public Criteria andIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("id not between", value1, value2, "id");
             return (Criteria) this;
         }
 
@@ -291,76 +291,6 @@ public class FaultGradeExample {
 
         public Criteria andTimelimitNotBetween(Integer value1, Integer value2) {
             addCriterion("timelimit not between", value1, value2, "timelimit");
-            return (Criteria) this;
-        }
-
-        public Criteria andFgdescribeIsNull() {
-            addCriterion("fgdescribe is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andFgdescribeIsNotNull() {
-            addCriterion("fgdescribe is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andFgdescribeEqualTo(String value) {
-            addCriterion("fgdescribe =", value, "fgdescribe");
-            return (Criteria) this;
-        }
-
-        public Criteria andFgdescribeNotEqualTo(String value) {
-            addCriterion("fgdescribe <>", value, "fgdescribe");
-            return (Criteria) this;
-        }
-
-        public Criteria andFgdescribeGreaterThan(String value) {
-            addCriterion("fgdescribe >", value, "fgdescribe");
-            return (Criteria) this;
-        }
-
-        public Criteria andFgdescribeGreaterThanOrEqualTo(String value) {
-            addCriterion("fgdescribe >=", value, "fgdescribe");
-            return (Criteria) this;
-        }
-
-        public Criteria andFgdescribeLessThan(String value) {
-            addCriterion("fgdescribe <", value, "fgdescribe");
-            return (Criteria) this;
-        }
-
-        public Criteria andFgdescribeLessThanOrEqualTo(String value) {
-            addCriterion("fgdescribe <=", value, "fgdescribe");
-            return (Criteria) this;
-        }
-
-        public Criteria andFgdescribeLike(String value) {
-            addCriterion("fgdescribe like", value, "fgdescribe");
-            return (Criteria) this;
-        }
-
-        public Criteria andFgdescribeNotLike(String value) {
-            addCriterion("fgdescribe not like", value, "fgdescribe");
-            return (Criteria) this;
-        }
-
-        public Criteria andFgdescribeIn(List<String> values) {
-            addCriterion("fgdescribe in", values, "fgdescribe");
-            return (Criteria) this;
-        }
-
-        public Criteria andFgdescribeNotIn(List<String> values) {
-            addCriterion("fgdescribe not in", values, "fgdescribe");
-            return (Criteria) this;
-        }
-
-        public Criteria andFgdescribeBetween(String value1, String value2) {
-            addCriterion("fgdescribe between", value1, value2, "fgdescribe");
-            return (Criteria) this;
-        }
-
-        public Criteria andFgdescribeNotBetween(String value1, String value2) {
-            addCriterion("fgdescribe not between", value1, value2, "fgdescribe");
             return (Criteria) this;
         }
     }

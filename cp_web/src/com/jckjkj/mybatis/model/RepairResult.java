@@ -1,18 +1,16 @@
 package com.jckjkj.mybatis.model;
 
 public class RepairResult {
-    private Integer rrid;
+    private Integer id;
 
     private String rrvalue;
 
-    private String rrvaluedescribe;
-
-    public Integer getRrid() {
-        return rrid;
+    public Integer getId() {
+        return id;
     }
 
-    public void setRrid(Integer rrid) {
-        this.rrid = rrid;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getRrvalue() {
@@ -21,13 +19,5 @@ public class RepairResult {
 
     public void setRrvalue(String rrvalue) {
         this.rrvalue = rrvalue == null ? null : rrvalue.trim();
-    }
-
-    public String getRrvaluedescribe() {
-        return rrvaluedescribe;
-    }
-
-    public void setRrvaluedescribe(String rrvaluedescribe) {
-        this.rrvaluedescribe = rrvaluedescribe == null ? null : rrvaluedescribe.trim();
     }
 }

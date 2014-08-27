@@ -21,10 +21,23 @@
 	}
 	#title{
 		width:500px;
-		height: 70px;
+		height: 80px;
 		margin-left: 0px;
-		margin-top: 15px;
+		margin-top: 0px;
 		float: left;
+	}
+	hr{
+	    width:280px;
+		height:1px;
+		border:none;
+		border-top:1px dashed #0066CC;
+	}
+	#system{
+		width: 400px; 
+		height: 100%; 
+		float: right; 
+		margin-top: 1px; 
+		margin-right: 5px;
 	}
 	
 </style>
@@ -35,17 +48,8 @@
 			<img alt="" src="images/logo.png" width="108px" height="80px">
 		</div>
 		<div id="title">
-			<div>
-				<label style="color: white; font-size: 24px;">
-					昌平区社会面图像信息管理系统</label>
-			</div>
-			<div>
-				<label style="color: white; font-size: 14px;">
-					Imageinformation management system of Changping</label>
-			</div>
 		</div>
-		<div id="system"
-			style="width: 400px; height: 100%; float: right; margin-top: 1px; margin-right: 5px;">
+		<div id="system">
 			<div style="float: right;">
 				<img alt="" src="images/help.png" style="vertical-align: middle;">
 				<a href="" style="font-size: 13px; color: white;">帮助</a> <img alt=""
@@ -53,10 +57,10 @@
 					style="vertical-align: middle; margin-left: 8px;"> <a href=""
 					style="font-size: 13px; color: white;">退出</a>
 			</div>
-			<div style="float: right; margin-top: 8px;">
-				<img alt="" src="images/line.png" width="300px" height="2px">
+			<div style="float: right; margin-top: 4px;">
+				<hr>
 			</div>
-			<div style="float: right; margin-top: 15px;">
+			<div style="float: right; margin-top: 10px;">
 				<table style="font-family: 宋体; font-size: 13px; color: white"
 					align="center">
 					<tr>

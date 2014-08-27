@@ -10,7 +10,7 @@ public interface EquipmentStateMapper {
 
     int deleteByExample(EquipmentStateExample example);
 
-    int deleteByPrimaryKey(Long equstateid);
+    int deleteByPrimaryKey(Long id);
 
     int insert(EquipmentState record);
 
@@ -18,7 +18,7 @@ public interface EquipmentStateMapper {
 
     List<EquipmentState> selectByExample(EquipmentStateExample example);
 
-    EquipmentState selectByPrimaryKey(Long equstateid);
+    EquipmentState selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") EquipmentState record, @Param("example") EquipmentStateExample example);
 

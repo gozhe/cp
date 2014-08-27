@@ -2,9 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jckjkj.mybatis.dao.OrderStateMapper" >
   <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.OrderState" >
-    <id column="osid" property="osid" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="INTEGER" />
     <result column="osvalue" property="osvalue" jdbcType="VARCHAR" />
-    <result column="osdescription" property="osdescription" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -65,7 +64,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    osid, osvalue, osdescription
+    id, osvalue
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jckjkj.mybatis.model.OrderStateExample" >
     select
@@ -85,11 +84,11 @@
     select 
     <include refid="Base_Column_List" />
     from x_orderstate
-    where osid = #{osid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from x_orderstate
-    where osid = #{osid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.jckjkj.mybatis.model.OrderStateExample" >
     delete from x_orderstate
@@ -98,33 +97,25 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.jckjkj.mybatis.model.OrderState" >
-    insert into x_orderstate (osid, osvalue, osdescription
-      )
-    values (#{osid,jdbcType=INTEGER}, #{osvalue,jdbcType=VARCHAR}, #{osdescription,jdbcType=VARCHAR}
-      )
+    insert into x_orderstate (id, osvalue)
+    values (#{id,jdbcType=INTEGER}, #{osvalue,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.OrderState" >
     insert into x_orderstate
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="osid != null" >
-        osid,
+      <if test="id != null" >
+        id,
       </if>
       <if test="osvalue != null" >
         osvalue,
       </if>
-      <if test="osdescription != null" >
-        osdescription,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="osid != null" >
-        #{osid,jdbcType=INTEGER},
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
       </if>
       <if test="osvalue != null" >
         #{osvalue,jdbcType=VARCHAR},
-      </if>
-      <if test="osdescription != null" >
-        #{osdescription,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -137,14 +128,11 @@
   <update id="updateByExampleSelective" parameterType="map" >
     update x_orderstate
     <set >
-      <if test="record.osid != null" >
-        osid = #{record.osid,jdbcType=INTEGER},
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
       </if>
       <if test="record.osvalue != null" >
         osvalue = #{record.osvalue,jdbcType=VARCHAR},
-      </if>
-      <if test="record.osdescription != null" >
-        osdescription = #{record.osdescription,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -153,9 +141,8 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update x_orderstate
-    set osid = #{record.osid,jdbcType=INTEGER},
-      osvalue = #{record.osvalue,jdbcType=VARCHAR},
-      osdescription = #{record.osdescription,jdbcType=VARCHAR}
+    set id = #{record.id,jdbcType=INTEGER},
+      osvalue = #{record.osvalue,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -166,16 +153,12 @@
       <if test="osvalue != null" >
         osvalue = #{osvalue,jdbcType=VARCHAR},
       </if>
-      <if test="osdescription != null" >
-        osdescription = #{osdescription,jdbcType=VARCHAR},
-      </if>
     </set>
-    where osid = #{osid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.OrderState" >
     update x_orderstate
-    set osvalue = #{osvalue,jdbcType=VARCHAR},
-      osdescription = #{osdescription,jdbcType=VARCHAR}
-    where osid = #{osid,jdbcType=INTEGER}
+    set osvalue = #{osvalue,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -30,6 +30,11 @@
 		padding-left: 20px;
 		text-align: center;
 	}
+	hr{
+		height:0.1px;
+		border:none;
+		border-top:1px dashed #0066CC;
+	}
 
 </style>
 </head>

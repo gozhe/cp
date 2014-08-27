@@ -2,9 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jckjkj.mybatis.dao.RepairResultMapper" >
   <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.RepairResult" >
-    <id column="rrid" property="rrid" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="INTEGER" />
     <result column="rrvalue" property="rrvalue" jdbcType="VARCHAR" />
-    <result column="rrvaluedescribe" property="rrvaluedescribe" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -65,7 +64,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    rrid, rrvalue, rrvaluedescribe
+    id, rrvalue
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jckjkj.mybatis.model.RepairResultExample" >
     select
@@ -85,11 +84,11 @@
     select 
     <include refid="Base_Column_List" />
     from x_repairresult
-    where rrid = #{rrid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from x_repairresult
-    where rrid = #{rrid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.jckjkj.mybatis.model.RepairResultExample" >
     delete from x_repairresult
@@ -98,33 +97,25 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.jckjkj.mybatis.model.RepairResult" >
-    insert into x_repairresult (rrid, rrvalue, rrvaluedescribe
-      )
-    values (#{rrid,jdbcType=INTEGER}, #{rrvalue,jdbcType=VARCHAR}, #{rrvaluedescribe,jdbcType=VARCHAR}
-      )
+    insert into x_repairresult (id, rrvalue)
+    values (#{id,jdbcType=INTEGER}, #{rrvalue,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.RepairResult" >
     insert into x_repairresult
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="rrid != null" >
-        rrid,
+      <if test="id != null" >
+        id,
       </if>
       <if test="rrvalue != null" >
         rrvalue,
       </if>
-      <if test="rrvaluedescribe != null" >
-        rrvaluedescribe,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="rrid != null" >
-        #{rrid,jdbcType=INTEGER},
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
       </if>
       <if test="rrvalue != null" >
         #{rrvalue,jdbcType=VARCHAR},
-      </if>
-      <if test="rrvaluedescribe != null" >
-        #{rrvaluedescribe,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -137,14 +128,11 @@
   <update id="updateByExampleSelective" parameterType="map" >
     update x_repairresult
     <set >
-      <if test="record.rrid != null" >
-        rrid = #{record.rrid,jdbcType=INTEGER},
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
       </if>
       <if test="record.rrvalue != null" >
         rrvalue = #{record.rrvalue,jdbcType=VARCHAR},
-      </if>
-      <if test="record.rrvaluedescribe != null" >
-        rrvaluedescribe = #{record.rrvaluedescribe,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -153,9 +141,8 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update x_repairresult
-    set rrid = #{record.rrid,jdbcType=INTEGER},
-      rrvalue = #{record.rrvalue,jdbcType=VARCHAR},
-      rrvaluedescribe = #{record.rrvaluedescribe,jdbcType=VARCHAR}
+    set id = #{record.id,jdbcType=INTEGER},
+      rrvalue = #{record.rrvalue,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -166,16 +153,12 @@
       <if test="rrvalue != null" >
         rrvalue = #{rrvalue,jdbcType=VARCHAR},
       </if>
-      <if test="rrvaluedescribe != null" >
-        rrvaluedescribe = #{rrvaluedescribe,jdbcType=VARCHAR},
-      </if>
     </set>
-    where rrid = #{rrid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.RepairResult" >
     update x_repairresult
-    set rrvalue = #{rrvalue,jdbcType=VARCHAR},
-      rrvaluedescribe = #{rrvaluedescribe,jdbcType=VARCHAR}
-    where rrid = #{rrid,jdbcType=INTEGER}
+    set rrvalue = #{rrvalue,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

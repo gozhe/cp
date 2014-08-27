@@ -104,63 +104,63 @@ public class RepairResultExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andRridIsNull() {
-            addCriterion("rrid is null");
+        public Criteria andIdIsNull() {
+            addCriterion("id is null");
             return (Criteria) this;
         }
 
-        public Criteria andRridIsNotNull() {
-            addCriterion("rrid is not null");
+        public Criteria andIdIsNotNull() {
+            addCriterion("id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andRridEqualTo(Integer value) {
-            addCriterion("rrid =", value, "rrid");
+        public Criteria andIdEqualTo(Integer value) {
+            addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRridNotEqualTo(Integer value) {
-            addCriterion("rrid <>", value, "rrid");
+        public Criteria andIdNotEqualTo(Integer value) {
+            addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRridGreaterThan(Integer value) {
-            addCriterion("rrid >", value, "rrid");
+        public Criteria andIdGreaterThan(Integer value) {
+            addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRridGreaterThanOrEqualTo(Integer value) {
-            addCriterion("rrid >=", value, "rrid");
+        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRridLessThan(Integer value) {
-            addCriterion("rrid <", value, "rrid");
+        public Criteria andIdLessThan(Integer value) {
+            addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRridLessThanOrEqualTo(Integer value) {
-            addCriterion("rrid <=", value, "rrid");
+        public Criteria andIdLessThanOrEqualTo(Integer value) {
+            addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRridIn(List<Integer> values) {
-            addCriterion("rrid in", values, "rrid");
+        public Criteria andIdIn(List<Integer> values) {
+            addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRridNotIn(List<Integer> values) {
-            addCriterion("rrid not in", values, "rrid");
+        public Criteria andIdNotIn(List<Integer> values) {
+            addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRridBetween(Integer value1, Integer value2) {
-            addCriterion("rrid between", value1, value2, "rrid");
+        public Criteria andIdBetween(Integer value1, Integer value2) {
+            addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRridNotBetween(Integer value1, Integer value2) {
-            addCriterion("rrid not between", value1, value2, "rrid");
+        public Criteria andIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("id not between", value1, value2, "id");
             return (Criteria) this;
         }
 
@@ -231,76 +231,6 @@ public class RepairResultExample {
 
         public Criteria andRrvalueNotBetween(String value1, String value2) {
             addCriterion("rrvalue not between", value1, value2, "rrvalue");
-            return (Criteria) this;
-        }
-
-        public Criteria andRrvaluedescribeIsNull() {
-            addCriterion("rrvaluedescribe is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRrvaluedescribeIsNotNull() {
-            addCriterion("rrvaluedescribe is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRrvaluedescribeEqualTo(String value) {
-            addCriterion("rrvaluedescribe =", value, "rrvaluedescribe");
-            return (Criteria) this;
-        }
-
-        public Criteria andRrvaluedescribeNotEqualTo(String value) {
-            addCriterion("rrvaluedescribe <>", value, "rrvaluedescribe");
-            return (Criteria) this;
-        }
-
-        public Criteria andRrvaluedescribeGreaterThan(String value) {
-            addCriterion("rrvaluedescribe >", value, "rrvaluedescribe");
-            return (Criteria) this;
-        }
-
-        public Criteria andRrvaluedescribeGreaterThanOrEqualTo(String value) {
-            addCriterion("rrvaluedescribe >=", value, "rrvaluedescribe");
-            return (Criteria) this;
-        }
-
-        public Criteria andRrvaluedescribeLessThan(String value) {
-            addCriterion("rrvaluedescribe <", value, "rrvaluedescribe");
-            return (Criteria) this;
-        }
-
-        public Criteria andRrvaluedescribeLessThanOrEqualTo(String value) {
-            addCriterion("rrvaluedescribe <=", value, "rrvaluedescribe");
-            return (Criteria) this;
-        }
-
-        public Criteria andRrvaluedescribeLike(String value) {
-            addCriterion("rrvaluedescribe like", value, "rrvaluedescribe");
-            return (Criteria) this;
-        }
-
-        public Criteria andRrvaluedescribeNotLike(String value) {
-            addCriterion("rrvaluedescribe not like", value, "rrvaluedescribe");
-            return (Criteria) this;
-        }
-
-        public Criteria andRrvaluedescribeIn(List<String> values) {
-            addCriterion("rrvaluedescribe in", values, "rrvaluedescribe");
-            return (Criteria) this;
-        }
-
-        public Criteria andRrvaluedescribeNotIn(List<String> values) {
-            addCriterion("rrvaluedescribe not in", values, "rrvaluedescribe");
-            return (Criteria) this;
-        }
-
-        public Criteria andRrvaluedescribeBetween(String value1, String value2) {
-            addCriterion("rrvaluedescribe between", value1, value2, "rrvaluedescribe");
-            return (Criteria) this;
-        }
-
-        public Criteria andRrvaluedescribeNotBetween(String value1, String value2) {
-            addCriterion("rrvaluedescribe not between", value1, value2, "rrvaluedescribe");
             return (Criteria) this;
         }
     }

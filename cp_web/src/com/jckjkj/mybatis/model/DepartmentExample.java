@@ -1,6 +1,5 @@
 package com.jckjkj.mybatis.model;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -105,73 +104,73 @@ public class DepartmentExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andDptidIsNull() {
-            addCriterion("dptid is null");
+        public Criteria andIdIsNull() {
+            addCriterion("id is null");
             return (Criteria) this;
         }
 
-        public Criteria andDptidIsNotNull() {
-            addCriterion("dptid is not null");
+        public Criteria andIdIsNotNull() {
+            addCriterion("id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andDptidEqualTo(String value) {
-            addCriterion("dptid =", value, "dptid");
+        public Criteria andIdEqualTo(String value) {
+            addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andDptidNotEqualTo(String value) {
-            addCriterion("dptid <>", value, "dptid");
+        public Criteria andIdNotEqualTo(String value) {
+            addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andDptidGreaterThan(String value) {
-            addCriterion("dptid >", value, "dptid");
+        public Criteria andIdGreaterThan(String value) {
+            addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andDptidGreaterThanOrEqualTo(String value) {
-            addCriterion("dptid >=", value, "dptid");
+        public Criteria andIdGreaterThanOrEqualTo(String value) {
+            addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andDptidLessThan(String value) {
-            addCriterion("dptid <", value, "dptid");
+        public Criteria andIdLessThan(String value) {
+            addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andDptidLessThanOrEqualTo(String value) {
-            addCriterion("dptid <=", value, "dptid");
+        public Criteria andIdLessThanOrEqualTo(String value) {
+            addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andDptidLike(String value) {
-            addCriterion("dptid like", value, "dptid");
+        public Criteria andIdLike(String value) {
+            addCriterion("id like", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andDptidNotLike(String value) {
-            addCriterion("dptid not like", value, "dptid");
+        public Criteria andIdNotLike(String value) {
+            addCriterion("id not like", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andDptidIn(List<String> values) {
-            addCriterion("dptid in", values, "dptid");
+        public Criteria andIdIn(List<String> values) {
+            addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andDptidNotIn(List<String> values) {
-            addCriterion("dptid not in", values, "dptid");
+        public Criteria andIdNotIn(List<String> values) {
+            addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andDptidBetween(String value1, String value2) {
-            addCriterion("dptid between", value1, value2, "dptid");
+        public Criteria andIdBetween(String value1, String value2) {
+            addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andDptidNotBetween(String value1, String value2) {
-            addCriterion("dptid not between", value1, value2, "dptid");
+        public Criteria andIdNotBetween(String value1, String value2) {
+            addCriterion("id not between", value1, value2, "id");
             return (Criteria) this;
         }
 
@@ -385,243 +384,63 @@ public class DepartmentExample {
             return (Criteria) this;
         }
 
-        public Criteria andStationlistIsNull() {
-            addCriterion("stationlist is null");
+        public Criteria andDpttypeIsNull() {
+            addCriterion("dpttype is null");
             return (Criteria) this;
         }
 
-        public Criteria andStationlistIsNotNull() {
-            addCriterion("stationlist is not null");
+        public Criteria andDpttypeIsNotNull() {
+            addCriterion("dpttype is not null");
             return (Criteria) this;
         }
 
-        public Criteria andStationlistEqualTo(Object value) {
-            addCriterion("stationlist =", value, "stationlist");
+        public Criteria andDpttypeEqualTo(Integer value) {
+            addCriterion("dpttype =", value, "dpttype");
             return (Criteria) this;
         }
 
-        public Criteria andStationlistNotEqualTo(Object value) {
-            addCriterion("stationlist <>", value, "stationlist");
+        public Criteria andDpttypeNotEqualTo(Integer value) {
+            addCriterion("dpttype <>", value, "dpttype");
             return (Criteria) this;
         }
 
-        public Criteria andStationlistGreaterThan(Object value) {
-            addCriterion("stationlist >", value, "stationlist");
+        public Criteria andDpttypeGreaterThan(Integer value) {
+            addCriterion("dpttype >", value, "dpttype");
             return (Criteria) this;
         }
 
-        public Criteria andStationlistGreaterThanOrEqualTo(Object value) {
-            addCriterion("stationlist >=", value, "stationlist");
+        public Criteria andDpttypeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("dpttype >=", value, "dpttype");
             return (Criteria) this;
         }
 
-        public Criteria andStationlistLessThan(Object value) {
-            addCriterion("stationlist <", value, "stationlist");
+        public Criteria andDpttypeLessThan(Integer value) {
+            addCriterion("dpttype <", value, "dpttype");
             return (Criteria) this;
         }
 
-        public Criteria andStationlistLessThanOrEqualTo(Object value) {
-            addCriterion("stationlist <=", value, "stationlist");
+        public Criteria andDpttypeLessThanOrEqualTo(Integer value) {
+            addCriterion("dpttype <=", value, "dpttype");
             return (Criteria) this;
         }
 
-        public Criteria andStationlistIn(List<Object> values) {
-            addCriterion("stationlist in", values, "stationlist");
+        public Criteria andDpttypeIn(List<Integer> values) {
+            addCriterion("dpttype in", values, "dpttype");
             return (Criteria) this;
         }
 
-        public Criteria andStationlistNotIn(List<Object> values) {
-            addCriterion("stationlist not in", values, "stationlist");
+        public Criteria andDpttypeNotIn(List<Integer> values) {
+            addCriterion("dpttype not in", values, "dpttype");
             return (Criteria) this;
         }
 
-        public Criteria andStationlistBetween(Object value1, Object value2) {
-            addCriterion("stationlist between", value1, value2, "stationlist");
+        public Criteria andDpttypeBetween(Integer value1, Integer value2) {
+            addCriterion("dpttype between", value1, value2, "dpttype");
             return (Criteria) this;
         }
 
-        public Criteria andStationlistNotBetween(Object value1, Object value2) {
-            addCriterion("stationlist not between", value1, value2, "stationlist");
-            return (Criteria) this;
-        }
-
-        public Criteria andCameracountIsNull() {
-            addCriterion("cameracount is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCameracountIsNotNull() {
-            addCriterion("cameracount is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCameracountEqualTo(Integer value) {
-            addCriterion("cameracount =", value, "cameracount");
-            return (Criteria) this;
-        }
-
-        public Criteria andCameracountNotEqualTo(Integer value) {
-            addCriterion("cameracount <>", value, "cameracount");
-            return (Criteria) this;
-        }
-
-        public Criteria andCameracountGreaterThan(Integer value) {
-            addCriterion("cameracount >", value, "cameracount");
-            return (Criteria) this;
-        }
-
-        public Criteria andCameracountGreaterThanOrEqualTo(Integer value) {
-            addCriterion("cameracount >=", value, "cameracount");
-            return (Criteria) this;
-        }
-
-        public Criteria andCameracountLessThan(Integer value) {
-            addCriterion("cameracount <", value, "cameracount");
-            return (Criteria) this;
-        }
-
-        public Criteria andCameracountLessThanOrEqualTo(Integer value) {
-            addCriterion("cameracount <=", value, "cameracount");
-            return (Criteria) this;
-        }
-
-        public Criteria andCameracountIn(List<Integer> values) {
-            addCriterion("cameracount in", values, "cameracount");
-            return (Criteria) this;
-        }
-
-        public Criteria andCameracountNotIn(List<Integer> values) {
-            addCriterion("cameracount not in", values, "cameracount");
-            return (Criteria) this;
-        }
-
-        public Criteria andCameracountBetween(Integer value1, Integer value2) {
-            addCriterion("cameracount between", value1, value2, "cameracount");
-            return (Criteria) this;
-        }
-
-        public Criteria andCameracountNotBetween(Integer value1, Integer value2) {
-            addCriterion("cameracount not between", value1, value2, "cameracount");
-            return (Criteria) this;
-        }
-
-        public Criteria andContractvalueIsNull() {
-            addCriterion("contractvalue is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andContractvalueIsNotNull() {
-            addCriterion("contractvalue is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andContractvalueEqualTo(BigDecimal value) {
-            addCriterion("contractvalue =", value, "contractvalue");
-            return (Criteria) this;
-        }
-
-        public Criteria andContractvalueNotEqualTo(BigDecimal value) {
-            addCriterion("contractvalue <>", value, "contractvalue");
-            return (Criteria) this;
-        }
-
-        public Criteria andContractvalueGreaterThan(BigDecimal value) {
-            addCriterion("contractvalue >", value, "contractvalue");
-            return (Criteria) this;
-        }
-
-        public Criteria andContractvalueGreaterThanOrEqualTo(BigDecimal value) {
-            addCriterion("contractvalue >=", value, "contractvalue");
-            return (Criteria) this;
-        }
-
-        public Criteria andContractvalueLessThan(BigDecimal value) {
-            addCriterion("contractvalue <", value, "contractvalue");
-            return (Criteria) this;
-        }
-
-        public Criteria andContractvalueLessThanOrEqualTo(BigDecimal value) {
-            addCriterion("contractvalue <=", value, "contractvalue");
-            return (Criteria) this;
-        }
-
-        public Criteria andContractvalueIn(List<BigDecimal> values) {
-            addCriterion("contractvalue in", values, "contractvalue");
-            return (Criteria) this;
-        }
-
-        public Criteria andContractvalueNotIn(List<BigDecimal> values) {
-            addCriterion("contractvalue not in", values, "contractvalue");
-            return (Criteria) this;
-        }
-
-        public Criteria andContractvalueBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("contractvalue between", value1, value2, "contractvalue");
-            return (Criteria) this;
-        }
-
-        public Criteria andContractvalueNotBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("contractvalue not between", value1, value2, "contractvalue");
-            return (Criteria) this;
-        }
-
-        public Criteria andContractmonthIsNull() {
-            addCriterion("contractmonth is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andContractmonthIsNotNull() {
-            addCriterion("contractmonth is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andContractmonthEqualTo(Integer value) {
-            addCriterion("contractmonth =", value, "contractmonth");
-            return (Criteria) this;
-        }
-
-        public Criteria andContractmonthNotEqualTo(Integer value) {
-            addCriterion("contractmonth <>", value, "contractmonth");
-            return (Criteria) this;
-        }
-
-        public Criteria andContractmonthGreaterThan(Integer value) {
-            addCriterion("contractmonth >", value, "contractmonth");
-            return (Criteria) this;
-        }
-
-        public Criteria andContractmonthGreaterThanOrEqualTo(Integer value) {
-            addCriterion("contractmonth >=", value, "contractmonth");
-            return (Criteria) this;
-        }
-
-        public Criteria andContractmonthLessThan(Integer value) {
-            addCriterion("contractmonth <", value, "contractmonth");
-            return (Criteria) this;
-        }
-
-        public Criteria andContractmonthLessThanOrEqualTo(Integer value) {
-            addCriterion("contractmonth <=", value, "contractmonth");
-            return (Criteria) this;
-        }
-
-        public Criteria andContractmonthIn(List<Integer> values) {
-            addCriterion("contractmonth in", values, "contractmonth");
-            return (Criteria) this;
-        }
-
-        public Criteria andContractmonthNotIn(List<Integer> values) {
-            addCriterion("contractmonth not in", values, "contractmonth");
-            return (Criteria) this;
-        }
-
-        public Criteria andContractmonthBetween(Integer value1, Integer value2) {
-            addCriterion("contractmonth between", value1, value2, "contractmonth");
-            return (Criteria) this;
-        }
-
-        public Criteria andContractmonthNotBetween(Integer value1, Integer value2) {
-            addCriterion("contractmonth not between", value1, value2, "contractmonth");
+        public Criteria andDpttypeNotBetween(Integer value1, Integer value2) {
+            addCriterion("dpttype not between", value1, value2, "dpttype");
             return (Criteria) this;
         }
     }

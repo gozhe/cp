@@ -3,7 +3,7 @@ package com.jckjkj.mybatis.model;
 import java.util.Date;
 
 public class RoutingInspection {
-    private Long rouid;
+    private Integer id;
 
     private String equid;
 
@@ -19,18 +19,14 @@ public class RoutingInspection {
 
     private String roudescription;
 
-    private String auditopinion;
+    private Integer personid;
 
-    private Date audittime;
-
-    private Integer persionid;
-
-    public Long getRouid() {
-        return rouid;
+    public Integer getId() {
+        return id;
     }
 
-    public void setRouid(Long rouid) {
-        this.rouid = rouid;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getEquid() {
@@ -89,27 +85,11 @@ public class RoutingInspection {
         this.roudescription = roudescription == null ? null : roudescription.trim();
     }
 
-    public String getAuditopinion() {
-        return auditopinion;
+    public Integer getPersonid() {
+        return personid;
     }
 
-    public void setAuditopinion(String auditopinion) {
-        this.auditopinion = auditopinion == null ? null : auditopinion.trim();
-    }
-
-    public Date getAudittime() {
-        return audittime;
-    }
-
-    public void setAudittime(Date audittime) {
-        this.audittime = audittime;
-    }
-
-    public Integer getPersionid() {
-        return persionid;
-    }
-
-    public void setPersionid(Integer persionid) {
-        this.persionid = persionid;
+    public void setPersonid(Integer personid) {
+        this.personid = personid;
     }
 }

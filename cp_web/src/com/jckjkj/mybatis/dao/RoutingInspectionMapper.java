@@ -10,7 +10,7 @@ public interface RoutingInspectionMapper {
 
     int deleteByExample(RoutingInspectionExample example);
 
-    int deleteByPrimaryKey(Long rouid);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(RoutingInspection record);
 
@@ -18,7 +18,7 @@ public interface RoutingInspectionMapper {
 
     List<RoutingInspection> selectByExample(RoutingInspectionExample example);
 
-    RoutingInspection selectByPrimaryKey(Long rouid);
+    RoutingInspection selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") RoutingInspection record, @Param("example") RoutingInspectionExample example);
 

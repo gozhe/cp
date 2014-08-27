@@ -1,20 +1,18 @@
 package com.jckjkj.mybatis.model;
 
 public class FaultGrade {
-    private Integer fgid;
+    private Integer id;
 
     private String faultgd;
 
     private Integer timelimit;
 
-    private String fgdescribe;
-
-    public Integer getFgid() {
-        return fgid;
+    public Integer getId() {
+        return id;
     }
 
-    public void setFgid(Integer fgid) {
-        this.fgid = fgid;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getFaultgd() {
@@ -31,13 +29,5 @@ public class FaultGrade {
 
     public void setTimelimit(Integer timelimit) {
         this.timelimit = timelimit;
-    }
-
-    public String getFgdescribe() {
-        return fgdescribe;
-    }
-
-    public void setFgdescribe(String fgdescribe) {
-        this.fgdescribe = fgdescribe == null ? null : fgdescribe.trim();
     }
 }

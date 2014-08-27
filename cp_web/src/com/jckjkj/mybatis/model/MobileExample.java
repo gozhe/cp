@@ -104,63 +104,63 @@ public class MobileExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andMobileidIsNull() {
-            addCriterion("mobileid is null");
+        public Criteria andIdIsNull() {
+            addCriterion("id is null");
             return (Criteria) this;
         }
 
-        public Criteria andMobileidIsNotNull() {
-            addCriterion("mobileid is not null");
+        public Criteria andIdIsNotNull() {
+            addCriterion("id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andMobileidEqualTo(Long value) {
-            addCriterion("mobileid =", value, "mobileid");
+        public Criteria andIdEqualTo(Integer value) {
+            addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andMobileidNotEqualTo(Long value) {
-            addCriterion("mobileid <>", value, "mobileid");
+        public Criteria andIdNotEqualTo(Integer value) {
+            addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andMobileidGreaterThan(Long value) {
-            addCriterion("mobileid >", value, "mobileid");
+        public Criteria andIdGreaterThan(Integer value) {
+            addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andMobileidGreaterThanOrEqualTo(Long value) {
-            addCriterion("mobileid >=", value, "mobileid");
+        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andMobileidLessThan(Long value) {
-            addCriterion("mobileid <", value, "mobileid");
+        public Criteria andIdLessThan(Integer value) {
+            addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andMobileidLessThanOrEqualTo(Long value) {
-            addCriterion("mobileid <=", value, "mobileid");
+        public Criteria andIdLessThanOrEqualTo(Integer value) {
+            addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andMobileidIn(List<Long> values) {
-            addCriterion("mobileid in", values, "mobileid");
+        public Criteria andIdIn(List<Integer> values) {
+            addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andMobileidNotIn(List<Long> values) {
-            addCriterion("mobileid not in", values, "mobileid");
+        public Criteria andIdNotIn(List<Integer> values) {
+            addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andMobileidBetween(Long value1, Long value2) {
-            addCriterion("mobileid between", value1, value2, "mobileid");
+        public Criteria andIdBetween(Integer value1, Integer value2) {
+            addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andMobileidNotBetween(Long value1, Long value2) {
-            addCriterion("mobileid not between", value1, value2, "mobileid");
+        public Criteria andIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("id not between", value1, value2, "id");
             return (Criteria) this;
         }
 

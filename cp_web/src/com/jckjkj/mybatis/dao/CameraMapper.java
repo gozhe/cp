@@ -10,7 +10,7 @@ public interface CameraMapper {
 
     int deleteByExample(CameraExample example);
 
-    int deleteByPrimaryKey(String cameraid);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Camera record);
 
@@ -18,7 +18,7 @@ public interface CameraMapper {
 
     List<Camera> selectByExample(CameraExample example);
 
-    Camera selectByPrimaryKey(String cameraid);
+    Camera selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") Camera record, @Param("example") CameraExample example);
 

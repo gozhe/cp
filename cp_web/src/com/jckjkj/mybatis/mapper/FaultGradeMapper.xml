@@ -2,10 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jckjkj.mybatis.dao.FaultGradeMapper" >
   <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.FaultGrade" >
-    <id column="fgid" property="fgid" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="INTEGER" />
     <result column="faultgd" property="faultgd" jdbcType="VARCHAR" />
     <result column="timelimit" property="timelimit" jdbcType="INTEGER" />
-    <result column="fgdescribe" property="fgdescribe" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -66,7 +65,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    fgid, faultgd, timelimit, fgdescribe
+    id, faultgd, timelimit
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jckjkj.mybatis.model.FaultGradeExample" >
     select
@@ -86,11 +85,11 @@
     select 
     <include refid="Base_Column_List" />
     from x_faultgrade
-    where fgid = #{fgid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from x_faultgrade
-    where fgid = #{fgid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.jckjkj.mybatis.model.FaultGradeExample" >
     delete from x_faultgrade
@@ -99,16 +98,16 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.jckjkj.mybatis.model.FaultGrade" >
-    insert into x_faultgrade (fgid, faultgd, timelimit, 
-      fgdescribe)
-    values (#{fgid,jdbcType=INTEGER}, #{faultgd,jdbcType=VARCHAR}, #{timelimit,jdbcType=INTEGER}, 
-      #{fgdescribe,jdbcType=VARCHAR})
+    insert into x_faultgrade (id, faultgd, timelimit
+      )
+    values (#{id,jdbcType=INTEGER}, #{faultgd,jdbcType=VARCHAR}, #{timelimit,jdbcType=INTEGER}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.FaultGrade" >
     insert into x_faultgrade
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="fgid != null" >
-        fgid,
+      <if test="id != null" >
+        id,
       </if>
       <if test="faultgd != null" >
         faultgd,
@@ -116,22 +115,16 @@
       <if test="timelimit != null" >
         timelimit,
       </if>
-      <if test="fgdescribe != null" >
-        fgdescribe,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="fgid != null" >
-        #{fgid,jdbcType=INTEGER},
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
       </if>
       <if test="faultgd != null" >
         #{faultgd,jdbcType=VARCHAR},
       </if>
       <if test="timelimit != null" >
         #{timelimit,jdbcType=INTEGER},
-      </if>
-      <if test="fgdescribe != null" >
-        #{fgdescribe,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -144,17 +137,14 @@
   <update id="updateByExampleSelective" parameterType="map" >
     update x_faultgrade
     <set >
-      <if test="record.fgid != null" >
-        fgid = #{record.fgid,jdbcType=INTEGER},
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
       </if>
       <if test="record.faultgd != null" >
         faultgd = #{record.faultgd,jdbcType=VARCHAR},
       </if>
       <if test="record.timelimit != null" >
         timelimit = #{record.timelimit,jdbcType=INTEGER},
-      </if>
-      <if test="record.fgdescribe != null" >
-        fgdescribe = #{record.fgdescribe,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -163,10 +153,9 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update x_faultgrade
-    set fgid = #{record.fgid,jdbcType=INTEGER},
+    set id = #{record.id,jdbcType=INTEGER},
       faultgd = #{record.faultgd,jdbcType=VARCHAR},
-      timelimit = #{record.timelimit,jdbcType=INTEGER},
-      fgdescribe = #{record.fgdescribe,jdbcType=VARCHAR}
+      timelimit = #{record.timelimit,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -180,17 +169,13 @@
       <if test="timelimit != null" >
         timelimit = #{timelimit,jdbcType=INTEGER},
       </if>
-      <if test="fgdescribe != null" >
-        fgdescribe = #{fgdescribe,jdbcType=VARCHAR},
-      </if>
     </set>
-    where fgid = #{fgid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.FaultGrade" >
     update x_faultgrade
     set faultgd = #{faultgd,jdbcType=VARCHAR},
-      timelimit = #{timelimit,jdbcType=INTEGER},
-      fgdescribe = #{fgdescribe,jdbcType=VARCHAR}
-    where fgid = #{fgid,jdbcType=INTEGER}
+      timelimit = #{timelimit,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

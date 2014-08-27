@@ -59,12 +59,9 @@
 						<li class="button"><a href="#" class="red"><img alt="" src="img/sbjk.png" class="img">统计分析 <span></span></a></li>
 						<li class="dropdown">
 							<ul>
-								<li><a class="submenu"  href="#"
-									onclick="$('.button a').eq(2).click();return false;">设备完好率统计</a></li>
-								<li><a class="submenu"  href="#"
-									onclick="$('.button a').eq(2).click();return false;">设备故障率统计</a></li>
-								<li><a class="submenu"  href="#"
-									onclick="$('.button a').eq(2).click();return false;">故障处理情况统计</a></li>
+								<li><a class="submenu"  href="_tj/sbwhl.jsp" target="right">设备完好率统计</a></li>
+								<li><a class="submenu"  href="_tj/sbgzl.jsp"  target="right">设备故障率统计</a></li>
+								<li><a class="submenu"  href="_tj/sbclqk.jsp"  target="right">故障处理情况统计</a></li>
 
 							</ul>
 						</li>

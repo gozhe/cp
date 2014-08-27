@@ -1,33 +1,23 @@
 package com.jckjkj.mybatis.model;
 
 public class Module {
-    private Integer modelid;
+    private Integer id;
 
-    private String modelname;
+    private String modulename;
 
-    private Integer modelroleaccess;
-
-    public Integer getModelid() {
-        return modelid;
+    public Integer getId() {
+        return id;
     }
 
-    public void setModelid(Integer modelid) {
-        this.modelid = modelid;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getModelname() {
-        return modelname;
+    public String getModulename() {
+        return modulename;
     }
 
-    public void setModelname(String modelname) {
-        this.modelname = modelname == null ? null : modelname.trim();
-    }
-
-    public Integer getModelroleaccess() {
-        return modelroleaccess;
-    }
-
-    public void setModelroleaccess(Integer modelroleaccess) {
-        this.modelroleaccess = modelroleaccess;
+    public void setModulename(String modulename) {
+        this.modulename = modulename == null ? null : modulename.trim();
     }
 }

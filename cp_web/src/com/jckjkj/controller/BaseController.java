@@ -74,7 +74,7 @@ public class BaseController {
 			List<RoutingInspection> list = baseService
 					.getRoutingInspectionList();
 			request.setAttribute("ResultList", list);
-			return "_xj/xjgl";
+			return "_xj/listAll";
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("InfoMessage", "" + e.getMessage());

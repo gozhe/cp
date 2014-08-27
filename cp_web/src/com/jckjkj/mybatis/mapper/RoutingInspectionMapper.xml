@@ -2,17 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jckjkj.mybatis.dao.RoutingInspectionMapper" >
   <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.RoutingInspection" >
-    <id column="rouid" property="rouid" jdbcType="BIGINT" />
+    <id column="id" property="id" jdbcType="INTEGER" />
     <result column="equid" property="equid" jdbcType="VARCHAR" />
-    <result column="signintime" property="signintime" jdbcType="DATE" />
+    <result column="signintime" property="signintime" jdbcType="TIMESTAMP" />
     <result column="singinlongitude" property="singinlongitude" jdbcType="VARCHAR" />
     <result column="singinlatitude" property="singinlatitude" jdbcType="VARCHAR" />
     <result column="equstate" property="equstate" jdbcType="VARCHAR" />
     <result column="rouphoto" property="rouphoto" jdbcType="VARCHAR" />
     <result column="roudescription" property="roudescription" jdbcType="VARCHAR" />
-    <result column="auditopinion" property="auditopinion" jdbcType="VARCHAR" />
-    <result column="audittime" property="audittime" jdbcType="DATE" />
-    <result column="persionid" property="persionid" jdbcType="INTEGER" />
+    <result column="personid" property="personid" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -73,8 +71,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    rouid, equid, signintime, singinlongitude, singinlatitude, equstate, rouphoto, roudescription, 
-    auditopinion, audittime, persionid
+    id, equid, signintime, singinlongitude, singinlatitude, equstate, rouphoto, roudescription, 
+    personid
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jckjkj.mybatis.model.RoutingInspectionExample" >
     select
@@ -90,15 +88,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from x_routinginspection
-    where rouid = #{rouid,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from x_routinginspection
-    where rouid = #{rouid,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.jckjkj.mybatis.model.RoutingInspectionExample" >
     delete from x_routinginspection
@@ -107,20 +105,20 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.jckjkj.mybatis.model.RoutingInspection" >
-    insert into x_routinginspection (rouid, equid, signintime, 
+    insert into x_routinginspection (id, equid, signintime, 
       singinlongitude, singinlatitude, equstate, 
-      rouphoto, roudescription, auditopinion, 
-      audittime, persionid)
-    values (#{rouid,jdbcType=BIGINT}, #{equid,jdbcType=VARCHAR}, #{signintime,jdbcType=DATE}, 
+      rouphoto, roudescription, personid
+      )
+    values (#{id,jdbcType=INTEGER}, #{equid,jdbcType=VARCHAR}, #{signintime,jdbcType=TIMESTAMP}, 
       #{singinlongitude,jdbcType=VARCHAR}, #{singinlatitude,jdbcType=VARCHAR}, #{equstate,jdbcType=VARCHAR}, 
-      #{rouphoto,jdbcType=VARCHAR}, #{roudescription,jdbcType=VARCHAR}, #{auditopinion,jdbcType=VARCHAR}, 
-      #{audittime,jdbcType=DATE}, #{persionid,jdbcType=INTEGER})
+      #{rouphoto,jdbcType=VARCHAR}, #{roudescription,jdbcType=VARCHAR}, #{personid,jdbcType=INTEGER}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.RoutingInspection" >
     insert into x_routinginspection
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="rouid != null" >
-        rouid,
+      <if test="id != null" >
+        id,
       </if>
       <if test="equid != null" >
         equid,
@@ -143,25 +141,19 @@
       <if test="roudescription != null" >
         roudescription,
       </if>
-      <if test="auditopinion != null" >
-        auditopinion,
-      </if>
-      <if test="audittime != null" >
-        audittime,
-      </if>
-      <if test="persionid != null" >
-        persionid,
+      <if test="personid != null" >
+        personid,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="rouid != null" >
-        #{rouid,jdbcType=BIGINT},
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
       </if>
       <if test="equid != null" >
         #{equid,jdbcType=VARCHAR},
       </if>
       <if test="signintime != null" >
-        #{signintime,jdbcType=DATE},
+        #{signintime,jdbcType=TIMESTAMP},
       </if>
       <if test="singinlongitude != null" >
         #{singinlongitude,jdbcType=VARCHAR},
@@ -178,14 +170,8 @@
       <if test="roudescription != null" >
         #{roudescription,jdbcType=VARCHAR},
       </if>
-      <if test="auditopinion != null" >
-        #{auditopinion,jdbcType=VARCHAR},
-      </if>
-      <if test="audittime != null" >
-        #{audittime,jdbcType=DATE},
-      </if>
-      <if test="persionid != null" >
-        #{persionid,jdbcType=INTEGER},
+      <if test="personid != null" >
+        #{personid,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -198,14 +184,14 @@
   <update id="updateByExampleSelective" parameterType="map" >
     update x_routinginspection
     <set >
-      <if test="record.rouid != null" >
-        rouid = #{record.rouid,jdbcType=BIGINT},
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
       </if>
       <if test="record.equid != null" >
         equid = #{record.equid,jdbcType=VARCHAR},
       </if>
       <if test="record.signintime != null" >
-        signintime = #{record.signintime,jdbcType=DATE},
+        signintime = #{record.signintime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.singinlongitude != null" >
         singinlongitude = #{record.singinlongitude,jdbcType=VARCHAR},
@@ -222,14 +208,8 @@
       <if test="record.roudescription != null" >
         roudescription = #{record.roudescription,jdbcType=VARCHAR},
       </if>
-      <if test="record.auditopinion != null" >
-        auditopinion = #{record.auditopinion,jdbcType=VARCHAR},
-      </if>
-      <if test="record.audittime != null" >
-        audittime = #{record.audittime,jdbcType=DATE},
-      </if>
-      <if test="record.persionid != null" >
-        persionid = #{record.persionid,jdbcType=INTEGER},
+      <if test="record.personid != null" >
+        personid = #{record.personid,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -238,17 +218,15 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update x_routinginspection
-    set rouid = #{record.rouid,jdbcType=BIGINT},
+    set id = #{record.id,jdbcType=INTEGER},
       equid = #{record.equid,jdbcType=VARCHAR},
-      signintime = #{record.signintime,jdbcType=DATE},
+      signintime = #{record.signintime,jdbcType=TIMESTAMP},
       singinlongitude = #{record.singinlongitude,jdbcType=VARCHAR},
       singinlatitude = #{record.singinlatitude,jdbcType=VARCHAR},
       equstate = #{record.equstate,jdbcType=VARCHAR},
       rouphoto = #{record.rouphoto,jdbcType=VARCHAR},
       roudescription = #{record.roudescription,jdbcType=VARCHAR},
-      auditopinion = #{record.auditopinion,jdbcType=VARCHAR},
-      audittime = #{record.audittime,jdbcType=DATE},
-      persionid = #{record.persionid,jdbcType=INTEGER}
+      personid = #{record.personid,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -260,7 +238,7 @@
         equid = #{equid,jdbcType=VARCHAR},
       </if>
       <if test="signintime != null" >
-        signintime = #{signintime,jdbcType=DATE},
+        signintime = #{signintime,jdbcType=TIMESTAMP},
       </if>
       <if test="singinlongitude != null" >
         singinlongitude = #{singinlongitude,jdbcType=VARCHAR},
@@ -277,30 +255,22 @@
       <if test="roudescription != null" >
         roudescription = #{roudescription,jdbcType=VARCHAR},
       </if>
-      <if test="auditopinion != null" >
-        auditopinion = #{auditopinion,jdbcType=VARCHAR},
-      </if>
-      <if test="audittime != null" >
-        audittime = #{audittime,jdbcType=DATE},
-      </if>
-      <if test="persionid != null" >
-        persionid = #{persionid,jdbcType=INTEGER},
+      <if test="personid != null" >
+        personid = #{personid,jdbcType=INTEGER},
       </if>
     </set>
-    where rouid = #{rouid,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.RoutingInspection" >
     update x_routinginspection
     set equid = #{equid,jdbcType=VARCHAR},
-      signintime = #{signintime,jdbcType=DATE},
+      signintime = #{signintime,jdbcType=TIMESTAMP},
       singinlongitude = #{singinlongitude,jdbcType=VARCHAR},
       singinlatitude = #{singinlatitude,jdbcType=VARCHAR},
       equstate = #{equstate,jdbcType=VARCHAR},
       rouphoto = #{rouphoto,jdbcType=VARCHAR},
       roudescription = #{roudescription,jdbcType=VARCHAR},
-      auditopinion = #{auditopinion,jdbcType=VARCHAR},
-      audittime = #{audittime,jdbcType=DATE},
-      persionid = #{persionid,jdbcType=INTEGER}
-    where rouid = #{rouid,jdbcType=BIGINT}
+      personid = #{personid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

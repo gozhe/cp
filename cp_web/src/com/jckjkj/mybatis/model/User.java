@@ -1,22 +1,22 @@
 package com.jckjkj.mybatis.model;
 
 public class User {
-    private Long userid;
+    private String id;
 
     private String username;
 
-    private String userpwd;
+    private String password;
 
     private String dptid;
 
-    private Integer userrole;
+    private Integer roleid;
 
-    public Long getUserid() {
-        return userid;
+    public String getId() {
+        return id;
     }
 
-    public void setUserid(Long userid) {
-        this.userid = userid;
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
     }
 
     public String getUsername() {
@@ -27,12 +27,12 @@ public class User {
         this.username = username == null ? null : username.trim();
     }
 
-    public String getUserpwd() {
-        return userpwd;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUserpwd(String userpwd) {
-        this.userpwd = userpwd == null ? null : userpwd.trim();
+    public void setPassword(String password) {
+        this.password = password == null ? null : password.trim();
     }
 
     public String getDptid() {
@@ -43,11 +43,11 @@ public class User {
         this.dptid = dptid == null ? null : dptid.trim();
     }
 
-    public Integer getUserrole() {
-        return userrole;
+    public Integer getRoleid() {
+        return roleid;
     }
 
-    public void setUserrole(Integer userrole) {
-        this.userrole = userrole;
+    public void setRoleid(Integer roleid) {
+        this.roleid = roleid;
     }
 }

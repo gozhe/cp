@@ -2,8 +2,33 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jckjkj.mybatis.dao.CameraMapper" >
   <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.Camera" >
-    <id column="cameraid" property="cameraid" jdbcType="VARCHAR" />
-    <result column="cameraname" property="cameraname" jdbcType="VARCHAR" />
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="station_id" property="stationId" jdbcType="INTEGER" />
+    <result column="sys_no" property="sysNo" jdbcType="VARCHAR" />
+    <result column="com_no" property="comNo" jdbcType="VARCHAR" />
+    <result column="dev_name" property="devName" jdbcType="VARCHAR" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
+    <result column="subnet_mask" property="subnetMask" jdbcType="VARCHAR" />
+    <result column="gateway" property="gateway" jdbcType="VARCHAR" />
+    <result column="storage_ip" property="storageIp" jdbcType="VARCHAR" />
+    <result column="forward_ip" property="forwardIp" jdbcType="VARCHAR" />
+    <result column="port" property="port" jdbcType="INTEGER" />
+    <result column="addr_code" property="addrCode" jdbcType="INTEGER" />
+    <result column="ntp_ip" property="ntpIp" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="dev_brand" property="devBrand" jdbcType="INTEGER" />
+    <result column="dev_model" property="devModel" jdbcType="INTEGER" />
+    <result column="dev_type" property="devType" jdbcType="INTEGER" />
+    <result column="net_date" property="netDate" jdbcType="VARCHAR" />
+    <result column="lng" property="lng" jdbcType="NUMERIC" />
+    <result column="lat" property="lat" jdbcType="NUMERIC" />
+    <result column="lng_offset" property="lngOffset" jdbcType="NUMERIC" />
+    <result column="lat_offset" property="latOffset" jdbcType="NUMERIC" />
+    <result column="contractor" property="contractor" jdbcType="INTEGER" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="order_seq" property="orderSeq" jdbcType="INTEGER" />
+    <result column="channel" property="channel" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -64,7 +89,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    cameraid, cameraname
+    id, station_id, sys_no, com_no, dev_name, ip, subnet_mask, gateway, storage_ip, forward_ip, 
+    port, addr_code, ntp_ip, address, dev_brand, dev_model, dev_type, net_date, lng, 
+    lat, lng_offset, lat_offset, contractor, description, order_seq, channel, create_time
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jckjkj.mybatis.model.CameraExample" >
     select
@@ -80,15 +107,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from t_camera
-    where cameraid = #{cameraid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from t_camera
-    where cameraid = #{cameraid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.jckjkj.mybatis.model.CameraExample" >
     delete from t_camera
@@ -97,25 +124,193 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.jckjkj.mybatis.model.Camera" >
-    insert into t_camera (cameraid, cameraname)
-    values (#{cameraid,jdbcType=VARCHAR}, #{cameraname,jdbcType=VARCHAR})
+    insert into t_camera (id, station_id, sys_no, 
+      com_no, dev_name, ip, 
+      subnet_mask, gateway, storage_ip, 
+      forward_ip, port, addr_code, 
+      ntp_ip, address, dev_brand, 
+      dev_model, dev_type, net_date, 
+      lng, lat, lng_offset, 
+      lat_offset, contractor, description, 
+      order_seq, channel, create_time
+      )
+    values (#{id,jdbcType=INTEGER}, #{stationId,jdbcType=INTEGER}, #{sysNo,jdbcType=VARCHAR}, 
+      #{comNo,jdbcType=VARCHAR}, #{devName,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, 
+      #{subnetMask,jdbcType=VARCHAR}, #{gateway,jdbcType=VARCHAR}, #{storageIp,jdbcType=VARCHAR}, 
+      #{forwardIp,jdbcType=VARCHAR}, #{port,jdbcType=INTEGER}, #{addrCode,jdbcType=INTEGER}, 
+      #{ntpIp,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{devBrand,jdbcType=INTEGER}, 
+      #{devModel,jdbcType=INTEGER}, #{devType,jdbcType=INTEGER}, #{netDate,jdbcType=VARCHAR}, 
+      #{lng,jdbcType=NUMERIC}, #{lat,jdbcType=NUMERIC}, #{lngOffset,jdbcType=NUMERIC}, 
+      #{latOffset,jdbcType=NUMERIC}, #{contractor,jdbcType=INTEGER}, #{description,jdbcType=VARCHAR}, 
+      #{orderSeq,jdbcType=INTEGER}, #{channel,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.Camera" >
     insert into t_camera
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="cameraid != null" >
-        cameraid,
+      <if test="id != null" >
+        id,
       </if>
-      <if test="cameraname != null" >
-        cameraname,
+      <if test="stationId != null" >
+        station_id,
+      </if>
+      <if test="sysNo != null" >
+        sys_no,
+      </if>
+      <if test="comNo != null" >
+        com_no,
+      </if>
+      <if test="devName != null" >
+        dev_name,
+      </if>
+      <if test="ip != null" >
+        ip,
+      </if>
+      <if test="subnetMask != null" >
+        subnet_mask,
+      </if>
+      <if test="gateway != null" >
+        gateway,
+      </if>
+      <if test="storageIp != null" >
+        storage_ip,
+      </if>
+      <if test="forwardIp != null" >
+        forward_ip,
+      </if>
+      <if test="port != null" >
+        port,
+      </if>
+      <if test="addrCode != null" >
+        addr_code,
+      </if>
+      <if test="ntpIp != null" >
+        ntp_ip,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="devBrand != null" >
+        dev_brand,
+      </if>
+      <if test="devModel != null" >
+        dev_model,
+      </if>
+      <if test="devType != null" >
+        dev_type,
+      </if>
+      <if test="netDate != null" >
+        net_date,
+      </if>
+      <if test="lng != null" >
+        lng,
+      </if>
+      <if test="lat != null" >
+        lat,
+      </if>
+      <if test="lngOffset != null" >
+        lng_offset,
+      </if>
+      <if test="latOffset != null" >
+        lat_offset,
+      </if>
+      <if test="contractor != null" >
+        contractor,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="orderSeq != null" >
+        order_seq,
+      </if>
+      <if test="channel != null" >
+        channel,
+      </if>
+      <if test="createTime != null" >
+        create_time,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="cameraid != null" >
-        #{cameraid,jdbcType=VARCHAR},
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
       </if>
-      <if test="cameraname != null" >
-        #{cameraname,jdbcType=VARCHAR},
+      <if test="stationId != null" >
+        #{stationId,jdbcType=INTEGER},
+      </if>
+      <if test="sysNo != null" >
+        #{sysNo,jdbcType=VARCHAR},
+      </if>
+      <if test="comNo != null" >
+        #{comNo,jdbcType=VARCHAR},
+      </if>
+      <if test="devName != null" >
+        #{devName,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null" >
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="subnetMask != null" >
+        #{subnetMask,jdbcType=VARCHAR},
+      </if>
+      <if test="gateway != null" >
+        #{gateway,jdbcType=VARCHAR},
+      </if>
+      <if test="storageIp != null" >
+        #{storageIp,jdbcType=VARCHAR},
+      </if>
+      <if test="forwardIp != null" >
+        #{forwardIp,jdbcType=VARCHAR},
+      </if>
+      <if test="port != null" >
+        #{port,jdbcType=INTEGER},
+      </if>
+      <if test="addrCode != null" >
+        #{addrCode,jdbcType=INTEGER},
+      </if>
+      <if test="ntpIp != null" >
+        #{ntpIp,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="devBrand != null" >
+        #{devBrand,jdbcType=INTEGER},
+      </if>
+      <if test="devModel != null" >
+        #{devModel,jdbcType=INTEGER},
+      </if>
+      <if test="devType != null" >
+        #{devType,jdbcType=INTEGER},
+      </if>
+      <if test="netDate != null" >
+        #{netDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lng != null" >
+        #{lng,jdbcType=NUMERIC},
+      </if>
+      <if test="lat != null" >
+        #{lat,jdbcType=NUMERIC},
+      </if>
+      <if test="lngOffset != null" >
+        #{lngOffset,jdbcType=NUMERIC},
+      </if>
+      <if test="latOffset != null" >
+        #{latOffset,jdbcType=NUMERIC},
+      </if>
+      <if test="contractor != null" >
+        #{contractor,jdbcType=INTEGER},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="orderSeq != null" >
+        #{orderSeq,jdbcType=INTEGER},
+      </if>
+      <if test="channel != null" >
+        #{channel,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -128,11 +323,86 @@
   <update id="updateByExampleSelective" parameterType="map" >
     update t_camera
     <set >
-      <if test="record.cameraid != null" >
-        cameraid = #{record.cameraid,jdbcType=VARCHAR},
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.cameraname != null" >
-        cameraname = #{record.cameraname,jdbcType=VARCHAR},
+      <if test="record.stationId != null" >
+        station_id = #{record.stationId,jdbcType=INTEGER},
+      </if>
+      <if test="record.sysNo != null" >
+        sys_no = #{record.sysNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.comNo != null" >
+        com_no = #{record.comNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.devName != null" >
+        dev_name = #{record.devName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ip != null" >
+        ip = #{record.ip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.subnetMask != null" >
+        subnet_mask = #{record.subnetMask,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gateway != null" >
+        gateway = #{record.gateway,jdbcType=VARCHAR},
+      </if>
+      <if test="record.storageIp != null" >
+        storage_ip = #{record.storageIp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.forwardIp != null" >
+        forward_ip = #{record.forwardIp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.port != null" >
+        port = #{record.port,jdbcType=INTEGER},
+      </if>
+      <if test="record.addrCode != null" >
+        addr_code = #{record.addrCode,jdbcType=INTEGER},
+      </if>
+      <if test="record.ntpIp != null" >
+        ntp_ip = #{record.ntpIp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.address != null" >
+        address = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.devBrand != null" >
+        dev_brand = #{record.devBrand,jdbcType=INTEGER},
+      </if>
+      <if test="record.devModel != null" >
+        dev_model = #{record.devModel,jdbcType=INTEGER},
+      </if>
+      <if test="record.devType != null" >
+        dev_type = #{record.devType,jdbcType=INTEGER},
+      </if>
+      <if test="record.netDate != null" >
+        net_date = #{record.netDate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lng != null" >
+        lng = #{record.lng,jdbcType=NUMERIC},
+      </if>
+      <if test="record.lat != null" >
+        lat = #{record.lat,jdbcType=NUMERIC},
+      </if>
+      <if test="record.lngOffset != null" >
+        lng_offset = #{record.lngOffset,jdbcType=NUMERIC},
+      </if>
+      <if test="record.latOffset != null" >
+        lat_offset = #{record.latOffset,jdbcType=NUMERIC},
+      </if>
+      <if test="record.contractor != null" >
+        contractor = #{record.contractor,jdbcType=INTEGER},
+      </if>
+      <if test="record.description != null" >
+        description = #{record.description,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderSeq != null" >
+        order_seq = #{record.orderSeq,jdbcType=INTEGER},
+      </if>
+      <if test="record.channel != null" >
+        channel = #{record.channel,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -141,8 +411,33 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update t_camera
-    set cameraid = #{record.cameraid,jdbcType=VARCHAR},
-      cameraname = #{record.cameraname,jdbcType=VARCHAR}
+    set id = #{record.id,jdbcType=INTEGER},
+      station_id = #{record.stationId,jdbcType=INTEGER},
+      sys_no = #{record.sysNo,jdbcType=VARCHAR},
+      com_no = #{record.comNo,jdbcType=VARCHAR},
+      dev_name = #{record.devName,jdbcType=VARCHAR},
+      ip = #{record.ip,jdbcType=VARCHAR},
+      subnet_mask = #{record.subnetMask,jdbcType=VARCHAR},
+      gateway = #{record.gateway,jdbcType=VARCHAR},
+      storage_ip = #{record.storageIp,jdbcType=VARCHAR},
+      forward_ip = #{record.forwardIp,jdbcType=VARCHAR},
+      port = #{record.port,jdbcType=INTEGER},
+      addr_code = #{record.addrCode,jdbcType=INTEGER},
+      ntp_ip = #{record.ntpIp,jdbcType=VARCHAR},
+      address = #{record.address,jdbcType=VARCHAR},
+      dev_brand = #{record.devBrand,jdbcType=INTEGER},
+      dev_model = #{record.devModel,jdbcType=INTEGER},
+      dev_type = #{record.devType,jdbcType=INTEGER},
+      net_date = #{record.netDate,jdbcType=VARCHAR},
+      lng = #{record.lng,jdbcType=NUMERIC},
+      lat = #{record.lat,jdbcType=NUMERIC},
+      lng_offset = #{record.lngOffset,jdbcType=NUMERIC},
+      lat_offset = #{record.latOffset,jdbcType=NUMERIC},
+      contractor = #{record.contractor,jdbcType=INTEGER},
+      description = #{record.description,jdbcType=VARCHAR},
+      order_seq = #{record.orderSeq,jdbcType=INTEGER},
+      channel = #{record.channel,jdbcType=INTEGER},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -150,15 +445,115 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.jckjkj.mybatis.model.Camera" >
     update t_camera
     <set >
-      <if test="cameraname != null" >
-        cameraname = #{cameraname,jdbcType=VARCHAR},
+      <if test="stationId != null" >
+        station_id = #{stationId,jdbcType=INTEGER},
+      </if>
+      <if test="sysNo != null" >
+        sys_no = #{sysNo,jdbcType=VARCHAR},
+      </if>
+      <if test="comNo != null" >
+        com_no = #{comNo,jdbcType=VARCHAR},
+      </if>
+      <if test="devName != null" >
+        dev_name = #{devName,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null" >
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="subnetMask != null" >
+        subnet_mask = #{subnetMask,jdbcType=VARCHAR},
+      </if>
+      <if test="gateway != null" >
+        gateway = #{gateway,jdbcType=VARCHAR},
+      </if>
+      <if test="storageIp != null" >
+        storage_ip = #{storageIp,jdbcType=VARCHAR},
+      </if>
+      <if test="forwardIp != null" >
+        forward_ip = #{forwardIp,jdbcType=VARCHAR},
+      </if>
+      <if test="port != null" >
+        port = #{port,jdbcType=INTEGER},
+      </if>
+      <if test="addrCode != null" >
+        addr_code = #{addrCode,jdbcType=INTEGER},
+      </if>
+      <if test="ntpIp != null" >
+        ntp_ip = #{ntpIp,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="devBrand != null" >
+        dev_brand = #{devBrand,jdbcType=INTEGER},
+      </if>
+      <if test="devModel != null" >
+        dev_model = #{devModel,jdbcType=INTEGER},
+      </if>
+      <if test="devType != null" >
+        dev_type = #{devType,jdbcType=INTEGER},
+      </if>
+      <if test="netDate != null" >
+        net_date = #{netDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lng != null" >
+        lng = #{lng,jdbcType=NUMERIC},
+      </if>
+      <if test="lat != null" >
+        lat = #{lat,jdbcType=NUMERIC},
+      </if>
+      <if test="lngOffset != null" >
+        lng_offset = #{lngOffset,jdbcType=NUMERIC},
+      </if>
+      <if test="latOffset != null" >
+        lat_offset = #{latOffset,jdbcType=NUMERIC},
+      </if>
+      <if test="contractor != null" >
+        contractor = #{contractor,jdbcType=INTEGER},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="orderSeq != null" >
+        order_seq = #{orderSeq,jdbcType=INTEGER},
+      </if>
+      <if test="channel != null" >
+        channel = #{channel,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where cameraid = #{cameraid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.Camera" >
     update t_camera
-    set cameraname = #{cameraname,jdbcType=VARCHAR}
-    where cameraid = #{cameraid,jdbcType=VARCHAR}
+    set station_id = #{stationId,jdbcType=INTEGER},
+      sys_no = #{sysNo,jdbcType=VARCHAR},
+      com_no = #{comNo,jdbcType=VARCHAR},
+      dev_name = #{devName,jdbcType=VARCHAR},
+      ip = #{ip,jdbcType=VARCHAR},
+      subnet_mask = #{subnetMask,jdbcType=VARCHAR},
+      gateway = #{gateway,jdbcType=VARCHAR},
+      storage_ip = #{storageIp,jdbcType=VARCHAR},
+      forward_ip = #{forwardIp,jdbcType=VARCHAR},
+      port = #{port,jdbcType=INTEGER},
+      addr_code = #{addrCode,jdbcType=INTEGER},
+      ntp_ip = #{ntpIp,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      dev_brand = #{devBrand,jdbcType=INTEGER},
+      dev_model = #{devModel,jdbcType=INTEGER},
+      dev_type = #{devType,jdbcType=INTEGER},
+      net_date = #{netDate,jdbcType=VARCHAR},
+      lng = #{lng,jdbcType=NUMERIC},
+      lat = #{lat,jdbcType=NUMERIC},
+      lng_offset = #{lngOffset,jdbcType=NUMERIC},
+      lat_offset = #{latOffset,jdbcType=NUMERIC},
+      contractor = #{contractor,jdbcType=INTEGER},
+      description = #{description,jdbcType=VARCHAR},
+      order_seq = #{orderSeq,jdbcType=INTEGER},
+      channel = #{channel,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

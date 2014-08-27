@@ -1,7 +1,7 @@
 package com.jckjkj.mybatis.model;
 
 public class Mobile {
-    private Long mobileid;
+    private Integer id;
 
     private String imei;
 
@@ -9,12 +9,12 @@ public class Mobile {
 
     private String dptid;
 
-    public Long getMobileid() {
-        return mobileid;
+    public Integer getId() {
+        return id;
     }
 
-    public void setMobileid(Long mobileid) {
-        this.mobileid = mobileid;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getImei() {

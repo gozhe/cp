@@ -10,7 +10,7 @@ public interface AuditopionMapper {
 
     int deleteByExample(AuditopionExample example);
 
-    int deleteByPrimaryKey(Integer aoid);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Auditopion record);
 
@@ -18,7 +18,7 @@ public interface AuditopionMapper {
 
     List<Auditopion> selectByExample(AuditopionExample example);
 
-    Auditopion selectByPrimaryKey(Integer aoid);
+    Auditopion selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") Auditopion record, @Param("example") AuditopionExample example);
 

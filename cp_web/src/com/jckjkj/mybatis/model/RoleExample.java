@@ -104,63 +104,63 @@ public class RoleExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andRoleidIsNull() {
-            addCriterion("roleid is null");
+        public Criteria andIdIsNull() {
+            addCriterion("id is null");
             return (Criteria) this;
         }
 
-        public Criteria andRoleidIsNotNull() {
-            addCriterion("roleid is not null");
+        public Criteria andIdIsNotNull() {
+            addCriterion("id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andRoleidEqualTo(Long value) {
-            addCriterion("roleid =", value, "roleid");
+        public Criteria andIdEqualTo(Integer value) {
+            addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRoleidNotEqualTo(Long value) {
-            addCriterion("roleid <>", value, "roleid");
+        public Criteria andIdNotEqualTo(Integer value) {
+            addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRoleidGreaterThan(Long value) {
-            addCriterion("roleid >", value, "roleid");
+        public Criteria andIdGreaterThan(Integer value) {
+            addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRoleidGreaterThanOrEqualTo(Long value) {
-            addCriterion("roleid >=", value, "roleid");
+        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRoleidLessThan(Long value) {
-            addCriterion("roleid <", value, "roleid");
+        public Criteria andIdLessThan(Integer value) {
+            addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRoleidLessThanOrEqualTo(Long value) {
-            addCriterion("roleid <=", value, "roleid");
+        public Criteria andIdLessThanOrEqualTo(Integer value) {
+            addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRoleidIn(List<Long> values) {
-            addCriterion("roleid in", values, "roleid");
+        public Criteria andIdIn(List<Integer> values) {
+            addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRoleidNotIn(List<Long> values) {
-            addCriterion("roleid not in", values, "roleid");
+        public Criteria andIdNotIn(List<Integer> values) {
+            addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRoleidBetween(Long value1, Long value2) {
-            addCriterion("roleid between", value1, value2, "roleid");
+        public Criteria andIdBetween(Integer value1, Integer value2) {
+            addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRoleidNotBetween(Long value1, Long value2) {
-            addCriterion("roleid not between", value1, value2, "roleid");
+        public Criteria andIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("id not between", value1, value2, "id");
             return (Criteria) this;
         }
 
@@ -304,63 +304,63 @@ public class RoleExample {
             return (Criteria) this;
         }
 
-        public Criteria andRoleaccessIsNull() {
-            addCriterion("roleaccess is null");
+        public Criteria andModuleidIsNull() {
+            addCriterion("moduleid is null");
             return (Criteria) this;
         }
 
-        public Criteria andRoleaccessIsNotNull() {
-            addCriterion("roleaccess is not null");
+        public Criteria andModuleidIsNotNull() {
+            addCriterion("moduleid is not null");
             return (Criteria) this;
         }
 
-        public Criteria andRoleaccessEqualTo(Integer value) {
-            addCriterion("roleaccess =", value, "roleaccess");
+        public Criteria andModuleidEqualTo(Integer value) {
+            addCriterion("moduleid =", value, "moduleid");
             return (Criteria) this;
         }
 
-        public Criteria andRoleaccessNotEqualTo(Integer value) {
-            addCriterion("roleaccess <>", value, "roleaccess");
+        public Criteria andModuleidNotEqualTo(Integer value) {
+            addCriterion("moduleid <>", value, "moduleid");
             return (Criteria) this;
         }
 
-        public Criteria andRoleaccessGreaterThan(Integer value) {
-            addCriterion("roleaccess >", value, "roleaccess");
+        public Criteria andModuleidGreaterThan(Integer value) {
+            addCriterion("moduleid >", value, "moduleid");
             return (Criteria) this;
         }
 
-        public Criteria andRoleaccessGreaterThanOrEqualTo(Integer value) {
-            addCriterion("roleaccess >=", value, "roleaccess");
+        public Criteria andModuleidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("moduleid >=", value, "moduleid");
             return (Criteria) this;
         }
 
-        public Criteria andRoleaccessLessThan(Integer value) {
-            addCriterion("roleaccess <", value, "roleaccess");
+        public Criteria andModuleidLessThan(Integer value) {
+            addCriterion("moduleid <", value, "moduleid");
             return (Criteria) this;
         }
 
-        public Criteria andRoleaccessLessThanOrEqualTo(Integer value) {
-            addCriterion("roleaccess <=", value, "roleaccess");
+        public Criteria andModuleidLessThanOrEqualTo(Integer value) {
+            addCriterion("moduleid <=", value, "moduleid");
             return (Criteria) this;
         }
 
-        public Criteria andRoleaccessIn(List<Integer> values) {
-            addCriterion("roleaccess in", values, "roleaccess");
+        public Criteria andModuleidIn(List<Integer> values) {
+            addCriterion("moduleid in", values, "moduleid");
             return (Criteria) this;
         }
 
-        public Criteria andRoleaccessNotIn(List<Integer> values) {
-            addCriterion("roleaccess not in", values, "roleaccess");
+        public Criteria andModuleidNotIn(List<Integer> values) {
+            addCriterion("moduleid not in", values, "moduleid");
             return (Criteria) this;
         }
 
-        public Criteria andRoleaccessBetween(Integer value1, Integer value2) {
-            addCriterion("roleaccess between", value1, value2, "roleaccess");
+        public Criteria andModuleidBetween(Integer value1, Integer value2) {
+            addCriterion("moduleid between", value1, value2, "moduleid");
             return (Criteria) this;
         }
 
-        public Criteria andRoleaccessNotBetween(Integer value1, Integer value2) {
-            addCriterion("roleaccess not between", value1, value2, "roleaccess");
+        public Criteria andModuleidNotBetween(Integer value1, Integer value2) {
+            addCriterion("moduleid not between", value1, value2, "moduleid");
             return (Criteria) this;
         }
     }

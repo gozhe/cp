@@ -132,63 +132,63 @@ public class EquipmentStateExample {
             addCriterion(condition, new java.sql.Date(value1.getTime()), new java.sql.Date(value2.getTime()), property);
         }
 
-        public Criteria andEqustateidIsNull() {
-            addCriterion("equstateid is null");
+        public Criteria andIdIsNull() {
+            addCriterion("id is null");
             return (Criteria) this;
         }
 
-        public Criteria andEqustateidIsNotNull() {
-            addCriterion("equstateid is not null");
+        public Criteria andIdIsNotNull() {
+            addCriterion("id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andEqustateidEqualTo(Long value) {
-            addCriterion("equstateid =", value, "equstateid");
+        public Criteria andIdEqualTo(Long value) {
+            addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andEqustateidNotEqualTo(Long value) {
-            addCriterion("equstateid <>", value, "equstateid");
+        public Criteria andIdNotEqualTo(Long value) {
+            addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andEqustateidGreaterThan(Long value) {
-            addCriterion("equstateid >", value, "equstateid");
+        public Criteria andIdGreaterThan(Long value) {
+            addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andEqustateidGreaterThanOrEqualTo(Long value) {
-            addCriterion("equstateid >=", value, "equstateid");
+        public Criteria andIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andEqustateidLessThan(Long value) {
-            addCriterion("equstateid <", value, "equstateid");
+        public Criteria andIdLessThan(Long value) {
+            addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andEqustateidLessThanOrEqualTo(Long value) {
-            addCriterion("equstateid <=", value, "equstateid");
+        public Criteria andIdLessThanOrEqualTo(Long value) {
+            addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andEqustateidIn(List<Long> values) {
-            addCriterion("equstateid in", values, "equstateid");
+        public Criteria andIdIn(List<Long> values) {
+            addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andEqustateidNotIn(List<Long> values) {
-            addCriterion("equstateid not in", values, "equstateid");
+        public Criteria andIdNotIn(List<Long> values) {
+            addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andEqustateidBetween(Long value1, Long value2) {
-            addCriterion("equstateid between", value1, value2, "equstateid");
+        public Criteria andIdBetween(Long value1, Long value2) {
+            addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andEqustateidNotBetween(Long value1, Long value2) {
-            addCriterion("equstateid not between", value1, value2, "equstateid");
+        public Criteria andIdNotBetween(Long value1, Long value2) {
+            addCriterion("id not between", value1, value2, "id");
             return (Criteria) this;
         }
 
@@ -683,52 +683,52 @@ public class EquipmentStateExample {
         }
 
         public Criteria andRecentlyfaulttimeEqualTo(Date value) {
-            addCriterionForJDBCDate("recentlyfaulttime =", value, "recentlyfaulttime");
+            addCriterion("recentlyfaulttime =", value, "recentlyfaulttime");
             return (Criteria) this;
         }
 
         public Criteria andRecentlyfaulttimeNotEqualTo(Date value) {
-            addCriterionForJDBCDate("recentlyfaulttime <>", value, "recentlyfaulttime");
+            addCriterion("recentlyfaulttime <>", value, "recentlyfaulttime");
             return (Criteria) this;
         }
 
         public Criteria andRecentlyfaulttimeGreaterThan(Date value) {
-            addCriterionForJDBCDate("recentlyfaulttime >", value, "recentlyfaulttime");
+            addCriterion("recentlyfaulttime >", value, "recentlyfaulttime");
             return (Criteria) this;
         }
 
         public Criteria andRecentlyfaulttimeGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("recentlyfaulttime >=", value, "recentlyfaulttime");
+            addCriterion("recentlyfaulttime >=", value, "recentlyfaulttime");
             return (Criteria) this;
         }
 
         public Criteria andRecentlyfaulttimeLessThan(Date value) {
-            addCriterionForJDBCDate("recentlyfaulttime <", value, "recentlyfaulttime");
+            addCriterion("recentlyfaulttime <", value, "recentlyfaulttime");
             return (Criteria) this;
         }
 
         public Criteria andRecentlyfaulttimeLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("recentlyfaulttime <=", value, "recentlyfaulttime");
+            addCriterion("recentlyfaulttime <=", value, "recentlyfaulttime");
             return (Criteria) this;
         }
 
         public Criteria andRecentlyfaulttimeIn(List<Date> values) {
-            addCriterionForJDBCDate("recentlyfaulttime in", values, "recentlyfaulttime");
+            addCriterion("recentlyfaulttime in", values, "recentlyfaulttime");
             return (Criteria) this;
         }
 
         public Criteria andRecentlyfaulttimeNotIn(List<Date> values) {
-            addCriterionForJDBCDate("recentlyfaulttime not in", values, "recentlyfaulttime");
+            addCriterion("recentlyfaulttime not in", values, "recentlyfaulttime");
             return (Criteria) this;
         }
 
         public Criteria andRecentlyfaulttimeBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("recentlyfaulttime between", value1, value2, "recentlyfaulttime");
+            addCriterion("recentlyfaulttime between", value1, value2, "recentlyfaulttime");
             return (Criteria) this;
         }
 
         public Criteria andRecentlyfaulttimeNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("recentlyfaulttime not between", value1, value2, "recentlyfaulttime");
+            addCriterion("recentlyfaulttime not between", value1, value2, "recentlyfaulttime");
             return (Criteria) this;
         }
 

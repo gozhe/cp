@@ -3,6 +3,8 @@ package com.jckjkj.mybatis.model;
 import java.util.Date;
 
 public class Equipment {
+    private String id;
+
     private String equid;
 
     private Integer stationid;
@@ -46,6 +48,14 @@ public class Equipment {
     private String equremarks;
 
     private String equremarks2;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
+    }
 
     public String getEquid() {
         return equid;

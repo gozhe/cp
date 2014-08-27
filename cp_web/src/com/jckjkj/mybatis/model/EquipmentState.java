@@ -3,7 +3,7 @@ package com.jckjkj.mybatis.model;
 import java.util.Date;
 
 public class EquipmentState {
-    private Long equstateid;
+    private Long id;
 
     private String equid;
 
@@ -31,12 +31,12 @@ public class EquipmentState {
 
     private String equip;
 
-    public Long getEqustateid() {
-        return equstateid;
+    public Long getId() {
+        return id;
     }
 
-    public void setEqustateid(Long equstateid) {
-        this.equstateid = equstateid;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getEquid() {

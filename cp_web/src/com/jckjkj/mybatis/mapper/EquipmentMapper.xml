@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jckjkj.mybatis.dao.EquipmentMapper" >
   <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.Equipment" >
-    <id column="equid" property="equid" jdbcType="VARCHAR" />
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="equid" property="equid" jdbcType="VARCHAR" />
     <result column="stationid" property="stationid" jdbcType="INTEGER" />
     <result column="equtype" property="equtype" jdbcType="VARCHAR" />
     <result column="equip" property="equip" jdbcType="VARCHAR" />
@@ -20,7 +21,7 @@
     <result column="equbrand" property="equbrand" jdbcType="VARCHAR" />
     <result column="equmodel" property="equmodel" jdbcType="VARCHAR" />
     <result column="equclass" property="equclass" jdbcType="VARCHAR" />
-    <result column="equadmissiondate" property="equadmissiondate" jdbcType="DATE" />
+    <result column="equadmissiondate" property="equadmissiondate" jdbcType="TIMESTAMP" />
     <result column="equdevorg" property="equdevorg" jdbcType="VARCHAR" />
     <result column="equremarks" property="equremarks" jdbcType="VARCHAR" />
     <result column="equremarks2" property="equremarks2" jdbcType="VARCHAR" />
@@ -84,9 +85,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    equid, stationid, equtype, equip, equname, equsubnetmask, equgateway, equos, equosuser, 
-    equospwd, equsoftwareuser, equsoftwarepwd, equport, equntpadd, equsoftwarename, equbrand, 
-    equmodel, equclass, equadmissiondate, equdevorg, equremarks, equremarks2
+    id, equid, stationid, equtype, equip, equname, equsubnetmask, equgateway, equos, 
+    equosuser, equospwd, equsoftwareuser, equsoftwarepwd, equport, equntpadd, equsoftwarename, 
+    equbrand, equmodel, equclass, equadmissiondate, equdevorg, equremarks, equremarks2
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jckjkj.mybatis.model.EquipmentExample" >
     select
@@ -106,11 +107,11 @@
     select 
     <include refid="Base_Column_List" />
     from x_equipment
-    where equid = #{equid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from x_equipment
-    where equid = #{equid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.jckjkj.mybatis.model.EquipmentExample" >
     delete from x_equipment
@@ -119,26 +120,29 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.jckjkj.mybatis.model.Equipment" >
-    insert into x_equipment (equid, stationid, equtype, 
-      equip, equname, equsubnetmask, 
-      equgateway, equos, equosuser, 
-      equospwd, equsoftwareuser, equsoftwarepwd, 
-      equport, equntpadd, equsoftwarename, 
-      equbrand, equmodel, equclass, 
-      equadmissiondate, equdevorg, equremarks, 
-      equremarks2)
-    values (#{equid,jdbcType=VARCHAR}, #{stationid,jdbcType=INTEGER}, #{equtype,jdbcType=VARCHAR}, 
-      #{equip,jdbcType=VARCHAR}, #{equname,jdbcType=VARCHAR}, #{equsubnetmask,jdbcType=VARCHAR}, 
-      #{equgateway,jdbcType=VARCHAR}, #{equos,jdbcType=VARCHAR}, #{equosuser,jdbcType=VARCHAR}, 
-      #{equospwd,jdbcType=VARCHAR}, #{equsoftwareuser,jdbcType=VARCHAR}, #{equsoftwarepwd,jdbcType=VARCHAR}, 
-      #{equport,jdbcType=VARCHAR}, #{equntpadd,jdbcType=VARCHAR}, #{equsoftwarename,jdbcType=VARCHAR}, 
-      #{equbrand,jdbcType=VARCHAR}, #{equmodel,jdbcType=VARCHAR}, #{equclass,jdbcType=VARCHAR}, 
-      #{equadmissiondate,jdbcType=DATE}, #{equdevorg,jdbcType=VARCHAR}, #{equremarks,jdbcType=VARCHAR}, 
-      #{equremarks2,jdbcType=VARCHAR})
+    insert into x_equipment (id, equid, stationid, 
+      equtype, equip, equname, 
+      equsubnetmask, equgateway, equos, 
+      equosuser, equospwd, equsoftwareuser, 
+      equsoftwarepwd, equport, equntpadd, 
+      equsoftwarename, equbrand, equmodel, 
+      equclass, equadmissiondate, equdevorg, 
+      equremarks, equremarks2)
+    values (#{id,jdbcType=VARCHAR}, #{equid,jdbcType=VARCHAR}, #{stationid,jdbcType=INTEGER}, 
+      #{equtype,jdbcType=VARCHAR}, #{equip,jdbcType=VARCHAR}, #{equname,jdbcType=VARCHAR}, 
+      #{equsubnetmask,jdbcType=VARCHAR}, #{equgateway,jdbcType=VARCHAR}, #{equos,jdbcType=VARCHAR}, 
+      #{equosuser,jdbcType=VARCHAR}, #{equospwd,jdbcType=VARCHAR}, #{equsoftwareuser,jdbcType=VARCHAR}, 
+      #{equsoftwarepwd,jdbcType=VARCHAR}, #{equport,jdbcType=VARCHAR}, #{equntpadd,jdbcType=VARCHAR}, 
+      #{equsoftwarename,jdbcType=VARCHAR}, #{equbrand,jdbcType=VARCHAR}, #{equmodel,jdbcType=VARCHAR}, 
+      #{equclass,jdbcType=VARCHAR}, #{equadmissiondate,jdbcType=TIMESTAMP}, #{equdevorg,jdbcType=VARCHAR}, 
+      #{equremarks,jdbcType=VARCHAR}, #{equremarks2,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.Equipment" >
     insert into x_equipment
     <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
       <if test="equid != null" >
         equid,
       </if>
@@ -207,6 +211,9 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
       <if test="equid != null" >
         #{equid,jdbcType=VARCHAR},
       </if>
@@ -262,7 +269,7 @@
         #{equclass,jdbcType=VARCHAR},
       </if>
       <if test="equadmissiondate != null" >
-        #{equadmissiondate,jdbcType=DATE},
+        #{equadmissiondate,jdbcType=TIMESTAMP},
       </if>
       <if test="equdevorg != null" >
         #{equdevorg,jdbcType=VARCHAR},
@@ -284,6 +291,9 @@
   <update id="updateByExampleSelective" parameterType="map" >
     update x_equipment
     <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
       <if test="record.equid != null" >
         equid = #{record.equid,jdbcType=VARCHAR},
       </if>
@@ -339,7 +349,7 @@
         equclass = #{record.equclass,jdbcType=VARCHAR},
       </if>
       <if test="record.equadmissiondate != null" >
-        equadmissiondate = #{record.equadmissiondate,jdbcType=DATE},
+        equadmissiondate = #{record.equadmissiondate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.equdevorg != null" >
         equdevorg = #{record.equdevorg,jdbcType=VARCHAR},
@@ -357,7 +367,8 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update x_equipment
-    set equid = #{record.equid,jdbcType=VARCHAR},
+    set id = #{record.id,jdbcType=VARCHAR},
+      equid = #{record.equid,jdbcType=VARCHAR},
       stationid = #{record.stationid,jdbcType=INTEGER},
       equtype = #{record.equtype,jdbcType=VARCHAR},
       equip = #{record.equip,jdbcType=VARCHAR},
@@ -375,7 +386,7 @@
       equbrand = #{record.equbrand,jdbcType=VARCHAR},
       equmodel = #{record.equmodel,jdbcType=VARCHAR},
       equclass = #{record.equclass,jdbcType=VARCHAR},
-      equadmissiondate = #{record.equadmissiondate,jdbcType=DATE},
+      equadmissiondate = #{record.equadmissiondate,jdbcType=TIMESTAMP},
       equdevorg = #{record.equdevorg,jdbcType=VARCHAR},
       equremarks = #{record.equremarks,jdbcType=VARCHAR},
       equremarks2 = #{record.equremarks2,jdbcType=VARCHAR}
@@ -386,6 +397,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.jckjkj.mybatis.model.Equipment" >
     update x_equipment
     <set >
+      <if test="equid != null" >
+        equid = #{equid,jdbcType=VARCHAR},
+      </if>
       <if test="stationid != null" >
         stationid = #{stationid,jdbcType=INTEGER},
       </if>
@@ -438,7 +452,7 @@
         equclass = #{equclass,jdbcType=VARCHAR},
       </if>
       <if test="equadmissiondate != null" >
-        equadmissiondate = #{equadmissiondate,jdbcType=DATE},
+        equadmissiondate = #{equadmissiondate,jdbcType=TIMESTAMP},
       </if>
       <if test="equdevorg != null" >
         equdevorg = #{equdevorg,jdbcType=VARCHAR},
@@ -450,11 +464,12 @@
         equremarks2 = #{equremarks2,jdbcType=VARCHAR},
       </if>
     </set>
-    where equid = #{equid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.Equipment" >
     update x_equipment
-    set stationid = #{stationid,jdbcType=INTEGER},
+    set equid = #{equid,jdbcType=VARCHAR},
+      stationid = #{stationid,jdbcType=INTEGER},
       equtype = #{equtype,jdbcType=VARCHAR},
       equip = #{equip,jdbcType=VARCHAR},
       equname = #{equname,jdbcType=VARCHAR},
@@ -471,10 +486,10 @@
       equbrand = #{equbrand,jdbcType=VARCHAR},
       equmodel = #{equmodel,jdbcType=VARCHAR},
       equclass = #{equclass,jdbcType=VARCHAR},
-      equadmissiondate = #{equadmissiondate,jdbcType=DATE},
+      equadmissiondate = #{equadmissiondate,jdbcType=TIMESTAMP},
       equdevorg = #{equdevorg,jdbcType=VARCHAR},
       equremarks = #{equremarks,jdbcType=VARCHAR},
       equremarks2 = #{equremarks2,jdbcType=VARCHAR}
-    where equid = #{equid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

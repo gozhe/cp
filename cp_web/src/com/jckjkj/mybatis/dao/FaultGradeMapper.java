@@ -10,7 +10,7 @@ public interface FaultGradeMapper {
 
     int deleteByExample(FaultGradeExample example);
 
-    int deleteByPrimaryKey(Integer fgid);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(FaultGrade record);
 
@@ -18,7 +18,7 @@ public interface FaultGradeMapper {
 
     List<FaultGrade> selectByExample(FaultGradeExample example);
 
-    FaultGrade selectByPrimaryKey(Integer fgid);
+    FaultGrade selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") FaultGrade record, @Param("example") FaultGradeExample example);
 
