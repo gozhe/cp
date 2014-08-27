@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jckjkj.mybatis.dao.VEquipRoutingMapper" >
+  <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.VEquipRouting" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="sys_no" property="sysNo" jdbcType="VARCHAR" />
+    <result column="com_no" property="comNo" jdbcType="VARCHAR" />
+    <result column="station_id" property="stationId" jdbcType="INTEGER" />
+    <result column="lng" property="lng" jdbcType="NUMERIC" />
+    <result column="lat" property="lat" jdbcType="NUMERIC" />
+    <result column="routingstate" property="routingstate" jdbcType="VARCHAR" />
+    <result column="aoperson" property="aoperson" jdbcType="VARCHAR" />
+    <result column="aodate" property="aodate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, sys_no, com_no, station_id, lng, lat, routingstate, aoperson, aodate
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jckjkj.mybatis.model.VEquipRoutingExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from v_equip_routing
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.jckjkj.mybatis.model.VEquipRoutingExample" >
+    delete from v_equip_routing
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.jckjkj.mybatis.model.VEquipRouting" >
+    insert into v_equip_routing (id, sys_no, com_no, 
+      station_id, lng, lat, 
+      routingstate, aoperson, aodate
+      )
+    values (#{id,jdbcType=INTEGER}, #{sysNo,jdbcType=VARCHAR}, #{comNo,jdbcType=VARCHAR}, 
+      #{stationId,jdbcType=INTEGER}, #{lng,jdbcType=NUMERIC}, #{lat,jdbcType=NUMERIC}, 
+      #{routingstate,jdbcType=VARCHAR}, #{aoperson,jdbcType=VARCHAR}, #{aodate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.VEquipRouting" >
+    insert into v_equip_routing
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="sysNo != null" >
+        sys_no,
+      </if>
+      <if test="comNo != null" >
+        com_no,
+      </if>
+      <if test="stationId != null" >
+        station_id,
+      </if>
+      <if test="lng != null" >
+        lng,
+      </if>
+      <if test="lat != null" >
+        lat,
+      </if>
+      <if test="routingstate != null" >
+        routingstate,
+      </if>
+      <if test="aoperson != null" >
+        aoperson,
+      </if>
+      <if test="aodate != null" >
+        aodate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sysNo != null" >
+        #{sysNo,jdbcType=VARCHAR},
+      </if>
+      <if test="comNo != null" >
+        #{comNo,jdbcType=VARCHAR},
+      </if>
+      <if test="stationId != null" >
+        #{stationId,jdbcType=INTEGER},
+      </if>
+      <if test="lng != null" >
+        #{lng,jdbcType=NUMERIC},
+      </if>
+      <if test="lat != null" >
+        #{lat,jdbcType=NUMERIC},
+      </if>
+      <if test="routingstate != null" >
+        #{routingstate,jdbcType=VARCHAR},
+      </if>
+      <if test="aoperson != null" >
+        #{aoperson,jdbcType=VARCHAR},
+      </if>
+      <if test="aodate != null" >
+        #{aodate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.jckjkj.mybatis.model.VEquipRoutingExample" resultType="java.lang.Integer" >
+    select count(*) from v_equip_routing
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update v_equip_routing
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.sysNo != null" >
+        sys_no = #{record.sysNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.comNo != null" >
+        com_no = #{record.comNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stationId != null" >
+        station_id = #{record.stationId,jdbcType=INTEGER},
+      </if>
+      <if test="record.lng != null" >
+        lng = #{record.lng,jdbcType=NUMERIC},
+      </if>
+      <if test="record.lat != null" >
+        lat = #{record.lat,jdbcType=NUMERIC},
+      </if>
+      <if test="record.routingstate != null" >
+        routingstate = #{record.routingstate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.aoperson != null" >
+        aoperson = #{record.aoperson,jdbcType=VARCHAR},
+      </if>
+      <if test="record.aodate != null" >
+        aodate = #{record.aodate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update v_equip_routing
+    set id = #{record.id,jdbcType=INTEGER},
+      sys_no = #{record.sysNo,jdbcType=VARCHAR},
+      com_no = #{record.comNo,jdbcType=VARCHAR},
+      station_id = #{record.stationId,jdbcType=INTEGER},
+      lng = #{record.lng,jdbcType=NUMERIC},
+      lat = #{record.lat,jdbcType=NUMERIC},
+      routingstate = #{record.routingstate,jdbcType=VARCHAR},
+      aoperson = #{record.aoperson,jdbcType=VARCHAR},
+      aodate = #{record.aodate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>
