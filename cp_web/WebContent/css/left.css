@@ -8,7 +8,6 @@ body{
 	/* Setting default text color, background and a font stack */
 	color:#cccccc;
 	font-size:14px;
-	background: #BCD2EE;
 	/* font-family:Arial, Helvetica, sans-serif;*/
 	font-family: 微软雅黑;
 	overflow: hidden;	
@@ -21,9 +20,9 @@ ul{
 
 ul.container{
 	/* The topmost UL */
-	width:240px;
+	width:250px;
 	margin:0 auto;
-	padding:12px;
+	padding:8px;
 }
 
 li{
@@ -42,7 +41,7 @@ li.button a{
 	display:block;
 	font-family:微软雅黑;
 	font-weight:bold;
-	font-size:18px;
+	font-size:16px;
 	height:36px;
 	overflow:hidden;
 	padding:6px 20px 0;
@@ -67,16 +66,16 @@ li.button a span{
 
 /* Setting up different styles for each section color */
 
-li.button a.blue{background:url(../img/blue.png) repeat-x top left; color:#074384;}
+li.button a.blue{background:url(../img/blue.png) repeat-x top left; color:white;}
 li.button a.blue span{ background:url(../img/blue.png) repeat-x top right;}
 
-li.button a.green{background:url(../img/green.png) repeat-x top left; color:#436800;}
+li.button a.green{background:url(../img/green.png) repeat-x top left; color:white;}
 li.button a.green span{ background:url(../img/green.png) repeat-x top right;}
 
-li.button a.orange{background:url(../img/orange.png) repeat-x top left; color:#882e02;}
+li.button a.orange{background:url(../img/orange.png) repeat-x top left; color:white;}
 li.button a.orange span{ background:url(../img/orange.png) repeat-x top right;}
 
-li.button a.red{background:url(../img/red.png) repeat-x top left; color:#641603;}
+li.button a.red{background:url(../img/red.png) repeat-x top left; color:white;}
 li.button a.red span{ background:url(../img/red.png) repeat-x top right;}
 
 /* The hover effects */
@@ -93,7 +92,7 @@ li.button a:hover span{ background-position:bottom right;}
 
 .dropdown li{
 	/* Each element in the expandable list */
-	background-color:#373128;
+	background-color:gray;/*#373128*/
 	border:1px solid #40392C;
 	color:#CCCCCC;
 	margin:5px 0;
