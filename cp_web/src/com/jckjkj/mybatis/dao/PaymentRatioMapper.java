@@ -10,13 +10,21 @@ public interface PaymentRatioMapper {
 
     int deleteByExample(PaymentRatioExample example);
 
+    int deleteByPrimaryKey(Integer id);
+
     int insert(PaymentRatio record);
 
     int insertSelective(PaymentRatio record);
 
     List<PaymentRatio> selectByExample(PaymentRatioExample example);
 
+    PaymentRatio selectByPrimaryKey(Integer id);
+
     int updateByExampleSelective(@Param("record") PaymentRatio record, @Param("example") PaymentRatioExample example);
 
     int updateByExample(@Param("record") PaymentRatio record, @Param("example") PaymentRatioExample example);
+
+    int updateByPrimaryKeySelective(PaymentRatio record);
+
+    int updateByPrimaryKey(PaymentRatio record);
 }

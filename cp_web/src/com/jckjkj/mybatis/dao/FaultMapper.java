@@ -10,13 +10,21 @@ public interface FaultMapper {
 
     int deleteByExample(FaultExample example);
 
+    int deleteByPrimaryKey(Integer id);
+
     int insert(Fault record);
 
     int insertSelective(Fault record);
 
     List<Fault> selectByExample(FaultExample example);
 
+    Fault selectByPrimaryKey(Integer id);
+
     int updateByExampleSelective(@Param("record") Fault record, @Param("example") FaultExample example);
 
     int updateByExample(@Param("record") Fault record, @Param("example") FaultExample example);
+
+    int updateByPrimaryKeySelective(Fault record);
+
+    int updateByPrimaryKey(Fault record);
 }

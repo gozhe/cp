@@ -10,13 +10,21 @@ public interface RoutingStateMapper {
 
     int deleteByExample(RoutingStateExample example);
 
+    int deleteByPrimaryKey(Integer id);
+
     int insert(RoutingState record);
 
     int insertSelective(RoutingState record);
 
     List<RoutingState> selectByExample(RoutingStateExample example);
 
+    RoutingState selectByPrimaryKey(Integer id);
+
     int updateByExampleSelective(@Param("record") RoutingState record, @Param("example") RoutingStateExample example);
 
     int updateByExample(@Param("record") RoutingState record, @Param("example") RoutingStateExample example);
+
+    int updateByPrimaryKeySelective(RoutingState record);
+
+    int updateByPrimaryKey(RoutingState record);
 }

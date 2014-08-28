@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jckjkj.mybatis.dao.DptStationMapper" >
   <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.DptStation" >
-    <result column="id" property="id" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="INTEGER" />
     <result column="dptid" property="dptid" jdbcType="VARCHAR" />
     <result column="stationid" property="stationid" jdbcType="INTEGER" />
   </resultMap>
@@ -81,6 +81,16 @@
       order by ${orderByClause}
     </if>
   </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from x_dpt_station
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from x_dpt_station
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
   <delete id="deleteByExample" parameterType="com.jckjkj.mybatis.model.DptStationExample" >
     delete from x_dpt_station
     <if test="_parameter != null" >
@@ -149,5 +159,23 @@
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jckjkj.mybatis.model.DptStation" >
+    update x_dpt_station
+    <set >
+      <if test="dptid != null" >
+        dptid = #{dptid,jdbcType=VARCHAR},
+      </if>
+      <if test="stationid != null" >
+        stationid = #{stationid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.DptStation" >
+    update x_dpt_station
+    set dptid = #{dptid,jdbcType=VARCHAR},
+      stationid = #{stationid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

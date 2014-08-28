@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jckjkj.mybatis.model.EquipmentState;
 import com.jckjkj.mybatis.model.Person;
@@ -39,7 +40,7 @@ public class PdaController {
 	public void getPersonList(@RequestParam("dptid") String dptid,
 			HttpServletResponse response) {
 		try {
-			//System.out.println(request.getParameter("dptid"));
+			// System.out.println(request.getParameter("dptid"));
 			List<Person> list = pdaService.getPerson(dptid);
 			String results = JsonUtils.collection2json(list);
 			System.out.println(results);
@@ -54,27 +55,36 @@ public class PdaController {
 		}
 	}
 
-	@RequestMapping(value = "personRegiste.do",method = RequestMethod.POST)
-	public boolean personRegiste(HttpServletRequest request,
-			HttpServletResponse response) {
-		StringBuffer jb = new StringBuffer();
-		String line = null;
-		try {
-			BufferedReader reader = request.getReader();
-			while ((line = reader.readLine()) != null)
-				jb.append(line);
-		} catch (Exception e) { /* report an error */
+	@RequestMapping("personRegiste.do")
+	@ResponseBody//@RequestBody 注解自动装配对象
+	public void personRegiste(@RequestBody Person[] person) {
+		for(Person p:person){
+			System.out.println(p.getPername());
+			if(pdaService.register(p)){
+				System.out.println("Success");
+			}
 		}
-		try {
-			Person person = JsonUtils.toBean(jb.toString(), Person.class);
-			return  pdaService.register(person);
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
-		return false;
 	}
-	
-	
-	
+
+	// @RequestMapping("personRegiste.do")
+	// public void personRegiste(HttpServletRequest request,
+	// HttpServletResponse response) {
+	// System.out.println("personRegiste.do");
+	// StringBuffer jb = new StringBuffer();
+	// String line = null;
+	// try {
+	// BufferedReader reader = request.getReader();
+	// while ((line = reader.readLine()) != null)
+	// jb.append(line);
+	// } catch (Exception e) { /* report an error */
+	// e.printStackTrace();
+	// }
+	// try {
+	// Person person = JsonUtils.toBean(jb.toString(), Person.class);
+	// pdaService.register(person);
+	// } catch (Exception ex) {
+	// ex.printStackTrace();
+	// }
+	// }
 
 }

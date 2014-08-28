@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jckjkj.mybatis.dao.PaymentRatioMapper" >
   <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.PaymentRatio" >
-    <result column="id" property="id" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="INTEGER" />
     <result column="passlow" property="passlow" jdbcType="DOUBLE" />
     <result column="passhigh" property="passhigh" jdbcType="DOUBLE" />
     <result column="Paymentratio" property="paymentratio" jdbcType="DOUBLE" />
@@ -83,6 +83,16 @@
       order by ${orderByClause}
     </if>
   </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from x_paymentratio
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from x_paymentratio
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
   <delete id="deleteByExample" parameterType="com.jckjkj.mybatis.model.PaymentRatioExample" >
     delete from x_paymentratio
     <if test="_parameter != null" >
@@ -171,5 +181,31 @@
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jckjkj.mybatis.model.PaymentRatio" >
+    update x_paymentratio
+    <set >
+      <if test="passlow != null" >
+        passlow = #{passlow,jdbcType=DOUBLE},
+      </if>
+      <if test="passhigh != null" >
+        passhigh = #{passhigh,jdbcType=DOUBLE},
+      </if>
+      <if test="paymentratio != null" >
+        Paymentratio = #{paymentratio,jdbcType=DOUBLE},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.PaymentRatio" >
+    update x_paymentratio
+    set passlow = #{passlow,jdbcType=DOUBLE},
+      passhigh = #{passhigh,jdbcType=DOUBLE},
+      Paymentratio = #{paymentratio,jdbcType=DOUBLE},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

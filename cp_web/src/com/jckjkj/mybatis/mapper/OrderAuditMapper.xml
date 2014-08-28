@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jckjkj.mybatis.dao.OrderAuditMapper" >
   <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.OrderAudit" >
-    <result column="id" property="id" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="INTEGER" />
     <result column="orderid" property="orderid" jdbcType="VARCHAR" />
     <result column="aoopinion" property="aoopinion" jdbcType="VARCHAR" />
     <result column="aodate" property="aodate" jdbcType="TIMESTAMP" />
@@ -84,6 +84,16 @@
       order by ${orderByClause}
     </if>
   </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from x_orderaudit
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from x_orderaudit
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
   <delete id="deleteByExample" parameterType="com.jckjkj.mybatis.model.OrderAuditExample" >
     delete from x_orderaudit
     <if test="_parameter != null" >
@@ -184,5 +194,35 @@
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jckjkj.mybatis.model.OrderAudit" >
+    update x_orderaudit
+    <set >
+      <if test="orderid != null" >
+        orderid = #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="aoopinion != null" >
+        aoopinion = #{aoopinion,jdbcType=VARCHAR},
+      </if>
+      <if test="aodate != null" >
+        aodate = #{aodate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="completedate != null" >
+        completedate = #{completedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="repairresult != null" >
+        repairresult = #{repairresult,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.OrderAudit" >
+    update x_orderaudit
+    set orderid = #{orderid,jdbcType=VARCHAR},
+      aoopinion = #{aoopinion,jdbcType=VARCHAR},
+      aodate = #{aodate,jdbcType=TIMESTAMP},
+      completedate = #{completedate,jdbcType=TIMESTAMP},
+      repairresult = #{repairresult,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

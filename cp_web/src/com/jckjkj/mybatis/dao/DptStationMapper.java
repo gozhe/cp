@@ -10,13 +10,21 @@ public interface DptStationMapper {
 
     int deleteByExample(DptStationExample example);
 
+    int deleteByPrimaryKey(Integer id);
+
     int insert(DptStation record);
 
     int insertSelective(DptStation record);
 
     List<DptStation> selectByExample(DptStationExample example);
 
+    DptStation selectByPrimaryKey(Integer id);
+
     int updateByExampleSelective(@Param("record") DptStation record, @Param("example") DptStationExample example);
 
     int updateByExample(@Param("record") DptStation record, @Param("example") DptStationExample example);
+
+    int updateByPrimaryKeySelective(DptStation record);
+
+    int updateByPrimaryKey(DptStation record);
 }

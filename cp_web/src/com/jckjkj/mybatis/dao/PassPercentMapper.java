@@ -10,13 +10,21 @@ public interface PassPercentMapper {
 
     int deleteByExample(PassPercentExample example);
 
+    int deleteByPrimaryKey(Integer id);
+
     int insert(PassPercent record);
 
     int insertSelective(PassPercent record);
 
     List<PassPercent> selectByExample(PassPercentExample example);
 
+    PassPercent selectByPrimaryKey(Integer id);
+
     int updateByExampleSelective(@Param("record") PassPercent record, @Param("example") PassPercentExample example);
 
     int updateByExample(@Param("record") PassPercent record, @Param("example") PassPercentExample example);
+
+    int updateByPrimaryKeySelective(PassPercent record);
+
+    int updateByPrimaryKey(PassPercent record);
 }

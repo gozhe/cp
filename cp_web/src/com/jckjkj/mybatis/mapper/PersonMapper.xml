@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jckjkj.mybatis.dao.PersonMapper" >
   <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.Person" >
-    <id column="id" property="id" jdbcType="BIGINT" />
+    <id column="id" property="id" jdbcType="INTEGER" />
     <result column="pername" property="pername" jdbcType="VARCHAR" />
     <result column="dptid" property="dptid" jdbcType="VARCHAR" />
     <result column="sex" property="sex" jdbcType="INTEGER" />
@@ -83,15 +83,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from x_person
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from x_person
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.jckjkj.mybatis.model.PersonExample" >
     delete from x_person
@@ -102,7 +102,7 @@
   <insert id="insert" parameterType="com.jckjkj.mybatis.model.Person" >
     insert into x_person (id, pername, dptid, 
       sex, tel)
-    values (#{id,jdbcType=BIGINT}, #{pername,jdbcType=VARCHAR}, #{dptid,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{pername,jdbcType=VARCHAR}, #{dptid,jdbcType=VARCHAR}, 
       #{sex,jdbcType=INTEGER}, #{tel,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.Person" >
@@ -126,7 +126,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=BIGINT},
+        #{id,jdbcType=INTEGER},
       </if>
       <if test="pername != null" >
         #{pername,jdbcType=VARCHAR},
@@ -152,7 +152,7 @@
     update x_person
     <set >
       <if test="record.id != null" >
-        id = #{record.id,jdbcType=BIGINT},
+        id = #{record.id,jdbcType=INTEGER},
       </if>
       <if test="record.pername != null" >
         pername = #{record.pername,jdbcType=VARCHAR},
@@ -173,7 +173,7 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update x_person
-    set id = #{record.id,jdbcType=BIGINT},
+    set id = #{record.id,jdbcType=INTEGER},
       pername = #{record.pername,jdbcType=VARCHAR},
       dptid = #{record.dptid,jdbcType=VARCHAR},
       sex = #{record.sex,jdbcType=INTEGER},
@@ -198,7 +198,7 @@
         tel = #{tel,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.Person" >
     update x_person
@@ -206,6 +206,6 @@
       dptid = #{dptid,jdbcType=VARCHAR},
       sex = #{sex,jdbcType=INTEGER},
       tel = #{tel,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -10,13 +10,21 @@ public interface PostponeMapper {
 
     int deleteByExample(PostponeExample example);
 
+    int deleteByPrimaryKey(Integer id);
+
     int insert(Postpone record);
 
     int insertSelective(Postpone record);
 
     List<Postpone> selectByExample(PostponeExample example);
 
+    Postpone selectByPrimaryKey(Integer id);
+
     int updateByExampleSelective(@Param("record") Postpone record, @Param("example") PostponeExample example);
 
     int updateByExample(@Param("record") Postpone record, @Param("example") PostponeExample example);
+
+    int updateByPrimaryKeySelective(Postpone record);
+
+    int updateByPrimaryKey(Postpone record);
 }

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jckjkj.mybatis.dao.RepairMapper" >
   <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.Repair" >
-    <result column="id" property="id" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="INTEGER" />
     <result column="orderid" property="orderid" jdbcType="VARCHAR" />
     <result column="material" property="material" jdbcType="VARCHAR" />
     <result column="count" property="count" jdbcType="VARCHAR" />
@@ -105,6 +105,18 @@
       order by ${orderByClause}
     </if>
   </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from x_repair
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from x_repair
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
   <delete id="deleteByExample" parameterType="com.jckjkj.mybatis.model.RepairExample" >
     delete from x_repair
     <if test="_parameter != null" >
@@ -216,5 +228,43 @@
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jckjkj.mybatis.model.Repair" >
+    update x_repair
+    <set >
+      <if test="orderid != null" >
+        orderid = #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="material != null" >
+        material = #{material,jdbcType=VARCHAR},
+      </if>
+      <if test="count != null" >
+        count = #{count,jdbcType=VARCHAR},
+      </if>
+      <if test="repaircontent != null" >
+        repaircontent = #{repaircontent,jdbcType=VARCHAR},
+      </if>
+      <if test="repairphoto != null" >
+        repairphoto = #{repairphoto,jdbcType=BINARY},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.jckjkj.mybatis.model.Repair" >
+    update x_repair
+    set orderid = #{orderid,jdbcType=VARCHAR},
+      material = #{material,jdbcType=VARCHAR},
+      count = #{count,jdbcType=VARCHAR},
+      repaircontent = #{repaircontent,jdbcType=VARCHAR},
+      repairphoto = #{repairphoto,jdbcType=BINARY}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.Repair" >
+    update x_repair
+    set orderid = #{orderid,jdbcType=VARCHAR},
+      material = #{material,jdbcType=VARCHAR},
+      count = #{count,jdbcType=VARCHAR},
+      repaircontent = #{repaircontent,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

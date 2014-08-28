@@ -10,13 +10,21 @@ public interface OrderAuditMapper {
 
     int deleteByExample(OrderAuditExample example);
 
+    int deleteByPrimaryKey(Integer id);
+
     int insert(OrderAudit record);
 
     int insertSelective(OrderAudit record);
 
     List<OrderAudit> selectByExample(OrderAuditExample example);
 
+    OrderAudit selectByPrimaryKey(Integer id);
+
     int updateByExampleSelective(@Param("record") OrderAudit record, @Param("example") OrderAuditExample example);
 
     int updateByExample(@Param("record") OrderAudit record, @Param("example") OrderAuditExample example);
+
+    int updateByPrimaryKeySelective(OrderAudit record);
+
+    int updateByPrimaryKey(OrderAudit record);
 }

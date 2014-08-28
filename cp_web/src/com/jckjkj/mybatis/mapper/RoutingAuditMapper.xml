@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jckjkj.mybatis.dao.RoutingAuditMapper" >
   <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.RoutingAudit" >
-    <result column="id" property="id" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="INTEGER" />
     <result column="routingid" property="routingid" jdbcType="INTEGER" />
     <result column="routingstate" property="routingstate" jdbcType="VARCHAR" />
     <result column="aoperson" property="aoperson" jdbcType="VARCHAR" />
@@ -83,6 +83,16 @@
       order by ${orderByClause}
     </if>
   </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from x_routingaudit
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from x_routingaudit
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
   <delete id="deleteByExample" parameterType="com.jckjkj.mybatis.model.RoutingAuditExample" >
     delete from x_routingaudit
     <if test="_parameter != null" >
@@ -171,5 +181,31 @@
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jckjkj.mybatis.model.RoutingAudit" >
+    update x_routingaudit
+    <set >
+      <if test="routingid != null" >
+        routingid = #{routingid,jdbcType=INTEGER},
+      </if>
+      <if test="routingstate != null" >
+        routingstate = #{routingstate,jdbcType=VARCHAR},
+      </if>
+      <if test="aoperson != null" >
+        aoperson = #{aoperson,jdbcType=VARCHAR},
+      </if>
+      <if test="aodate != null" >
+        aodate = #{aodate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.RoutingAudit" >
+    update x_routingaudit
+    set routingid = #{routingid,jdbcType=INTEGER},
+      routingstate = #{routingstate,jdbcType=VARCHAR},
+      aoperson = #{aoperson,jdbcType=VARCHAR},
+      aodate = #{aodate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

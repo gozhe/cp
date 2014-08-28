@@ -10,13 +10,21 @@ public interface RoutingAuditMapper {
 
     int deleteByExample(RoutingAuditExample example);
 
+    int deleteByPrimaryKey(Integer id);
+
     int insert(RoutingAudit record);
 
     int insertSelective(RoutingAudit record);
 
     List<RoutingAudit> selectByExample(RoutingAuditExample example);
 
+    RoutingAudit selectByPrimaryKey(Integer id);
+
     int updateByExampleSelective(@Param("record") RoutingAudit record, @Param("example") RoutingAuditExample example);
 
     int updateByExample(@Param("record") RoutingAudit record, @Param("example") RoutingAuditExample example);
+
+    int updateByPrimaryKeySelective(RoutingAudit record);
+
+    int updateByPrimaryKey(RoutingAudit record);
 }

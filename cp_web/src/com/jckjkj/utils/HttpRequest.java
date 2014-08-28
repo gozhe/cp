@@ -1,5 +1,6 @@
 package com.jckjkj.utils;
 
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,6 +13,8 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.List;
 import java.util.Map;
+
+import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 
 public class HttpRequest {
 
@@ -127,6 +130,30 @@ public class HttpRequest {
 		return result;
 	}
 
+	public static String doPost(String url, String jsonData) throws IOException {
+		HttpURLConnection connection = (HttpURLConnection) new URL(url)
+				.openConnection();
+		connection.setDoOutput(true);
+		connection.setConnectTimeout(2000);
+		connection.setReadTimeout(3000);
+		connection.setUseCaches(false);
+		connection.setRequestMethod("POST");
+		connection.setRequestProperty("Charset", "UTF-8");
+		connection.connect();
+		BufferedOutputStream out = null;
+		try {
+			out = new BufferedOutputStream(connection.getOutputStream());
+			out.write(jsonData.getBytes());
+			out.flush();
+		} finally {
+			if (out != null) {
+				out.close();
+				out = null;
+			}
+		}
+		return "";
+	}
+
 	public static String sendPost1(String url, String param) {
 		try {
 			URL serverUrl = new URL(url);
@@ -134,21 +161,11 @@ public class HttpRequest {
 					.openConnection();
 			conn.setConnectTimeout(20000);
 			conn.setRequestMethod("POST");
-//			conn.addRequestProperty("Referer",
-//					"http://221.179.9.XX:8080/bpss/index.jsp#");
-//			conn.addRequestProperty("Accept", "*/*");
-//			conn.addRequestProperty("Accept-Language", "zh-cn");
-//			conn.addRequestProperty("Content-type", "text/plain");
-//			conn.addRequestProperty(
-//					"User-Agent",
-//					"Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; .NET CLR 2.0.50727)");
-			// conn.addRequestProperty("Cookie",
-			// "JSESSIONID=60769A616C7132CB8BD8023AC05D214D;");
 			conn.setDoOutput(true);
 			conn.connect();
 			conn.getOutputStream().write(param.getBytes());
 			InputStream ins = conn.getInputStream();
-			String charset = "gbk";
+			String charset = "utf-8";
 			InputStreamReader inr = new InputStreamReader(ins, charset);
 			BufferedReader br = new BufferedReader(inr);
 			String line = "";
