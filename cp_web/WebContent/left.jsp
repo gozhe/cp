@@ -22,8 +22,8 @@
 						<a href="#" class="blue"><img alt="" src="img/jk.png" class="img">设备监控 <span></span></a></li>
 						<li class="dropdown">
 							<ul>
-								<li><a class="submenu" href="_sb/sbjk.jsp" target="right">设备列表</a></li>
-								<li><a class="submenu" href="#">监控管理</a></li>
+								<li><a class="submenu" href="_sb/sbjk.jsp" target="right">监控管理</a></li>
+								<li><a class="submenu" href="#">告警历史</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -33,8 +33,8 @@
 						<li class="button"><a href="#" class="blue"><img alt="" src="img/gd.png" class="img">工单管理 <span></span></a></li>
 						<li class="dropdown">
 							<ul>
-								<li><a class="submenu"  href="_gd/gdpf.jsp" target="right">工单派发</a></li>
-								<li><a class="submenu" href="base/getOrderList.do" target="right">工单管理</a></li>
+								<li><a class="submenu"  href="_gd/gdpf.jsp" target="right">工单管理</a></li>
+								<li><a class="submenu" href="base/getOrderList.do" target="right">审核管理</a></li>
 
 							</ul>
 						</li>
@@ -45,8 +45,8 @@
 						<li class="button"><a href="#" class="blue"><img alt="" src="img/xj.png" class="img">巡检管理 <span></span></a></li>
 						<li class="dropdown">
 							<ul>
-								<li><a class="submenu"  href="base/getRoutingInspectionList.do"  target="right">巡检列表</a></li>
-								<li><a class="submenu"  href="#" >巡检管理</a></li>
+								<li><a class="submenu"  href="base/getRoutingInspectionList.do"  target="right">巡检管理</a></li>
+								<li><a class="submenu"  href="#" >审核管理</a></li>
 
 							</ul>
 						</li>
@@ -71,6 +71,8 @@
 						<li class="dropdown">
 							<ul>
 								<li><a class="submenu"  href="#"
+									onclick="$('.button a').eq(2).click();return false;">合同管理</a></li>
+								<li><a class="submenu"  href="#"
 									onclick="$('.button a').eq(2).click();return false;">计费方式一</a></li>
 								<li><a class="submenu"  href="#"
 									onclick="$('.button a').eq(2).click();return false;">计费方式二</a></li>
@@ -85,9 +87,17 @@
 						<li class="dropdown">
 							<ul>
 								<li><a class="submenu" href="#"
-									onclick="$('.button a').eq(2).click();return false;">计费方式一</a></li>
+									onclick="$('.button a').eq(2).click();return false;">部门管理</a></li>
 								<li><a class="submenu" href="#"
-									onclick="$('.button a').eq(2).click();return false;">计费方式二</a></li>
+									onclick="$('.button a').eq(2).click();return false;">手机管理</a></li>
+										<li><a class="submenu" href="#"
+									onclick="$('.button a').eq(2).click();return false;">人员管理</a></li>
+										<li><a class="submenu" href="#"
+									onclick="$('.button a').eq(2).click();return false;">设备管理</a></li>
+										<li><a class="submenu" href="#"
+									onclick="$('.button a').eq(2).click();return false;">角色管理</a></li>
+										<li><a class="submenu" href="#"
+									onclick="$('.button a').eq(2).click();return false;">字典管理</a></li>
 
 							</ul>
 						</li>
