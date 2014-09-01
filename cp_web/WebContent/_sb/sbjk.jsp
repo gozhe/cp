@@ -97,12 +97,12 @@ function getData(){
 	    for (var k in o)
 	    if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
 	    return fmt;
-	}
+	};
 
 </script>
 </head>
 <body>
-	<div id="query" style="padding-left: 25px;padding-top: 10px;padding-right: 25px;">
+	<div id="query" style="padding: 10px;">
 		<div>
 			<div>
 				<img alt="" src="../images/exit.png" style="vertical-align: middle;">

@@ -96,7 +96,7 @@ li.button a:hover span{ background-position:bottom right;}
 	border:1px solid #40392C;
 	color:#CCCCCC;
 	margin:5px 0;
-	padding:4px 18px;
+	padding:4px 32px;/*上内边距和下内边距是 4px,右内边距和左内边距是 18px*/
 }
 
 .img{
