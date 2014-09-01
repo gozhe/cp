@@ -1,7 +1,10 @@
 package com.jckjkj.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,8 +32,11 @@ public class BaseServiceImpl implements BaseService {
 	private EquipmentMapper equipmentMapper;
 	private OrderListMapper orderListMapper;
 	private RoutingInspectionMapper routingInspectionMapper;
+	private SqlSessionFactory sqlSessionFactory;
 
 	//TODO ------------接口实现-----------
+
+
 
 	@Override
 	public User Login(String username, String password) {
@@ -50,6 +56,26 @@ public class BaseServiceImpl implements BaseService {
 		EquipmentStateExample example = new EquipmentStateExample();
 		example.createCriteria().andEquidIsNotNull();
 		return equipmentStateMapper.selectByExample(example);
+	}
+	
+	
+	@Override
+	public List<EquipmentState> getEquipmentStateList(String dptid,
+			int start,int rows) {
+		// TODO Auto-generated method stub
+		// dptid-->stationid->sid
+//		Map<String, Object> param=new HashMap<String, Object>();
+//		param.put("start", start);
+//		param.put("rows", rows);
+		return equipmentStateMapper.selectByLimit(start,rows);
+	}
+	
+	@Override
+	public int getEquipmentStateCount(String dptid) {
+		// TODO Auto-generated method stub
+		EquipmentStateExample example = new EquipmentStateExample();
+		example.createCriteria().andEquidIsNotNull();
+		return equipmentStateMapper.countByExample(example);
 	}
 
 	@Override
@@ -133,7 +159,6 @@ public class BaseServiceImpl implements BaseService {
 	
 	//TODO ------------Spring自动装配
 	
-	
 	public UserMapper getUserMapper() {
 		return userMapper;
 	}
@@ -180,5 +205,17 @@ public class BaseServiceImpl implements BaseService {
 			RoutingInspectionMapper routingInspectionMapper) {
 		this.routingInspectionMapper = routingInspectionMapper;
 	}
+
+	public SqlSessionFactory getSqlSessionFactory() {
+		return sqlSessionFactory;
+	}
+	
+	@Autowired
+	public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
+		this.sqlSessionFactory = sqlSessionFactory;
+	}
+
+
+
 
 }

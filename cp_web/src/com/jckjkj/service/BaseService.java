@@ -39,6 +39,23 @@ public interface BaseService {
 	List<EquipmentState> getEquipmentStateList(String dptid);
 	
 	/**
+	 * 获取所属部门的设备监控列表
+	 * @param dptid
+	 * @param page 页
+	 * @param rows 行
+	 * @return
+	 */
+	List<EquipmentState> getEquipmentStateList(String dptid,int rows,int start);
+	
+	
+	/**
+	 * 获取所属部门的设备监控数量（分页）
+	 * @param dptid
+	 * @return
+	 */
+	int getEquipmentStateCount(String dptid);
+	
+	/**
 	 * 获取设备详细信息描述
 	 * @param equid 设备编号
 	 * @return

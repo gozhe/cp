@@ -22,7 +22,7 @@
 						<a href="#" class="blue"><img alt="" src="img/jk.png" class="img">设备监控 <span></span></a></li>
 						<li class="dropdown">
 							<ul>
-								<li><a class="submenu" href="_sb/sbjk.jsp" target="right">监控管理</a></li>
+								<li><a class="submenu" href="_sb/sbgl.jsp" target="right">监控管理</a></li>
 								<li><a class="submenu" href="#">告警历史</a></li>
 							</ul>
 						</li>
