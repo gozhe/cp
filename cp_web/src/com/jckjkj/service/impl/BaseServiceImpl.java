@@ -93,9 +93,14 @@ public class BaseServiceImpl implements BaseService {
 	@Override
 	public Equipment getEquipmentDetail(String equid) {
 		// TODO Auto-generated method stub
-		//EquipmentExample example = new EquipmentExample();
-		//example.createCriteria().andEquidEqualTo(equid);
-		return equipmentMapper.selectByPrimaryKey(equid);
+		EquipmentExample example = new EquipmentExample();
+		example.createCriteria().andEquidEqualTo(equid);
+		List<Equipment> list = equipmentMapper.selectByExample(example);
+		if(list.size()>0){
+			return list.get(0);
+		}else{
+			return null;
+		}
 	}
 
 	@Override

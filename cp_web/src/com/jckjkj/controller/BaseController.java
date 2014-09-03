@@ -90,11 +90,11 @@ public class BaseController {
 
 			response.setCharacterEncoding("utf-8");
 			response.setContentType("text/html; charset=UTF-8");
-
-			PrintWriter pw = response.getWriter();
-			pw.write(results);
-			pw.flush();
-			pw.close();
+			response.getWriter().write(results);
+//			PrintWriter pw = response.getWriter();
+//			pw.write(results);
+//			pw.flush();
+//			pw.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -102,11 +102,15 @@ public class BaseController {
 
 	@RequestMapping("getEquipmentDetail.do")
 	public String getEquipmentDetail(@RequestParam("equid") String equid,
-			HttpServletRequest request) {
+			HttpServletRequest request,HttpServletResponse response) {
 		try {
 			Equipment equipment = baseService.getEquipmentDetail(equid);
-			// String results = JsonUtils.bean2json(equipment);
-			// System.out.println(results);
+			//String results = JsonUtils.bean2json(equipment);
+			//System.out.println(results);
+			response.setCharacterEncoding("utf-8");
+			response.setContentType("text/html; charset=UTF-8");
+			//response.getWriter().write(results);
+			
 			request.setAttribute("ResultList", equipment);
 			return "_sb/sbxx";
 		} catch (Exception e) {

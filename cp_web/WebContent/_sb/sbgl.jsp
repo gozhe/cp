@@ -22,11 +22,35 @@
 <script type="text/javascript"
 	src="../jquery.easyui/datagrid-detailview.js"></script>
 <script type="text/javascript" src="../js/sb.js"></script>
+<style type="text/css">
+	body{
+		 margin: 0px;
+		 font-family: 微软雅黑;
+	}
+	.cs1{
+		width:80px;
+		height:24px;
+		background-color: #F4F4F4;
+		padding-left: 4px;
+		text-align: left;
+	}
+	.cs2{
+		width:120px;
+		height:24px;
+		padding-left: 2px;
+		text-align: center;
+	}
+	hr{
+		height:0.1px;
+		border:none;
+		border-top:1px dashed #0066CC;
+	}
+</style>
 <script type="text/javascript">
 $(function() {
 	$('#dgrid').datagrid({  
         title:'状态列表',  
-        iconCls:'icon-search',//图标  
+        iconCls:'icon-save',//图标  
         width: 'auto',  
         height: 370,  
         nowrap: false,  
@@ -42,18 +66,20 @@ $(function() {
             {field:'ck',checkbox:true}  
         ]],  
         toolbar:[{
-        	text: '查看详细',  
+        	text: '设备明细',  
             iconCls: 'icon-search',  
             handler: function() {  
                 //openDialog("add_dialog","add"); 
             	var row = $('#dgrid').datagrid('getSelected');
             	if (row){
-	            	alert(row.equid);
+            		showDetails(row.equid,row.equtype);
+            		$.messager.alert('消息', '请选择一条记录', '消息');  
+            		//alert(row.equid);
             	}
             }  	
         },'-',{
-        	text:'新增工单',
-        	iconCls:'icon-add',
+        	text:'创建工单',
+        	iconCls:'icon-edit',
         	handler:function(){
         		var row = $('#dgrid').datagrid('getSelected');
             	if (row){
@@ -81,7 +107,7 @@ function loadData(pageNumber,pageSize){
     var _pageNumber =pageNumber;  
     var _pageSize =pageSize;
     var filter ="dptid=001";
-		var url = "<%=path%>/base/getEquipmentStateList.do?"+filter+"&page="+_pageNumber+"&rows="+_pageSize;
+	var url = "<%=path%>/base/getEquipmentStateList.do?"+filter+"&page="+_pageNumber+"&rows="+_pageSize;
 	$.ajax({
 		url:url,
 		async:false,
@@ -124,15 +150,51 @@ function getChecked() {
 			s += ',';
 		s += nodes[i].text;
 	}
-	alert(s);
-	$('#station').val(s);
+	$('#station').searchbox("setValue",s);
 }
 
 function queryMe(){
-	alert("aa");
-	$('#name').val("asa");
-	$('#name').attr("value","123");
+	//alert("aa");
+	//$('#name').textbox("setValue","asa");
 }
+
+function showDetails(equid,equtype){
+
+	$('#dlg').dialog({
+		title : '设备明细',
+		iconCls : "icon-search",
+		collapsible : false,
+		minimizable : false,
+		maximizable : false,
+		resizable : true,
+		width : 600,
+		height : 400,
+		modal : true,
+		href : '<%=path%>/base/getEquipmentDetail.do?equid=equ001',
+		onClose : function() {
+			//alert("close");
+		},
+	});
+}
+
+function addOrder(equid){
+	$('#dlg').dialog({
+		title : '创建工单',
+		iconCls : "icon-add",
+		collapsible : false,
+		minimizable : false,
+		maximizable : false,
+		resizable : true,
+		width : 600,
+		height : 400,
+		modal : true,
+		href : '<%=path%>/base/getEquipmentDetail.do?equid=equ001',
+		onClose : function() {
+			//alert("close");
+		},
+	});
+}
+
 </script>
 <style type="text/css">
 body {
@@ -180,17 +242,17 @@ img{
 					</tr>
 					<tr>
 						<td>设备分组:</td>
-						<td colspan="2"><input id="station" class="easyui-searchbox"
-							data-options="prompt:'-请选择-',searcher:doSelect" style="width: 133px">
+						<td colspan="3"><input id="station" class="easyui-searchbox"
+							data-options="prompt:'-请选择-',searcher:doSelect" style="width: 133px;">
 						</td>
 					</tr>
 				</table>
 			</div>
 			<div style="margin-top: 5px;float: right;">
 				<a href="#" class="easyui-linkbutton" onclick="queryMe();"
-					data-options="iconCls:'icon-search'" style="width: 100px">查询</a>
+					data-options="iconCls:'icon-search'" style="width: 80px">查询</a>
 				<a href="#" class="easyui-linkbutton"
-					data-options="iconCls:'icon-reload'" style="width: 100px">重置</a>
+					data-options="iconCls:'icon-reload'" style="width: 80px">重置</a>
 			</div>
 		</div>
 		<div class="dstate" style="margin-top: 15px;">

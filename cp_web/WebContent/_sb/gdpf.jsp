@@ -47,77 +47,77 @@
              	<tr>
              		<td class="cs1">设备编号</td>
 					<td class="cs2">${ResultList.equid}</td>
-					<td class="cs1">组别属性</td>
+					<td class="cs1">分组编号</td>
 					<td class="cs2">${ResultList.equid}</td>
              	</tr>
              	<tr><td colspan="4" height="0.1" bgcolor="#F4F4F4"></td></tr>
 				<tr>
-					<td class="cs1">IP地址</td>
+					<td class="cs1">厂商编号</td>
 					<td class="cs2">${ResultList.equid}</td>
 					<td class="cs1">设备名称</td>
 					<td class="cs2">${ResultList.equid}</td>
 				</tr>
 				<tr><td colspan="4" height="0.1" bgcolor="#F4F4F4"></td></tr>
 				<tr>
+					<td class="cs1">IP地址</td>
+					<td class="cs2">${ResultList.equid}</td>
 					<td class="cs1">子网掩码</td>
 					<td class="cs2">${ResultList.equid}</td>
+				</tr>
+				<tr><td colspan="4" height="0.1" bgcolor="#F4F4F4"></td></tr>
+				<tr>
 					<td class="cs1">网关</td>
 					<td class="cs2">${ResultList.equid}</td>
-				</tr>
-				<tr><td colspan="4" height="0.1" bgcolor="#F4F4F4"></td></tr>
-				<tr>
-					<td class="cs1">操作系统</td>
-					<td class="cs2">${ResultList.equid}</td>
-					<td class="cs1">开机用户名</td>
+					<td class="cs1">存储地址</td>
 					<td class="cs2">${ResultList.equid}</td>
 				</tr>
 				<tr><td colspan="4" height="0.1" bgcolor="#F4F4F4"></td></tr>
 				<tr>
-					<td class="cs1">开机密码</td>
+					<td class="cs1">转发地址</td>
 					<td class="cs2">${ResultList.equid}</td>
-					<td class="cs1">软件用户名</td>
-					<td class="cs2">${ResultList.equid}</td>
-				</tr>
-				<tr><td colspan="4" height="0.1" bgcolor="#F4F4F4"></td></tr>
-				<tr>
-					<td class="cs1">软件密码</td>
-					<td class="cs2">${ResultList.equid}</td>
-					<td class="cs1">端口号</td>
+					<td class="cs1">端口</td>
 					<td class="cs2">${ResultList.equid}</td>
 				</tr>
 				<tr><td colspan="4" height="0.1" bgcolor="#F4F4F4"></td></tr>
 				<tr>
-					<td class="cs1">ntp地址</td>
+					<td class="cs1">地址码</td>
 					<td class="cs2">${ResultList.equid}</td>
-					<td class="cs1">软件名称和版本</td>
+					<td class="cs1">NTP地址</td>
 					<td class="cs2">${ResultList.equid}</td>
 				</tr>
 				<tr><td colspan="4" height="0.1" bgcolor="#F4F4F4"></td></tr>
 				<tr>
+					<td class="cs1">点位名称</td>
+					<td class="cs2">${ResultList.equid}</td>
 					<td class="cs1">设备品牌</td>
 					<td class="cs2">${ResultList.equid}</td>
+				</tr>
+				<tr><td colspan="4" height="0.1" bgcolor="#F4F4F4"></td></tr>
+				<tr>
 					<td class="cs1">设备型号</td>
+					<td class="cs2">${ResultList.equid}</td>
+					<td class="cs1">摄像头类型</td>
 					<td class="cs2">${ResultList.equid}</td>
 				</tr>
 				<tr><td colspan="4" height="0.1" bgcolor="#F4F4F4"></td></tr>
 				<tr>
-					<td class="cs1">设备类别</td>
-					<td class="cs2">${ResultList.equid}</td>
 					<td class="cs1">入网日期</td>
+					<td class="cs2">${ResultList.equid}</td>
+					<td class="cs1">经纬度</td>
 					<td class="cs2">${ResultList.equid}</td>
 				</tr>
 				<tr><td colspan="4" height="0.1" bgcolor="#F4F4F4"></td></tr>
 				<tr>
 					<td class="cs1">建设单位</td>
 					<td class="cs2">${ResultList.equid}</td>
-					<td class="cs1">备注1</td>
+					<td class="cs1">创建时间</td>
 					<td class="cs2">${ResultList.equid}</td>
 				</tr>
 				<tr><td colspan="4" height="0.1" bgcolor="#F4F4F4"></td></tr>
              </table>	
         </div>
         <div data-options="region:'center'" style="padding:5px">
-             <img alt="" src="../images/nopic.jpg" width="170px">                  
+             <img alt="" src="../images/camera.png" width="170px">                  
          </div>
 	 </div>
 </div>
