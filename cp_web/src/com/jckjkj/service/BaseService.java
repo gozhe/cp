@@ -7,7 +7,9 @@ import com.jckjkj.mybatis.model.Equipment;
 import com.jckjkj.mybatis.model.EquipmentState;
 import com.jckjkj.mybatis.model.OrderList;
 import com.jckjkj.mybatis.model.RoutingInspection;
+import com.jckjkj.mybatis.model.Station;
 import com.jckjkj.mybatis.model.User;
+import com.jckjkj.utils.TreeJson;
 
 public interface BaseService {
 	
@@ -28,7 +30,11 @@ public interface BaseService {
 	 */
 	boolean Logout(String username);
 	
+	//TODO /*--设备分组模块--*/
 	
+	List<TreeJson> getStationTree(String dptid);
+	
+
 	//TODO /*--设备监控模块--*/
 	
 	/**

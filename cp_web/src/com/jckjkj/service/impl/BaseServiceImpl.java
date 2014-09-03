@@ -12,6 +12,7 @@ import com.jckjkj.mybatis.dao.EquipmentMapper;
 import com.jckjkj.mybatis.dao.EquipmentStateMapper;
 import com.jckjkj.mybatis.dao.OrderListMapper;
 import com.jckjkj.mybatis.dao.RoutingInspectionMapper;
+import com.jckjkj.mybatis.dao.StationMapper;
 import com.jckjkj.mybatis.dao.UserMapper;
 import com.jckjkj.mybatis.model.Equipment;
 import com.jckjkj.mybatis.model.EquipmentExample;
@@ -21,13 +22,16 @@ import com.jckjkj.mybatis.model.OrderList;
 import com.jckjkj.mybatis.model.OrderListExample;
 import com.jckjkj.mybatis.model.RoutingInspection;
 import com.jckjkj.mybatis.model.RoutingInspectionExample;
+import com.jckjkj.mybatis.model.Station;
 import com.jckjkj.mybatis.model.User;
 import com.jckjkj.service.BaseService;
+import com.jckjkj.utils.TreeJson;
 
 @Service("baseService")
 public class BaseServiceImpl implements BaseService {
 
 	private UserMapper userMapper;
+	private StationMapper stationMapper;
 	private EquipmentStateMapper equipmentStateMapper;
 	private EquipmentMapper equipmentMapper;
 	private OrderListMapper orderListMapper;
@@ -49,6 +53,14 @@ public class BaseServiceImpl implements BaseService {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	@Override
+	public List<TreeJson> getStationTree(String dptid) {
+		// TODO Auto-generated method stub
+		
+		return stationMapper.selectByParam(dptid);
+	}
+
 
 	@Override
 	public List<EquipmentState> getEquipmentStateList(String dptid) {
@@ -157,7 +169,7 @@ public class BaseServiceImpl implements BaseService {
 	}
 
 	
-	//TODO ------------Spring自动装配
+	//TODO ------------Spring自动装配--@Autowired
 	
 	public UserMapper getUserMapper() {
 		return userMapper;
@@ -168,6 +180,14 @@ public class BaseServiceImpl implements BaseService {
 		this.userMapper = userMapper;
 	}
 
+	public StationMapper getStationMapper() {
+		return stationMapper;
+	}
+	@Autowired
+	public void setStationMapper(StationMapper stationMapper) {
+		this.stationMapper = stationMapper;
+	}
+	
 	public EquipmentStateMapper getEquipmentStateMapper() {
 		return equipmentStateMapper;
 	}
@@ -214,6 +234,7 @@ public class BaseServiceImpl implements BaseService {
 	public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
 		this.sqlSessionFactory = sqlSessionFactory;
 	}
+
 
 
 

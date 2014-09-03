@@ -80,7 +80,7 @@ $(function() {
 function loadData(pageNumber,pageSize){
     var _pageNumber =pageNumber;  
     var _pageSize =pageSize;
-    var filter ="dptid=id";
+    var filter ="dptid=001";
 		var url = "<%=path%>/base/getEquipmentStateList.do?"+filter+"&page="+_pageNumber+"&rows="+_pageSize;
 	$.ajax({
 		url:url,
@@ -88,7 +88,7 @@ function loadData(pageNumber,pageSize){
 		success:function(data){
 			var total = JSON.parse(data).rows[0].total;  
 			$('#dgrid').datagrid('loadData', JSON.parse(data)); 
-			pager.pagination({ 
+			$('#dgrid').datagrid('getPager').pagination({ 
 	            total:total,
 	            pageSize: _pageSize,
 	            pageNumber: _pageNumbe, 
@@ -96,6 +96,43 @@ function loadData(pageNumber,pageSize){
 		}
 	});
 };
+
+function doSelect() {
+	$('#dlg').dialog({
+		title : '设备分组',
+		iconCls : "icon-search",
+		collapsible : false,
+		minimizable : false,
+		maximizable : false,
+		resizable : true,
+		width : 380,
+		height : 300,
+		modal : true,
+		cache: false,
+		href : '../station.jsp',
+		onClose : function() {
+			getChecked();
+		},
+	});
+};
+
+function getChecked() {
+	var nodes = $('#tt').tree('getChecked');
+	var s = '';
+	for (var i = 0; i < nodes.length; i++) {
+		if (s != '')
+			s += ',';
+		s += nodes[i].text;
+	}
+	alert(s);
+	$('#station').val(s);
+}
+
+function queryMe(){
+	alert("aa");
+	$('#name').val("asa");
+	$('#name').attr("value","123");
+}
 </script>
 <style type="text/css">
 body {
@@ -144,13 +181,13 @@ img{
 					<tr>
 						<td>设备分组:</td>
 						<td colspan="2"><input id="station" class="easyui-searchbox"
-							data-options="prompt:'',searcher:doSelect" style="width: 133px">
+							data-options="prompt:'-请选择-',searcher:doSelect" style="width: 133px">
 						</td>
 					</tr>
 				</table>
 			</div>
 			<div style="margin-top: 5px;float: right;">
-				<a href="#" class="easyui-linkbutton"
+				<a href="#" class="easyui-linkbutton" onclick="queryMe();"
 					data-options="iconCls:'icon-search'" style="width: 100px">查询</a>
 				<a href="#" class="easyui-linkbutton"
 					data-options="iconCls:'icon-reload'" style="width: 100px">重置</a>
