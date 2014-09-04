@@ -115,62 +115,52 @@ public class OrderListExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualTo(String value) {
+        public Criteria andIdEqualTo(Integer value) {
             addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualTo(String value) {
+        public Criteria andIdNotEqualTo(Integer value) {
             addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThan(String value) {
+        public Criteria andIdGreaterThan(Integer value) {
             addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(String value) {
+        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
             addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThan(String value) {
+        public Criteria andIdLessThan(Integer value) {
             addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(String value) {
+        public Criteria andIdLessThanOrEqualTo(Integer value) {
             addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLike(String value) {
-            addCriterion("id like", value, "id");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdNotLike(String value) {
-            addCriterion("id not like", value, "id");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdIn(List<String> values) {
+        public Criteria andIdIn(List<Integer> values) {
             addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotIn(List<String> values) {
+        public Criteria andIdNotIn(List<Integer> values) {
             addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdBetween(String value1, String value2) {
+        public Criteria andIdBetween(Integer value1, Integer value2) {
             addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotBetween(String value1, String value2) {
+        public Criteria andIdNotBetween(Integer value1, Integer value2) {
             addCriterion("id not between", value1, value2, "id");
             return (Criteria) this;
         }
@@ -465,52 +455,62 @@ public class OrderListExample {
             return (Criteria) this;
         }
 
-        public Criteria andFaultgradeEqualTo(Integer value) {
+        public Criteria andFaultgradeEqualTo(String value) {
             addCriterion("faultgrade =", value, "faultgrade");
             return (Criteria) this;
         }
 
-        public Criteria andFaultgradeNotEqualTo(Integer value) {
+        public Criteria andFaultgradeNotEqualTo(String value) {
             addCriterion("faultgrade <>", value, "faultgrade");
             return (Criteria) this;
         }
 
-        public Criteria andFaultgradeGreaterThan(Integer value) {
+        public Criteria andFaultgradeGreaterThan(String value) {
             addCriterion("faultgrade >", value, "faultgrade");
             return (Criteria) this;
         }
 
-        public Criteria andFaultgradeGreaterThanOrEqualTo(Integer value) {
+        public Criteria andFaultgradeGreaterThanOrEqualTo(String value) {
             addCriterion("faultgrade >=", value, "faultgrade");
             return (Criteria) this;
         }
 
-        public Criteria andFaultgradeLessThan(Integer value) {
+        public Criteria andFaultgradeLessThan(String value) {
             addCriterion("faultgrade <", value, "faultgrade");
             return (Criteria) this;
         }
 
-        public Criteria andFaultgradeLessThanOrEqualTo(Integer value) {
+        public Criteria andFaultgradeLessThanOrEqualTo(String value) {
             addCriterion("faultgrade <=", value, "faultgrade");
             return (Criteria) this;
         }
 
-        public Criteria andFaultgradeIn(List<Integer> values) {
+        public Criteria andFaultgradeLike(String value) {
+            addCriterion("faultgrade like", value, "faultgrade");
+            return (Criteria) this;
+        }
+
+        public Criteria andFaultgradeNotLike(String value) {
+            addCriterion("faultgrade not like", value, "faultgrade");
+            return (Criteria) this;
+        }
+
+        public Criteria andFaultgradeIn(List<String> values) {
             addCriterion("faultgrade in", values, "faultgrade");
             return (Criteria) this;
         }
 
-        public Criteria andFaultgradeNotIn(List<Integer> values) {
+        public Criteria andFaultgradeNotIn(List<String> values) {
             addCriterion("faultgrade not in", values, "faultgrade");
             return (Criteria) this;
         }
 
-        public Criteria andFaultgradeBetween(Integer value1, Integer value2) {
+        public Criteria andFaultgradeBetween(String value1, String value2) {
             addCriterion("faultgrade between", value1, value2, "faultgrade");
             return (Criteria) this;
         }
 
-        public Criteria andFaultgradeNotBetween(Integer value1, Integer value2) {
+        public Criteria andFaultgradeNotBetween(String value1, String value2) {
             addCriterion("faultgrade not between", value1, value2, "faultgrade");
             return (Criteria) this;
         }

@@ -2,12 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jckjkj.mybatis.dao.OrderListMapper" >
   <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.OrderList" >
-    <id column="id" property="id" jdbcType="VARCHAR" />
+    <id column="id" property="id" jdbcType="INTEGER" />
     <result column="equid" property="equid" jdbcType="VARCHAR" />
     <result column="faultid" property="faultid" jdbcType="VARCHAR" />
     <result column="faulttitle" property="faulttitle" jdbcType="VARCHAR" />
     <result column="faultdescription" property="faultdescription" jdbcType="VARCHAR" />
-    <result column="faultgrade" property="faultgrade" jdbcType="INTEGER" />
+    <result column="faultgrade" property="faultgrade" jdbcType="VARCHAR" />
     <result column="faultclass" property="faultclass" jdbcType="VARCHAR" />
     <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
     <result column="estcomptime" property="estcomptime" jdbcType="TIMESTAMP" />
@@ -91,15 +91,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from x_orderlist
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from x_orderlist
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.jckjkj.mybatis.model.OrderListExample" >
     delete from x_orderlist
@@ -113,8 +113,8 @@
       faultclass, createtime, estcomptime, 
       orderstate, faultclass1, ordersource
       )
-    values (#{id,jdbcType=VARCHAR}, #{equid,jdbcType=VARCHAR}, #{faultid,jdbcType=VARCHAR}, 
-      #{faulttitle,jdbcType=VARCHAR}, #{faultdescription,jdbcType=VARCHAR}, #{faultgrade,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=INTEGER}, #{equid,jdbcType=VARCHAR}, #{faultid,jdbcType=VARCHAR}, 
+      #{faulttitle,jdbcType=VARCHAR}, #{faultdescription,jdbcType=VARCHAR}, #{faultgrade,jdbcType=VARCHAR}, 
       #{faultclass,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{estcomptime,jdbcType=TIMESTAMP}, 
       #{orderstate,jdbcType=INTEGER}, #{faultclass1,jdbcType=VARCHAR}, #{ordersource,jdbcType=INTEGER}
       )
@@ -161,7 +161,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=VARCHAR},
+        #{id,jdbcType=INTEGER},
       </if>
       <if test="equid != null" >
         #{equid,jdbcType=VARCHAR},
@@ -176,7 +176,7 @@
         #{faultdescription,jdbcType=VARCHAR},
       </if>
       <if test="faultgrade != null" >
-        #{faultgrade,jdbcType=INTEGER},
+        #{faultgrade,jdbcType=VARCHAR},
       </if>
       <if test="faultclass != null" >
         #{faultclass,jdbcType=VARCHAR},
@@ -208,7 +208,7 @@
     update x_orderlist
     <set >
       <if test="record.id != null" >
-        id = #{record.id,jdbcType=VARCHAR},
+        id = #{record.id,jdbcType=INTEGER},
       </if>
       <if test="record.equid != null" >
         equid = #{record.equid,jdbcType=VARCHAR},
@@ -223,7 +223,7 @@
         faultdescription = #{record.faultdescription,jdbcType=VARCHAR},
       </if>
       <if test="record.faultgrade != null" >
-        faultgrade = #{record.faultgrade,jdbcType=INTEGER},
+        faultgrade = #{record.faultgrade,jdbcType=VARCHAR},
       </if>
       <if test="record.faultclass != null" >
         faultclass = #{record.faultclass,jdbcType=VARCHAR},
@@ -250,12 +250,12 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update x_orderlist
-    set id = #{record.id,jdbcType=VARCHAR},
+    set id = #{record.id,jdbcType=INTEGER},
       equid = #{record.equid,jdbcType=VARCHAR},
       faultid = #{record.faultid,jdbcType=VARCHAR},
       faulttitle = #{record.faulttitle,jdbcType=VARCHAR},
       faultdescription = #{record.faultdescription,jdbcType=VARCHAR},
-      faultgrade = #{record.faultgrade,jdbcType=INTEGER},
+      faultgrade = #{record.faultgrade,jdbcType=VARCHAR},
       faultclass = #{record.faultclass,jdbcType=VARCHAR},
       createtime = #{record.createtime,jdbcType=TIMESTAMP},
       estcomptime = #{record.estcomptime,jdbcType=TIMESTAMP},
@@ -282,7 +282,7 @@
         faultdescription = #{faultdescription,jdbcType=VARCHAR},
       </if>
       <if test="faultgrade != null" >
-        faultgrade = #{faultgrade,jdbcType=INTEGER},
+        faultgrade = #{faultgrade,jdbcType=VARCHAR},
       </if>
       <if test="faultclass != null" >
         faultclass = #{faultclass,jdbcType=VARCHAR},
@@ -303,7 +303,7 @@
         ordersource = #{ordersource,jdbcType=INTEGER},
       </if>
     </set>
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.OrderList" >
     update x_orderlist
@@ -311,13 +311,13 @@
       faultid = #{faultid,jdbcType=VARCHAR},
       faulttitle = #{faulttitle,jdbcType=VARCHAR},
       faultdescription = #{faultdescription,jdbcType=VARCHAR},
-      faultgrade = #{faultgrade,jdbcType=INTEGER},
+      faultgrade = #{faultgrade,jdbcType=VARCHAR},
       faultclass = #{faultclass,jdbcType=VARCHAR},
       createtime = #{createtime,jdbcType=TIMESTAMP},
       estcomptime = #{estcomptime,jdbcType=TIMESTAMP},
       orderstate = #{orderstate,jdbcType=INTEGER},
       faultclass1 = #{faultclass1,jdbcType=VARCHAR},
       ordersource = #{ordersource,jdbcType=INTEGER}
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

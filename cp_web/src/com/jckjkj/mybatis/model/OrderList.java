@@ -3,7 +3,7 @@ package com.jckjkj.mybatis.model;
 import java.util.Date;
 
 public class OrderList {
-    private String id;
+    private Integer id;
 
     private String equid;
 
@@ -13,7 +13,7 @@ public class OrderList {
 
     private String faultdescription;
 
-    private Integer faultgrade;
+    private String faultgrade;
 
     private String faultclass;
 
@@ -27,12 +27,12 @@ public class OrderList {
 
     private Integer ordersource;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getEquid() {
@@ -67,12 +67,12 @@ public class OrderList {
         this.faultdescription = faultdescription == null ? null : faultdescription.trim();
     }
 
-    public Integer getFaultgrade() {
+    public String getFaultgrade() {
         return faultgrade;
     }
 
-    public void setFaultgrade(Integer faultgrade) {
-        this.faultgrade = faultgrade;
+    public void setFaultgrade(String faultgrade) {
+        this.faultgrade = faultgrade == null ? null : faultgrade.trim();
     }
 
     public String getFaultclass() {

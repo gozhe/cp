@@ -13,7 +13,7 @@ public interface OrderListMapper {
 
     int deleteByExample(OrderListExample example);
 
-    int deleteByPrimaryKey(String id);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(OrderList record);
 
@@ -21,7 +21,7 @@ public interface OrderListMapper {
 
     List<OrderList> selectByExample(OrderListExample example);
 
-    OrderList selectByPrimaryKey(String id);
+    OrderList selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") OrderList record, @Param("example") OrderListExample example);
 
@@ -31,7 +31,6 @@ public interface OrderListMapper {
 
     int updateByPrimaryKey(OrderList record);
     
-
     @Select("select t.* from x_orderlist t where t.equid in(select t1.com_id from t_camera t1,x_mobile_station t2 where t1.station_id = t2.stationid")
     List<OrderList> selectByMobileId(int mid);
 }

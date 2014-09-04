@@ -37,7 +37,7 @@
 
 
 		<!-- schema你的数据库，tableName表明，domainObjectName对应你的javabean类名，是否生成相应的example -->
-		
+		<!-- 
 		<table schema="" tableName="t_camera" domainObjectName="Camera" />
 		<table schema="" tableName="t_station" domainObjectName="Station" />
 		<table schema="" tableName="x_auditopinion" domainObjectName="Auditopion" />
@@ -66,8 +66,10 @@
 			domainObjectName="RoutingInspection" />
 		<table schema="" tableName="x_routingstate" domainObjectName="RoutingState" />
 		<table schema="" tableName="x_user" domainObjectName="User" />
-		
 		<table schema="" tableName="v_equip_routing" domainObjectName="VEquipRouting" />
+		-->
+		
+		<table schema="" tableName="x_orderlist" domainObjectName="OrderList" />
 	</context>
 
 </generatorConfiguration>

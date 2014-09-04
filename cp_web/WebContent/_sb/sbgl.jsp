@@ -73,17 +73,21 @@ $(function() {
             	var row = $('#dgrid').datagrid('getSelected');
             	if (row){
             		showDetails(row.equid,row.equtype);
+            	}else{
             		$.messager.alert('消息', '请选择一条记录', '消息');  
-            		//alert(row.equid);
             	}
+            	
             }  	
         },'-',{
         	text:'创建工单',
         	iconCls:'icon-edit',
         	handler:function(){
         		var row = $('#dgrid').datagrid('getSelected');
+        		//$.messager.alert('消息', '只有故障设备可以创建工单', '消息');
             	if (row){
-	            	alert(row.equid);
+	            	addOrder(row.equid);
+            	}else{
+            		$.messager.alert('消息', '请选择一条记录', '消息');  
             	}
         	}
         }]
@@ -159,7 +163,6 @@ function queryMe(){
 }
 
 function showDetails(equid,equtype){
-
 	$('#dlg').dialog({
 		title : '设备明细',
 		iconCls : "icon-search",
@@ -185,13 +188,38 @@ function addOrder(equid){
 		minimizable : false,
 		maximizable : false,
 		resizable : true,
-		width : 600,
-		height : 400,
+		width : 500,
+		height : 300,
 		modal : true,
-		href : '<%=path%>/base/getEquipmentDetail.do?equid=equ001',
-		onClose : function() {
-			//alert("close");
+		href : '<%=path%>/base/InitWhenCreatOrder.do?equid=equ001',
+	});
+}
+
+function onSelect(){
+	var value = $("#faultclass").combobox("getValue");
+	if(value=="other"){
+		$("#o_tr").show();
+	}else{
+		$("#o_tr").hide();
+	}
+}
+
+function submitForm(){
+	var url="<%=path%>/base/DoOrderDispatch.do";
+	$.messager.progress();	// display the progress bar
+	$('#ff').form('submit',{
+		url:url,
+		onSubmit:function(){
+			var isValid = $(this).form('validate');
+			if (!isValid){
+				$.messager.progress('close');	// hide progress bar while the form is invalid
+			}
+			return isValid;	// return false will stop the form submission
 		},
+		success:function(){
+			$.messager.progress('close');	// hide progress bar while submit successfully
+			$.messager.alert("提示", "操作成功！","info");
+		}
 	});
 }
 

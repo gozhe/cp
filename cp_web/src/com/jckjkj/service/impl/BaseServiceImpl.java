@@ -38,9 +38,7 @@ public class BaseServiceImpl implements BaseService {
 	private RoutingInspectionMapper routingInspectionMapper;
 	private SqlSessionFactory sqlSessionFactory;
 
-	//TODO ------------接口实现-----------
-
-
+	// TODO ------------接口实现-----------
 
 	@Override
 	public User Login(String username, String password) {
@@ -53,14 +51,13 @@ public class BaseServiceImpl implements BaseService {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
+
 	@Override
 	public List<TreeJson> getStationTree(String dptid) {
 		// TODO Auto-generated method stub
-		
+
 		return stationMapper.selectByParam(dptid);
 	}
-
 
 	@Override
 	public List<EquipmentState> getEquipmentStateList(String dptid) {
@@ -69,19 +66,18 @@ public class BaseServiceImpl implements BaseService {
 		example.createCriteria().andEquidIsNotNull();
 		return equipmentStateMapper.selectByExample(example);
 	}
-	
-	
+
 	@Override
-	public List<EquipmentState> getEquipmentStateList(String dptid,
-			int start,int rows) {
+	public List<EquipmentState> getEquipmentStateList(String dptid, int start,
+			int rows) {
 		// TODO Auto-generated method stub
 		// dptid-->stationid->sid
-//		Map<String, Object> param=new HashMap<String, Object>();
-//		param.put("start", start);
-//		param.put("rows", rows);
-		return equipmentStateMapper.selectByLimit(start,rows);
+		// Map<String, Object> param=new HashMap<String, Object>();
+		// param.put("start", start);
+		// param.put("rows", rows);
+		return equipmentStateMapper.selectByLimit(start, rows);
 	}
-	
+
 	@Override
 	public int getEquipmentStateCount(String dptid) {
 		// TODO Auto-generated method stub
@@ -96,9 +92,9 @@ public class BaseServiceImpl implements BaseService {
 		EquipmentExample example = new EquipmentExample();
 		example.createCriteria().andEquidEqualTo(equid);
 		List<Equipment> list = equipmentMapper.selectByExample(example);
-		if(list.size()>0){
+		if (list.size() > 0) {
 			return list.get(0);
-		}else{
+		} else {
 			return null;
 		}
 	}
@@ -138,7 +134,7 @@ public class BaseServiceImpl implements BaseService {
 	@Override
 	public boolean OrderDispatch(OrderList orderlist) {
 		// TODO Auto-generated method stub
-		return false;
+		return orderListMapper.insertSelective(orderlist) > 0 ? true : false;
 	}
 
 	@Override
@@ -173,9 +169,8 @@ public class BaseServiceImpl implements BaseService {
 		return false;
 	}
 
-	
-	//TODO ------------Spring自动装配--@Autowired
-	
+	// TODO ------------Spring自动装配--@Autowired
+
 	public UserMapper getUserMapper() {
 		return userMapper;
 	}
@@ -188,11 +183,12 @@ public class BaseServiceImpl implements BaseService {
 	public StationMapper getStationMapper() {
 		return stationMapper;
 	}
+
 	@Autowired
 	public void setStationMapper(StationMapper stationMapper) {
 		this.stationMapper = stationMapper;
 	}
-	
+
 	public EquipmentStateMapper getEquipmentStateMapper() {
 		return equipmentStateMapper;
 	}
@@ -234,14 +230,10 @@ public class BaseServiceImpl implements BaseService {
 	public SqlSessionFactory getSqlSessionFactory() {
 		return sqlSessionFactory;
 	}
-	
+
 	@Autowired
 	public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
 		this.sqlSessionFactory = sqlSessionFactory;
 	}
-
-
-
-
 
 }
