@@ -33,6 +33,6 @@ public interface StationMapper {
     int updateByPrimaryKey(Station record);
     
     @Select("select t.id,t.name as text,t.pid from t_station t order by t.id")
-    //暂不做权限处理
-    List<TreeJson> selectByParam(String dptid);
+//暂不做权限处理
+List<TreeJson> selectByParam(String dptid);
 }

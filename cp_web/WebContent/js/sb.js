@@ -1,7 +1,7 @@
 
 var url_equstate = getRootPath() + "/base/getEquipmentStateList.do?";
-var url_equdetail = getRootPath() + "/base/getEquipmentDetail.do?equid=equ001";
-var url_orderinit = getRootPath() + "/base/InitWhenCreatOrder.do?equid=equ001";
+var url_equdetail = getRootPath() + "/base/getEquipmentDetail.do?";
+var url_orderinit = getRootPath() + "/base/InitWhenCreatOrder.do?";
 var url_ordersubmit = getRootPath() + "/base/DoOrderDispatch.do";
 
 function getRootPath() {
@@ -77,10 +77,12 @@ $(function() {
 	loadData(1, 10);
 });
 
+var _pageNumber =0;
+
 function loadData(pageNumber, pageSize) {
-	var _pageNumber = pageNumber;
+	_pageNumber = pageNumber;
 	var _pageSize = pageSize;
-	var filter = "dptid=001";
+	var filter = "dptid=w001";
 	var url = url_equstate + filter + "&page=" + _pageNumber + "&rows="
 			+ _pageSize;
 	$.ajax({
@@ -144,7 +146,7 @@ function showDetails(equid, equtype) {
 		width : 600,
 		height : 400,
 		modal : true,
-		href : url_equdetail,
+		href : url_equdetail+"equid="+equid,
 		onClose : function() {
 			// alert("close");
 		},
@@ -162,7 +164,7 @@ function addOrder(equid) {
 		width : 500,
 		height : 300,
 		modal : true,
-		href : url_orderinit,
+		href : url_orderinit+"equid="+equid,
 	});
 }
 

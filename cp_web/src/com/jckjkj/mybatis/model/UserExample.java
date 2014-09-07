@@ -1,6 +1,7 @@
 package com.jckjkj.mybatis.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class UserExample {
@@ -721,6 +722,66 @@ public class UserExample {
 
         public Criteria andEmailNotBetween(String value1, String value2) {
             addCriterion("email not between", value1, value2, "email");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogintimeIsNull() {
+            addCriterion("logintime is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogintimeIsNotNull() {
+            addCriterion("logintime is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogintimeEqualTo(Date value) {
+            addCriterion("logintime =", value, "logintime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogintimeNotEqualTo(Date value) {
+            addCriterion("logintime <>", value, "logintime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogintimeGreaterThan(Date value) {
+            addCriterion("logintime >", value, "logintime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogintimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("logintime >=", value, "logintime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogintimeLessThan(Date value) {
+            addCriterion("logintime <", value, "logintime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogintimeLessThanOrEqualTo(Date value) {
+            addCriterion("logintime <=", value, "logintime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogintimeIn(List<Date> values) {
+            addCriterion("logintime in", values, "logintime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogintimeNotIn(List<Date> values) {
+            addCriterion("logintime not in", values, "logintime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogintimeBetween(Date value1, Date value2) {
+            addCriterion("logintime between", value1, value2, "logintime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogintimeNotBetween(Date value1, Date value2) {
+            addCriterion("logintime not between", value1, value2, "logintime");
             return (Criteria) this;
         }
     }

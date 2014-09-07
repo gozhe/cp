@@ -24,12 +24,14 @@ import com.jckjkj.mybatis.model.OrderList;
 import com.jckjkj.mybatis.model.Person;
 import com.jckjkj.mybatis.model.RoutingInspection;
 import com.jckjkj.mybatis.model.Station;
+import com.jckjkj.mybatis.model.User;
 import com.jckjkj.mybatis.model.VOrderRepair;
 import com.jckjkj.service.BaseService;
 import com.jckjkj.utils.BussinessUtils;
 import com.jckjkj.utils.DateUtils;
 import com.jckjkj.utils.JsonUtils;
 import com.jckjkj.utils.TreeJson;
+import com.jckjkj.utils.TreeUtils;
 
 @Controller
 public class BaseController {
@@ -45,6 +47,36 @@ public class BaseController {
 		this.baseService = baseService;
 	}
 
+	/*-----------------登录验证----------------------*/
+	/**---------------------------------------
+	 * 登录，成功就写入session，失败返回json
+	 * @param request 
+	 * @return
+	 */
+	@RequestMapping("login")
+	public void login(HttpServletRequest request,HttpServletResponse response) {
+		String username=request.getParameter("username");
+		String password=request.getParameter("password");
+		User userModel=new User();
+		System.out.println(username);
+		User user = baseService.login(username,password);
+		try {
+			PrintWriter printWriter = response.getWriter();
+			if(user!=null){
+				request.getSession().setAttribute("user", userModel);//如果成功就写入session
+			}
+			String result=JsonUtils.bean2json(userModel);
+			printWriter.write(result);
+			printWriter.flush();
+			printWriter.close();
+		}
+		catch(IOException ex){
+			ex.printStackTrace();
+		}
+	}
+
+	/*-----------------设备分组----------------------*/
+	
 	@RequestMapping("getStationTree.do")
 	public void getStationTree(@RequestParam("dptid") String dptid,
 			HttpServletResponse response) {
@@ -64,6 +96,8 @@ public class BaseController {
 
 	}
 
+	/*-----------------设备监控----------------------*/
+	
 	@RequestMapping(value = "getEquipmentStateList.do", method = RequestMethod.GET)
 	public void getEquipmentStateList(@RequestParam("dptid") String dptid,
 			@RequestParam("rows") String rows,
@@ -118,21 +152,15 @@ public class BaseController {
 			return "error";
 		}
 	}
+	
+	/*--------------------巡检-----------------*/
+	
+	
+	
 
-	@RequestMapping("getRoutingInspectionList.do")
-	public String getRoutingInspectionList(HttpServletRequest request) {
-		try {
-			List<RoutingInspection> list = baseService
-					.getRoutingInspectionList();
-			request.setAttribute("ResultList", list);
-			return "_xj/listAll";
-		} catch (Exception e) {
-			e.printStackTrace();
-			request.setAttribute("InfoMessage", "" + e.getMessage());
-			return "error";
-		}
-	}
-
+	
+	/*-----------------工单管理----------------------*/
+	
 	@RequestMapping("InitWhenCreatOrder.do")
 	public String InitWhenCreatOrder(HttpServletRequest request) {
 		try {
@@ -140,8 +168,7 @@ public class BaseController {
 			Map<String, Object> infos = new HashMap<String, Object>();
 			infos.put("equid", equid);
 			infos.put("equname", equid);
-			infos.put("createtime", DateUtils.convertDateToString(new Date(),
-					"yyyy-MM-dd HH:mm:ss"));
+			infos.put("createtime", DateUtils.getDateAndTimeString(new Date()));
 			System.out.println("haha");
 			// 故障编号-自动生成唯一识别码、不可编辑
 			// String faultid = java.util.UUID.randomUUID().toString();
@@ -205,18 +232,18 @@ public class BaseController {
 			String faultdescription = request.getParameter("faultdescription")
 					.toString();
 			String estcomptime = request.getParameter("estcomptime").toString();
-			estcomptime = DateUtils.convertDateToString(new Date(estcomptime),
-					"yyyy-MM-dd HH:mm:ss");
+			estcomptime = DateUtils.getDateAndTimeString(new Date(estcomptime));
 
 			entity.setEquid(equid);
-			entity.setCreatetime(DateUtils.formatFullDateStr(createtime));
+			entity.setCreater("尹新东");
+			entity.setCreatetime(DateUtils.getDateAndTime(createtime));
 			entity.setFaultid(faultid);
 			entity.setFaulttitle(faulttitle);
 			entity.setFaultclass(faultclass);
 			entity.setFaultclass1(faultclass1);
 			entity.setFaultgrade(faultgrade);
 			entity.setFaultdescription(faultdescription);
-			entity.setEstcomptime(DateUtils.formatFullDateStr(estcomptime));
+			entity.setEstcomptime(DateUtils.getDateAndTime(estcomptime));
 			entity.setOrderstate(0);// 状态-未接单0
 			entity.setOrdersource(0);// 来源-系统创建0
 

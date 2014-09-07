@@ -62,10 +62,11 @@
 						<th field="faulttitle" width="100">故障标题</th>
 						<th field="faultgrade" width="60">故障级别</th>
 						<th field="faultclass" width="60">故障类别</th>
-						<th field="createtime" width="160">创建时间</th>
-						<th field="estcomptime" width="160">预计完成时间</th>
-						<th field="orderstate" width="80">工单状态</th>
-						<th field="ordersource" width="80">工单来源</th>
+						<th field="creater" width="80">创建人</th>
+						<th field="createtime" width="140">创建时间</th>
+						<th field="estcomptime" width="140">预计完成时间</th>
+						<th field="orderstate" width="60">工单状态</th>
+						<th field="ordersource" width="60">工单来源</th>
 					</tr>
 				</thead>
 			</table>

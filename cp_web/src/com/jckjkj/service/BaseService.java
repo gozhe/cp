@@ -1,8 +1,10 @@
 package com.jckjkj.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import com.jckjkj.mybatis.model.Department;
 import com.jckjkj.mybatis.model.Equipment;
 import com.jckjkj.mybatis.model.EquipmentState;
 import com.jckjkj.mybatis.model.OrderList;
@@ -22,14 +24,14 @@ public interface BaseService {
 	 * @param password
 	 * @return
 	 */
-	User Login(String username,String password);
+	User login(String username,String password);
 	
 	/**
 	 * 用户登出
 	 * @param username
 	 * @return
 	 */
-	boolean Logout(String username);
+	boolean logout(String username);
 	
 	//TODO /*--设备分组模块--*/
 	
@@ -148,6 +150,7 @@ public interface BaseService {
 	
 	
 	//TODO /*--巡检管理模块--*/
+	
 	
 	/**
 	 * 获取巡检记录列表

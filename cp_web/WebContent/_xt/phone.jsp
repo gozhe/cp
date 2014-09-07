@@ -88,9 +88,10 @@ $(function() {
 });
 
 var url_phonelist = "<%=path%>/base/getPhoneList.do?";
+var _pageNumber= 0;
 
 function loadData(pageNumber, pageSize) {
-	var _pageNumber = pageNumber;
+	_pageNumber = pageNumber;
 	var _pageSize = pageSize;
 	var filter = "dptid=001";
 	var url = url_phonelist + filter + "&page=" + _pageNumber + "&rows="

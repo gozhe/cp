@@ -76,8 +76,10 @@ $(function() {
 	loadData(1, 10);
 });
 
+var _pageNumber=0;
+
 function loadData(pageNumber, pageSize) {
-	var _pageNumber = pageNumber;
+	_pageNumber = pageNumber;
 	var _pageSize = pageSize;
 	var filter = "dptid=001";
 	var url = url_orderlist + filter + "&page=" + _pageNumber + "&rows="

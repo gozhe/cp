@@ -1,105 +1,102 @@
 package com.jckjkj.utils;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+
+import org.aspectj.weaver.ast.Var;
 
 public class DateUtils {
 
-	// 日期加(天数)
-	public static java.util.Date addTimeByDay(java.util.Date date, int days)
-			throws Exception {
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(date);
-		calendar.set(Calendar.DATE, calendar.get(Calendar.DATE) + days);
-		return calendar.getTime();
+	private static SimpleDateFormat DateAndTimeFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
+	private static SimpleDateFormat DateFormat=new SimpleDateFormat("yyyy-MM-dd"); 
+	private static SimpleDateFormat DateFormat2=new SimpleDateFormat("yyyy-MM"); 
+	/**
+	 * 返回日期和时间字符串形式(yyyy-MM-dd HH:mm:ss)
+	 * @param args
+	 */
+	public static String getDateAndTimeString(Date date) {
+		// TODO Auto-generated method stub
+		return DateAndTimeFormat.format(date);
 	}
-
-	public static java.util.Date addTimeByMinutes(java.util.Date date,
-			int minutes) throws Exception {
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(date);
-		calendar.set(Calendar.MINUTE, calendar.get(Calendar.MINUTE) + minutes);
-		return calendar.getTime();
+	/**
+	 * 返回日期字符串形式(yyyy-MM-dd)
+	 * @param args
+	 */
+	public static String getDateString(Date date) {
+		// TODO Auto-generated method stub
+		return DateFormat.format(date);
 	}
-
-	public static java.util.Date addTimeBySeconds(java.util.Date date,
-			int seconds) throws Exception {
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(date);
-		calendar.set(Calendar.SECOND, calendar.get(Calendar.SECOND) + seconds);
-		return calendar.getTime();
-	}
-
-	// 得到当前日期
-	public static java.util.Date nowTime() throws Exception {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		String datestr = sdf.format(java.util.Calendar.getInstance().getTime());
-
-		return sdf.parse(datestr);
-	}
-
-	// 得到当前时间
-	public static java.util.Date nowFullTime() throws Exception {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String datestr = sdf.format(java.util.Calendar.getInstance().getTime());
-		return sdf.parse(datestr);
-	}
-
-	public static java.util.Date nowFullTime(String format) throws Exception {
-		SimpleDateFormat sdf = new SimpleDateFormat(format);
-		String datestr = sdf.format(java.util.Calendar.getInstance().getTime());
-		return sdf.parse(datestr);
-	}
-
-	public static String convertDateStrToString(String datestr, String format)
-			throws Exception {
-		String result = null;
-		SimpleDateFormat sdf = new SimpleDateFormat(format);
+	/**
+	 * 返回日期和时间(yyyy-MM-dd HH:mm:ss)
+	 * @param args
+	 */
+	public static Date getDateAndTime(String str) {
+		// TODO Auto-generated method stub
+		Date date;
 		try {
-			result = sdf.format(sdf.parse(datestr));
-		} catch (Exception ex) {
-			sdf = new SimpleDateFormat("yyyy-MM-dd");
-			result = sdf.format(sdf.parse(datestr));
+			date= DateAndTimeFormat.parse(str);
+			return date;
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		return result;
+		return null;
 	}
-
-	public static String convertDateToString(java.util.Date date, String format)
-			throws Exception {
-		SimpleDateFormat sdf = new SimpleDateFormat(format);
-		return sdf.format(date);
-	}
-
-	public static java.util.Date formatDateStr(String datestr) throws Exception {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
-		return sdf.parse(datestr);
-	}
-
-	public static java.util.Date formatDateStr(String datestr, String format)
-			throws Exception {
-		java.util.Date result = null;
-		SimpleDateFormat sdf = new SimpleDateFormat(format);
+	/**
+	 * 返回日期(yyyy-MM-dd)
+	 * @param args
+	 */
+	public static Date getDate(String str) {
+		// TODO Auto-generated method stub
+		Date date;
 		try {
-			result = sdf.parse(datestr);
-		} catch (Exception ex) {
-			sdf = new SimpleDateFormat("yyyy-MM-dd");
-			result = sdf.parse(datestr);
+			date= DateFormat.parse(str);
+			return date;
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		return result;
+		return null;
 	}
-
-	public static java.util.Date formatFullDateStr(String datestr)
-			throws Exception {
-		java.util.Date result = null;
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	/**
+	 * 返回日期(yyyy-MM)
+	 * @param args
+	 */
+	public static Date getDate2(String str) {
+		// TODO Auto-generated method stub
+		Date date;
 		try {
-			result = sdf.parse(datestr);
-		} catch (Exception ex) {
-			sdf = new SimpleDateFormat("yyyy-MM-dd");
-			result = sdf.parse(datestr);
+			date= DateFormat2.parse(str);
+			return date;
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		return result;
+		return null;
+	}
+    
+	/** 获取当前月末日期*/
+	public static Date  getMonthLastDay()
+	{ 
+		Calendar calendar = Calendar.getInstance(); 
+		calendar.set(Calendar.YEAR, calendar.get(Calendar.YEAR)); 
+		calendar.set(Calendar.MONTH, calendar.get(Calendar.MONTH)); 
+		int endday = calendar.getActualMaximum(Calendar.DAY_OF_MONTH); 
+		String string=calendar.get(Calendar.YEAR)+"-"+(calendar.get(Calendar.MONTH)+1)+"-"+endday+" 23:59:59";
+		System.out.println(string); 
+		return getDateAndTime(string);
+	}
+	/** 获取当前月01日期*/
+	public static Date  getMonthFirstDay()
+	{ 
+		Calendar calendar = Calendar.getInstance(); 
+		calendar.set(Calendar.YEAR, calendar.get(Calendar.YEAR)); 
+		calendar.set(Calendar.MONTH, calendar.get(Calendar.MONTH)); 
+		String string=calendar.get(Calendar.YEAR)+"-"+(calendar.get(Calendar.MONTH)+1)+"-01";
+		System.out.println(string); 
+		return getDate(string);
 	}
 
 }

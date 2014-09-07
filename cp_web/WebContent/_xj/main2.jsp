@@ -7,249 +7,166 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="Access-Control-Allow-Origin" content="*">
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
-	<link rel="stylesheet" type="text/css" href="../jquery/plugin/dropdownchecklist/ui.dropdownchecklist.css"/>
-	<link rel="stylesheet" type="text/css" href="../jquery/plugin/simplecanleder/SimpleCanleder.css"/>
-	<link rel="stylesheet" type="text/css" href="../jquery/css/smoothness/jquery-ui-1.10.3.custom.min.css"/>
-	<link rel="shortcut icon" type="image/ico" href="http://www.datatables.net/favicon.ico">
-	<link rel="stylesheet" type="text/css" href="../jquery.datatable/css/jquery.dataTables.css">
+ 	<link rel="stylesheet" type="text/css" href="../jquery.easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../jquery.easyui/themes/icon.css">
 	<style type="text/css" >
-		tbody tr td{
-			text-align: center;
+		body{
+			margin:0 auto;
+			width:95%;	
+			padding:10px 10px 10px 10px;
+			min-width: 1000px;
 		}
-		#details  {
-	   		margin: auto;
-		}
-		#details img{
-	   		width:300px;
-	   		height:300px;
-		}
-		/*html元素定义class属性使用点.开头。float设置该块的漂浮属性，在container内向左移,
-		另一个快siderbar在container内向右移*/
-		.detailTable{
-			
-		}
-		.detailTable table{
-			margin:5px 5px 5px 5px;
-			font-family: verdana,arial,sans-serif;
-			font-size:11px;
-			color:#333333;
-			border-width: 1px;
-			border-color: #666666;
-			border-collapse: collapse;
-		}
-		.detailTable table td.th{
-			border-width: 1px;
-			width:80px;
-			padding: 8px;
-			border-style: solid;
-			border-color: #666666;
-			background-color: #dedede;
-		}
-		.detailTable table td{
-		    min-width:100px;
-			border-width: 1px;
-			padding: 8px;
-			border-style: solid;
-			border-color: #666666;
-			background-color: #ffffff;
-		}
-		/*因为main和siderbar在container内，所以两个块的宽度之和不应该超过container的宽度*/
-		.detailImg{
-			
-		}
-	</style>
-	<!-- 
-	 -->
-	<script type="text/javascript" language="javascript" src="../jquery/js/jquery-1.9.1.js"></script>
-	<script type="text/javascript" language="javascript" src="../jquery/js/jquery-ui-1.10.3.custom.min.js"></script>
-	<script type="text/javascript"  language="javascript">var j_1_9_1 = $.noConflict();  </script>
-	<!-- 
-	<script type="text/javascript" language="javascript" src="../jquery/plugin/datepicker_cn.js"></script>
-	 -->
-	 <!-- 1.2.6 -->
-	 <!-- 
-	  -->
-	<script type="text/javascript" language="javascript" src="../jquery/plugin/dropdownchecklist/jquery.js"></script>
-	<script type="text/javascript" language="javascript" src="../jquery/plugin/dropdownchecklist/ui.core.js"></script>
-	<script type="text/javascript" language="javascript" src="../jquery/plugin/dropdownchecklist/ui.dropdownchecklist.js"></script>
-	<script type="text/javascript" language="javascript" src="../jquery/plugin/simplecanleder/SimpleCanleder.js"></script>
-	<!-- 
-	 -->
+		.head{padding:0 10px 0 10px;}
+		#mainDiv{width:90%;height:100%;text-align: center;padding:0 0 0 0;}
+		#details{width:600px;height:300px}
+		.detail-table{width:280px;height:300px;float: left;background-color: #CCFFCC;padding-right:20px;text-align: center;}
+		.detail-table ul{text-align: right; list-style-type:none}
+		.detail-table ul li{text-align: right;}
+		.detail-table .left{display: block;}
+		.detail-table .left input{width:150px;font-size:small;}
+		.detail-table .left textarea{width:148px;height:50px;resize: none;font-size:small;}
+		.detail-table .left span{width:80px;text-align: right;vertical-align: top;font-size:medium;}		
+		.detail-img {background-color:#FFFF99;width:300px;height:300px; float:right;vertical-align: middle;padding: 10px auto;}
+		.detail-img img{width:300px;height:300px;}
+ 	</style>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../jquery.easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui/easyui-lang-zh_CN.js"></script>
 	<!-- 1.11-->
-	<script type="text/javascript" language="javascript" src="../jquery.datatable/js/jquery.js"></script>
-	<script type="text/javascript" language="javascript" src="../jquery.datatable/js/jquery.dataTables.js"></script>
 	<script type="text/javascript" language="javascript" charset="utf-8" >
-	  	// datatables jquery冲突
-	  	var j_1_11 = $.noConflict(); 
+	
 		$(function(){
-			//----------------控件创建----------------
-			//--巡检分组--
-			$("#xjfz").dropdownchecklist({ "firstItemChecksAll": true, "maxDropHeight": 100 });
-			//--data--
-			var d=new Date();
-			var year=d.getFullYear();
-			var month=d.getMonth()+1;
-			//--巡检日期--
-			$("#xjrq_datepicker").simpleCanleder().val(year+"-"+(month<10?'0'+month:month)); 
-			//弹出窗口
-			j_1_9_1("#details").dialog({
-			    bgiframe: true,
-			    resizable: true,
-			    autoOpen:false,
-			    minHeight:500,
-			    minWidth:500,
-			    modal: true,
-			    overlay: {
-			        backgroundColor: '#000',
-			        opacity: 0.5
-			    }
+			//----控件创建--------
+			$('#datatable').datagrid({
+				title:"巡检详情",
+				url:'../base/getRouteCheckData.do',
+				rownumbers:true,
+				pagination:true,
+				singleSelect:true,
+				columns:[[
+				    {field:'id',title:'巡检号',align:'center',width:'10%'} ,    
+				    {field:'equid',title:'设备号',align:'center',width:'8%'} ,    
+				    {field:'equstate',title:'设备状态',align:'center',width:"10%"} ,    
+				    {field:'signintime',title:'巡检时间',align:'center',width:"18%"} ,    
+				    {field:'singinlongitude',title:'经度',align:'center',width:"10%"} ,    
+				    {field:'singinlatitude',title:'纬度',align:'center',width:"10%"} ,    
+				    {field:'roudescription',title:'巡检描述',align:'center',width:"22%"} ,    
+					{field:'detail',title:'详情',align:'center', width:'10%',
+						formatter: function(value,row,index){
+							return "<a class='routedetail' href='javascript:loadDetail("+index+");'>查看详情</a>";
+						}
+					}
+				]]
 			});
 			//---event handler---
+			//查询按钮
 			$("#query").click(function(){
-				loadData();
-			});
-			loadData();
-		});
-		function loadData(){
-			$("#mainDiv").empty().html('<table id="mainTable" class="display" cellspacing="0" width="100%"></table>');
-			$.ajax({
-				"url":"../routecheck/getAll.do",
-				"dataType":"json",
-				"contentType": "application/x-www-form-urlencoded; charset=UTF-8",
-				"data":{
-					//"groups":[1,2,3],
-					"groups":getGroups(),
-					"date":$("#xjrq_datepicker").val()
-				},
-				"type":"post",
-				"success":function(data){
-					//alert(data);
-					createTable(data);
-				},
-				"error":function(da,b,v){
-					alert("error:"+da.status);
+				var n =  $('#xjfz').combotree('tree').tree('getChecked');	
+				var groups=[] ;// get selected node
+				for(var i=0;i<n.length;i++)
+				{
+					groups.push(n[i].id);
 				}
+				var begin=$('#begindate').datebox('getValue');
+				var end=$('#enddate').datebox('getValue');
+				$('#datatable').datagrid('load',{
+					groups:groups,
+					begindate: begin,
+					enddate:end
+				});
 			});
-		}
-		function getGroups(){
-			var groups=[];
-			$(".ui-dropdownchecklist-item").each(function(){
-				var  v=$(":checked",this).val();
-				if(isNaN(v))
-					return;
-				groups.push(v);
-			});
-			//groups.shift();
-			//alert("groups:"+groups);
-			return groups;
-		}
-		function createTable(data){
-			//--datatable--
-			var t=j_1_11("#mainTable").empty().dataTable({
-				   "data":data,
-				   "order": [[ 2, "asc" ]],
-	        	   "bAutoWidth": false, //自适应宽度
-	        	   "columns": [
-	                           { "title": "巡检号" ,"data": "rouid" },
-	                           { "title": "设备号" ,"data": "equid" },
-	                           { "title": "设备状态","data": "equstate"  },
-	                           { "title": "巡检时间", "data": "signintime" },
-	                           { "title": "经度", "data": "singinlongitude" },
-	                           { "title": "纬度", "data": "singinlatitude" },
-	                           { "title": "巡检描述", "data": "roudescription" },
-	                           { "title": "详情" ,"data": "detail"}
-	                       ],
-	               "columnDefs": [ {	
-	            	   				  "targets": [7],
-	            	   				  "data":"detail",
-	                            	  "defaultContent":"<a href='javascript:'>详情</a>"
-	                              }],
-                    "oLanguage": {
- 	        		   "sProcessing": "正在加载中......",
- 	        		   "sLengthMenu": "每页显示 _MENU_ 行", 
- 	        		   "sZeroRecords": "没有记录", 
- 	        		   "sEmptyTable": "表中无数据存在！",
- 	        		   "sInfo": "当前显示 _START_ ～ _END_ 条，共 _TOTAL_ 条记录", 
- 	        		   "sInfoFiltered": "数据表中共为 _MAX_ 条记录",
- 	        		   "sInfoEmpty": "当前显示 0 ～ 0 条，共 0 条记录", 
- 	        		   "sSearch": "搜索",
- 	        		   "oPaginate": {
- 	                       "sFirst": "首页",
- 	                       "sPrevious": "上一页",
- 	                       "sNext": "下一页",
- 	                       "sLast": "末页"
- 	                   }
- 	        	   }
-            });
-			/*
-			j_1_11('#mainTable tbody tr td a').on('click', function () {
-			       // var name = $('td', this).eq(1).text();
-			        var name = $(this).index();
-			        alert( 'You clicked on '+name+'\'s row');
-			    });
-			j_1_11('#mainTable tbody').on('click', 'tr', function () {
-		        var name = $('td', this).eq(1).text();
-		       // var name = $(this).index();
-		        alert( 'You clicked on '+name+'\'s row');
-		    });
-			*/
-			j_1_11('#mainTable tbody tr td a').on('click', function () {
-	        	var routeid = $(this).parent().siblings().eq(0).text();
-	        	//alert("routeid:"+routeid);
-	        	$.ajax({
-	        		"url":"../routecheck/getDetail.do",
-	        		"dataType":"json",
-	        		"type":"post",
-	        		"data":	{
-	        				"id":routeid
-	        			},
-	        		"success":function(data){
-	        				//alert("success"+data);
-	        				showdetail(data);
-	        			},
-        			"error":function(a,b,c){
-        				alert("error:"+a.status);
-        			}
-	        	});
-		       // var name = $(this).index();
-		    });
 			
-		}
-		
+			initDate();
+		});
+		function loadDetail(index)
+	  	{
+			var routeid = $('#datatable').datagrid('getRows')[index].id
+			$.ajax({
+        		"url":"../base/getRouteCheckDetail.do",
+        		"dataType":"json",
+        		"type":"post",
+        		"data":	{
+        				"id":routeid
+        			},
+        		"success":function(data){
+        				//alert("success"+data);
+        				showdetail(data);
+        			},
+    			"error":function(a,b,c){
+    				alert("error:"+a.status);
+    			}
+        	});
+	  	}  
 		function showdetail(data)
 		{
 			//alert("begin");
 			$("#xjphoto").attr('src',data.rouphoto);
-			$("#rouid").html(data.rouid);
-			$("#equid").html(data.equid);
-			$("#equstate").html(data.equstate);
-			$("#signintime").html(data.signintime);
-			$("#roudescription").html(data.roudescription);
-			j_1_9_1("#details").dialog('open');
-			//alert("end");
+			$("#equid").val(data.equid);
+			$("#signintime").val(data.signintime);
+			$("#longitude").val(data.singinlongitude);
+			$("#latitude").val(data.singinlatitude);
+			$("#roudescription").val(data.roudescription);
+			$("#details").window('open');
 			
 		}
+		//----date func---
+		
+		/**
+		*初始化日期
+		*/
+		function initDate()
+		{
+			$('#begindate').datebox('setValue',getFirstDayOfMonth());  
+			$("#enddate").datebox('setValue',getLastDayOfMonth()); 
+		}
+		function myformatter(date)
+		{
+            var y = date.getFullYear();
+            var m = date.getMonth()+1;
+            var d = date.getDate();
+            return y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d);
+        }
+        function myparser(s)
+        {
+            if (!s) return new Date();
+            var ss = (s.split('-'));
+            var y = parseInt(ss[0],10);
+            var m = parseInt(ss[1],10);
+            var d = parseInt(ss[2],10);
+            if (!isNaN(y) && !isNaN(m) && !isNaN(d)){
+                return new Date(y,m-1,d);
+            } else {
+                return new Date();
+            }
+        }
+        function formatPrice(val,row,index)
+        {
+           return "<a href='javascript:loadDetail(row);'>查看详情</a>";
+        }
 	</script>
 </head>
 <body>
 	<div><img alt="" src="../images/exit.png" style="vertical-align: middle;">
 	<span></span>巡检记录查询</div>
-	<div>
+	<div class="head">
 		<form >
 			<table>
 				<tr>
 					<td>巡检分组:</td>
 					<td class="input">
-						<select id="xjfz"  multiple="multiple">
-				            <option selected="selected">(全部分组)</option>
-							<c:forEach var="list"  items="${StationList}">
-				            	<option selected="selected" value="${list.id}">${list.name}</option>
-							</c:forEach>
-				        </select>
+						<select id="xjfz"  class="easyui-combotree" data-options="url:'../base/routeCheckMain.do',method:'get',required:true" multiple  style="width:200px;"></select>
 					</td>
-					<td>巡检日期:</td>
+					<td>开始日期:</td>
 					<td  class="input">
-						<input id="xjrq_datepicker" value="" style="padding-left:5px;"/>  
+					 <input id="begindate" class="easyui-datebox" data-options="formatter:myformatter,parser:myparser"></input>
+					<td>
+					<td>结束日期:</td>
+					<td  class="input">
+					 <input id="enddate" class="easyui-datebox" data-options="formatter:myformatter,parser:myparser"></input>
+					 <!-- 
+					 <input id="xjrq_datepicker" value="" style="padding-left:5px;"/>  
+					  -->
 					<td>
 						<input  type="reset" style="width: 60px" value="清空"></input>
 						<input id="query" type="button" style="width: 60px" value="查询"></input>
@@ -260,33 +177,34 @@
 	</div>
 	<img alt=""  src="../images/line.png" style="height: 1px;margin-top: 12px;">
 	<div id="mainDiv">
-		
+		<div style="margin:5px 0;"></div>
+	    <table id="datatable" style="width:100%;height:400px;">
+	        
+	    </table>
 	</div>
-	<div id="details" title="巡检详情"  align="center" >
+	<div id="details" class="easyui-dialog" title="巡检详情" style="width:650px;height:380px;padding:10px" data-options="
+            iconCls:'icon-save',
+            closed:true,
+            onResize:function(){
+                $(this).dialog('center');
+            }">
+		<div class="detail-table" >
+			<ul>
+				<li><div class="left"><span>设备号：</span><input id="equid" type="text"></div></li>
+				<li><div class="left"><span>设备名称：</span><input id="equname" type="text"></div></li>
+				<li><div class="left"><span>签到时间：</span><input id="signintime" type="text"></div></li>
+				<li><div class="left"><span>经度：</span><input id="longitude" type="text"></div></li>
+				<li><div class="left"><span>纬度：</span><input id="latitude" type="text"></div></li>
+				<li><div class="left"><span>描述：</span><textarea id="roudescription" ></textarea></div></li>
+				<li><div class="left"><span>工单状态：</span><input id="orderstate" type="text"></div></li>
+			</ul>
+			<div class="middle"><input id="orderstate" type="button" value="工单审核"></div>
+		</div>
+		<div class="detail-img">
+			   <img id="xjphoto" />
+		</div>
+        
+    </div>
 	
-		<div class="detailImg">
-			<img id="xjphoto" />
-		</div>
-		<div class="detailTable">
-			<table id="detailtable">
-				<tr>	
-					<td class="th">巡检号</td><td id="rouid"></td><td class="th">设备号</td><td id="equid"></td>
-				</tr>
-				<tr>	
-					<td class="th">设备状态</td><td id="equstate"></td><td class="th">巡检描述</td><td id="roudescription">
-				</tr>
-				<tr>	
-					<td class="th" >巡检时间</td><td id="signintime" colspan="3"></td>
-				</tr>
-				<tr>
-					<td class="th" >审核时间</td><td id="audittime" colspan="3"></td>
-				</tr>
-				<tr>	
-					<td class="th">审核意见</td><td id="auditopinion"></td>
-					<td colspan="2"><button>审核</button></td>
-				</tr>
-			</table>
-		</div>
-	</div>
 </body>
 </html>

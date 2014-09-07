@@ -1,5 +1,6 @@
 package com.jckjkj.service.impl;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +16,7 @@ import com.jckjkj.mybatis.dao.RoutingInspectionMapper;
 import com.jckjkj.mybatis.dao.StationMapper;
 import com.jckjkj.mybatis.dao.UserMapper;
 import com.jckjkj.mybatis.dao.VOrderRepairMapper;
+import com.jckjkj.mybatis.model.Department;
 import com.jckjkj.mybatis.model.Equipment;
 import com.jckjkj.mybatis.model.EquipmentExample;
 import com.jckjkj.mybatis.model.EquipmentState;
@@ -46,13 +48,13 @@ public class BaseServiceImpl implements BaseService {
 	// TODO ------------接口实现-----------
 
 	@Override
-	public User Login(String username, String password) {
+	public User login(String username, String password) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean Logout(String username) {
+	public boolean logout(String username) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -117,7 +119,7 @@ public class BaseServiceImpl implements BaseService {
 		example.createCriteria().andIdIsNotNull();
 		return orderListMapper.selectByExample(example);
 	}
-	
+
 	@Override
 	public List<OrderList> getOrderList(String dptid, int rows, int start) {
 		// TODO Auto-generated method stub
@@ -131,7 +133,6 @@ public class BaseServiceImpl implements BaseService {
 		example.createCriteria().andIdIsNotNull();
 		return orderListMapper.selectByExample(example).size();
 	}
-
 
 	@Override
 	public List<OrderList> getOrderListByQuery(String[] params) {
@@ -178,6 +179,7 @@ public class BaseServiceImpl implements BaseService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 	@Override
 	public RoutingInspection getRoutingInspectionDetail(String rouid) {
@@ -266,6 +268,5 @@ public class BaseServiceImpl implements BaseService {
 	public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
 		this.sqlSessionFactory = sqlSessionFactory;
 	}
-
 
 }

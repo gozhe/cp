@@ -1,5 +1,7 @@
 package com.jckjkj.mybatis.model;
 
+import java.util.Date;
+
 public class User {
     private Integer id;
 
@@ -18,6 +20,8 @@ public class User {
     private String tel;
 
     private String email;
+
+    private Date logintime;
 
     public Integer getId() {
         return id;
@@ -89,5 +93,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email == null ? null : email.trim();
+    }
+
+    public Date getLogintime() {
+        return logintime;
+    }
+
+    public void setLogintime(Date logintime) {
+        this.logintime = logintime;
     }
 }

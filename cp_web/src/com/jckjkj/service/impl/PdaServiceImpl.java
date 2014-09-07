@@ -96,6 +96,7 @@ public class PdaServiceImpl implements PdaService {
 		// ③通过equid获得工单列表
 		List<OrderList> list = orderListMapper.selectByMobileId(mid);
 		return list;
+		//return null;
 	}
 
 	@Override

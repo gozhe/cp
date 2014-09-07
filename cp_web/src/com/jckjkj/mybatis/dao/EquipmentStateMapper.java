@@ -31,6 +31,6 @@ public interface EquipmentStateMapper {
 
     int updateByPrimaryKey(EquipmentState record);
     
-    @Select("select * from x_equipmentstate limit #{0} offset #{1}")
+    @Select("select * from x_equipmentstate limit #{1} offset #{0}")
     List<EquipmentState> selectByLimit(int start,int rows);
 }

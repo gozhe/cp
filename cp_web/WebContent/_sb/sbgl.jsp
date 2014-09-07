@@ -91,15 +91,15 @@
 				<thead>
 					<tr>
 						<th field="equid" width="100">设备编号(名称)</th>
-						<th field="equtype" width="100">设备类型</th>
+						<th field="equtype" width="60">设备类型</th>
 						<th field="warningclass" width="80">告警类型</th>
 						<th field="warninggrade" width="80">告警等级</th>
 						<th field="warningstate" width="80">告警状态</th>
 						<th field="warningsourcename" width="100">告警源名称</th>
-						<th field="warningsourceip" width="100">告警源地址</th>
+						<th field="warningsourceip" width="120">告警源地址</th>
 						<th field="warningcount" width="80">累计次数</th>
 						<th field="ifreparing" width="80">维修状态</th>
-						<th field="refreshtime" width="110">监测时间</th>
+						<th field="refreshtime" width="150">监测时间</th>
 					</tr>
 				</thead>
 			</table>

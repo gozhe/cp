@@ -35,5 +35,5 @@ public interface OrderListMapper {
     List<OrderList> selectByMobileId(int mid);
     
     @Select("select * from x_orderlist limit #{0} offset #{1}")
-    List<OrderList> selectByLimit(int start,int rows);
+List<OrderList> selectByLimit(int start,int rows);
 }
