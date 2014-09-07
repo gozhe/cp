@@ -33,4 +33,7 @@ public interface OrderListMapper {
     
     @Select("select t.* from x_orderlist t where t.equid in(select t1.com_id from t_camera t1,x_mobile_station t2 where t1.station_id = t2.stationid")
     List<OrderList> selectByMobileId(int mid);
+    
+    @Select("select * from x_orderlist limit #{0} offset #{1}")
+    List<OrderList> selectByLimit(int start,int rows);
 }

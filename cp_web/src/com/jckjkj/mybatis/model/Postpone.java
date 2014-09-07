@@ -1,17 +1,21 @@
 package com.jckjkj.mybatis.model;
 
+import java.util.Date;
+
 public class Postpone {
     private Integer id;
 
-    private String orderid;
+    private String faultid;
 
     private Integer timelimit;
 
     private String reason;
 
-    private String personid;
+    private String applyer;
 
-    private Integer audiopinion;
+    private Date applytime;
+
+    private Integer applystate;
 
     public Integer getId() {
         return id;
@@ -21,12 +25,12 @@ public class Postpone {
         this.id = id;
     }
 
-    public String getOrderid() {
-        return orderid;
+    public String getFaultid() {
+        return faultid;
     }
 
-    public void setOrderid(String orderid) {
-        this.orderid = orderid == null ? null : orderid.trim();
+    public void setFaultid(String faultid) {
+        this.faultid = faultid == null ? null : faultid.trim();
     }
 
     public Integer getTimelimit() {
@@ -45,19 +49,27 @@ public class Postpone {
         this.reason = reason == null ? null : reason.trim();
     }
 
-    public String getPersonid() {
-        return personid;
+    public String getApplyer() {
+        return applyer;
     }
 
-    public void setPersonid(String personid) {
-        this.personid = personid == null ? null : personid.trim();
+    public void setApplyer(String applyer) {
+        this.applyer = applyer == null ? null : applyer.trim();
     }
 
-    public Integer getAudiopinion() {
-        return audiopinion;
+    public Date getApplytime() {
+        return applytime;
     }
 
-    public void setAudiopinion(Integer audiopinion) {
-        this.audiopinion = audiopinion;
+    public void setApplytime(Date applytime) {
+        this.applytime = applytime;
+    }
+
+    public Integer getApplystate() {
+        return applystate;
+    }
+
+    public void setApplystate(Integer applystate) {
+        this.applystate = applystate;
     }
 }

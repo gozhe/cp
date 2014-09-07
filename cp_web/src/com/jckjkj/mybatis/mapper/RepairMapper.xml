@@ -3,10 +3,12 @@
 <mapper namespace="com.jckjkj.mybatis.dao.RepairMapper" >
   <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.Repair" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="orderid" property="orderid" jdbcType="VARCHAR" />
+    <result column="faultid" property="faultid" jdbcType="VARCHAR" />
     <result column="material" property="material" jdbcType="VARCHAR" />
     <result column="count" property="count" jdbcType="VARCHAR" />
     <result column="repaircontent" property="repaircontent" jdbcType="VARCHAR" />
+    <result column="repairtime" property="repairtime" jdbcType="TIMESTAMP" />
+    <result column="repairer" property="repairer" jdbcType="VARCHAR" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.jckjkj.mybatis.model.Repair" extends="BaseResultMap" >
     <result column="repairphoto" property="repairphoto" jdbcType="BINARY" />
@@ -70,7 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, orderid, material, count, repaircontent
+    id, faultid, material, count, repaircontent, repairtime, repairer
   </sql>
   <sql id="Blob_Column_List" >
     repairphoto
@@ -124,12 +126,12 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.jckjkj.mybatis.model.Repair" >
-    insert into x_repair (id, orderid, material, 
-      count, repaircontent, repairphoto
-      )
-    values (#{id,jdbcType=INTEGER}, #{orderid,jdbcType=VARCHAR}, #{material,jdbcType=VARCHAR}, 
-      #{count,jdbcType=VARCHAR}, #{repaircontent,jdbcType=VARCHAR}, #{repairphoto,jdbcType=BINARY}
-      )
+    insert into x_repair (id, faultid, material, 
+      count, repaircontent, repairtime, 
+      repairer, repairphoto)
+    values (#{id,jdbcType=INTEGER}, #{faultid,jdbcType=VARCHAR}, #{material,jdbcType=VARCHAR}, 
+      #{count,jdbcType=VARCHAR}, #{repaircontent,jdbcType=VARCHAR}, #{repairtime,jdbcType=TIMESTAMP}, 
+      #{repairer,jdbcType=VARCHAR}, #{repairphoto,jdbcType=BINARY})
   </insert>
   <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.Repair" >
     insert into x_repair
@@ -137,8 +139,8 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="orderid != null" >
-        orderid,
+      <if test="faultid != null" >
+        faultid,
       </if>
       <if test="material != null" >
         material,
@@ -149,6 +151,12 @@
       <if test="repaircontent != null" >
         repaircontent,
       </if>
+      <if test="repairtime != null" >
+        repairtime,
+      </if>
+      <if test="repairer != null" >
+        repairer,
+      </if>
       <if test="repairphoto != null" >
         repairphoto,
       </if>
@@ -157,8 +165,8 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="orderid != null" >
-        #{orderid,jdbcType=VARCHAR},
+      <if test="faultid != null" >
+        #{faultid,jdbcType=VARCHAR},
       </if>
       <if test="material != null" >
         #{material,jdbcType=VARCHAR},
@@ -168,6 +176,12 @@
       </if>
       <if test="repaircontent != null" >
         #{repaircontent,jdbcType=VARCHAR},
+      </if>
+      <if test="repairtime != null" >
+        #{repairtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="repairer != null" >
+        #{repairer,jdbcType=VARCHAR},
       </if>
       <if test="repairphoto != null" >
         #{repairphoto,jdbcType=BINARY},
@@ -186,8 +200,8 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.orderid != null" >
-        orderid = #{record.orderid,jdbcType=VARCHAR},
+      <if test="record.faultid != null" >
+        faultid = #{record.faultid,jdbcType=VARCHAR},
       </if>
       <if test="record.material != null" >
         material = #{record.material,jdbcType=VARCHAR},
@@ -197,6 +211,12 @@
       </if>
       <if test="record.repaircontent != null" >
         repaircontent = #{record.repaircontent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.repairtime != null" >
+        repairtime = #{record.repairtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.repairer != null" >
+        repairer = #{record.repairer,jdbcType=VARCHAR},
       </if>
       <if test="record.repairphoto != null" >
         repairphoto = #{record.repairphoto,jdbcType=BINARY},
@@ -209,10 +229,12 @@
   <update id="updateByExampleWithBLOBs" parameterType="map" >
     update x_repair
     set id = #{record.id,jdbcType=INTEGER},
-      orderid = #{record.orderid,jdbcType=VARCHAR},
+      faultid = #{record.faultid,jdbcType=VARCHAR},
       material = #{record.material,jdbcType=VARCHAR},
       count = #{record.count,jdbcType=VARCHAR},
       repaircontent = #{record.repaircontent,jdbcType=VARCHAR},
+      repairtime = #{record.repairtime,jdbcType=TIMESTAMP},
+      repairer = #{record.repairer,jdbcType=VARCHAR},
       repairphoto = #{record.repairphoto,jdbcType=BINARY}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -221,10 +243,12 @@
   <update id="updateByExample" parameterType="map" >
     update x_repair
     set id = #{record.id,jdbcType=INTEGER},
-      orderid = #{record.orderid,jdbcType=VARCHAR},
+      faultid = #{record.faultid,jdbcType=VARCHAR},
       material = #{record.material,jdbcType=VARCHAR},
       count = #{record.count,jdbcType=VARCHAR},
-      repaircontent = #{record.repaircontent,jdbcType=VARCHAR}
+      repaircontent = #{record.repaircontent,jdbcType=VARCHAR},
+      repairtime = #{record.repairtime,jdbcType=TIMESTAMP},
+      repairer = #{record.repairer,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -232,8 +256,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.jckjkj.mybatis.model.Repair" >
     update x_repair
     <set >
-      <if test="orderid != null" >
-        orderid = #{orderid,jdbcType=VARCHAR},
+      <if test="faultid != null" >
+        faultid = #{faultid,jdbcType=VARCHAR},
       </if>
       <if test="material != null" >
         material = #{material,jdbcType=VARCHAR},
@@ -244,6 +268,12 @@
       <if test="repaircontent != null" >
         repaircontent = #{repaircontent,jdbcType=VARCHAR},
       </if>
+      <if test="repairtime != null" >
+        repairtime = #{repairtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="repairer != null" >
+        repairer = #{repairer,jdbcType=VARCHAR},
+      </if>
       <if test="repairphoto != null" >
         repairphoto = #{repairphoto,jdbcType=BINARY},
       </if>
@@ -252,19 +282,23 @@
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.jckjkj.mybatis.model.Repair" >
     update x_repair
-    set orderid = #{orderid,jdbcType=VARCHAR},
+    set faultid = #{faultid,jdbcType=VARCHAR},
       material = #{material,jdbcType=VARCHAR},
       count = #{count,jdbcType=VARCHAR},
       repaircontent = #{repaircontent,jdbcType=VARCHAR},
+      repairtime = #{repairtime,jdbcType=TIMESTAMP},
+      repairer = #{repairer,jdbcType=VARCHAR},
       repairphoto = #{repairphoto,jdbcType=BINARY}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.Repair" >
     update x_repair
-    set orderid = #{orderid,jdbcType=VARCHAR},
+    set faultid = #{faultid,jdbcType=VARCHAR},
       material = #{material,jdbcType=VARCHAR},
       count = #{count,jdbcType=VARCHAR},
-      repaircontent = #{repaircontent,jdbcType=VARCHAR}
+      repaircontent = #{repaircontent,jdbcType=VARCHAR},
+      repairtime = #{repairtime,jdbcType=TIMESTAMP},
+      repairer = #{repairer,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

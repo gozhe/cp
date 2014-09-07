@@ -3,7 +3,7 @@
 <mapper namespace="com.jckjkj.mybatis.dao.OrderAuditMapper" >
   <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.OrderAudit" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="orderid" property="orderid" jdbcType="VARCHAR" />
+    <result column="faultid" property="faultid" jdbcType="VARCHAR" />
     <result column="aoopinion" property="aoopinion" jdbcType="VARCHAR" />
     <result column="aodate" property="aodate" jdbcType="TIMESTAMP" />
     <result column="completedate" property="completedate" jdbcType="TIMESTAMP" />
@@ -68,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, orderid, aoopinion, aodate, completedate, repairresult
+    id, faultid, aoopinion, aodate, completedate, repairresult
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jckjkj.mybatis.model.OrderAuditExample" >
     select
@@ -101,10 +101,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.jckjkj.mybatis.model.OrderAudit" >
-    insert into x_orderaudit (id, orderid, aoopinion, 
+    insert into x_orderaudit (id, faultid, aoopinion, 
       aodate, completedate, repairresult
       )
-    values (#{id,jdbcType=INTEGER}, #{orderid,jdbcType=VARCHAR}, #{aoopinion,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{faultid,jdbcType=VARCHAR}, #{aoopinion,jdbcType=VARCHAR}, 
       #{aodate,jdbcType=TIMESTAMP}, #{completedate,jdbcType=TIMESTAMP}, #{repairresult,jdbcType=VARCHAR}
       )
   </insert>
@@ -114,8 +114,8 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="orderid != null" >
-        orderid,
+      <if test="faultid != null" >
+        faultid,
       </if>
       <if test="aoopinion != null" >
         aoopinion,
@@ -134,8 +134,8 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="orderid != null" >
-        #{orderid,jdbcType=VARCHAR},
+      <if test="faultid != null" >
+        #{faultid,jdbcType=VARCHAR},
       </if>
       <if test="aoopinion != null" >
         #{aoopinion,jdbcType=VARCHAR},
@@ -163,8 +163,8 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.orderid != null" >
-        orderid = #{record.orderid,jdbcType=VARCHAR},
+      <if test="record.faultid != null" >
+        faultid = #{record.faultid,jdbcType=VARCHAR},
       </if>
       <if test="record.aoopinion != null" >
         aoopinion = #{record.aoopinion,jdbcType=VARCHAR},
@@ -186,7 +186,7 @@
   <update id="updateByExample" parameterType="map" >
     update x_orderaudit
     set id = #{record.id,jdbcType=INTEGER},
-      orderid = #{record.orderid,jdbcType=VARCHAR},
+      faultid = #{record.faultid,jdbcType=VARCHAR},
       aoopinion = #{record.aoopinion,jdbcType=VARCHAR},
       aodate = #{record.aodate,jdbcType=TIMESTAMP},
       completedate = #{record.completedate,jdbcType=TIMESTAMP},
@@ -198,8 +198,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.jckjkj.mybatis.model.OrderAudit" >
     update x_orderaudit
     <set >
-      <if test="orderid != null" >
-        orderid = #{orderid,jdbcType=VARCHAR},
+      <if test="faultid != null" >
+        faultid = #{faultid,jdbcType=VARCHAR},
       </if>
       <if test="aoopinion != null" >
         aoopinion = #{aoopinion,jdbcType=VARCHAR},
@@ -218,7 +218,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.OrderAudit" >
     update x_orderaudit
-    set orderid = #{orderid,jdbcType=VARCHAR},
+    set faultid = #{faultid,jdbcType=VARCHAR},
       aoopinion = #{aoopinion,jdbcType=VARCHAR},
       aodate = #{aodate,jdbcType=TIMESTAMP},
       completedate = #{completedate,jdbcType=TIMESTAMP},

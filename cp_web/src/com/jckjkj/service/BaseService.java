@@ -9,6 +9,7 @@ import com.jckjkj.mybatis.model.OrderList;
 import com.jckjkj.mybatis.model.RoutingInspection;
 import com.jckjkj.mybatis.model.Station;
 import com.jckjkj.mybatis.model.User;
+import com.jckjkj.mybatis.model.VOrderRepair;
 import com.jckjkj.utils.TreeJson;
 
 public interface BaseService {
@@ -90,6 +91,22 @@ public interface BaseService {
 	 */
 	List<OrderList> getOrderList();
 	
+	/**
+	 * 获取工单状态列表
+	 * @param dptid
+	 * @param rows
+	 * @param start
+	 * @return
+	 */
+	List<OrderList> getOrderList(String dptid,int rows,int start);
+	
+	
+	/**
+	 * 分页-获取总数
+	 * @param dptid
+	 * @return
+	 */
+	int getOrderListCount(String dptid);
 	
 	/**
 	 * 条件查询工单列表
@@ -102,11 +119,11 @@ public interface BaseService {
 	List<OrderList> getOrderListByQuery(String[] params); 
 	
 	/**
-	 * 获取工单详细信息
+	 * 获取工单详细(处理)信息
 	 * @param orderid 工单编号
 	 * @return
 	 */
-	OrderList getOrderListDetail(String orderid);
+	VOrderRepair getOrderListDetail(String faultid);
 	
 	/**
 	 * 工单派发入口

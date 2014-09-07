@@ -165,73 +165,73 @@ public class OrderAuditExample {
             return (Criteria) this;
         }
 
-        public Criteria andOrderidIsNull() {
-            addCriterion("orderid is null");
+        public Criteria andFaultidIsNull() {
+            addCriterion("faultid is null");
             return (Criteria) this;
         }
 
-        public Criteria andOrderidIsNotNull() {
-            addCriterion("orderid is not null");
+        public Criteria andFaultidIsNotNull() {
+            addCriterion("faultid is not null");
             return (Criteria) this;
         }
 
-        public Criteria andOrderidEqualTo(String value) {
-            addCriterion("orderid =", value, "orderid");
+        public Criteria andFaultidEqualTo(String value) {
+            addCriterion("faultid =", value, "faultid");
             return (Criteria) this;
         }
 
-        public Criteria andOrderidNotEqualTo(String value) {
-            addCriterion("orderid <>", value, "orderid");
+        public Criteria andFaultidNotEqualTo(String value) {
+            addCriterion("faultid <>", value, "faultid");
             return (Criteria) this;
         }
 
-        public Criteria andOrderidGreaterThan(String value) {
-            addCriterion("orderid >", value, "orderid");
+        public Criteria andFaultidGreaterThan(String value) {
+            addCriterion("faultid >", value, "faultid");
             return (Criteria) this;
         }
 
-        public Criteria andOrderidGreaterThanOrEqualTo(String value) {
-            addCriterion("orderid >=", value, "orderid");
+        public Criteria andFaultidGreaterThanOrEqualTo(String value) {
+            addCriterion("faultid >=", value, "faultid");
             return (Criteria) this;
         }
 
-        public Criteria andOrderidLessThan(String value) {
-            addCriterion("orderid <", value, "orderid");
+        public Criteria andFaultidLessThan(String value) {
+            addCriterion("faultid <", value, "faultid");
             return (Criteria) this;
         }
 
-        public Criteria andOrderidLessThanOrEqualTo(String value) {
-            addCriterion("orderid <=", value, "orderid");
+        public Criteria andFaultidLessThanOrEqualTo(String value) {
+            addCriterion("faultid <=", value, "faultid");
             return (Criteria) this;
         }
 
-        public Criteria andOrderidLike(String value) {
-            addCriterion("orderid like", value, "orderid");
+        public Criteria andFaultidLike(String value) {
+            addCriterion("faultid like", value, "faultid");
             return (Criteria) this;
         }
 
-        public Criteria andOrderidNotLike(String value) {
-            addCriterion("orderid not like", value, "orderid");
+        public Criteria andFaultidNotLike(String value) {
+            addCriterion("faultid not like", value, "faultid");
             return (Criteria) this;
         }
 
-        public Criteria andOrderidIn(List<String> values) {
-            addCriterion("orderid in", values, "orderid");
+        public Criteria andFaultidIn(List<String> values) {
+            addCriterion("faultid in", values, "faultid");
             return (Criteria) this;
         }
 
-        public Criteria andOrderidNotIn(List<String> values) {
-            addCriterion("orderid not in", values, "orderid");
+        public Criteria andFaultidNotIn(List<String> values) {
+            addCriterion("faultid not in", values, "faultid");
             return (Criteria) this;
         }
 
-        public Criteria andOrderidBetween(String value1, String value2) {
-            addCriterion("orderid between", value1, value2, "orderid");
+        public Criteria andFaultidBetween(String value1, String value2) {
+            addCriterion("faultid between", value1, value2, "faultid");
             return (Criteria) this;
         }
 
-        public Criteria andOrderidNotBetween(String value1, String value2) {
-            addCriterion("orderid not between", value1, value2, "orderid");
+        public Criteria andFaultidNotBetween(String value1, String value2) {
+            addCriterion("faultid not between", value1, value2, "faultid");
             return (Criteria) this;
         }
 

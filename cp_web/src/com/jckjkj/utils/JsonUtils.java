@@ -52,7 +52,11 @@ public class JsonUtils {
 
 	// 将Map转换成JSON
 	public static String map2json(Object object) {
-		JSONObject jsonObject = JSONObject.fromObject(object);
+		
+		JsonConfig jsonConfig = new JsonConfig();
+		jsonConfig.registerJsonValueProcessor(Date.class,new JsonDateValueProcessor("yyyy-MM-dd HH:mm:ss"));
+
+		JSONObject jsonObject = JSONObject.fromObject(object,jsonConfig);
 		return jsonObject.toString();
 	}
 

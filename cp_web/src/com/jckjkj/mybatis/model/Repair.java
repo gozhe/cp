@@ -1,15 +1,21 @@
 package com.jckjkj.mybatis.model;
 
+import java.util.Date;
+
 public class Repair {
     private Integer id;
 
-    private String orderid;
+    private String faultid;
 
     private String material;
 
     private String count;
 
     private String repaircontent;
+
+    private Date repairtime;
+
+    private String repairer;
 
     private byte[] repairphoto;
 
@@ -21,12 +27,12 @@ public class Repair {
         this.id = id;
     }
 
-    public String getOrderid() {
-        return orderid;
+    public String getFaultid() {
+        return faultid;
     }
 
-    public void setOrderid(String orderid) {
-        this.orderid = orderid == null ? null : orderid.trim();
+    public void setFaultid(String faultid) {
+        this.faultid = faultid == null ? null : faultid.trim();
     }
 
     public String getMaterial() {
@@ -51,6 +57,22 @@ public class Repair {
 
     public void setRepaircontent(String repaircontent) {
         this.repaircontent = repaircontent == null ? null : repaircontent.trim();
+    }
+
+    public Date getRepairtime() {
+        return repairtime;
+    }
+
+    public void setRepairtime(Date repairtime) {
+        this.repairtime = repairtime;
+    }
+
+    public String getRepairer() {
+        return repairer;
+    }
+
+    public void setRepairer(String repairer) {
+        this.repairer = repairer == null ? null : repairer.trim();
     }
 
     public byte[] getRepairphoto() {

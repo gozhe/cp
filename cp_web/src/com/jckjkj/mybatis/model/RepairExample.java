@@ -1,6 +1,7 @@
 package com.jckjkj.mybatis.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class RepairExample {
@@ -164,73 +165,73 @@ public class RepairExample {
             return (Criteria) this;
         }
 
-        public Criteria andOrderidIsNull() {
-            addCriterion("orderid is null");
+        public Criteria andFaultidIsNull() {
+            addCriterion("faultid is null");
             return (Criteria) this;
         }
 
-        public Criteria andOrderidIsNotNull() {
-            addCriterion("orderid is not null");
+        public Criteria andFaultidIsNotNull() {
+            addCriterion("faultid is not null");
             return (Criteria) this;
         }
 
-        public Criteria andOrderidEqualTo(String value) {
-            addCriterion("orderid =", value, "orderid");
+        public Criteria andFaultidEqualTo(String value) {
+            addCriterion("faultid =", value, "faultid");
             return (Criteria) this;
         }
 
-        public Criteria andOrderidNotEqualTo(String value) {
-            addCriterion("orderid <>", value, "orderid");
+        public Criteria andFaultidNotEqualTo(String value) {
+            addCriterion("faultid <>", value, "faultid");
             return (Criteria) this;
         }
 
-        public Criteria andOrderidGreaterThan(String value) {
-            addCriterion("orderid >", value, "orderid");
+        public Criteria andFaultidGreaterThan(String value) {
+            addCriterion("faultid >", value, "faultid");
             return (Criteria) this;
         }
 
-        public Criteria andOrderidGreaterThanOrEqualTo(String value) {
-            addCriterion("orderid >=", value, "orderid");
+        public Criteria andFaultidGreaterThanOrEqualTo(String value) {
+            addCriterion("faultid >=", value, "faultid");
             return (Criteria) this;
         }
 
-        public Criteria andOrderidLessThan(String value) {
-            addCriterion("orderid <", value, "orderid");
+        public Criteria andFaultidLessThan(String value) {
+            addCriterion("faultid <", value, "faultid");
             return (Criteria) this;
         }
 
-        public Criteria andOrderidLessThanOrEqualTo(String value) {
-            addCriterion("orderid <=", value, "orderid");
+        public Criteria andFaultidLessThanOrEqualTo(String value) {
+            addCriterion("faultid <=", value, "faultid");
             return (Criteria) this;
         }
 
-        public Criteria andOrderidLike(String value) {
-            addCriterion("orderid like", value, "orderid");
+        public Criteria andFaultidLike(String value) {
+            addCriterion("faultid like", value, "faultid");
             return (Criteria) this;
         }
 
-        public Criteria andOrderidNotLike(String value) {
-            addCriterion("orderid not like", value, "orderid");
+        public Criteria andFaultidNotLike(String value) {
+            addCriterion("faultid not like", value, "faultid");
             return (Criteria) this;
         }
 
-        public Criteria andOrderidIn(List<String> values) {
-            addCriterion("orderid in", values, "orderid");
+        public Criteria andFaultidIn(List<String> values) {
+            addCriterion("faultid in", values, "faultid");
             return (Criteria) this;
         }
 
-        public Criteria andOrderidNotIn(List<String> values) {
-            addCriterion("orderid not in", values, "orderid");
+        public Criteria andFaultidNotIn(List<String> values) {
+            addCriterion("faultid not in", values, "faultid");
             return (Criteria) this;
         }
 
-        public Criteria andOrderidBetween(String value1, String value2) {
-            addCriterion("orderid between", value1, value2, "orderid");
+        public Criteria andFaultidBetween(String value1, String value2) {
+            addCriterion("faultid between", value1, value2, "faultid");
             return (Criteria) this;
         }
 
-        public Criteria andOrderidNotBetween(String value1, String value2) {
-            addCriterion("orderid not between", value1, value2, "orderid");
+        public Criteria andFaultidNotBetween(String value1, String value2) {
+            addCriterion("faultid not between", value1, value2, "faultid");
             return (Criteria) this;
         }
 
@@ -441,6 +442,136 @@ public class RepairExample {
 
         public Criteria andRepaircontentNotBetween(String value1, String value2) {
             addCriterion("repaircontent not between", value1, value2, "repaircontent");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairtimeIsNull() {
+            addCriterion("repairtime is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairtimeIsNotNull() {
+            addCriterion("repairtime is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairtimeEqualTo(Date value) {
+            addCriterion("repairtime =", value, "repairtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairtimeNotEqualTo(Date value) {
+            addCriterion("repairtime <>", value, "repairtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairtimeGreaterThan(Date value) {
+            addCriterion("repairtime >", value, "repairtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairtimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("repairtime >=", value, "repairtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairtimeLessThan(Date value) {
+            addCriterion("repairtime <", value, "repairtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairtimeLessThanOrEqualTo(Date value) {
+            addCriterion("repairtime <=", value, "repairtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairtimeIn(List<Date> values) {
+            addCriterion("repairtime in", values, "repairtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairtimeNotIn(List<Date> values) {
+            addCriterion("repairtime not in", values, "repairtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairtimeBetween(Date value1, Date value2) {
+            addCriterion("repairtime between", value1, value2, "repairtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairtimeNotBetween(Date value1, Date value2) {
+            addCriterion("repairtime not between", value1, value2, "repairtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairerIsNull() {
+            addCriterion("repairer is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairerIsNotNull() {
+            addCriterion("repairer is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairerEqualTo(String value) {
+            addCriterion("repairer =", value, "repairer");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairerNotEqualTo(String value) {
+            addCriterion("repairer <>", value, "repairer");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairerGreaterThan(String value) {
+            addCriterion("repairer >", value, "repairer");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairerGreaterThanOrEqualTo(String value) {
+            addCriterion("repairer >=", value, "repairer");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairerLessThan(String value) {
+            addCriterion("repairer <", value, "repairer");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairerLessThanOrEqualTo(String value) {
+            addCriterion("repairer <=", value, "repairer");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairerLike(String value) {
+            addCriterion("repairer like", value, "repairer");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairerNotLike(String value) {
+            addCriterion("repairer not like", value, "repairer");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairerIn(List<String> values) {
+            addCriterion("repairer in", values, "repairer");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairerNotIn(List<String> values) {
+            addCriterion("repairer not in", values, "repairer");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairerBetween(String value1, String value2) {
+            addCriterion("repairer between", value1, value2, "repairer");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairerNotBetween(String value1, String value2) {
+            addCriterion("repairer not between", value1, value2, "repairer");
             return (Criteria) this;
         }
     }

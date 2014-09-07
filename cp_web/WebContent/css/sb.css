@@ -1,0 +1,28 @@
+body {
+	margin: 0px;
+	font-family: 微软雅黑;
+}
+
+.cs1 {
+	width: 80px;
+	height: 24px;
+	background-color: #F4F4F4;
+	padding-left: 4px;
+	text-align: left;
+}
+
+.cs2 {
+	width: 120px;
+	height: 24px;
+	padding-left: 2px;
+	text-align: center;
+}
+
+hr {
+	height: 0.1px;
+	border: none;
+	border-top: 1px dashed #0066CC;
+}
+img{
+	vertical-align: middle;
+}

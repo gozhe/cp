@@ -1,8 +1,6 @@
 
-var url_equstate = getRootPath() + "/base/getEquipmentStateList.do?";
-var url_equdetail = getRootPath() + "/base/getEquipmentDetail.do?equid=equ001";
-var url_orderinit = getRootPath() + "/base/InitWhenCreatOrder.do?equid=equ001";
-var url_ordersubmit = getRootPath() + "/base/DoOrderDispatch.do";
+var url_orderlist = getRootPath() + "/base/getOrderList.do?";
+var url_orderdetail = getRootPath() + "/base/getOrderDetail.do?";
 
 function getRootPath() {
 	// 获取当前网址，如： http://localhost:8083/uimcardprj/share/meun.jsp
@@ -20,7 +18,7 @@ function getRootPath() {
 
 $(function() {
 	$('#dgrid').datagrid({
-		title : '设备列表',
+		title : '工单列表',
 		iconCls : '',// 图标
 		width : 'auto',
 		height : 370,
@@ -38,24 +36,25 @@ $(function() {
 			checkbox : true
 		} ] ],
 		toolbar : [ {
-			text : '设备明细',
+			text : '工单详情',
 			iconCls : 'icon-search',
 			handler : function() {
 				var row = $('#dgrid').datagrid('getSelected');
 				if (row) {
-					showDetails(row.equid, row.equtype);
+					alert(row.faultid);
+					showDetails(row.faultid);
 				} else {
 					$.messager.alert('消息', '请选择一条记录', '消息');
 				}
 
 			}
 		}, '-', {
-			text : '创建工单',
+			text : '工单审核',
 			iconCls : 'icon-add',
 			handler : function() {
 				var row = $('#dgrid').datagrid('getSelected');
 				if (row) {
-					addOrder(row.equid);
+					auditOrder(row.faultid);
 				} else {
 					$.messager.alert('消息', '请选择一条记录', '消息');
 				}
@@ -81,7 +80,7 @@ function loadData(pageNumber, pageSize) {
 	var _pageNumber = pageNumber;
 	var _pageSize = pageSize;
 	var filter = "dptid=001";
-	var url = url_equstate + filter + "&page=" + _pageNumber + "&rows="
+	var url = url_orderlist + filter + "&page=" + _pageNumber + "&rows="
 			+ _pageSize;
 	$.ajax({
 		url : url,
@@ -129,32 +128,31 @@ function getChecked() {
 }
 
 function queryMe() {
-	
-	
+
 }
 
-function showDetails(equid, equtype) {
+function showDetails(faultid) {
 	$('#dlg').dialog({
-		title : '设备明细',
+		title : '工单详情',
 		iconCls : "icon-search",
 		collapsible : false,
 		minimizable : false,
 		maximizable : false,
 		resizable : true,
-		width : 600,
-		height : 400,
+		width : 720,
+		height : 420,
 		modal : true,
-		href : url_equdetail,
+		href : url_orderdetail+"faultid="+faultid,
 		onClose : function() {
 			// alert("close");
 		},
 	});
 }
 
-function addOrder(equid) {
+function auditOrder(faultid) {
 	$('#dlg').dialog({
-		title : '创建工单',
-		iconCls : "icon-add",
+		title : '工单审核',
+		iconCls : "icon-edit",
 		collapsible : false,
 		minimizable : false,
 		maximizable : false,
@@ -162,21 +160,12 @@ function addOrder(equid) {
 		width : 500,
 		height : 300,
 		modal : true,
-		href : url_orderinit,
+		href : url_orderaudit,
 	});
 }
 
-function onSelect() {
-	var value = $("#faultclass").combobox("getValue");
-	if (value == "other") {
-		$("#o_tr").show();
-	} else {
-		$("#o_tr").hide();
-	}
-}
-
 function submitForm() {
-	
+
 	$.messager.progress(); // display the progress bar
 	$('#ff').form('submit', {
 		url : url_ordersubmit,

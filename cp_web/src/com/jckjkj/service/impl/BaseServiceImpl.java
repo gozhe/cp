@@ -14,6 +14,7 @@ import com.jckjkj.mybatis.dao.OrderListMapper;
 import com.jckjkj.mybatis.dao.RoutingInspectionMapper;
 import com.jckjkj.mybatis.dao.StationMapper;
 import com.jckjkj.mybatis.dao.UserMapper;
+import com.jckjkj.mybatis.dao.VOrderRepairMapper;
 import com.jckjkj.mybatis.model.Equipment;
 import com.jckjkj.mybatis.model.EquipmentExample;
 import com.jckjkj.mybatis.model.EquipmentState;
@@ -24,6 +25,8 @@ import com.jckjkj.mybatis.model.RoutingInspection;
 import com.jckjkj.mybatis.model.RoutingInspectionExample;
 import com.jckjkj.mybatis.model.Station;
 import com.jckjkj.mybatis.model.User;
+import com.jckjkj.mybatis.model.VOrderRepair;
+import com.jckjkj.mybatis.model.VOrderRepairExample;
 import com.jckjkj.service.BaseService;
 import com.jckjkj.utils.TreeJson;
 
@@ -35,7 +38,9 @@ public class BaseServiceImpl implements BaseService {
 	private EquipmentStateMapper equipmentStateMapper;
 	private EquipmentMapper equipmentMapper;
 	private OrderListMapper orderListMapper;
+	private VOrderRepairMapper vOrderRepairMapper;
 	private RoutingInspectionMapper routingInspectionMapper;
+
 	private SqlSessionFactory sqlSessionFactory;
 
 	// TODO ------------接口实现-----------
@@ -112,6 +117,21 @@ public class BaseServiceImpl implements BaseService {
 		example.createCriteria().andIdIsNotNull();
 		return orderListMapper.selectByExample(example);
 	}
+	
+	@Override
+	public List<OrderList> getOrderList(String dptid, int rows, int start) {
+		// TODO Auto-generated method stub
+		return orderListMapper.selectByLimit(start, rows);
+	}
+
+	@Override
+	public int getOrderListCount(String dptid) {
+		// TODO Auto-generated method stub
+		OrderListExample example = new OrderListExample();
+		example.createCriteria().andIdIsNotNull();
+		return orderListMapper.selectByExample(example).size();
+	}
+
 
 	@Override
 	public List<OrderList> getOrderListByQuery(String[] params) {
@@ -120,9 +140,11 @@ public class BaseServiceImpl implements BaseService {
 	}
 
 	@Override
-	public OrderList getOrderListDetail(String orderid) {
-		// TODO Auto-generated method stub
-		return null;
+	public VOrderRepair getOrderListDetail(String faultid) {
+		VOrderRepairExample example = new VOrderRepairExample();
+		example.createCriteria().andFaultidEqualTo(faultid);
+		List<VOrderRepair> list = vOrderRepairMapper.selectByExample(example);
+		return list == null ? null : list.get(0);
 	}
 
 	@Override
@@ -217,6 +239,15 @@ public class BaseServiceImpl implements BaseService {
 		this.orderListMapper = orderListMapper;
 	}
 
+	public VOrderRepairMapper getvOrderRepairMapper() {
+		return vOrderRepairMapper;
+	}
+
+	@Autowired
+	public void setvOrderRepairMapper(VOrderRepairMapper vOrderRepairMapper) {
+		this.vOrderRepairMapper = vOrderRepairMapper;
+	}
+
 	public RoutingInspectionMapper getRoutingInspectionMapper() {
 		return routingInspectionMapper;
 	}
@@ -235,5 +266,6 @@ public class BaseServiceImpl implements BaseService {
 	public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
 		this.sqlSessionFactory = sqlSessionFactory;
 	}
+
 
 }

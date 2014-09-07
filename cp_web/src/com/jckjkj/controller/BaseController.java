@@ -24,6 +24,7 @@ import com.jckjkj.mybatis.model.OrderList;
 import com.jckjkj.mybatis.model.Person;
 import com.jckjkj.mybatis.model.RoutingInspection;
 import com.jckjkj.mybatis.model.Station;
+import com.jckjkj.mybatis.model.VOrderRepair;
 import com.jckjkj.service.BaseService;
 import com.jckjkj.utils.BussinessUtils;
 import com.jckjkj.utils.DateUtils;
@@ -143,7 +144,7 @@ public class BaseController {
 					"yyyy-MM-dd HH:mm:ss"));
 			System.out.println("haha");
 			// 故障编号-自动生成唯一识别码、不可编辑
-			//String faultid = java.util.UUID.randomUUID().toString();
+			// String faultid = java.util.UUID.randomUUID().toString();
 			String faultid = BussinessUtils.creatFaultID();
 			infos.put("faultid", faultid);
 			// List<OrderList> list = baseService.getOrderList();
@@ -157,15 +158,33 @@ public class BaseController {
 	}
 
 	@RequestMapping("getOrderList.do")
-	public String getOrderList(HttpServletRequest request) {
+	public void getOrderList(@RequestParam("dptid") String dptid,
+			@RequestParam("rows") String rows,
+			@RequestParam("page") String page, HttpServletRequest request,
+			HttpServletResponse response) {
 		try {
-			List<OrderList> list = baseService.getOrderList();
-			request.setAttribute("ResultList", list);
-			return "_gd/gdgl";
+			int intPage = Integer.parseInt(page);
+			int number = Integer.parseInt(rows);
+			int start = (intPage - 1) * number;
+			System.out.println(start);
+			System.out.println(number);
+
+			List<OrderList> list = baseService.getOrderList(dptid, start,
+					number);
+			Map<String, Object> jsonMap = new HashMap<String, Object>();// 定义map
+			jsonMap.put("total", baseService.getOrderListCount(dptid));// total键
+																		// //
+																		// 存放总记录数，必须的
+			jsonMap.put("rows", list);// rows键 存放每页记录 list
+
+			String results = JsonUtils.map2json(jsonMap);// 格式化result //
+															// 一定要是JSONObject
+			System.out.println(results);
+			response.setCharacterEncoding("utf-8");
+			response.setContentType("text/html; charset=UTF-8");
+			response.getWriter().write(results);
 		} catch (Exception e) {
 			e.printStackTrace();
-			request.setAttribute("InfoMessage", "" + e.getMessage());
-			return "error";
 		}
 	}
 
@@ -185,12 +204,10 @@ public class BaseController {
 			String faultgrade = request.getParameter("faultgrade").toString();
 			String faultdescription = request.getParameter("faultdescription")
 					.toString();
-			
-			
-			String estcomptime = request.getParameter("estcomptime")
-					.toString();
-			estcomptime= DateUtils.convertDateToString(new Date(estcomptime),"yyyy-MM-dd HH:mm:ss");
-			
+			String estcomptime = request.getParameter("estcomptime").toString();
+			estcomptime = DateUtils.convertDateToString(new Date(estcomptime),
+					"yyyy-MM-dd HH:mm:ss");
+
 			entity.setEquid(equid);
 			entity.setCreatetime(DateUtils.formatFullDateStr(createtime));
 			entity.setFaultid(faultid);
@@ -200,9 +217,9 @@ public class BaseController {
 			entity.setFaultgrade(faultgrade);
 			entity.setFaultdescription(faultdescription);
 			entity.setEstcomptime(DateUtils.formatFullDateStr(estcomptime));
-			entity.setOrderstate(0);//状态-未接单0
-			entity.setOrdersource(0);//来源-系统创建0
-			
+			entity.setOrderstate(0);// 状态-未接单0
+			entity.setOrdersource(0);// 来源-系统创建0
+
 			if (baseService.OrderDispatch(entity)) {
 				results = "success";
 			} else {
@@ -212,10 +229,31 @@ public class BaseController {
 			response.setCharacterEncoding("utf-8");
 			response.setContentType("text/html; charset=UTF-8");
 			response.getWriter().write(results);
-			
+
 		} catch (Exception ex) {
 			ex.printStackTrace();
-		}	
-		
+		}
+	}
+
+	@RequestMapping("getOrderDetail.do")
+	public String getOrderDetail(HttpServletRequest request,
+			HttpServletResponse response) {
+
+		try {
+			String faultid = request.getParameter("faultid").toString();
+			VOrderRepair entity = baseService.getOrderListDetail(faultid);
+			// String result = JsonUtils.bean2json(entity);
+			// System.out.println(result);
+			request.setAttribute("ResultList", entity);
+			response.setCharacterEncoding("utf-8");
+			response.setContentType("text/html; charset=UTF-8");
+			request.setAttribute("ResultList", entity);
+			return "_gd/gdxq";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			request.setAttribute("InfoMessage", "" + e.getMessage());
+			return "error";
+		}
 	}
 }

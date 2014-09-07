@@ -5,7 +5,7 @@ import java.util.Date;
 public class OrderAudit {
     private Integer id;
 
-    private String orderid;
+    private String faultid;
 
     private String aoopinion;
 
@@ -23,12 +23,12 @@ public class OrderAudit {
         this.id = id;
     }
 
-    public String getOrderid() {
-        return orderid;
+    public String getFaultid() {
+        return faultid;
     }
 
-    public void setOrderid(String orderid) {
-        this.orderid = orderid == null ? null : orderid.trim();
+    public void setFaultid(String faultid) {
+        this.faultid = faultid == null ? null : faultid.trim();
     }
 
     public String getAoopinion() {

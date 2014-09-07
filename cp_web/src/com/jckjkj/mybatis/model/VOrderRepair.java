@@ -2,7 +2,7 @@ package com.jckjkj.mybatis.model;
 
 import java.util.Date;
 
-public class OrderList {
+public class VOrderRepair {
     private Integer id;
 
     private String equid;
@@ -19,6 +19,8 @@ public class OrderList {
 
     private Date createtime;
 
+    private String creater;
+
     private Date estcomptime;
 
     private Integer orderstate;
@@ -27,7 +29,17 @@ public class OrderList {
 
     private Integer ordersource;
 
-    private String creater;
+    private String material;
+
+    private String count;
+
+    private String repairer;
+
+    private Date repairtime;
+
+    private String repaircontent;
+
+    private byte[] repairphoto;
 
     public Integer getId() {
         return id;
@@ -93,6 +105,14 @@ public class OrderList {
         this.createtime = createtime;
     }
 
+    public String getCreater() {
+        return creater;
+    }
+
+    public void setCreater(String creater) {
+        this.creater = creater == null ? null : creater.trim();
+    }
+
     public Date getEstcomptime() {
         return estcomptime;
     }
@@ -125,11 +145,51 @@ public class OrderList {
         this.ordersource = ordersource;
     }
 
-    public String getCreater() {
-        return creater;
+    public String getMaterial() {
+        return material;
     }
 
-    public void setCreater(String creater) {
-        this.creater = creater == null ? null : creater.trim();
+    public void setMaterial(String material) {
+        this.material = material == null ? null : material.trim();
+    }
+
+    public String getCount() {
+        return count;
+    }
+
+    public void setCount(String count) {
+        this.count = count == null ? null : count.trim();
+    }
+
+    public String getRepairer() {
+        return repairer;
+    }
+
+    public void setRepairer(String repairer) {
+        this.repairer = repairer == null ? null : repairer.trim();
+    }
+
+    public Date getRepairtime() {
+        return repairtime;
+    }
+
+    public void setRepairtime(Date repairtime) {
+        this.repairtime = repairtime;
+    }
+
+    public String getRepaircontent() {
+        return repaircontent;
+    }
+
+    public void setRepaircontent(String repaircontent) {
+        this.repaircontent = repaircontent == null ? null : repaircontent.trim();
+    }
+
+    public byte[] getRepairphoto() {
+        return repairphoto;
+    }
+
+    public void setRepairphoto(byte[] repairphoto) {
+        this.repairphoto = repairphoto;
     }
 }

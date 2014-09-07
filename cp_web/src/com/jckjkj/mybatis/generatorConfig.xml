@@ -68,8 +68,7 @@
 		<table schema="" tableName="x_user" domainObjectName="User" />
 		<table schema="" tableName="v_equip_routing" domainObjectName="VEquipRouting" />
 		-->
-		
-		<table schema="" tableName="x_orderlist" domainObjectName="OrderList" />
+		<table schema="" tableName="v_order_repair" domainObjectName="VOrderRepair"/>
 	</context>
 
 </generatorConfiguration>
