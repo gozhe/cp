@@ -3,7 +3,7 @@
 <mapper namespace="com.jckjkj.mybatis.dao.MobileStationMapper" >
   <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.MobileStation" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="mid" property="mid" jdbcType="INTEGER" />
+    <result column="mid" property="mid" jdbcType="VARCHAR" />
     <result column="stationid" property="stationid" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -100,7 +100,7 @@
   <insert id="insert" parameterType="com.jckjkj.mybatis.model.MobileStation" >
     insert into x_mobile_station (id, mid, stationid
       )
-    values (#{id,jdbcType=INTEGER}, #{mid,jdbcType=INTEGER}, #{stationid,jdbcType=INTEGER}
+    values (#{id,jdbcType=INTEGER}, #{mid,jdbcType=VARCHAR}, #{stationid,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.MobileStation" >
@@ -121,7 +121,7 @@
         #{id,jdbcType=INTEGER},
       </if>
       <if test="mid != null" >
-        #{mid,jdbcType=INTEGER},
+        #{mid,jdbcType=VARCHAR},
       </if>
       <if test="stationid != null" >
         #{stationid,jdbcType=INTEGER},
@@ -141,7 +141,7 @@
         id = #{record.id,jdbcType=INTEGER},
       </if>
       <if test="record.mid != null" >
-        mid = #{record.mid,jdbcType=INTEGER},
+        mid = #{record.mid,jdbcType=VARCHAR},
       </if>
       <if test="record.stationid != null" >
         stationid = #{record.stationid,jdbcType=INTEGER},
@@ -154,7 +154,7 @@
   <update id="updateByExample" parameterType="map" >
     update x_mobile_station
     set id = #{record.id,jdbcType=INTEGER},
-      mid = #{record.mid,jdbcType=INTEGER},
+      mid = #{record.mid,jdbcType=VARCHAR},
       stationid = #{record.stationid,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -164,7 +164,7 @@
     update x_mobile_station
     <set >
       <if test="mid != null" >
-        mid = #{mid,jdbcType=INTEGER},
+        mid = #{mid,jdbcType=VARCHAR},
       </if>
       <if test="stationid != null" >
         stationid = #{stationid,jdbcType=INTEGER},
@@ -174,7 +174,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.MobileStation" >
     update x_mobile_station
-    set mid = #{mid,jdbcType=INTEGER},
+    set mid = #{mid,jdbcType=VARCHAR},
       stationid = #{stationid,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>

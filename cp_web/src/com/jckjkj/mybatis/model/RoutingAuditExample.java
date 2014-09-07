@@ -225,76 +225,6 @@ public class RoutingAuditExample {
             return (Criteria) this;
         }
 
-        public Criteria andRoutingstateIsNull() {
-            addCriterion("routingstate is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRoutingstateIsNotNull() {
-            addCriterion("routingstate is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRoutingstateEqualTo(String value) {
-            addCriterion("routingstate =", value, "routingstate");
-            return (Criteria) this;
-        }
-
-        public Criteria andRoutingstateNotEqualTo(String value) {
-            addCriterion("routingstate <>", value, "routingstate");
-            return (Criteria) this;
-        }
-
-        public Criteria andRoutingstateGreaterThan(String value) {
-            addCriterion("routingstate >", value, "routingstate");
-            return (Criteria) this;
-        }
-
-        public Criteria andRoutingstateGreaterThanOrEqualTo(String value) {
-            addCriterion("routingstate >=", value, "routingstate");
-            return (Criteria) this;
-        }
-
-        public Criteria andRoutingstateLessThan(String value) {
-            addCriterion("routingstate <", value, "routingstate");
-            return (Criteria) this;
-        }
-
-        public Criteria andRoutingstateLessThanOrEqualTo(String value) {
-            addCriterion("routingstate <=", value, "routingstate");
-            return (Criteria) this;
-        }
-
-        public Criteria andRoutingstateLike(String value) {
-            addCriterion("routingstate like", value, "routingstate");
-            return (Criteria) this;
-        }
-
-        public Criteria andRoutingstateNotLike(String value) {
-            addCriterion("routingstate not like", value, "routingstate");
-            return (Criteria) this;
-        }
-
-        public Criteria andRoutingstateIn(List<String> values) {
-            addCriterion("routingstate in", values, "routingstate");
-            return (Criteria) this;
-        }
-
-        public Criteria andRoutingstateNotIn(List<String> values) {
-            addCriterion("routingstate not in", values, "routingstate");
-            return (Criteria) this;
-        }
-
-        public Criteria andRoutingstateBetween(String value1, String value2) {
-            addCriterion("routingstate between", value1, value2, "routingstate");
-            return (Criteria) this;
-        }
-
-        public Criteria andRoutingstateNotBetween(String value1, String value2) {
-            addCriterion("routingstate not between", value1, value2, "routingstate");
-            return (Criteria) this;
-        }
-
         public Criteria andAopersonIsNull() {
             addCriterion("aoperson is null");
             return (Criteria) this;
@@ -422,6 +352,66 @@ public class RoutingAuditExample {
 
         public Criteria andAodateNotBetween(Date value1, Date value2) {
             addCriterion("aodate not between", value1, value2, "aodate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoutingstateIsNull() {
+            addCriterion("routingstate is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoutingstateIsNotNull() {
+            addCriterion("routingstate is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoutingstateEqualTo(Integer value) {
+            addCriterion("routingstate =", value, "routingstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoutingstateNotEqualTo(Integer value) {
+            addCriterion("routingstate <>", value, "routingstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoutingstateGreaterThan(Integer value) {
+            addCriterion("routingstate >", value, "routingstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoutingstateGreaterThanOrEqualTo(Integer value) {
+            addCriterion("routingstate >=", value, "routingstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoutingstateLessThan(Integer value) {
+            addCriterion("routingstate <", value, "routingstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoutingstateLessThanOrEqualTo(Integer value) {
+            addCriterion("routingstate <=", value, "routingstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoutingstateIn(List<Integer> values) {
+            addCriterion("routingstate in", values, "routingstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoutingstateNotIn(List<Integer> values) {
+            addCriterion("routingstate not in", values, "routingstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoutingstateBetween(Integer value1, Integer value2) {
+            addCriterion("routingstate between", value1, value2, "routingstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoutingstateNotBetween(Integer value1, Integer value2) {
+            addCriterion("routingstate not between", value1, value2, "routingstate");
             return (Criteria) this;
         }
     }

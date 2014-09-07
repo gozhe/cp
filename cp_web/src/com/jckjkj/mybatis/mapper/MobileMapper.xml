@@ -3,8 +3,10 @@
 <mapper namespace="com.jckjkj.mybatis.dao.MobileMapper" >
   <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.Mobile" >
     <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="mid" property="mid" jdbcType="VARCHAR" />
     <result column="imei" property="imei" jdbcType="VARCHAR" />
     <result column="phonenumber" property="phonenumber" jdbcType="VARCHAR" />
+    <result column="phonestyle" property="phonestyle" jdbcType="VARCHAR" />
     <result column="dptid" property="dptid" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -66,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, imei, phonenumber, dptid
+    id, mid, imei, phonenumber, phonestyle, dptid
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jckjkj.mybatis.model.MobileExample" >
     select
@@ -99,10 +101,12 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.jckjkj.mybatis.model.Mobile" >
-    insert into x_mobile (id, imei, phonenumber, 
-      dptid)
-    values (#{id,jdbcType=INTEGER}, #{imei,jdbcType=VARCHAR}, #{phonenumber,jdbcType=VARCHAR}, 
-      #{dptid,jdbcType=VARCHAR})
+    insert into x_mobile (id, mid, imei, 
+      phonenumber, phonestyle, dptid
+      )
+    values (#{id,jdbcType=INTEGER}, #{mid,jdbcType=VARCHAR}, #{imei,jdbcType=VARCHAR}, 
+      #{phonenumber,jdbcType=VARCHAR}, #{phonestyle,jdbcType=VARCHAR}, #{dptid,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.Mobile" >
     insert into x_mobile
@@ -110,11 +114,17 @@
       <if test="id != null" >
         id,
       </if>
+      <if test="mid != null" >
+        mid,
+      </if>
       <if test="imei != null" >
         imei,
       </if>
       <if test="phonenumber != null" >
         phonenumber,
+      </if>
+      <if test="phonestyle != null" >
+        phonestyle,
       </if>
       <if test="dptid != null" >
         dptid,
@@ -124,11 +134,17 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
+      <if test="mid != null" >
+        #{mid,jdbcType=VARCHAR},
+      </if>
       <if test="imei != null" >
         #{imei,jdbcType=VARCHAR},
       </if>
       <if test="phonenumber != null" >
         #{phonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="phonestyle != null" >
+        #{phonestyle,jdbcType=VARCHAR},
       </if>
       <if test="dptid != null" >
         #{dptid,jdbcType=VARCHAR},
@@ -147,11 +163,17 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
+      <if test="record.mid != null" >
+        mid = #{record.mid,jdbcType=VARCHAR},
+      </if>
       <if test="record.imei != null" >
         imei = #{record.imei,jdbcType=VARCHAR},
       </if>
       <if test="record.phonenumber != null" >
         phonenumber = #{record.phonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phonestyle != null" >
+        phonestyle = #{record.phonestyle,jdbcType=VARCHAR},
       </if>
       <if test="record.dptid != null" >
         dptid = #{record.dptid,jdbcType=VARCHAR},
@@ -164,8 +186,10 @@
   <update id="updateByExample" parameterType="map" >
     update x_mobile
     set id = #{record.id,jdbcType=INTEGER},
+      mid = #{record.mid,jdbcType=VARCHAR},
       imei = #{record.imei,jdbcType=VARCHAR},
       phonenumber = #{record.phonenumber,jdbcType=VARCHAR},
+      phonestyle = #{record.phonestyle,jdbcType=VARCHAR},
       dptid = #{record.dptid,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -174,11 +198,17 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.jckjkj.mybatis.model.Mobile" >
     update x_mobile
     <set >
+      <if test="mid != null" >
+        mid = #{mid,jdbcType=VARCHAR},
+      </if>
       <if test="imei != null" >
         imei = #{imei,jdbcType=VARCHAR},
       </if>
       <if test="phonenumber != null" >
         phonenumber = #{phonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="phonestyle != null" >
+        phonestyle = #{phonestyle,jdbcType=VARCHAR},
       </if>
       <if test="dptid != null" >
         dptid = #{dptid,jdbcType=VARCHAR},
@@ -188,8 +218,10 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.Mobile" >
     update x_mobile
-    set imei = #{imei,jdbcType=VARCHAR},
+    set mid = #{mid,jdbcType=VARCHAR},
+      imei = #{imei,jdbcType=VARCHAR},
       phonenumber = #{phonenumber,jdbcType=VARCHAR},
+      phonestyle = #{phonestyle,jdbcType=VARCHAR},
       dptid = #{dptid,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>

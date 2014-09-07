@@ -3,11 +3,13 @@ package com.jckjkj.mybatis.model;
 public class Role {
     private Integer id;
 
+    private String roleid;
+
     private String rolename;
 
     private String roledescription;
 
-    private Integer moduleid;
+    private String moduleid;
 
     public Integer getId() {
         return id;
@@ -15,6 +17,14 @@ public class Role {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getRoleid() {
+        return roleid;
+    }
+
+    public void setRoleid(String roleid) {
+        this.roleid = roleid == null ? null : roleid.trim();
     }
 
     public String getRolename() {
@@ -33,11 +43,11 @@ public class Role {
         this.roledescription = roledescription == null ? null : roledescription.trim();
     }
 
-    public Integer getModuleid() {
+    public String getModuleid() {
         return moduleid;
     }
 
-    public void setModuleid(Integer moduleid) {
-        this.moduleid = moduleid;
+    public void setModuleid(String moduleid) {
+        this.moduleid = moduleid == null ? null : moduleid.trim();
     }
 }

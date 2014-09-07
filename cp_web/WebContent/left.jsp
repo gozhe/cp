@@ -70,12 +70,9 @@
 						<li class="button"><a href="#" class="blue"><img alt="" src="img/jf.png" class="img">计费管理 <span></span></a></li>
 						<li class="dropdown">
 							<ul>
-								<li><a class="submenu"  href="#"
-									onclick="$('.button a').eq(2).click();return false;">合同管理</a></li>
-								<li><a class="submenu"  href="#"
-									onclick="$('.button a').eq(2).click();return false;">计费方式一</a></li>
-								<li><a class="submenu"  href="#"
-									onclick="$('.button a').eq(2).click();return false;">计费方式二</a></li>
+								<li><a class="submenu"  href="#">合同管理</a></li>
+								<li><a class="submenu"  href="#">计费方式一</a></li>
+								<li><a class="submenu"  href="#">计费方式二</a></li>
 
 							</ul>
 						</li>
@@ -86,19 +83,12 @@
 						<li class="button"><a href="#" class="blue"><img alt="" src="img/xt.png" class="img">系统管理 <span></span></a></li>
 						<li class="dropdown">
 							<ul>
-								<li><a class="submenu" href="#"
-									onclick="$('.button a').eq(2).click();return false;">部门管理</a></li>
-								<li><a class="submenu" href="#"
-									onclick="$('.button a').eq(2).click();return false;">手机管理</a></li>
-										<li><a class="submenu" href="#"
-									onclick="$('.button a').eq(2).click();return false;">人员管理</a></li>
-										<li><a class="submenu" href="#"
-									onclick="$('.button a').eq(2).click();return false;">设备管理</a></li>
-										<li><a class="submenu" href="#"
-									onclick="$('.button a').eq(2).click();return false;">角色管理</a></li>
-										<li><a class="submenu" href="#"
-									onclick="$('.button a').eq(2).click();return false;">字典管理</a></li>
-
+								<li><a class="submenu" href="#">部门管理</a></li>
+								<li><a class="submenu" href="#">手机管理</a></li>
+								<li><a class="submenu" href="#">人员管理</a></li>
+								<li><a class="submenu" href="#">设备管理</a></li>
+								<li><a class="submenu" href="#">角色管理</a></li>
+								<li><a class="submenu" href="#">字典管理</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -109,10 +99,7 @@
 						<li class="dropdown">
 							<ul>
 								<li><a class="submenu" href="#"
-									onclick="$('.button a').eq(2).click();return false;">计费方式一</a></li>
-								<li><a class="submenu" href="#"
-									onclick="$('.button a').eq(2).click();return false;">计费方式二</a></li>
-
+									onclick="$('.button a').eq(2).click();return false;">地图浏览</a></li>
 							</ul>
 						</li>
 					</ul>

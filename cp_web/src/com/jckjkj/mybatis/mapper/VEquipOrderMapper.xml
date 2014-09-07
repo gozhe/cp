@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.jckjkj.mybatis.dao.VOrderRepairMapper" >
-  <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.VOrderRepair" >
+<mapper namespace="com.jckjkj.mybatis.dao.VEquipOrderMapper" >
+  <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.VEquipOrder" >
     <result column="id" property="id" jdbcType="INTEGER" />
-    <result column="equid" property="equid" jdbcType="VARCHAR" />
     <result column="faultid" property="faultid" jdbcType="VARCHAR" />
+    <result column="equid" property="equid" jdbcType="VARCHAR" />
     <result column="faulttitle" property="faulttitle" jdbcType="VARCHAR" />
     <result column="faultdescription" property="faultdescription" jdbcType="VARCHAR" />
     <result column="faultgrade" property="faultgrade" jdbcType="VARCHAR" />
@@ -15,14 +15,8 @@
     <result column="estcomptime" property="estcomptime" jdbcType="TIMESTAMP" />
     <result column="orderstate" property="orderstate" jdbcType="INTEGER" />
     <result column="ordersource" property="ordersource" jdbcType="INTEGER" />
-    <result column="material" property="material" jdbcType="VARCHAR" />
-    <result column="count" property="count" jdbcType="VARCHAR" />
-    <result column="repairer" property="repairer" jdbcType="VARCHAR" />
-    <result column="repairtime" property="repairtime" jdbcType="TIMESTAMP" />
-    <result column="repaircontent" property="repaircontent" jdbcType="VARCHAR" />
-  </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.jckjkj.mybatis.model.VOrderRepair" extends="BaseResultMap" >
-    <result column="repairphoto" property="repairphoto" jdbcType="BINARY" />
+    <result column="station_id" property="stationId" jdbcType="INTEGER" />
+    <result column="mid" property="mid" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -83,22 +77,16 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, equid, faultid, faulttitle, faultdescription, faultgrade, faultclass, faultclass1, 
-    creater, createtime, estcomptime, orderstate, ordersource, material, count, repairer, 
-    repairtime, repaircontent
+    id, faultid, equid, faulttitle, faultdescription, faultgrade, faultclass, faultclass1, 
+    creater, createtime, estcomptime, orderstate, ordersource, station_id, mid
   </sql>
-  <sql id="Blob_Column_List" >
-    repairphoto
-  </sql>
-  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.jckjkj.mybatis.model.VOrderRepairExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jckjkj.mybatis.model.VEquipOrderExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from v_order_repair
+    from v_equip_order
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -106,53 +94,37 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jckjkj.mybatis.model.VOrderRepairExample" >
-    select
-    <if test="distinct" >
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from v_order_repair
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null" >
-      order by ${orderByClause}
-    </if>
-  </select>
-  <delete id="deleteByExample" parameterType="com.jckjkj.mybatis.model.VOrderRepairExample" >
-    delete from v_order_repair
+  <delete id="deleteByExample" parameterType="com.jckjkj.mybatis.model.VEquipOrderExample" >
+    delete from v_equip_order
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.jckjkj.mybatis.model.VOrderRepair" >
-    insert into v_order_repair (id, equid, faultid, 
+  <insert id="insert" parameterType="com.jckjkj.mybatis.model.VEquipOrder" >
+    insert into v_equip_order (id, faultid, equid, 
       faulttitle, faultdescription, faultgrade, 
       faultclass, faultclass1, creater, 
       createtime, estcomptime, orderstate, 
-      ordersource, material, count, 
-      repairer, repairtime, repaircontent, 
-      repairphoto)
-    values (#{id,jdbcType=INTEGER}, #{equid,jdbcType=VARCHAR}, #{faultid,jdbcType=VARCHAR}, 
+      ordersource, station_id, mid
+      )
+    values (#{id,jdbcType=INTEGER}, #{faultid,jdbcType=VARCHAR}, #{equid,jdbcType=VARCHAR}, 
       #{faulttitle,jdbcType=VARCHAR}, #{faultdescription,jdbcType=VARCHAR}, #{faultgrade,jdbcType=VARCHAR}, 
       #{faultclass,jdbcType=VARCHAR}, #{faultclass1,jdbcType=VARCHAR}, #{creater,jdbcType=VARCHAR}, 
       #{createtime,jdbcType=TIMESTAMP}, #{estcomptime,jdbcType=TIMESTAMP}, #{orderstate,jdbcType=INTEGER}, 
-      #{ordersource,jdbcType=INTEGER}, #{material,jdbcType=VARCHAR}, #{count,jdbcType=VARCHAR}, 
-      #{repairer,jdbcType=VARCHAR}, #{repairtime,jdbcType=TIMESTAMP}, #{repaircontent,jdbcType=VARCHAR}, 
-      #{repairphoto,jdbcType=BINARY})
+      #{ordersource,jdbcType=INTEGER}, #{stationId,jdbcType=INTEGER}, #{mid,jdbcType=VARCHAR}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.VOrderRepair" >
-    insert into v_order_repair
+  <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.VEquipOrder" >
+    insert into v_equip_order
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
       </if>
-      <if test="equid != null" >
-        equid,
-      </if>
       <if test="faultid != null" >
         faultid,
+      </if>
+      <if test="equid != null" >
+        equid,
       </if>
       <if test="faulttitle != null" >
         faulttitle,
@@ -184,34 +156,22 @@
       <if test="ordersource != null" >
         ordersource,
       </if>
-      <if test="material != null" >
-        material,
+      <if test="stationId != null" >
+        station_id,
       </if>
-      <if test="count != null" >
-        count,
-      </if>
-      <if test="repairer != null" >
-        repairer,
-      </if>
-      <if test="repairtime != null" >
-        repairtime,
-      </if>
-      <if test="repaircontent != null" >
-        repaircontent,
-      </if>
-      <if test="repairphoto != null" >
-        repairphoto,
+      <if test="mid != null" >
+        mid,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="equid != null" >
-        #{equid,jdbcType=VARCHAR},
-      </if>
       <if test="faultid != null" >
         #{faultid,jdbcType=VARCHAR},
+      </if>
+      <if test="equid != null" >
+        #{equid,jdbcType=VARCHAR},
       </if>
       <if test="faulttitle != null" >
         #{faulttitle,jdbcType=VARCHAR},
@@ -243,43 +203,31 @@
       <if test="ordersource != null" >
         #{ordersource,jdbcType=INTEGER},
       </if>
-      <if test="material != null" >
-        #{material,jdbcType=VARCHAR},
+      <if test="stationId != null" >
+        #{stationId,jdbcType=INTEGER},
       </if>
-      <if test="count != null" >
-        #{count,jdbcType=VARCHAR},
-      </if>
-      <if test="repairer != null" >
-        #{repairer,jdbcType=VARCHAR},
-      </if>
-      <if test="repairtime != null" >
-        #{repairtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="repaircontent != null" >
-        #{repaircontent,jdbcType=VARCHAR},
-      </if>
-      <if test="repairphoto != null" >
-        #{repairphoto,jdbcType=BINARY},
+      <if test="mid != null" >
+        #{mid,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.jckjkj.mybatis.model.VOrderRepairExample" resultType="java.lang.Integer" >
-    select count(*) from v_order_repair
+  <select id="countByExample" parameterType="com.jckjkj.mybatis.model.VEquipOrderExample" resultType="java.lang.Integer" >
+    select count(*) from v_equip_order
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update v_order_repair
+    update v_equip_order
     <set >
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.equid != null" >
-        equid = #{record.equid,jdbcType=VARCHAR},
-      </if>
       <if test="record.faultid != null" >
         faultid = #{record.faultid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.equid != null" >
+        equid = #{record.equid,jdbcType=VARCHAR},
       </if>
       <if test="record.faulttitle != null" >
         faulttitle = #{record.faulttitle,jdbcType=VARCHAR},
@@ -311,59 +259,22 @@
       <if test="record.ordersource != null" >
         ordersource = #{record.ordersource,jdbcType=INTEGER},
       </if>
-      <if test="record.material != null" >
-        material = #{record.material,jdbcType=VARCHAR},
+      <if test="record.stationId != null" >
+        station_id = #{record.stationId,jdbcType=INTEGER},
       </if>
-      <if test="record.count != null" >
-        count = #{record.count,jdbcType=VARCHAR},
-      </if>
-      <if test="record.repairer != null" >
-        repairer = #{record.repairer,jdbcType=VARCHAR},
-      </if>
-      <if test="record.repairtime != null" >
-        repairtime = #{record.repairtime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.repaircontent != null" >
-        repaircontent = #{record.repaircontent,jdbcType=VARCHAR},
-      </if>
-      <if test="record.repairphoto != null" >
-        repairphoto = #{record.repairphoto,jdbcType=BINARY},
+      <if test="record.mid != null" >
+        mid = #{record.mid,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByExampleWithBLOBs" parameterType="map" >
-    update v_order_repair
-    set id = #{record.id,jdbcType=INTEGER},
-      equid = #{record.equid,jdbcType=VARCHAR},
-      faultid = #{record.faultid,jdbcType=VARCHAR},
-      faulttitle = #{record.faulttitle,jdbcType=VARCHAR},
-      faultdescription = #{record.faultdescription,jdbcType=VARCHAR},
-      faultgrade = #{record.faultgrade,jdbcType=VARCHAR},
-      faultclass = #{record.faultclass,jdbcType=VARCHAR},
-      faultclass1 = #{record.faultclass1,jdbcType=VARCHAR},
-      creater = #{record.creater,jdbcType=VARCHAR},
-      createtime = #{record.createtime,jdbcType=TIMESTAMP},
-      estcomptime = #{record.estcomptime,jdbcType=TIMESTAMP},
-      orderstate = #{record.orderstate,jdbcType=INTEGER},
-      ordersource = #{record.ordersource,jdbcType=INTEGER},
-      material = #{record.material,jdbcType=VARCHAR},
-      count = #{record.count,jdbcType=VARCHAR},
-      repairer = #{record.repairer,jdbcType=VARCHAR},
-      repairtime = #{record.repairtime,jdbcType=TIMESTAMP},
-      repaircontent = #{record.repaircontent,jdbcType=VARCHAR},
-      repairphoto = #{record.repairphoto,jdbcType=BINARY}
-    <if test="_parameter != null" >
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
   <update id="updateByExample" parameterType="map" >
-    update v_order_repair
+    update v_equip_order
     set id = #{record.id,jdbcType=INTEGER},
-      equid = #{record.equid,jdbcType=VARCHAR},
       faultid = #{record.faultid,jdbcType=VARCHAR},
+      equid = #{record.equid,jdbcType=VARCHAR},
       faulttitle = #{record.faulttitle,jdbcType=VARCHAR},
       faultdescription = #{record.faultdescription,jdbcType=VARCHAR},
       faultgrade = #{record.faultgrade,jdbcType=VARCHAR},
@@ -374,11 +285,8 @@
       estcomptime = #{record.estcomptime,jdbcType=TIMESTAMP},
       orderstate = #{record.orderstate,jdbcType=INTEGER},
       ordersource = #{record.ordersource,jdbcType=INTEGER},
-      material = #{record.material,jdbcType=VARCHAR},
-      count = #{record.count,jdbcType=VARCHAR},
-      repairer = #{record.repairer,jdbcType=VARCHAR},
-      repairtime = #{record.repairtime,jdbcType=TIMESTAMP},
-      repaircontent = #{record.repaircontent,jdbcType=VARCHAR}
+      station_id = #{record.stationId,jdbcType=INTEGER},
+      mid = #{record.mid,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jckjkj.mybatis.dao.EquipmentStateMapper" >
   <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.EquipmentState" >
-    <id column="id" property="id" jdbcType="BIGINT" />
+    <id column="id" property="id" jdbcType="INTEGER" />
     <result column="equid" property="equid" jdbcType="VARCHAR" />
     <result column="warningclass" property="warningclass" jdbcType="VARCHAR" />
     <result column="warninggrade" property="warninggrade" jdbcType="VARCHAR" />
@@ -14,8 +14,8 @@
     <result column="warningcontent" property="warningcontent" jdbcType="VARCHAR" />
     <result column="ifreparing" property="ifreparing" jdbcType="BIT" />
     <result column="refreshtime" property="refreshtime" jdbcType="DATE" />
-    <result column="equtype" property="equtype" jdbcType="VARCHAR" />
     <result column="equip" property="equip" jdbcType="VARCHAR" />
+    <result column="equtype" property="equtype" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -77,8 +77,8 @@
   </sql>
   <sql id="Base_Column_List" >
     id, equid, warningclass, warninggrade, warningstate, warningsourcename, warningsourceip, 
-    warningcount, recentlyfaulttime, warningcontent, ifreparing, refreshtime, equtype, 
-    equip
+    warningcount, recentlyfaulttime, warningcontent, ifreparing, refreshtime, equip, 
+    equtype
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jckjkj.mybatis.model.EquipmentStateExample" >
     select
@@ -94,15 +94,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from x_equipmentstate
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from x_equipmentstate
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.jckjkj.mybatis.model.EquipmentStateExample" >
     delete from x_equipmentstate
@@ -115,12 +115,12 @@
       warninggrade, warningstate, warningsourcename, 
       warningsourceip, warningcount, recentlyfaulttime, 
       warningcontent, ifreparing, refreshtime, 
-      equtype, equip)
-    values (#{id,jdbcType=BIGINT}, #{equid,jdbcType=VARCHAR}, #{warningclass,jdbcType=VARCHAR}, 
+      equip, equtype)
+    values (#{id,jdbcType=INTEGER}, #{equid,jdbcType=VARCHAR}, #{warningclass,jdbcType=VARCHAR}, 
       #{warninggrade,jdbcType=VARCHAR}, #{warningstate,jdbcType=VARCHAR}, #{warningsourcename,jdbcType=VARCHAR}, 
       #{warningsourceip,jdbcType=VARCHAR}, #{warningcount,jdbcType=INTEGER}, #{recentlyfaulttime,jdbcType=TIMESTAMP}, 
       #{warningcontent,jdbcType=VARCHAR}, #{ifreparing,jdbcType=BIT}, #{refreshtime,jdbcType=DATE}, 
-      #{equtype,jdbcType=VARCHAR}, #{equip,jdbcType=VARCHAR})
+      #{equip,jdbcType=VARCHAR}, #{equtype,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.EquipmentState" >
     insert into x_equipmentstate
@@ -161,16 +161,16 @@
       <if test="refreshtime != null" >
         refreshtime,
       </if>
-      <if test="equtype != null" >
-        equtype,
-      </if>
       <if test="equip != null" >
         equip,
+      </if>
+      <if test="equtype != null" >
+        equtype,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=BIGINT},
+        #{id,jdbcType=INTEGER},
       </if>
       <if test="equid != null" >
         #{equid,jdbcType=VARCHAR},
@@ -205,11 +205,11 @@
       <if test="refreshtime != null" >
         #{refreshtime,jdbcType=DATE},
       </if>
-      <if test="equtype != null" >
-        #{equtype,jdbcType=VARCHAR},
-      </if>
       <if test="equip != null" >
         #{equip,jdbcType=VARCHAR},
+      </if>
+      <if test="equtype != null" >
+        #{equtype,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -223,7 +223,7 @@
     update x_equipmentstate
     <set >
       <if test="record.id != null" >
-        id = #{record.id,jdbcType=BIGINT},
+        id = #{record.id,jdbcType=INTEGER},
       </if>
       <if test="record.equid != null" >
         equid = #{record.equid,jdbcType=VARCHAR},
@@ -258,11 +258,11 @@
       <if test="record.refreshtime != null" >
         refreshtime = #{record.refreshtime,jdbcType=DATE},
       </if>
-      <if test="record.equtype != null" >
-        equtype = #{record.equtype,jdbcType=VARCHAR},
-      </if>
       <if test="record.equip != null" >
         equip = #{record.equip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.equtype != null" >
+        equtype = #{record.equtype,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -271,7 +271,7 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update x_equipmentstate
-    set id = #{record.id,jdbcType=BIGINT},
+    set id = #{record.id,jdbcType=INTEGER},
       equid = #{record.equid,jdbcType=VARCHAR},
       warningclass = #{record.warningclass,jdbcType=VARCHAR},
       warninggrade = #{record.warninggrade,jdbcType=VARCHAR},
@@ -283,8 +283,8 @@
       warningcontent = #{record.warningcontent,jdbcType=VARCHAR},
       ifreparing = #{record.ifreparing,jdbcType=BIT},
       refreshtime = #{record.refreshtime,jdbcType=DATE},
-      equtype = #{record.equtype,jdbcType=VARCHAR},
-      equip = #{record.equip,jdbcType=VARCHAR}
+      equip = #{record.equip,jdbcType=VARCHAR},
+      equtype = #{record.equtype,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -325,14 +325,14 @@
       <if test="refreshtime != null" >
         refreshtime = #{refreshtime,jdbcType=DATE},
       </if>
-      <if test="equtype != null" >
-        equtype = #{equtype,jdbcType=VARCHAR},
-      </if>
       <if test="equip != null" >
         equip = #{equip,jdbcType=VARCHAR},
       </if>
+      <if test="equtype != null" >
+        equtype = #{equtype,jdbcType=VARCHAR},
+      </if>
     </set>
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.EquipmentState" >
     update x_equipmentstate
@@ -347,8 +347,8 @@
       warningcontent = #{warningcontent,jdbcType=VARCHAR},
       ifreparing = #{ifreparing,jdbcType=BIT},
       refreshtime = #{refreshtime,jdbcType=DATE},
-      equtype = #{equtype,jdbcType=VARCHAR},
-      equip = #{equip,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=BIGINT}
+      equip = #{equip,jdbcType=VARCHAR},
+      equtype = #{equtype,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

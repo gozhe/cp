@@ -3,6 +3,7 @@
 <mapper namespace="com.jckjkj.mybatis.dao.ModuleMapper" >
   <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.Module" >
     <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="moduleid" property="moduleid" jdbcType="VARCHAR" />
     <result column="modulename" property="modulename" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -64,7 +65,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, modulename
+    id, moduleid, modulename
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jckjkj.mybatis.model.ModuleExample" >
     select
@@ -97,14 +98,19 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.jckjkj.mybatis.model.Module" >
-    insert into x_module (id, modulename)
-    values (#{id,jdbcType=INTEGER}, #{modulename,jdbcType=VARCHAR})
+    insert into x_module (id, moduleid, modulename
+      )
+    values (#{id,jdbcType=INTEGER}, #{moduleid,jdbcType=VARCHAR}, #{modulename,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.Module" >
     insert into x_module
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
+      </if>
+      <if test="moduleid != null" >
+        moduleid,
       </if>
       <if test="modulename != null" >
         modulename,
@@ -113,6 +119,9 @@
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
+      </if>
+      <if test="moduleid != null" >
+        #{moduleid,jdbcType=VARCHAR},
       </if>
       <if test="modulename != null" >
         #{modulename,jdbcType=VARCHAR},
@@ -131,6 +140,9 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
+      <if test="record.moduleid != null" >
+        moduleid = #{record.moduleid,jdbcType=VARCHAR},
+      </if>
       <if test="record.modulename != null" >
         modulename = #{record.modulename,jdbcType=VARCHAR},
       </if>
@@ -142,6 +154,7 @@
   <update id="updateByExample" parameterType="map" >
     update x_module
     set id = #{record.id,jdbcType=INTEGER},
+      moduleid = #{record.moduleid,jdbcType=VARCHAR},
       modulename = #{record.modulename,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -150,6 +163,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.jckjkj.mybatis.model.Module" >
     update x_module
     <set >
+      <if test="moduleid != null" >
+        moduleid = #{moduleid,jdbcType=VARCHAR},
+      </if>
       <if test="modulename != null" >
         modulename = #{modulename,jdbcType=VARCHAR},
       </if>
@@ -158,7 +174,8 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.Module" >
     update x_module
-    set modulename = #{modulename,jdbcType=VARCHAR}
+    set moduleid = #{moduleid,jdbcType=VARCHAR},
+      modulename = #{modulename,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

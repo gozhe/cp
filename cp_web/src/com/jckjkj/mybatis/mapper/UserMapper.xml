@@ -2,11 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jckjkj.mybatis.dao.UserMapper" >
   <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.User" >
-    <id column="id" property="id" jdbcType="VARCHAR" />
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="userid" property="userid" jdbcType="VARCHAR" />
     <result column="username" property="username" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="cnname" property="cnname" jdbcType="VARCHAR" />
     <result column="dptid" property="dptid" jdbcType="VARCHAR" />
-    <result column="roleid" property="roleid" jdbcType="INTEGER" />
+    <result column="roleid" property="roleid" jdbcType="VARCHAR" />
+    <result column="tel" property="tel" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -67,7 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, username, password, dptid, roleid
+    id, userid, username, password, cnname, dptid, roleid, tel, email
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jckjkj.mybatis.model.UserExample" >
     select
@@ -83,15 +87,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from x_user
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from x_user
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.jckjkj.mybatis.model.UserExample" >
     delete from x_user
@@ -100,10 +104,12 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.jckjkj.mybatis.model.User" >
-    insert into x_user (id, username, password, 
-      dptid, roleid)
-    values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{dptid,jdbcType=VARCHAR}, #{roleid,jdbcType=INTEGER})
+    insert into x_user (id, userid, username, 
+      password, cnname, dptid, 
+      roleid, tel, email)
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{cnname,jdbcType=VARCHAR}, #{dptid,jdbcType=VARCHAR}, 
+      #{roleid,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.User" >
     insert into x_user
@@ -111,11 +117,17 @@
       <if test="id != null" >
         id,
       </if>
+      <if test="userid != null" >
+        userid,
+      </if>
       <if test="username != null" >
         username,
       </if>
       <if test="password != null" >
         password,
+      </if>
+      <if test="cnname != null" >
+        cnname,
       </if>
       <if test="dptid != null" >
         dptid,
@@ -123,10 +135,19 @@
       <if test="roleid != null" >
         roleid,
       </if>
+      <if test="tel != null" >
+        tel,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=VARCHAR},
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
       </if>
       <if test="username != null" >
         #{username,jdbcType=VARCHAR},
@@ -134,11 +155,20 @@
       <if test="password != null" >
         #{password,jdbcType=VARCHAR},
       </if>
+      <if test="cnname != null" >
+        #{cnname,jdbcType=VARCHAR},
+      </if>
       <if test="dptid != null" >
         #{dptid,jdbcType=VARCHAR},
       </if>
       <if test="roleid != null" >
-        #{roleid,jdbcType=INTEGER},
+        #{roleid,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -152,7 +182,10 @@
     update x_user
     <set >
       <if test="record.id != null" >
-        id = #{record.id,jdbcType=VARCHAR},
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.userid != null" >
+        userid = #{record.userid,jdbcType=VARCHAR},
       </if>
       <if test="record.username != null" >
         username = #{record.username,jdbcType=VARCHAR},
@@ -160,11 +193,20 @@
       <if test="record.password != null" >
         password = #{record.password,jdbcType=VARCHAR},
       </if>
+      <if test="record.cnname != null" >
+        cnname = #{record.cnname,jdbcType=VARCHAR},
+      </if>
       <if test="record.dptid != null" >
         dptid = #{record.dptid,jdbcType=VARCHAR},
       </if>
       <if test="record.roleid != null" >
-        roleid = #{record.roleid,jdbcType=INTEGER},
+        roleid = #{record.roleid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tel != null" >
+        tel = #{record.tel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null" >
+        email = #{record.email,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -173,11 +215,15 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update x_user
-    set id = #{record.id,jdbcType=VARCHAR},
+    set id = #{record.id,jdbcType=INTEGER},
+      userid = #{record.userid,jdbcType=VARCHAR},
       username = #{record.username,jdbcType=VARCHAR},
       password = #{record.password,jdbcType=VARCHAR},
+      cnname = #{record.cnname,jdbcType=VARCHAR},
       dptid = #{record.dptid,jdbcType=VARCHAR},
-      roleid = #{record.roleid,jdbcType=INTEGER}
+      roleid = #{record.roleid,jdbcType=VARCHAR},
+      tel = #{record.tel,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -185,27 +231,43 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.jckjkj.mybatis.model.User" >
     update x_user
     <set >
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=VARCHAR},
+      </if>
       <if test="username != null" >
         username = #{username,jdbcType=VARCHAR},
       </if>
       <if test="password != null" >
         password = #{password,jdbcType=VARCHAR},
       </if>
+      <if test="cnname != null" >
+        cnname = #{cnname,jdbcType=VARCHAR},
+      </if>
       <if test="dptid != null" >
         dptid = #{dptid,jdbcType=VARCHAR},
       </if>
       <if test="roleid != null" >
-        roleid = #{roleid,jdbcType=INTEGER},
+        roleid = #{roleid,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.User" >
     update x_user
-    set username = #{username,jdbcType=VARCHAR},
+    set userid = #{userid,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
+      cnname = #{cnname,jdbcType=VARCHAR},
       dptid = #{dptid,jdbcType=VARCHAR},
-      roleid = #{roleid,jdbcType=INTEGER}
-    where id = #{id,jdbcType=VARCHAR}
+      roleid = #{roleid,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

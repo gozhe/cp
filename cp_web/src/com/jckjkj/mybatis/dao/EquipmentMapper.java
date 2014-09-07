@@ -10,7 +10,7 @@ public interface EquipmentMapper {
 
     int deleteByExample(EquipmentExample example);
 
-    int deleteByPrimaryKey(String id);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Equipment record);
 
@@ -18,7 +18,7 @@ public interface EquipmentMapper {
 
     List<Equipment> selectByExample(EquipmentExample example);
 
-    Equipment selectByPrimaryKey(String id);
+    Equipment selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") Equipment record, @Param("example") EquipmentExample example);
 

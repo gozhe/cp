@@ -10,7 +10,7 @@ public interface CompactMapper {
 
     int deleteByExample(CompactExample example);
 
-    int deleteByPrimaryKey(String id);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Compact record);
 
@@ -18,7 +18,7 @@ public interface CompactMapper {
 
     List<Compact> selectByExample(CompactExample example);
 
-    Compact selectByPrimaryKey(String id);
+    Compact selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") Compact record, @Param("example") CompactExample example);
 

@@ -2,6 +2,7 @@ package com.jckjkj.mybatis.model;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 public class OrderAuditExample {
@@ -103,6 +104,32 @@ public class OrderAuditExample {
                 throw new RuntimeException("Between values for " + property + " cannot be null");
             }
             criteria.add(new Criterion(condition, value1, value2));
+        }
+
+        protected void addCriterionForJDBCTime(String condition, Date value, String property) {
+            if (value == null) {
+                throw new RuntimeException("Value for " + property + " cannot be null");
+            }
+            addCriterion(condition, new java.sql.Time(value.getTime()), property);
+        }
+
+        protected void addCriterionForJDBCTime(String condition, List<Date> values, String property) {
+            if (values == null || values.size() == 0) {
+                throw new RuntimeException("Value list for " + property + " cannot be null or empty");
+            }
+            List<java.sql.Time> timeList = new ArrayList<java.sql.Time>();
+            Iterator<Date> iter = values.iterator();
+            while (iter.hasNext()) {
+                timeList.add(new java.sql.Time(iter.next().getTime()));
+            }
+            addCriterion(condition, timeList, property);
+        }
+
+        protected void addCriterionForJDBCTime(String condition, Date value1, Date value2, String property) {
+            if (value1 == null || value2 == null) {
+                throw new RuntimeException("Between values for " + property + " cannot be null");
+            }
+            addCriterion(condition, new java.sql.Time(value1.getTime()), new java.sql.Time(value2.getTime()), property);
         }
 
         public Criteria andIdIsNull() {
@@ -235,193 +262,123 @@ public class OrderAuditExample {
             return (Criteria) this;
         }
 
-        public Criteria andAoopinionIsNull() {
-            addCriterion("aoopinion is null");
+        public Criteria andAuditopinionIsNull() {
+            addCriterion("auditopinion is null");
             return (Criteria) this;
         }
 
-        public Criteria andAoopinionIsNotNull() {
-            addCriterion("aoopinion is not null");
+        public Criteria andAuditopinionIsNotNull() {
+            addCriterion("auditopinion is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAoopinionEqualTo(String value) {
-            addCriterion("aoopinion =", value, "aoopinion");
+        public Criteria andAuditopinionEqualTo(Integer value) {
+            addCriterion("auditopinion =", value, "auditopinion");
             return (Criteria) this;
         }
 
-        public Criteria andAoopinionNotEqualTo(String value) {
-            addCriterion("aoopinion <>", value, "aoopinion");
+        public Criteria andAuditopinionNotEqualTo(Integer value) {
+            addCriterion("auditopinion <>", value, "auditopinion");
             return (Criteria) this;
         }
 
-        public Criteria andAoopinionGreaterThan(String value) {
-            addCriterion("aoopinion >", value, "aoopinion");
+        public Criteria andAuditopinionGreaterThan(Integer value) {
+            addCriterion("auditopinion >", value, "auditopinion");
             return (Criteria) this;
         }
 
-        public Criteria andAoopinionGreaterThanOrEqualTo(String value) {
-            addCriterion("aoopinion >=", value, "aoopinion");
+        public Criteria andAuditopinionGreaterThanOrEqualTo(Integer value) {
+            addCriterion("auditopinion >=", value, "auditopinion");
             return (Criteria) this;
         }
 
-        public Criteria andAoopinionLessThan(String value) {
-            addCriterion("aoopinion <", value, "aoopinion");
+        public Criteria andAuditopinionLessThan(Integer value) {
+            addCriterion("auditopinion <", value, "auditopinion");
             return (Criteria) this;
         }
 
-        public Criteria andAoopinionLessThanOrEqualTo(String value) {
-            addCriterion("aoopinion <=", value, "aoopinion");
+        public Criteria andAuditopinionLessThanOrEqualTo(Integer value) {
+            addCriterion("auditopinion <=", value, "auditopinion");
             return (Criteria) this;
         }
 
-        public Criteria andAoopinionLike(String value) {
-            addCriterion("aoopinion like", value, "aoopinion");
+        public Criteria andAuditopinionIn(List<Integer> values) {
+            addCriterion("auditopinion in", values, "auditopinion");
             return (Criteria) this;
         }
 
-        public Criteria andAoopinionNotLike(String value) {
-            addCriterion("aoopinion not like", value, "aoopinion");
+        public Criteria andAuditopinionNotIn(List<Integer> values) {
+            addCriterion("auditopinion not in", values, "auditopinion");
             return (Criteria) this;
         }
 
-        public Criteria andAoopinionIn(List<String> values) {
-            addCriterion("aoopinion in", values, "aoopinion");
+        public Criteria andAuditopinionBetween(Integer value1, Integer value2) {
+            addCriterion("auditopinion between", value1, value2, "auditopinion");
             return (Criteria) this;
         }
 
-        public Criteria andAoopinionNotIn(List<String> values) {
-            addCriterion("aoopinion not in", values, "aoopinion");
+        public Criteria andAuditopinionNotBetween(Integer value1, Integer value2) {
+            addCriterion("auditopinion not between", value1, value2, "auditopinion");
             return (Criteria) this;
         }
 
-        public Criteria andAoopinionBetween(String value1, String value2) {
-            addCriterion("aoopinion between", value1, value2, "aoopinion");
+        public Criteria andAudittimeIsNull() {
+            addCriterion("audittime is null");
             return (Criteria) this;
         }
 
-        public Criteria andAoopinionNotBetween(String value1, String value2) {
-            addCriterion("aoopinion not between", value1, value2, "aoopinion");
+        public Criteria andAudittimeIsNotNull() {
+            addCriterion("audittime is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAodateIsNull() {
-            addCriterion("aodate is null");
+        public Criteria andAudittimeEqualTo(Date value) {
+            addCriterionForJDBCTime("audittime =", value, "audittime");
             return (Criteria) this;
         }
 
-        public Criteria andAodateIsNotNull() {
-            addCriterion("aodate is not null");
+        public Criteria andAudittimeNotEqualTo(Date value) {
+            addCriterionForJDBCTime("audittime <>", value, "audittime");
             return (Criteria) this;
         }
 
-        public Criteria andAodateEqualTo(Date value) {
-            addCriterion("aodate =", value, "aodate");
+        public Criteria andAudittimeGreaterThan(Date value) {
+            addCriterionForJDBCTime("audittime >", value, "audittime");
             return (Criteria) this;
         }
 
-        public Criteria andAodateNotEqualTo(Date value) {
-            addCriterion("aodate <>", value, "aodate");
+        public Criteria andAudittimeGreaterThanOrEqualTo(Date value) {
+            addCriterionForJDBCTime("audittime >=", value, "audittime");
             return (Criteria) this;
         }
 
-        public Criteria andAodateGreaterThan(Date value) {
-            addCriterion("aodate >", value, "aodate");
+        public Criteria andAudittimeLessThan(Date value) {
+            addCriterionForJDBCTime("audittime <", value, "audittime");
             return (Criteria) this;
         }
 
-        public Criteria andAodateGreaterThanOrEqualTo(Date value) {
-            addCriterion("aodate >=", value, "aodate");
+        public Criteria andAudittimeLessThanOrEqualTo(Date value) {
+            addCriterionForJDBCTime("audittime <=", value, "audittime");
             return (Criteria) this;
         }
 
-        public Criteria andAodateLessThan(Date value) {
-            addCriterion("aodate <", value, "aodate");
+        public Criteria andAudittimeIn(List<Date> values) {
+            addCriterionForJDBCTime("audittime in", values, "audittime");
             return (Criteria) this;
         }
 
-        public Criteria andAodateLessThanOrEqualTo(Date value) {
-            addCriterion("aodate <=", value, "aodate");
+        public Criteria andAudittimeNotIn(List<Date> values) {
+            addCriterionForJDBCTime("audittime not in", values, "audittime");
             return (Criteria) this;
         }
 
-        public Criteria andAodateIn(List<Date> values) {
-            addCriterion("aodate in", values, "aodate");
+        public Criteria andAudittimeBetween(Date value1, Date value2) {
+            addCriterionForJDBCTime("audittime between", value1, value2, "audittime");
             return (Criteria) this;
         }
 
-        public Criteria andAodateNotIn(List<Date> values) {
-            addCriterion("aodate not in", values, "aodate");
-            return (Criteria) this;
-        }
-
-        public Criteria andAodateBetween(Date value1, Date value2) {
-            addCriterion("aodate between", value1, value2, "aodate");
-            return (Criteria) this;
-        }
-
-        public Criteria andAodateNotBetween(Date value1, Date value2) {
-            addCriterion("aodate not between", value1, value2, "aodate");
-            return (Criteria) this;
-        }
-
-        public Criteria andCompletedateIsNull() {
-            addCriterion("completedate is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCompletedateIsNotNull() {
-            addCriterion("completedate is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCompletedateEqualTo(Date value) {
-            addCriterion("completedate =", value, "completedate");
-            return (Criteria) this;
-        }
-
-        public Criteria andCompletedateNotEqualTo(Date value) {
-            addCriterion("completedate <>", value, "completedate");
-            return (Criteria) this;
-        }
-
-        public Criteria andCompletedateGreaterThan(Date value) {
-            addCriterion("completedate >", value, "completedate");
-            return (Criteria) this;
-        }
-
-        public Criteria andCompletedateGreaterThanOrEqualTo(Date value) {
-            addCriterion("completedate >=", value, "completedate");
-            return (Criteria) this;
-        }
-
-        public Criteria andCompletedateLessThan(Date value) {
-            addCriterion("completedate <", value, "completedate");
-            return (Criteria) this;
-        }
-
-        public Criteria andCompletedateLessThanOrEqualTo(Date value) {
-            addCriterion("completedate <=", value, "completedate");
-            return (Criteria) this;
-        }
-
-        public Criteria andCompletedateIn(List<Date> values) {
-            addCriterion("completedate in", values, "completedate");
-            return (Criteria) this;
-        }
-
-        public Criteria andCompletedateNotIn(List<Date> values) {
-            addCriterion("completedate not in", values, "completedate");
-            return (Criteria) this;
-        }
-
-        public Criteria andCompletedateBetween(Date value1, Date value2) {
-            addCriterion("completedate between", value1, value2, "completedate");
-            return (Criteria) this;
-        }
-
-        public Criteria andCompletedateNotBetween(Date value1, Date value2) {
-            addCriterion("completedate not between", value1, value2, "completedate");
+        public Criteria andAudittimeNotBetween(Date value1, Date value2) {
+            addCriterionForJDBCTime("audittime not between", value1, value2, "audittime");
             return (Criteria) this;
         }
 
@@ -435,63 +392,113 @@ public class OrderAuditExample {
             return (Criteria) this;
         }
 
-        public Criteria andRepairresultEqualTo(String value) {
+        public Criteria andRepairresultEqualTo(Integer value) {
             addCriterion("repairresult =", value, "repairresult");
             return (Criteria) this;
         }
 
-        public Criteria andRepairresultNotEqualTo(String value) {
+        public Criteria andRepairresultNotEqualTo(Integer value) {
             addCriterion("repairresult <>", value, "repairresult");
             return (Criteria) this;
         }
 
-        public Criteria andRepairresultGreaterThan(String value) {
+        public Criteria andRepairresultGreaterThan(Integer value) {
             addCriterion("repairresult >", value, "repairresult");
             return (Criteria) this;
         }
 
-        public Criteria andRepairresultGreaterThanOrEqualTo(String value) {
+        public Criteria andRepairresultGreaterThanOrEqualTo(Integer value) {
             addCriterion("repairresult >=", value, "repairresult");
             return (Criteria) this;
         }
 
-        public Criteria andRepairresultLessThan(String value) {
+        public Criteria andRepairresultLessThan(Integer value) {
             addCriterion("repairresult <", value, "repairresult");
             return (Criteria) this;
         }
 
-        public Criteria andRepairresultLessThanOrEqualTo(String value) {
+        public Criteria andRepairresultLessThanOrEqualTo(Integer value) {
             addCriterion("repairresult <=", value, "repairresult");
             return (Criteria) this;
         }
 
-        public Criteria andRepairresultLike(String value) {
-            addCriterion("repairresult like", value, "repairresult");
-            return (Criteria) this;
-        }
-
-        public Criteria andRepairresultNotLike(String value) {
-            addCriterion("repairresult not like", value, "repairresult");
-            return (Criteria) this;
-        }
-
-        public Criteria andRepairresultIn(List<String> values) {
+        public Criteria andRepairresultIn(List<Integer> values) {
             addCriterion("repairresult in", values, "repairresult");
             return (Criteria) this;
         }
 
-        public Criteria andRepairresultNotIn(List<String> values) {
+        public Criteria andRepairresultNotIn(List<Integer> values) {
             addCriterion("repairresult not in", values, "repairresult");
             return (Criteria) this;
         }
 
-        public Criteria andRepairresultBetween(String value1, String value2) {
+        public Criteria andRepairresultBetween(Integer value1, Integer value2) {
             addCriterion("repairresult between", value1, value2, "repairresult");
             return (Criteria) this;
         }
 
-        public Criteria andRepairresultNotBetween(String value1, String value2) {
+        public Criteria andRepairresultNotBetween(Integer value1, Integer value2) {
             addCriterion("repairresult not between", value1, value2, "repairresult");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompletetimeIsNull() {
+            addCriterion("completetime is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompletetimeIsNotNull() {
+            addCriterion("completetime is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompletetimeEqualTo(Date value) {
+            addCriterion("completetime =", value, "completetime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompletetimeNotEqualTo(Date value) {
+            addCriterion("completetime <>", value, "completetime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompletetimeGreaterThan(Date value) {
+            addCriterion("completetime >", value, "completetime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompletetimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("completetime >=", value, "completetime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompletetimeLessThan(Date value) {
+            addCriterion("completetime <", value, "completetime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompletetimeLessThanOrEqualTo(Date value) {
+            addCriterion("completetime <=", value, "completetime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompletetimeIn(List<Date> values) {
+            addCriterion("completetime in", values, "completetime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompletetimeNotIn(List<Date> values) {
+            addCriterion("completetime not in", values, "completetime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompletetimeBetween(Date value1, Date value2) {
+            addCriterion("completetime between", value1, value2, "completetime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompletetimeNotBetween(Date value1, Date value2) {
+            addCriterion("completetime not between", value1, value2, "completetime");
             return (Criteria) this;
         }
     }

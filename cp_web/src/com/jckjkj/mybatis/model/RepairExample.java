@@ -375,136 +375,6 @@ public class RepairExample {
             return (Criteria) this;
         }
 
-        public Criteria andRepaircontentIsNull() {
-            addCriterion("repaircontent is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRepaircontentIsNotNull() {
-            addCriterion("repaircontent is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRepaircontentEqualTo(String value) {
-            addCriterion("repaircontent =", value, "repaircontent");
-            return (Criteria) this;
-        }
-
-        public Criteria andRepaircontentNotEqualTo(String value) {
-            addCriterion("repaircontent <>", value, "repaircontent");
-            return (Criteria) this;
-        }
-
-        public Criteria andRepaircontentGreaterThan(String value) {
-            addCriterion("repaircontent >", value, "repaircontent");
-            return (Criteria) this;
-        }
-
-        public Criteria andRepaircontentGreaterThanOrEqualTo(String value) {
-            addCriterion("repaircontent >=", value, "repaircontent");
-            return (Criteria) this;
-        }
-
-        public Criteria andRepaircontentLessThan(String value) {
-            addCriterion("repaircontent <", value, "repaircontent");
-            return (Criteria) this;
-        }
-
-        public Criteria andRepaircontentLessThanOrEqualTo(String value) {
-            addCriterion("repaircontent <=", value, "repaircontent");
-            return (Criteria) this;
-        }
-
-        public Criteria andRepaircontentLike(String value) {
-            addCriterion("repaircontent like", value, "repaircontent");
-            return (Criteria) this;
-        }
-
-        public Criteria andRepaircontentNotLike(String value) {
-            addCriterion("repaircontent not like", value, "repaircontent");
-            return (Criteria) this;
-        }
-
-        public Criteria andRepaircontentIn(List<String> values) {
-            addCriterion("repaircontent in", values, "repaircontent");
-            return (Criteria) this;
-        }
-
-        public Criteria andRepaircontentNotIn(List<String> values) {
-            addCriterion("repaircontent not in", values, "repaircontent");
-            return (Criteria) this;
-        }
-
-        public Criteria andRepaircontentBetween(String value1, String value2) {
-            addCriterion("repaircontent between", value1, value2, "repaircontent");
-            return (Criteria) this;
-        }
-
-        public Criteria andRepaircontentNotBetween(String value1, String value2) {
-            addCriterion("repaircontent not between", value1, value2, "repaircontent");
-            return (Criteria) this;
-        }
-
-        public Criteria andRepairtimeIsNull() {
-            addCriterion("repairtime is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRepairtimeIsNotNull() {
-            addCriterion("repairtime is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRepairtimeEqualTo(Date value) {
-            addCriterion("repairtime =", value, "repairtime");
-            return (Criteria) this;
-        }
-
-        public Criteria andRepairtimeNotEqualTo(Date value) {
-            addCriterion("repairtime <>", value, "repairtime");
-            return (Criteria) this;
-        }
-
-        public Criteria andRepairtimeGreaterThan(Date value) {
-            addCriterion("repairtime >", value, "repairtime");
-            return (Criteria) this;
-        }
-
-        public Criteria andRepairtimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("repairtime >=", value, "repairtime");
-            return (Criteria) this;
-        }
-
-        public Criteria andRepairtimeLessThan(Date value) {
-            addCriterion("repairtime <", value, "repairtime");
-            return (Criteria) this;
-        }
-
-        public Criteria andRepairtimeLessThanOrEqualTo(Date value) {
-            addCriterion("repairtime <=", value, "repairtime");
-            return (Criteria) this;
-        }
-
-        public Criteria andRepairtimeIn(List<Date> values) {
-            addCriterion("repairtime in", values, "repairtime");
-            return (Criteria) this;
-        }
-
-        public Criteria andRepairtimeNotIn(List<Date> values) {
-            addCriterion("repairtime not in", values, "repairtime");
-            return (Criteria) this;
-        }
-
-        public Criteria andRepairtimeBetween(Date value1, Date value2) {
-            addCriterion("repairtime between", value1, value2, "repairtime");
-            return (Criteria) this;
-        }
-
-        public Criteria andRepairtimeNotBetween(Date value1, Date value2) {
-            addCriterion("repairtime not between", value1, value2, "repairtime");
-            return (Criteria) this;
-        }
-
         public Criteria andRepairerIsNull() {
             addCriterion("repairer is null");
             return (Criteria) this;
@@ -572,6 +442,136 @@ public class RepairExample {
 
         public Criteria andRepairerNotBetween(String value1, String value2) {
             addCriterion("repairer not between", value1, value2, "repairer");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairtimeIsNull() {
+            addCriterion("repairtime is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairtimeIsNotNull() {
+            addCriterion("repairtime is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairtimeEqualTo(Date value) {
+            addCriterion("repairtime =", value, "repairtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairtimeNotEqualTo(Date value) {
+            addCriterion("repairtime <>", value, "repairtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairtimeGreaterThan(Date value) {
+            addCriterion("repairtime >", value, "repairtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairtimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("repairtime >=", value, "repairtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairtimeLessThan(Date value) {
+            addCriterion("repairtime <", value, "repairtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairtimeLessThanOrEqualTo(Date value) {
+            addCriterion("repairtime <=", value, "repairtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairtimeIn(List<Date> values) {
+            addCriterion("repairtime in", values, "repairtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairtimeNotIn(List<Date> values) {
+            addCriterion("repairtime not in", values, "repairtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairtimeBetween(Date value1, Date value2) {
+            addCriterion("repairtime between", value1, value2, "repairtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairtimeNotBetween(Date value1, Date value2) {
+            addCriterion("repairtime not between", value1, value2, "repairtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepaircontentIsNull() {
+            addCriterion("repaircontent is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepaircontentIsNotNull() {
+            addCriterion("repaircontent is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepaircontentEqualTo(String value) {
+            addCriterion("repaircontent =", value, "repaircontent");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepaircontentNotEqualTo(String value) {
+            addCriterion("repaircontent <>", value, "repaircontent");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepaircontentGreaterThan(String value) {
+            addCriterion("repaircontent >", value, "repaircontent");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepaircontentGreaterThanOrEqualTo(String value) {
+            addCriterion("repaircontent >=", value, "repaircontent");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepaircontentLessThan(String value) {
+            addCriterion("repaircontent <", value, "repaircontent");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepaircontentLessThanOrEqualTo(String value) {
+            addCriterion("repaircontent <=", value, "repaircontent");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepaircontentLike(String value) {
+            addCriterion("repaircontent like", value, "repaircontent");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepaircontentNotLike(String value) {
+            addCriterion("repaircontent not like", value, "repaircontent");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepaircontentIn(List<String> values) {
+            addCriterion("repaircontent in", values, "repaircontent");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepaircontentNotIn(List<String> values) {
+            addCriterion("repaircontent not in", values, "repaircontent");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepaircontentBetween(String value1, String value2) {
+            addCriterion("repaircontent between", value1, value2, "repaircontent");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepaircontentNotBetween(String value1, String value2) {
+            addCriterion("repaircontent not between", value1, value2, "repaircontent");
             return (Criteria) this;
         }
     }

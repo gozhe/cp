@@ -7,13 +7,13 @@ public class OrderAudit {
 
     private String faultid;
 
-    private String aoopinion;
+    private Integer auditopinion;
 
-    private Date aodate;
+    private Date audittime;
 
-    private Date completedate;
+    private Integer repairresult;
 
-    private String repairresult;
+    private Date completetime;
 
     public Integer getId() {
         return id;
@@ -31,35 +31,35 @@ public class OrderAudit {
         this.faultid = faultid == null ? null : faultid.trim();
     }
 
-    public String getAoopinion() {
-        return aoopinion;
+    public Integer getAuditopinion() {
+        return auditopinion;
     }
 
-    public void setAoopinion(String aoopinion) {
-        this.aoopinion = aoopinion == null ? null : aoopinion.trim();
+    public void setAuditopinion(Integer auditopinion) {
+        this.auditopinion = auditopinion;
     }
 
-    public Date getAodate() {
-        return aodate;
+    public Date getAudittime() {
+        return audittime;
     }
 
-    public void setAodate(Date aodate) {
-        this.aodate = aodate;
+    public void setAudittime(Date audittime) {
+        this.audittime = audittime;
     }
 
-    public Date getCompletedate() {
-        return completedate;
-    }
-
-    public void setCompletedate(Date completedate) {
-        this.completedate = completedate;
-    }
-
-    public String getRepairresult() {
+    public Integer getRepairresult() {
         return repairresult;
     }
 
-    public void setRepairresult(String repairresult) {
-        this.repairresult = repairresult == null ? null : repairresult.trim();
+    public void setRepairresult(Integer repairresult) {
+        this.repairresult = repairresult;
+    }
+
+    public Date getCompletetime() {
+        return completetime;
+    }
+
+    public void setCompletetime(Date completetime) {
+        this.completetime = completetime;
     }
 }

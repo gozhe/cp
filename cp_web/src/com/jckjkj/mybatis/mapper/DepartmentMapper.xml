@@ -2,11 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jckjkj.mybatis.dao.DepartmentMapper" >
   <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.Department" >
-    <id column="id" property="id" jdbcType="VARCHAR" />
-    <result column="dptdescription" property="dptdescription" jdbcType="VARCHAR" />
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="dptid" property="dptid" jdbcType="VARCHAR" />
     <result column="dptname" property="dptname" jdbcType="VARCHAR" />
-    <result column="dptsuperior" property="dptsuperior" jdbcType="VARCHAR" />
     <result column="dpttype" property="dpttype" jdbcType="INTEGER" />
+    <result column="dptsuperior" property="dptsuperior" jdbcType="VARCHAR" />
+    <result column="dptdescription" property="dptdescription" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -67,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, dptdescription, dptname, dptsuperior, dpttype
+    id, dptid, dptname, dpttype, dptsuperior, dptdescription
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jckjkj.mybatis.model.DepartmentExample" >
     select
@@ -83,15 +84,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from x_department
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from x_department
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.jckjkj.mybatis.model.DepartmentExample" >
     delete from x_department
@@ -100,10 +101,12 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.jckjkj.mybatis.model.Department" >
-    insert into x_department (id, dptdescription, dptname, 
-      dptsuperior, dpttype)
-    values (#{id,jdbcType=VARCHAR}, #{dptdescription,jdbcType=VARCHAR}, #{dptname,jdbcType=VARCHAR}, 
-      #{dptsuperior,jdbcType=VARCHAR}, #{dpttype,jdbcType=INTEGER})
+    insert into x_department (id, dptid, dptname, 
+      dpttype, dptsuperior, dptdescription
+      )
+    values (#{id,jdbcType=INTEGER}, #{dptid,jdbcType=VARCHAR}, #{dptname,jdbcType=VARCHAR}, 
+      #{dpttype,jdbcType=INTEGER}, #{dptsuperior,jdbcType=VARCHAR}, #{dptdescription,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.Department" >
     insert into x_department
@@ -111,34 +114,40 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="dptdescription != null" >
-        dptdescription,
+      <if test="dptid != null" >
+        dptid,
       </if>
       <if test="dptname != null" >
         dptname,
       </if>
+      <if test="dpttype != null" >
+        dpttype,
+      </if>
       <if test="dptsuperior != null" >
         dptsuperior,
       </if>
-      <if test="dpttype != null" >
-        dpttype,
+      <if test="dptdescription != null" >
+        dptdescription,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=VARCHAR},
+        #{id,jdbcType=INTEGER},
       </if>
-      <if test="dptdescription != null" >
-        #{dptdescription,jdbcType=VARCHAR},
+      <if test="dptid != null" >
+        #{dptid,jdbcType=VARCHAR},
       </if>
       <if test="dptname != null" >
         #{dptname,jdbcType=VARCHAR},
       </if>
+      <if test="dpttype != null" >
+        #{dpttype,jdbcType=INTEGER},
+      </if>
       <if test="dptsuperior != null" >
         #{dptsuperior,jdbcType=VARCHAR},
       </if>
-      <if test="dpttype != null" >
-        #{dpttype,jdbcType=INTEGER},
+      <if test="dptdescription != null" >
+        #{dptdescription,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -152,19 +161,22 @@
     update x_department
     <set >
       <if test="record.id != null" >
-        id = #{record.id,jdbcType=VARCHAR},
+        id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.dptdescription != null" >
-        dptdescription = #{record.dptdescription,jdbcType=VARCHAR},
+      <if test="record.dptid != null" >
+        dptid = #{record.dptid,jdbcType=VARCHAR},
       </if>
       <if test="record.dptname != null" >
         dptname = #{record.dptname,jdbcType=VARCHAR},
       </if>
+      <if test="record.dpttype != null" >
+        dpttype = #{record.dpttype,jdbcType=INTEGER},
+      </if>
       <if test="record.dptsuperior != null" >
         dptsuperior = #{record.dptsuperior,jdbcType=VARCHAR},
       </if>
-      <if test="record.dpttype != null" >
-        dpttype = #{record.dpttype,jdbcType=INTEGER},
+      <if test="record.dptdescription != null" >
+        dptdescription = #{record.dptdescription,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -173,11 +185,12 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update x_department
-    set id = #{record.id,jdbcType=VARCHAR},
-      dptdescription = #{record.dptdescription,jdbcType=VARCHAR},
+    set id = #{record.id,jdbcType=INTEGER},
+      dptid = #{record.dptid,jdbcType=VARCHAR},
       dptname = #{record.dptname,jdbcType=VARCHAR},
+      dpttype = #{record.dpttype,jdbcType=INTEGER},
       dptsuperior = #{record.dptsuperior,jdbcType=VARCHAR},
-      dpttype = #{record.dpttype,jdbcType=INTEGER}
+      dptdescription = #{record.dptdescription,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -185,27 +198,31 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.jckjkj.mybatis.model.Department" >
     update x_department
     <set >
-      <if test="dptdescription != null" >
-        dptdescription = #{dptdescription,jdbcType=VARCHAR},
+      <if test="dptid != null" >
+        dptid = #{dptid,jdbcType=VARCHAR},
       </if>
       <if test="dptname != null" >
         dptname = #{dptname,jdbcType=VARCHAR},
       </if>
-      <if test="dptsuperior != null" >
-        dptsuperior = #{dptsuperior,jdbcType=VARCHAR},
-      </if>
       <if test="dpttype != null" >
         dpttype = #{dpttype,jdbcType=INTEGER},
       </if>
+      <if test="dptsuperior != null" >
+        dptsuperior = #{dptsuperior,jdbcType=VARCHAR},
+      </if>
+      <if test="dptdescription != null" >
+        dptdescription = #{dptdescription,jdbcType=VARCHAR},
+      </if>
     </set>
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.Department" >
     update x_department
-    set dptdescription = #{dptdescription,jdbcType=VARCHAR},
+    set dptid = #{dptid,jdbcType=VARCHAR},
       dptname = #{dptname,jdbcType=VARCHAR},
+      dpttype = #{dpttype,jdbcType=INTEGER},
       dptsuperior = #{dptsuperior,jdbcType=VARCHAR},
-      dpttype = #{dpttype,jdbcType=INTEGER}
-    where id = #{id,jdbcType=VARCHAR}
+      dptdescription = #{dptdescription,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -3,7 +3,8 @@
 <mapper namespace="com.jckjkj.mybatis.dao.OrderStateMapper" >
   <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.OrderState" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="osvalue" property="osvalue" jdbcType="VARCHAR" />
+    <result column="faultid" property="faultid" jdbcType="VARCHAR" />
+    <result column="orderstate" property="orderstate" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -64,7 +65,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, osvalue
+    id, faultid, orderstate
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jckjkj.mybatis.model.OrderStateExample" >
     select
@@ -97,8 +98,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.jckjkj.mybatis.model.OrderState" >
-    insert into x_orderstate (id, osvalue)
-    values (#{id,jdbcType=INTEGER}, #{osvalue,jdbcType=VARCHAR})
+    insert into x_orderstate (id, faultid, orderstate
+      )
+    values (#{id,jdbcType=INTEGER}, #{faultid,jdbcType=VARCHAR}, #{orderstate,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.OrderState" >
     insert into x_orderstate
@@ -106,16 +109,22 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="osvalue != null" >
-        osvalue,
+      <if test="faultid != null" >
+        faultid,
+      </if>
+      <if test="orderstate != null" >
+        orderstate,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="osvalue != null" >
-        #{osvalue,jdbcType=VARCHAR},
+      <if test="faultid != null" >
+        #{faultid,jdbcType=VARCHAR},
+      </if>
+      <if test="orderstate != null" >
+        #{orderstate,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -131,8 +140,11 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.osvalue != null" >
-        osvalue = #{record.osvalue,jdbcType=VARCHAR},
+      <if test="record.faultid != null" >
+        faultid = #{record.faultid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderstate != null" >
+        orderstate = #{record.orderstate,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -142,7 +154,8 @@
   <update id="updateByExample" parameterType="map" >
     update x_orderstate
     set id = #{record.id,jdbcType=INTEGER},
-      osvalue = #{record.osvalue,jdbcType=VARCHAR}
+      faultid = #{record.faultid,jdbcType=VARCHAR},
+      orderstate = #{record.orderstate,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -150,15 +163,19 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.jckjkj.mybatis.model.OrderState" >
     update x_orderstate
     <set >
-      <if test="osvalue != null" >
-        osvalue = #{osvalue,jdbcType=VARCHAR},
+      <if test="faultid != null" >
+        faultid = #{faultid,jdbcType=VARCHAR},
+      </if>
+      <if test="orderstate != null" >
+        orderstate = #{orderstate,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.OrderState" >
     update x_orderstate
-    set osvalue = #{osvalue,jdbcType=VARCHAR}
+    set faultid = #{faultid,jdbcType=VARCHAR},
+      orderstate = #{orderstate,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

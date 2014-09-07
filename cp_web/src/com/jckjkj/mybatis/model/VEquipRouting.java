@@ -16,7 +16,7 @@ public class VEquipRouting {
 
     private BigDecimal lat;
 
-    private String routingstate;
+    private Integer routingstate;
 
     private String aoperson;
 
@@ -70,12 +70,12 @@ public class VEquipRouting {
         this.lat = lat;
     }
 
-    public String getRoutingstate() {
+    public Integer getRoutingstate() {
         return routingstate;
     }
 
-    public void setRoutingstate(String routingstate) {
-        this.routingstate = routingstate == null ? null : routingstate.trim();
+    public void setRoutingstate(Integer routingstate) {
+        this.routingstate = routingstate;
     }
 
     public String getAoperson() {

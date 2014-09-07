@@ -585,63 +585,73 @@ public class VOrderRepairExample {
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeIsNull() {
-            addCriterion("createtime is null");
+        public Criteria andFaultclass1IsNull() {
+            addCriterion("faultclass1 is null");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeIsNotNull() {
-            addCriterion("createtime is not null");
+        public Criteria andFaultclass1IsNotNull() {
+            addCriterion("faultclass1 is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeEqualTo(Date value) {
-            addCriterion("createtime =", value, "createtime");
+        public Criteria andFaultclass1EqualTo(String value) {
+            addCriterion("faultclass1 =", value, "faultclass1");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeNotEqualTo(Date value) {
-            addCriterion("createtime <>", value, "createtime");
+        public Criteria andFaultclass1NotEqualTo(String value) {
+            addCriterion("faultclass1 <>", value, "faultclass1");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeGreaterThan(Date value) {
-            addCriterion("createtime >", value, "createtime");
+        public Criteria andFaultclass1GreaterThan(String value) {
+            addCriterion("faultclass1 >", value, "faultclass1");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("createtime >=", value, "createtime");
+        public Criteria andFaultclass1GreaterThanOrEqualTo(String value) {
+            addCriterion("faultclass1 >=", value, "faultclass1");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeLessThan(Date value) {
-            addCriterion("createtime <", value, "createtime");
+        public Criteria andFaultclass1LessThan(String value) {
+            addCriterion("faultclass1 <", value, "faultclass1");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeLessThanOrEqualTo(Date value) {
-            addCriterion("createtime <=", value, "createtime");
+        public Criteria andFaultclass1LessThanOrEqualTo(String value) {
+            addCriterion("faultclass1 <=", value, "faultclass1");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeIn(List<Date> values) {
-            addCriterion("createtime in", values, "createtime");
+        public Criteria andFaultclass1Like(String value) {
+            addCriterion("faultclass1 like", value, "faultclass1");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeNotIn(List<Date> values) {
-            addCriterion("createtime not in", values, "createtime");
+        public Criteria andFaultclass1NotLike(String value) {
+            addCriterion("faultclass1 not like", value, "faultclass1");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeBetween(Date value1, Date value2) {
-            addCriterion("createtime between", value1, value2, "createtime");
+        public Criteria andFaultclass1In(List<String> values) {
+            addCriterion("faultclass1 in", values, "faultclass1");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeNotBetween(Date value1, Date value2) {
-            addCriterion("createtime not between", value1, value2, "createtime");
+        public Criteria andFaultclass1NotIn(List<String> values) {
+            addCriterion("faultclass1 not in", values, "faultclass1");
+            return (Criteria) this;
+        }
+
+        public Criteria andFaultclass1Between(String value1, String value2) {
+            addCriterion("faultclass1 between", value1, value2, "faultclass1");
+            return (Criteria) this;
+        }
+
+        public Criteria andFaultclass1NotBetween(String value1, String value2) {
+            addCriterion("faultclass1 not between", value1, value2, "faultclass1");
             return (Criteria) this;
         }
 
@@ -712,6 +722,66 @@ public class VOrderRepairExample {
 
         public Criteria andCreaterNotBetween(String value1, String value2) {
             addCriterion("creater not between", value1, value2, "creater");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatetimeIsNull() {
+            addCriterion("createtime is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatetimeIsNotNull() {
+            addCriterion("createtime is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatetimeEqualTo(Date value) {
+            addCriterion("createtime =", value, "createtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatetimeNotEqualTo(Date value) {
+            addCriterion("createtime <>", value, "createtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatetimeGreaterThan(Date value) {
+            addCriterion("createtime >", value, "createtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatetimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("createtime >=", value, "createtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatetimeLessThan(Date value) {
+            addCriterion("createtime <", value, "createtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatetimeLessThanOrEqualTo(Date value) {
+            addCriterion("createtime <=", value, "createtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatetimeIn(List<Date> values) {
+            addCriterion("createtime in", values, "createtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatetimeNotIn(List<Date> values) {
+            addCriterion("createtime not in", values, "createtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatetimeBetween(Date value1, Date value2) {
+            addCriterion("createtime between", value1, value2, "createtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatetimeNotBetween(Date value1, Date value2) {
+            addCriterion("createtime not between", value1, value2, "createtime");
             return (Criteria) this;
         }
 
@@ -832,76 +902,6 @@ public class VOrderRepairExample {
 
         public Criteria andOrderstateNotBetween(Integer value1, Integer value2) {
             addCriterion("orderstate not between", value1, value2, "orderstate");
-            return (Criteria) this;
-        }
-
-        public Criteria andFaultclass1IsNull() {
-            addCriterion("faultclass1 is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andFaultclass1IsNotNull() {
-            addCriterion("faultclass1 is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andFaultclass1EqualTo(String value) {
-            addCriterion("faultclass1 =", value, "faultclass1");
-            return (Criteria) this;
-        }
-
-        public Criteria andFaultclass1NotEqualTo(String value) {
-            addCriterion("faultclass1 <>", value, "faultclass1");
-            return (Criteria) this;
-        }
-
-        public Criteria andFaultclass1GreaterThan(String value) {
-            addCriterion("faultclass1 >", value, "faultclass1");
-            return (Criteria) this;
-        }
-
-        public Criteria andFaultclass1GreaterThanOrEqualTo(String value) {
-            addCriterion("faultclass1 >=", value, "faultclass1");
-            return (Criteria) this;
-        }
-
-        public Criteria andFaultclass1LessThan(String value) {
-            addCriterion("faultclass1 <", value, "faultclass1");
-            return (Criteria) this;
-        }
-
-        public Criteria andFaultclass1LessThanOrEqualTo(String value) {
-            addCriterion("faultclass1 <=", value, "faultclass1");
-            return (Criteria) this;
-        }
-
-        public Criteria andFaultclass1Like(String value) {
-            addCriterion("faultclass1 like", value, "faultclass1");
-            return (Criteria) this;
-        }
-
-        public Criteria andFaultclass1NotLike(String value) {
-            addCriterion("faultclass1 not like", value, "faultclass1");
-            return (Criteria) this;
-        }
-
-        public Criteria andFaultclass1In(List<String> values) {
-            addCriterion("faultclass1 in", values, "faultclass1");
-            return (Criteria) this;
-        }
-
-        public Criteria andFaultclass1NotIn(List<String> values) {
-            addCriterion("faultclass1 not in", values, "faultclass1");
-            return (Criteria) this;
-        }
-
-        public Criteria andFaultclass1Between(String value1, String value2) {
-            addCriterion("faultclass1 between", value1, value2, "faultclass1");
-            return (Criteria) this;
-        }
-
-        public Criteria andFaultclass1NotBetween(String value1, String value2) {
-            addCriterion("faultclass1 not between", value1, value2, "faultclass1");
             return (Criteria) this;
         }
 

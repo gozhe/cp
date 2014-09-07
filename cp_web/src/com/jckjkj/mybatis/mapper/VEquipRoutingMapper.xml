@@ -8,7 +8,7 @@
     <result column="station_id" property="stationId" jdbcType="INTEGER" />
     <result column="lng" property="lng" jdbcType="NUMERIC" />
     <result column="lat" property="lat" jdbcType="NUMERIC" />
-    <result column="routingstate" property="routingstate" jdbcType="VARCHAR" />
+    <result column="routingstate" property="routingstate" jdbcType="INTEGER" />
     <result column="aoperson" property="aoperson" jdbcType="VARCHAR" />
     <result column="aodate" property="aodate" jdbcType="TIMESTAMP" />
   </resultMap>
@@ -100,7 +100,7 @@
       )
     values (#{id,jdbcType=INTEGER}, #{sysNo,jdbcType=VARCHAR}, #{comNo,jdbcType=VARCHAR}, 
       #{stationId,jdbcType=INTEGER}, #{lng,jdbcType=NUMERIC}, #{lat,jdbcType=NUMERIC}, 
-      #{routingstate,jdbcType=VARCHAR}, #{aoperson,jdbcType=VARCHAR}, #{aodate,jdbcType=TIMESTAMP}
+      #{routingstate,jdbcType=INTEGER}, #{aoperson,jdbcType=VARCHAR}, #{aodate,jdbcType=TIMESTAMP}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.VEquipRouting" >
@@ -154,7 +154,7 @@
         #{lat,jdbcType=NUMERIC},
       </if>
       <if test="routingstate != null" >
-        #{routingstate,jdbcType=VARCHAR},
+        #{routingstate,jdbcType=INTEGER},
       </if>
       <if test="aoperson != null" >
         #{aoperson,jdbcType=VARCHAR},
@@ -192,7 +192,7 @@
         lat = #{record.lat,jdbcType=NUMERIC},
       </if>
       <if test="record.routingstate != null" >
-        routingstate = #{record.routingstate,jdbcType=VARCHAR},
+        routingstate = #{record.routingstate,jdbcType=INTEGER},
       </if>
       <if test="record.aoperson != null" >
         aoperson = #{record.aoperson,jdbcType=VARCHAR},
@@ -213,7 +213,7 @@
       station_id = #{record.stationId,jdbcType=INTEGER},
       lng = #{record.lng,jdbcType=NUMERIC},
       lat = #{record.lat,jdbcType=NUMERIC},
-      routingstate = #{record.routingstate,jdbcType=VARCHAR},
+      routingstate = #{record.routingstate,jdbcType=INTEGER},
       aoperson = #{record.aoperson,jdbcType=VARCHAR},
       aodate = #{record.aodate,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >

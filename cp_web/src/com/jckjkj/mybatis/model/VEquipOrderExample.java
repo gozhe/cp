@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class OrderListExample {
+public class VEquipOrderExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public OrderListExample() {
+    public VEquipOrderExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -962,6 +962,136 @@ public class OrderListExample {
 
         public Criteria andOrdersourceNotBetween(Integer value1, Integer value2) {
             addCriterion("ordersource not between", value1, value2, "ordersource");
+            return (Criteria) this;
+        }
+
+        public Criteria andStationIdIsNull() {
+            addCriterion("station_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStationIdIsNotNull() {
+            addCriterion("station_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStationIdEqualTo(Integer value) {
+            addCriterion("station_id =", value, "stationId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStationIdNotEqualTo(Integer value) {
+            addCriterion("station_id <>", value, "stationId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStationIdGreaterThan(Integer value) {
+            addCriterion("station_id >", value, "stationId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStationIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("station_id >=", value, "stationId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStationIdLessThan(Integer value) {
+            addCriterion("station_id <", value, "stationId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStationIdLessThanOrEqualTo(Integer value) {
+            addCriterion("station_id <=", value, "stationId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStationIdIn(List<Integer> values) {
+            addCriterion("station_id in", values, "stationId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStationIdNotIn(List<Integer> values) {
+            addCriterion("station_id not in", values, "stationId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStationIdBetween(Integer value1, Integer value2) {
+            addCriterion("station_id between", value1, value2, "stationId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStationIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("station_id not between", value1, value2, "stationId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMidIsNull() {
+            addCriterion("mid is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMidIsNotNull() {
+            addCriterion("mid is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMidEqualTo(String value) {
+            addCriterion("mid =", value, "mid");
+            return (Criteria) this;
+        }
+
+        public Criteria andMidNotEqualTo(String value) {
+            addCriterion("mid <>", value, "mid");
+            return (Criteria) this;
+        }
+
+        public Criteria andMidGreaterThan(String value) {
+            addCriterion("mid >", value, "mid");
+            return (Criteria) this;
+        }
+
+        public Criteria andMidGreaterThanOrEqualTo(String value) {
+            addCriterion("mid >=", value, "mid");
+            return (Criteria) this;
+        }
+
+        public Criteria andMidLessThan(String value) {
+            addCriterion("mid <", value, "mid");
+            return (Criteria) this;
+        }
+
+        public Criteria andMidLessThanOrEqualTo(String value) {
+            addCriterion("mid <=", value, "mid");
+            return (Criteria) this;
+        }
+
+        public Criteria andMidLike(String value) {
+            addCriterion("mid like", value, "mid");
+            return (Criteria) this;
+        }
+
+        public Criteria andMidNotLike(String value) {
+            addCriterion("mid not like", value, "mid");
+            return (Criteria) this;
+        }
+
+        public Criteria andMidIn(List<String> values) {
+            addCriterion("mid in", values, "mid");
+            return (Criteria) this;
+        }
+
+        public Criteria andMidNotIn(List<String> values) {
+            addCriterion("mid not in", values, "mid");
+            return (Criteria) this;
+        }
+
+        public Criteria andMidBetween(String value1, String value2) {
+            addCriterion("mid between", value1, value2, "mid");
+            return (Criteria) this;
+        }
+
+        public Criteria andMidNotBetween(String value1, String value2) {
+            addCriterion("mid not between", value1, value2, "mid");
             return (Criteria) this;
         }
     }

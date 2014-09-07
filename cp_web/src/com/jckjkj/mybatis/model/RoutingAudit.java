@@ -7,11 +7,11 @@ public class RoutingAudit {
 
     private Integer routingid;
 
-    private String routingstate;
-
     private String aoperson;
 
     private Date aodate;
+
+    private Integer routingstate;
 
     public Integer getId() {
         return id;
@@ -29,14 +29,6 @@ public class RoutingAudit {
         this.routingid = routingid;
     }
 
-    public String getRoutingstate() {
-        return routingstate;
-    }
-
-    public void setRoutingstate(String routingstate) {
-        this.routingstate = routingstate == null ? null : routingstate.trim();
-    }
-
     public String getAoperson() {
         return aoperson;
     }
@@ -51,5 +43,13 @@ public class RoutingAudit {
 
     public void setAodate(Date aodate) {
         this.aodate = aodate;
+    }
+
+    public Integer getRoutingstate() {
+        return routingstate;
+    }
+
+    public void setRoutingstate(Integer routingstate) {
+        this.routingstate = routingstate;
     }
 }

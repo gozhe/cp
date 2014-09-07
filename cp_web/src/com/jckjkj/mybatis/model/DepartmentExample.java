@@ -114,133 +114,123 @@ public class DepartmentExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualTo(String value) {
+        public Criteria andIdEqualTo(Integer value) {
             addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualTo(String value) {
+        public Criteria andIdNotEqualTo(Integer value) {
             addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThan(String value) {
+        public Criteria andIdGreaterThan(Integer value) {
             addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(String value) {
+        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
             addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThan(String value) {
+        public Criteria andIdLessThan(Integer value) {
             addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(String value) {
+        public Criteria andIdLessThanOrEqualTo(Integer value) {
             addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLike(String value) {
-            addCriterion("id like", value, "id");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdNotLike(String value) {
-            addCriterion("id not like", value, "id");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdIn(List<String> values) {
+        public Criteria andIdIn(List<Integer> values) {
             addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotIn(List<String> values) {
+        public Criteria andIdNotIn(List<Integer> values) {
             addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdBetween(String value1, String value2) {
+        public Criteria andIdBetween(Integer value1, Integer value2) {
             addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotBetween(String value1, String value2) {
+        public Criteria andIdNotBetween(Integer value1, Integer value2) {
             addCriterion("id not between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andDptdescriptionIsNull() {
-            addCriterion("dptdescription is null");
+        public Criteria andDptidIsNull() {
+            addCriterion("dptid is null");
             return (Criteria) this;
         }
 
-        public Criteria andDptdescriptionIsNotNull() {
-            addCriterion("dptdescription is not null");
+        public Criteria andDptidIsNotNull() {
+            addCriterion("dptid is not null");
             return (Criteria) this;
         }
 
-        public Criteria andDptdescriptionEqualTo(String value) {
-            addCriterion("dptdescription =", value, "dptdescription");
+        public Criteria andDptidEqualTo(String value) {
+            addCriterion("dptid =", value, "dptid");
             return (Criteria) this;
         }
 
-        public Criteria andDptdescriptionNotEqualTo(String value) {
-            addCriterion("dptdescription <>", value, "dptdescription");
+        public Criteria andDptidNotEqualTo(String value) {
+            addCriterion("dptid <>", value, "dptid");
             return (Criteria) this;
         }
 
-        public Criteria andDptdescriptionGreaterThan(String value) {
-            addCriterion("dptdescription >", value, "dptdescription");
+        public Criteria andDptidGreaterThan(String value) {
+            addCriterion("dptid >", value, "dptid");
             return (Criteria) this;
         }
 
-        public Criteria andDptdescriptionGreaterThanOrEqualTo(String value) {
-            addCriterion("dptdescription >=", value, "dptdescription");
+        public Criteria andDptidGreaterThanOrEqualTo(String value) {
+            addCriterion("dptid >=", value, "dptid");
             return (Criteria) this;
         }
 
-        public Criteria andDptdescriptionLessThan(String value) {
-            addCriterion("dptdescription <", value, "dptdescription");
+        public Criteria andDptidLessThan(String value) {
+            addCriterion("dptid <", value, "dptid");
             return (Criteria) this;
         }
 
-        public Criteria andDptdescriptionLessThanOrEqualTo(String value) {
-            addCriterion("dptdescription <=", value, "dptdescription");
+        public Criteria andDptidLessThanOrEqualTo(String value) {
+            addCriterion("dptid <=", value, "dptid");
             return (Criteria) this;
         }
 
-        public Criteria andDptdescriptionLike(String value) {
-            addCriterion("dptdescription like", value, "dptdescription");
+        public Criteria andDptidLike(String value) {
+            addCriterion("dptid like", value, "dptid");
             return (Criteria) this;
         }
 
-        public Criteria andDptdescriptionNotLike(String value) {
-            addCriterion("dptdescription not like", value, "dptdescription");
+        public Criteria andDptidNotLike(String value) {
+            addCriterion("dptid not like", value, "dptid");
             return (Criteria) this;
         }
 
-        public Criteria andDptdescriptionIn(List<String> values) {
-            addCriterion("dptdescription in", values, "dptdescription");
+        public Criteria andDptidIn(List<String> values) {
+            addCriterion("dptid in", values, "dptid");
             return (Criteria) this;
         }
 
-        public Criteria andDptdescriptionNotIn(List<String> values) {
-            addCriterion("dptdescription not in", values, "dptdescription");
+        public Criteria andDptidNotIn(List<String> values) {
+            addCriterion("dptid not in", values, "dptid");
             return (Criteria) this;
         }
 
-        public Criteria andDptdescriptionBetween(String value1, String value2) {
-            addCriterion("dptdescription between", value1, value2, "dptdescription");
+        public Criteria andDptidBetween(String value1, String value2) {
+            addCriterion("dptid between", value1, value2, "dptid");
             return (Criteria) this;
         }
 
-        public Criteria andDptdescriptionNotBetween(String value1, String value2) {
-            addCriterion("dptdescription not between", value1, value2, "dptdescription");
+        public Criteria andDptidNotBetween(String value1, String value2) {
+            addCriterion("dptid not between", value1, value2, "dptid");
             return (Criteria) this;
         }
 
@@ -314,6 +304,66 @@ public class DepartmentExample {
             return (Criteria) this;
         }
 
+        public Criteria andDpttypeIsNull() {
+            addCriterion("dpttype is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDpttypeIsNotNull() {
+            addCriterion("dpttype is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDpttypeEqualTo(Integer value) {
+            addCriterion("dpttype =", value, "dpttype");
+            return (Criteria) this;
+        }
+
+        public Criteria andDpttypeNotEqualTo(Integer value) {
+            addCriterion("dpttype <>", value, "dpttype");
+            return (Criteria) this;
+        }
+
+        public Criteria andDpttypeGreaterThan(Integer value) {
+            addCriterion("dpttype >", value, "dpttype");
+            return (Criteria) this;
+        }
+
+        public Criteria andDpttypeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("dpttype >=", value, "dpttype");
+            return (Criteria) this;
+        }
+
+        public Criteria andDpttypeLessThan(Integer value) {
+            addCriterion("dpttype <", value, "dpttype");
+            return (Criteria) this;
+        }
+
+        public Criteria andDpttypeLessThanOrEqualTo(Integer value) {
+            addCriterion("dpttype <=", value, "dpttype");
+            return (Criteria) this;
+        }
+
+        public Criteria andDpttypeIn(List<Integer> values) {
+            addCriterion("dpttype in", values, "dpttype");
+            return (Criteria) this;
+        }
+
+        public Criteria andDpttypeNotIn(List<Integer> values) {
+            addCriterion("dpttype not in", values, "dpttype");
+            return (Criteria) this;
+        }
+
+        public Criteria andDpttypeBetween(Integer value1, Integer value2) {
+            addCriterion("dpttype between", value1, value2, "dpttype");
+            return (Criteria) this;
+        }
+
+        public Criteria andDpttypeNotBetween(Integer value1, Integer value2) {
+            addCriterion("dpttype not between", value1, value2, "dpttype");
+            return (Criteria) this;
+        }
+
         public Criteria andDptsuperiorIsNull() {
             addCriterion("dptsuperior is null");
             return (Criteria) this;
@@ -384,63 +434,73 @@ public class DepartmentExample {
             return (Criteria) this;
         }
 
-        public Criteria andDpttypeIsNull() {
-            addCriterion("dpttype is null");
+        public Criteria andDptdescriptionIsNull() {
+            addCriterion("dptdescription is null");
             return (Criteria) this;
         }
 
-        public Criteria andDpttypeIsNotNull() {
-            addCriterion("dpttype is not null");
+        public Criteria andDptdescriptionIsNotNull() {
+            addCriterion("dptdescription is not null");
             return (Criteria) this;
         }
 
-        public Criteria andDpttypeEqualTo(Integer value) {
-            addCriterion("dpttype =", value, "dpttype");
+        public Criteria andDptdescriptionEqualTo(String value) {
+            addCriterion("dptdescription =", value, "dptdescription");
             return (Criteria) this;
         }
 
-        public Criteria andDpttypeNotEqualTo(Integer value) {
-            addCriterion("dpttype <>", value, "dpttype");
+        public Criteria andDptdescriptionNotEqualTo(String value) {
+            addCriterion("dptdescription <>", value, "dptdescription");
             return (Criteria) this;
         }
 
-        public Criteria andDpttypeGreaterThan(Integer value) {
-            addCriterion("dpttype >", value, "dpttype");
+        public Criteria andDptdescriptionGreaterThan(String value) {
+            addCriterion("dptdescription >", value, "dptdescription");
             return (Criteria) this;
         }
 
-        public Criteria andDpttypeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("dpttype >=", value, "dpttype");
+        public Criteria andDptdescriptionGreaterThanOrEqualTo(String value) {
+            addCriterion("dptdescription >=", value, "dptdescription");
             return (Criteria) this;
         }
 
-        public Criteria andDpttypeLessThan(Integer value) {
-            addCriterion("dpttype <", value, "dpttype");
+        public Criteria andDptdescriptionLessThan(String value) {
+            addCriterion("dptdescription <", value, "dptdescription");
             return (Criteria) this;
         }
 
-        public Criteria andDpttypeLessThanOrEqualTo(Integer value) {
-            addCriterion("dpttype <=", value, "dpttype");
+        public Criteria andDptdescriptionLessThanOrEqualTo(String value) {
+            addCriterion("dptdescription <=", value, "dptdescription");
             return (Criteria) this;
         }
 
-        public Criteria andDpttypeIn(List<Integer> values) {
-            addCriterion("dpttype in", values, "dpttype");
+        public Criteria andDptdescriptionLike(String value) {
+            addCriterion("dptdescription like", value, "dptdescription");
             return (Criteria) this;
         }
 
-        public Criteria andDpttypeNotIn(List<Integer> values) {
-            addCriterion("dpttype not in", values, "dpttype");
+        public Criteria andDptdescriptionNotLike(String value) {
+            addCriterion("dptdescription not like", value, "dptdescription");
             return (Criteria) this;
         }
 
-        public Criteria andDpttypeBetween(Integer value1, Integer value2) {
-            addCriterion("dpttype between", value1, value2, "dpttype");
+        public Criteria andDptdescriptionIn(List<String> values) {
+            addCriterion("dptdescription in", values, "dptdescription");
             return (Criteria) this;
         }
 
-        public Criteria andDpttypeNotBetween(Integer value1, Integer value2) {
-            addCriterion("dpttype not between", value1, value2, "dpttype");
+        public Criteria andDptdescriptionNotIn(List<String> values) {
+            addCriterion("dptdescription not in", values, "dptdescription");
+            return (Criteria) this;
+        }
+
+        public Criteria andDptdescriptionBetween(String value1, String value2) {
+            addCriterion("dptdescription between", value1, value2, "dptdescription");
+            return (Criteria) this;
+        }
+
+        public Criteria andDptdescriptionNotBetween(String value1, String value2) {
+            addCriterion("dptdescription not between", value1, value2, "dptdescription");
             return (Criteria) this;
         }
     }

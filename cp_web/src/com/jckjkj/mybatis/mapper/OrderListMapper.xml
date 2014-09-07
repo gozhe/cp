@@ -3,18 +3,18 @@
 <mapper namespace="com.jckjkj.mybatis.dao.OrderListMapper" >
   <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.OrderList" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="equid" property="equid" jdbcType="VARCHAR" />
     <result column="faultid" property="faultid" jdbcType="VARCHAR" />
+    <result column="equid" property="equid" jdbcType="VARCHAR" />
     <result column="faulttitle" property="faulttitle" jdbcType="VARCHAR" />
     <result column="faultdescription" property="faultdescription" jdbcType="VARCHAR" />
     <result column="faultgrade" property="faultgrade" jdbcType="VARCHAR" />
     <result column="faultclass" property="faultclass" jdbcType="VARCHAR" />
+    <result column="faultclass1" property="faultclass1" jdbcType="VARCHAR" />
+    <result column="creater" property="creater" jdbcType="VARCHAR" />
     <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
     <result column="estcomptime" property="estcomptime" jdbcType="TIMESTAMP" />
     <result column="orderstate" property="orderstate" jdbcType="INTEGER" />
-    <result column="faultclass1" property="faultclass1" jdbcType="VARCHAR" />
     <result column="ordersource" property="ordersource" jdbcType="INTEGER" />
-    <result column="creater" property="creater" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -75,8 +75,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, equid, faultid, faulttitle, faultdescription, faultgrade, faultclass, createtime, 
-    estcomptime, orderstate, faultclass1, ordersource, creater
+    id, faultid, equid, faulttitle, faultdescription, faultgrade, faultclass, faultclass1, 
+    creater, createtime, estcomptime, orderstate, ordersource
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jckjkj.mybatis.model.OrderListExample" >
     select
@@ -109,16 +109,16 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.jckjkj.mybatis.model.OrderList" >
-    insert into x_orderlist (id, equid, faultid, 
+    insert into x_orderlist (id, faultid, equid, 
       faulttitle, faultdescription, faultgrade, 
-      faultclass, createtime, estcomptime, 
-      orderstate, faultclass1, ordersource, 
-      creater)
-    values (#{id,jdbcType=INTEGER}, #{equid,jdbcType=VARCHAR}, #{faultid,jdbcType=VARCHAR}, 
+      faultclass, faultclass1, creater, 
+      createtime, estcomptime, orderstate, 
+      ordersource)
+    values (#{id,jdbcType=INTEGER}, #{faultid,jdbcType=VARCHAR}, #{equid,jdbcType=VARCHAR}, 
       #{faulttitle,jdbcType=VARCHAR}, #{faultdescription,jdbcType=VARCHAR}, #{faultgrade,jdbcType=VARCHAR}, 
-      #{faultclass,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{estcomptime,jdbcType=TIMESTAMP}, 
-      #{orderstate,jdbcType=INTEGER}, #{faultclass1,jdbcType=VARCHAR}, #{ordersource,jdbcType=INTEGER}, 
-      #{creater,jdbcType=VARCHAR})
+      #{faultclass,jdbcType=VARCHAR}, #{faultclass1,jdbcType=VARCHAR}, #{creater,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{estcomptime,jdbcType=TIMESTAMP}, #{orderstate,jdbcType=INTEGER}, 
+      #{ordersource,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.OrderList" >
     insert into x_orderlist
@@ -126,11 +126,11 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="equid != null" >
-        equid,
-      </if>
       <if test="faultid != null" >
         faultid,
+      </if>
+      <if test="equid != null" >
+        equid,
       </if>
       <if test="faulttitle != null" >
         faulttitle,
@@ -144,6 +144,12 @@
       <if test="faultclass != null" >
         faultclass,
       </if>
+      <if test="faultclass1 != null" >
+        faultclass1,
+      </if>
+      <if test="creater != null" >
+        creater,
+      </if>
       <if test="createtime != null" >
         createtime,
       </if>
@@ -153,25 +159,19 @@
       <if test="orderstate != null" >
         orderstate,
       </if>
-      <if test="faultclass1 != null" >
-        faultclass1,
-      </if>
       <if test="ordersource != null" >
         ordersource,
-      </if>
-      <if test="creater != null" >
-        creater,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="equid != null" >
-        #{equid,jdbcType=VARCHAR},
-      </if>
       <if test="faultid != null" >
         #{faultid,jdbcType=VARCHAR},
+      </if>
+      <if test="equid != null" >
+        #{equid,jdbcType=VARCHAR},
       </if>
       <if test="faulttitle != null" >
         #{faulttitle,jdbcType=VARCHAR},
@@ -185,6 +185,12 @@
       <if test="faultclass != null" >
         #{faultclass,jdbcType=VARCHAR},
       </if>
+      <if test="faultclass1 != null" >
+        #{faultclass1,jdbcType=VARCHAR},
+      </if>
+      <if test="creater != null" >
+        #{creater,jdbcType=VARCHAR},
+      </if>
       <if test="createtime != null" >
         #{createtime,jdbcType=TIMESTAMP},
       </if>
@@ -194,14 +200,8 @@
       <if test="orderstate != null" >
         #{orderstate,jdbcType=INTEGER},
       </if>
-      <if test="faultclass1 != null" >
-        #{faultclass1,jdbcType=VARCHAR},
-      </if>
       <if test="ordersource != null" >
         #{ordersource,jdbcType=INTEGER},
-      </if>
-      <if test="creater != null" >
-        #{creater,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -217,11 +217,11 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.equid != null" >
-        equid = #{record.equid,jdbcType=VARCHAR},
-      </if>
       <if test="record.faultid != null" >
         faultid = #{record.faultid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.equid != null" >
+        equid = #{record.equid,jdbcType=VARCHAR},
       </if>
       <if test="record.faulttitle != null" >
         faulttitle = #{record.faulttitle,jdbcType=VARCHAR},
@@ -235,6 +235,12 @@
       <if test="record.faultclass != null" >
         faultclass = #{record.faultclass,jdbcType=VARCHAR},
       </if>
+      <if test="record.faultclass1 != null" >
+        faultclass1 = #{record.faultclass1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creater != null" >
+        creater = #{record.creater,jdbcType=VARCHAR},
+      </if>
       <if test="record.createtime != null" >
         createtime = #{record.createtime,jdbcType=TIMESTAMP},
       </if>
@@ -244,14 +250,8 @@
       <if test="record.orderstate != null" >
         orderstate = #{record.orderstate,jdbcType=INTEGER},
       </if>
-      <if test="record.faultclass1 != null" >
-        faultclass1 = #{record.faultclass1,jdbcType=VARCHAR},
-      </if>
       <if test="record.ordersource != null" >
         ordersource = #{record.ordersource,jdbcType=INTEGER},
-      </if>
-      <if test="record.creater != null" >
-        creater = #{record.creater,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -261,18 +261,18 @@
   <update id="updateByExample" parameterType="map" >
     update x_orderlist
     set id = #{record.id,jdbcType=INTEGER},
-      equid = #{record.equid,jdbcType=VARCHAR},
       faultid = #{record.faultid,jdbcType=VARCHAR},
+      equid = #{record.equid,jdbcType=VARCHAR},
       faulttitle = #{record.faulttitle,jdbcType=VARCHAR},
       faultdescription = #{record.faultdescription,jdbcType=VARCHAR},
       faultgrade = #{record.faultgrade,jdbcType=VARCHAR},
       faultclass = #{record.faultclass,jdbcType=VARCHAR},
+      faultclass1 = #{record.faultclass1,jdbcType=VARCHAR},
+      creater = #{record.creater,jdbcType=VARCHAR},
       createtime = #{record.createtime,jdbcType=TIMESTAMP},
       estcomptime = #{record.estcomptime,jdbcType=TIMESTAMP},
       orderstate = #{record.orderstate,jdbcType=INTEGER},
-      faultclass1 = #{record.faultclass1,jdbcType=VARCHAR},
-      ordersource = #{record.ordersource,jdbcType=INTEGER},
-      creater = #{record.creater,jdbcType=VARCHAR}
+      ordersource = #{record.ordersource,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -280,11 +280,11 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.jckjkj.mybatis.model.OrderList" >
     update x_orderlist
     <set >
-      <if test="equid != null" >
-        equid = #{equid,jdbcType=VARCHAR},
-      </if>
       <if test="faultid != null" >
         faultid = #{faultid,jdbcType=VARCHAR},
+      </if>
+      <if test="equid != null" >
+        equid = #{equid,jdbcType=VARCHAR},
       </if>
       <if test="faulttitle != null" >
         faulttitle = #{faulttitle,jdbcType=VARCHAR},
@@ -298,6 +298,12 @@
       <if test="faultclass != null" >
         faultclass = #{faultclass,jdbcType=VARCHAR},
       </if>
+      <if test="faultclass1 != null" >
+        faultclass1 = #{faultclass1,jdbcType=VARCHAR},
+      </if>
+      <if test="creater != null" >
+        creater = #{creater,jdbcType=VARCHAR},
+      </if>
       <if test="createtime != null" >
         createtime = #{createtime,jdbcType=TIMESTAMP},
       </if>
@@ -307,32 +313,26 @@
       <if test="orderstate != null" >
         orderstate = #{orderstate,jdbcType=INTEGER},
       </if>
-      <if test="faultclass1 != null" >
-        faultclass1 = #{faultclass1,jdbcType=VARCHAR},
-      </if>
       <if test="ordersource != null" >
         ordersource = #{ordersource,jdbcType=INTEGER},
-      </if>
-      <if test="creater != null" >
-        creater = #{creater,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.OrderList" >
     update x_orderlist
-    set equid = #{equid,jdbcType=VARCHAR},
-      faultid = #{faultid,jdbcType=VARCHAR},
+    set faultid = #{faultid,jdbcType=VARCHAR},
+      equid = #{equid,jdbcType=VARCHAR},
       faulttitle = #{faulttitle,jdbcType=VARCHAR},
       faultdescription = #{faultdescription,jdbcType=VARCHAR},
       faultgrade = #{faultgrade,jdbcType=VARCHAR},
       faultclass = #{faultclass,jdbcType=VARCHAR},
+      faultclass1 = #{faultclass1,jdbcType=VARCHAR},
+      creater = #{creater,jdbcType=VARCHAR},
       createtime = #{createtime,jdbcType=TIMESTAMP},
       estcomptime = #{estcomptime,jdbcType=TIMESTAMP},
       orderstate = #{orderstate,jdbcType=INTEGER},
-      faultclass1 = #{faultclass1,jdbcType=VARCHAR},
-      ordersource = #{ordersource,jdbcType=INTEGER},
-      creater = #{creater,jdbcType=VARCHAR}
+      ordersource = #{ordersource,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

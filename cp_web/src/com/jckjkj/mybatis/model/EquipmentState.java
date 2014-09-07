@@ -3,7 +3,7 @@ package com.jckjkj.mybatis.model;
 import java.util.Date;
 
 public class EquipmentState {
-    private Long id;
+    private Integer id;
 
     private String equid;
 
@@ -27,15 +27,15 @@ public class EquipmentState {
 
     private Date refreshtime;
 
-    private String equtype;
-
     private String equip;
 
-    public Long getId() {
+    private String equtype;
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -127,19 +127,19 @@ public class EquipmentState {
         this.refreshtime = refreshtime;
     }
 
-    public String getEqutype() {
-        return equtype;
-    }
-
-    public void setEqutype(String equtype) {
-        this.equtype = equtype == null ? null : equtype.trim();
-    }
-
     public String getEquip() {
         return equip;
     }
 
     public void setEquip(String equip) {
         this.equip = equip == null ? null : equip.trim();
+    }
+
+    public String getEqutype() {
+        return equtype;
+    }
+
+    public void setEqutype(String equtype) {
+        this.equtype = equtype == null ? null : equtype.trim();
     }
 }

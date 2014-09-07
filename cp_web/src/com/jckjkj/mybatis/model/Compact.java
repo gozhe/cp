@@ -3,7 +3,11 @@ package com.jckjkj.mybatis.model;
 import java.util.Date;
 
 public class Compact {
-    private String id;
+    private Integer id;
+
+    private String compid;
+
+    private String compactname;
 
     private String dptid;
 
@@ -17,12 +21,30 @@ public class Compact {
 
     private Integer cameracount;
 
-    public String getId() {
+    private Integer state;
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getCompid() {
+        return compid;
+    }
+
+    public void setCompid(String compid) {
+        this.compid = compid == null ? null : compid.trim();
+    }
+
+    public String getCompactname() {
+        return compactname;
+    }
+
+    public void setCompactname(String compactname) {
+        this.compactname = compactname == null ? null : compactname.trim();
     }
 
     public String getDptid() {
@@ -71,5 +93,13 @@ public class Compact {
 
     public void setCameracount(Integer cameracount) {
         this.cameracount = cameracount;
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
     }
 }

@@ -66,6 +66,9 @@ li.button a span{
 
 /* Setting up different styles for each section color */
 
+li.button a.white{background:url(../img/white.png) repeat-x top left; color:white;}
+li.button a.white span{ background:url(../img/white.png) repeat-x top right;}
+
 li.button a.blue{background:url(../img/blue.png) repeat-x top left; color:white;}
 li.button a.blue span{ background:url(../img/blue.png) repeat-x top right;}
 

@@ -11,11 +11,11 @@ public class Repair {
 
     private String count;
 
-    private String repaircontent;
+    private String repairer;
 
     private Date repairtime;
 
-    private String repairer;
+    private String repaircontent;
 
     private byte[] repairphoto;
 
@@ -51,12 +51,12 @@ public class Repair {
         this.count = count == null ? null : count.trim();
     }
 
-    public String getRepaircontent() {
-        return repaircontent;
+    public String getRepairer() {
+        return repairer;
     }
 
-    public void setRepaircontent(String repaircontent) {
-        this.repaircontent = repaircontent == null ? null : repaircontent.trim();
+    public void setRepairer(String repairer) {
+        this.repairer = repairer == null ? null : repairer.trim();
     }
 
     public Date getRepairtime() {
@@ -67,12 +67,12 @@ public class Repair {
         this.repairtime = repairtime;
     }
 
-    public String getRepairer() {
-        return repairer;
+    public String getRepaircontent() {
+        return repaircontent;
     }
 
-    public void setRepairer(String repairer) {
-        this.repairer = repairer == null ? null : repairer.trim();
+    public void setRepaircontent(String repaircontent) {
+        this.repaircontent = repaircontent == null ? null : repaircontent.trim();
     }
 
     public byte[] getRepairphoto() {

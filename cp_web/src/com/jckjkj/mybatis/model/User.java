@@ -1,22 +1,38 @@
 package com.jckjkj.mybatis.model;
 
 public class User {
-    private String id;
+    private Integer id;
+
+    private String userid;
 
     private String username;
 
     private String password;
 
+    private String cnname;
+
     private String dptid;
 
-    private Integer roleid;
+    private String roleid;
 
-    public String getId() {
+    private String tel;
+
+    private String email;
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getUserid() {
+        return userid;
+    }
+
+    public void setUserid(String userid) {
+        this.userid = userid == null ? null : userid.trim();
     }
 
     public String getUsername() {
@@ -35,6 +51,14 @@ public class User {
         this.password = password == null ? null : password.trim();
     }
 
+    public String getCnname() {
+        return cnname;
+    }
+
+    public void setCnname(String cnname) {
+        this.cnname = cnname == null ? null : cnname.trim();
+    }
+
     public String getDptid() {
         return dptid;
     }
@@ -43,11 +67,27 @@ public class User {
         this.dptid = dptid == null ? null : dptid.trim();
     }
 
-    public Integer getRoleid() {
+    public String getRoleid() {
         return roleid;
     }
 
-    public void setRoleid(Integer roleid) {
-        this.roleid = roleid;
+    public void setRoleid(String roleid) {
+        this.roleid = roleid == null ? null : roleid.trim();
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel == null ? null : tel.trim();
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email == null ? null : email.trim();
     }
 }

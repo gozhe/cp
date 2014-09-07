@@ -68,16 +68,17 @@ public class PdaServiceImpl implements PdaService {
 		// TODO Auto-generated method stub
 		// ①通过mid获得设备分组stationid
 		// ②通过分组stationid获得设备信息（equipid,x,y,状态)-view_equip_routing
-		MobileStationExample example = new MobileStationExample();
-		example.createCriteria().andMidEqualTo(mid);
-		List<MobileStation> list = mobileStationMapper.selectByExample(example);
-		List<Integer> values = new ArrayList<Integer>();
-		for (MobileStation v : list) {
-			values.add(v.getStationid());
-		}
-		VEquipRoutingExample example1 = new VEquipRoutingExample();
-		example1.createCriteria().andStationIdIn(values);
-		return vEquipRoutingMapper.selectByExample(example1);
+//		MobileStationExample example = new MobileStationExample();
+//		example.createCriteria().andMidEqualTo(mid);
+//		List<MobileStation> list = mobileStationMapper.selectByExample(example);
+//		List<Integer> values = new ArrayList<Integer>();
+//		for (MobileStation v : list) {
+//			values.add(v.getStationid());
+//		}
+//		VEquipRoutingExample example1 = new VEquipRoutingExample();
+//		example1.createCriteria().andStationIdIn(values);
+//		return vEquipRoutingMapper.selectByExample(example1);
+		return null;
 	}
 
 	@Override

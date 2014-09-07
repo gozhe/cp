@@ -142,52 +142,52 @@ public class EquipmentStateExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualTo(Long value) {
+        public Criteria andIdEqualTo(Integer value) {
             addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualTo(Long value) {
+        public Criteria andIdNotEqualTo(Integer value) {
             addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThan(Long value) {
+        public Criteria andIdGreaterThan(Integer value) {
             addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(Long value) {
+        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
             addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThan(Long value) {
+        public Criteria andIdLessThan(Integer value) {
             addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(Long value) {
+        public Criteria andIdLessThanOrEqualTo(Integer value) {
             addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdIn(List<Long> values) {
+        public Criteria andIdIn(List<Integer> values) {
             addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotIn(List<Long> values) {
+        public Criteria andIdNotIn(List<Integer> values) {
             addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdBetween(Long value1, Long value2) {
+        public Criteria andIdBetween(Integer value1, Integer value2) {
             addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotBetween(Long value1, Long value2) {
+        public Criteria andIdNotBetween(Integer value1, Integer value2) {
             addCriterion("id not between", value1, value2, "id");
             return (Criteria) this;
         }
@@ -922,76 +922,6 @@ public class EquipmentStateExample {
             return (Criteria) this;
         }
 
-        public Criteria andEqutypeIsNull() {
-            addCriterion("equtype is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andEqutypeIsNotNull() {
-            addCriterion("equtype is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andEqutypeEqualTo(String value) {
-            addCriterion("equtype =", value, "equtype");
-            return (Criteria) this;
-        }
-
-        public Criteria andEqutypeNotEqualTo(String value) {
-            addCriterion("equtype <>", value, "equtype");
-            return (Criteria) this;
-        }
-
-        public Criteria andEqutypeGreaterThan(String value) {
-            addCriterion("equtype >", value, "equtype");
-            return (Criteria) this;
-        }
-
-        public Criteria andEqutypeGreaterThanOrEqualTo(String value) {
-            addCriterion("equtype >=", value, "equtype");
-            return (Criteria) this;
-        }
-
-        public Criteria andEqutypeLessThan(String value) {
-            addCriterion("equtype <", value, "equtype");
-            return (Criteria) this;
-        }
-
-        public Criteria andEqutypeLessThanOrEqualTo(String value) {
-            addCriterion("equtype <=", value, "equtype");
-            return (Criteria) this;
-        }
-
-        public Criteria andEqutypeLike(String value) {
-            addCriterion("equtype like", value, "equtype");
-            return (Criteria) this;
-        }
-
-        public Criteria andEqutypeNotLike(String value) {
-            addCriterion("equtype not like", value, "equtype");
-            return (Criteria) this;
-        }
-
-        public Criteria andEqutypeIn(List<String> values) {
-            addCriterion("equtype in", values, "equtype");
-            return (Criteria) this;
-        }
-
-        public Criteria andEqutypeNotIn(List<String> values) {
-            addCriterion("equtype not in", values, "equtype");
-            return (Criteria) this;
-        }
-
-        public Criteria andEqutypeBetween(String value1, String value2) {
-            addCriterion("equtype between", value1, value2, "equtype");
-            return (Criteria) this;
-        }
-
-        public Criteria andEqutypeNotBetween(String value1, String value2) {
-            addCriterion("equtype not between", value1, value2, "equtype");
-            return (Criteria) this;
-        }
-
         public Criteria andEquipIsNull() {
             addCriterion("equip is null");
             return (Criteria) this;
@@ -1059,6 +989,76 @@ public class EquipmentStateExample {
 
         public Criteria andEquipNotBetween(String value1, String value2) {
             addCriterion("equip not between", value1, value2, "equip");
+            return (Criteria) this;
+        }
+
+        public Criteria andEqutypeIsNull() {
+            addCriterion("equtype is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEqutypeIsNotNull() {
+            addCriterion("equtype is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEqutypeEqualTo(String value) {
+            addCriterion("equtype =", value, "equtype");
+            return (Criteria) this;
+        }
+
+        public Criteria andEqutypeNotEqualTo(String value) {
+            addCriterion("equtype <>", value, "equtype");
+            return (Criteria) this;
+        }
+
+        public Criteria andEqutypeGreaterThan(String value) {
+            addCriterion("equtype >", value, "equtype");
+            return (Criteria) this;
+        }
+
+        public Criteria andEqutypeGreaterThanOrEqualTo(String value) {
+            addCriterion("equtype >=", value, "equtype");
+            return (Criteria) this;
+        }
+
+        public Criteria andEqutypeLessThan(String value) {
+            addCriterion("equtype <", value, "equtype");
+            return (Criteria) this;
+        }
+
+        public Criteria andEqutypeLessThanOrEqualTo(String value) {
+            addCriterion("equtype <=", value, "equtype");
+            return (Criteria) this;
+        }
+
+        public Criteria andEqutypeLike(String value) {
+            addCriterion("equtype like", value, "equtype");
+            return (Criteria) this;
+        }
+
+        public Criteria andEqutypeNotLike(String value) {
+            addCriterion("equtype not like", value, "equtype");
+            return (Criteria) this;
+        }
+
+        public Criteria andEqutypeIn(List<String> values) {
+            addCriterion("equtype in", values, "equtype");
+            return (Criteria) this;
+        }
+
+        public Criteria andEqutypeNotIn(List<String> values) {
+            addCriterion("equtype not in", values, "equtype");
+            return (Criteria) this;
+        }
+
+        public Criteria andEqutypeBetween(String value1, String value2) {
+            addCriterion("equtype between", value1, value2, "equtype");
+            return (Criteria) this;
+        }
+
+        public Criteria andEqutypeNotBetween(String value1, String value2) {
+            addCriterion("equtype not between", value1, value2, "equtype");
             return (Criteria) this;
         }
     }

@@ -164,6 +164,76 @@ public class ModuleExample {
             return (Criteria) this;
         }
 
+        public Criteria andModuleidIsNull() {
+            addCriterion("moduleid is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andModuleidIsNotNull() {
+            addCriterion("moduleid is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andModuleidEqualTo(String value) {
+            addCriterion("moduleid =", value, "moduleid");
+            return (Criteria) this;
+        }
+
+        public Criteria andModuleidNotEqualTo(String value) {
+            addCriterion("moduleid <>", value, "moduleid");
+            return (Criteria) this;
+        }
+
+        public Criteria andModuleidGreaterThan(String value) {
+            addCriterion("moduleid >", value, "moduleid");
+            return (Criteria) this;
+        }
+
+        public Criteria andModuleidGreaterThanOrEqualTo(String value) {
+            addCriterion("moduleid >=", value, "moduleid");
+            return (Criteria) this;
+        }
+
+        public Criteria andModuleidLessThan(String value) {
+            addCriterion("moduleid <", value, "moduleid");
+            return (Criteria) this;
+        }
+
+        public Criteria andModuleidLessThanOrEqualTo(String value) {
+            addCriterion("moduleid <=", value, "moduleid");
+            return (Criteria) this;
+        }
+
+        public Criteria andModuleidLike(String value) {
+            addCriterion("moduleid like", value, "moduleid");
+            return (Criteria) this;
+        }
+
+        public Criteria andModuleidNotLike(String value) {
+            addCriterion("moduleid not like", value, "moduleid");
+            return (Criteria) this;
+        }
+
+        public Criteria andModuleidIn(List<String> values) {
+            addCriterion("moduleid in", values, "moduleid");
+            return (Criteria) this;
+        }
+
+        public Criteria andModuleidNotIn(List<String> values) {
+            addCriterion("moduleid not in", values, "moduleid");
+            return (Criteria) this;
+        }
+
+        public Criteria andModuleidBetween(String value1, String value2) {
+            addCriterion("moduleid between", value1, value2, "moduleid");
+            return (Criteria) this;
+        }
+
+        public Criteria andModuleidNotBetween(String value1, String value2) {
+            addCriterion("moduleid not between", value1, value2, "moduleid");
+            return (Criteria) this;
+        }
+
         public Criteria andModulenameIsNull() {
             addCriterion("modulename is null");
             return (Criteria) this;

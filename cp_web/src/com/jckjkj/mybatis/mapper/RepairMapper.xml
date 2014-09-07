@@ -6,9 +6,9 @@
     <result column="faultid" property="faultid" jdbcType="VARCHAR" />
     <result column="material" property="material" jdbcType="VARCHAR" />
     <result column="count" property="count" jdbcType="VARCHAR" />
-    <result column="repaircontent" property="repaircontent" jdbcType="VARCHAR" />
-    <result column="repairtime" property="repairtime" jdbcType="TIMESTAMP" />
     <result column="repairer" property="repairer" jdbcType="VARCHAR" />
+    <result column="repairtime" property="repairtime" jdbcType="TIMESTAMP" />
+    <result column="repaircontent" property="repaircontent" jdbcType="VARCHAR" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.jckjkj.mybatis.model.Repair" extends="BaseResultMap" >
     <result column="repairphoto" property="repairphoto" jdbcType="BINARY" />
@@ -72,7 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, faultid, material, count, repaircontent, repairtime, repairer
+    id, faultid, material, count, repairer, repairtime, repaircontent
   </sql>
   <sql id="Blob_Column_List" >
     repairphoto
@@ -127,11 +127,11 @@
   </delete>
   <insert id="insert" parameterType="com.jckjkj.mybatis.model.Repair" >
     insert into x_repair (id, faultid, material, 
-      count, repaircontent, repairtime, 
-      repairer, repairphoto)
+      count, repairer, repairtime, 
+      repaircontent, repairphoto)
     values (#{id,jdbcType=INTEGER}, #{faultid,jdbcType=VARCHAR}, #{material,jdbcType=VARCHAR}, 
-      #{count,jdbcType=VARCHAR}, #{repaircontent,jdbcType=VARCHAR}, #{repairtime,jdbcType=TIMESTAMP}, 
-      #{repairer,jdbcType=VARCHAR}, #{repairphoto,jdbcType=BINARY})
+      #{count,jdbcType=VARCHAR}, #{repairer,jdbcType=VARCHAR}, #{repairtime,jdbcType=TIMESTAMP}, 
+      #{repaircontent,jdbcType=VARCHAR}, #{repairphoto,jdbcType=BINARY})
   </insert>
   <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.Repair" >
     insert into x_repair
@@ -148,14 +148,14 @@
       <if test="count != null" >
         count,
       </if>
-      <if test="repaircontent != null" >
-        repaircontent,
+      <if test="repairer != null" >
+        repairer,
       </if>
       <if test="repairtime != null" >
         repairtime,
       </if>
-      <if test="repairer != null" >
-        repairer,
+      <if test="repaircontent != null" >
+        repaircontent,
       </if>
       <if test="repairphoto != null" >
         repairphoto,
@@ -174,14 +174,14 @@
       <if test="count != null" >
         #{count,jdbcType=VARCHAR},
       </if>
-      <if test="repaircontent != null" >
-        #{repaircontent,jdbcType=VARCHAR},
+      <if test="repairer != null" >
+        #{repairer,jdbcType=VARCHAR},
       </if>
       <if test="repairtime != null" >
         #{repairtime,jdbcType=TIMESTAMP},
       </if>
-      <if test="repairer != null" >
-        #{repairer,jdbcType=VARCHAR},
+      <if test="repaircontent != null" >
+        #{repaircontent,jdbcType=VARCHAR},
       </if>
       <if test="repairphoto != null" >
         #{repairphoto,jdbcType=BINARY},
@@ -209,14 +209,14 @@
       <if test="record.count != null" >
         count = #{record.count,jdbcType=VARCHAR},
       </if>
-      <if test="record.repaircontent != null" >
-        repaircontent = #{record.repaircontent,jdbcType=VARCHAR},
+      <if test="record.repairer != null" >
+        repairer = #{record.repairer,jdbcType=VARCHAR},
       </if>
       <if test="record.repairtime != null" >
         repairtime = #{record.repairtime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.repairer != null" >
-        repairer = #{record.repairer,jdbcType=VARCHAR},
+      <if test="record.repaircontent != null" >
+        repaircontent = #{record.repaircontent,jdbcType=VARCHAR},
       </if>
       <if test="record.repairphoto != null" >
         repairphoto = #{record.repairphoto,jdbcType=BINARY},
@@ -232,9 +232,9 @@
       faultid = #{record.faultid,jdbcType=VARCHAR},
       material = #{record.material,jdbcType=VARCHAR},
       count = #{record.count,jdbcType=VARCHAR},
-      repaircontent = #{record.repaircontent,jdbcType=VARCHAR},
-      repairtime = #{record.repairtime,jdbcType=TIMESTAMP},
       repairer = #{record.repairer,jdbcType=VARCHAR},
+      repairtime = #{record.repairtime,jdbcType=TIMESTAMP},
+      repaircontent = #{record.repaircontent,jdbcType=VARCHAR},
       repairphoto = #{record.repairphoto,jdbcType=BINARY}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -246,9 +246,9 @@
       faultid = #{record.faultid,jdbcType=VARCHAR},
       material = #{record.material,jdbcType=VARCHAR},
       count = #{record.count,jdbcType=VARCHAR},
-      repaircontent = #{record.repaircontent,jdbcType=VARCHAR},
+      repairer = #{record.repairer,jdbcType=VARCHAR},
       repairtime = #{record.repairtime,jdbcType=TIMESTAMP},
-      repairer = #{record.repairer,jdbcType=VARCHAR}
+      repaircontent = #{record.repaircontent,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -265,14 +265,14 @@
       <if test="count != null" >
         count = #{count,jdbcType=VARCHAR},
       </if>
-      <if test="repaircontent != null" >
-        repaircontent = #{repaircontent,jdbcType=VARCHAR},
+      <if test="repairer != null" >
+        repairer = #{repairer,jdbcType=VARCHAR},
       </if>
       <if test="repairtime != null" >
         repairtime = #{repairtime,jdbcType=TIMESTAMP},
       </if>
-      <if test="repairer != null" >
-        repairer = #{repairer,jdbcType=VARCHAR},
+      <if test="repaircontent != null" >
+        repaircontent = #{repaircontent,jdbcType=VARCHAR},
       </if>
       <if test="repairphoto != null" >
         repairphoto = #{repairphoto,jdbcType=BINARY},
@@ -285,9 +285,9 @@
     set faultid = #{faultid,jdbcType=VARCHAR},
       material = #{material,jdbcType=VARCHAR},
       count = #{count,jdbcType=VARCHAR},
-      repaircontent = #{repaircontent,jdbcType=VARCHAR},
-      repairtime = #{repairtime,jdbcType=TIMESTAMP},
       repairer = #{repairer,jdbcType=VARCHAR},
+      repairtime = #{repairtime,jdbcType=TIMESTAMP},
+      repaircontent = #{repaircontent,jdbcType=VARCHAR},
       repairphoto = #{repairphoto,jdbcType=BINARY}
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -296,9 +296,9 @@
     set faultid = #{faultid,jdbcType=VARCHAR},
       material = #{material,jdbcType=VARCHAR},
       count = #{count,jdbcType=VARCHAR},
-      repaircontent = #{repaircontent,jdbcType=VARCHAR},
+      repairer = #{repairer,jdbcType=VARCHAR},
       repairtime = #{repairtime,jdbcType=TIMESTAMP},
-      repairer = #{repairer,jdbcType=VARCHAR}
+      repaircontent = #{repaircontent,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

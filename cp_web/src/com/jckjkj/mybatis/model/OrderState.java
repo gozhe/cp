@@ -3,7 +3,9 @@ package com.jckjkj.mybatis.model;
 public class OrderState {
     private Integer id;
 
-    private String osvalue;
+    private String faultid;
+
+    private String orderstate;
 
     public Integer getId() {
         return id;
@@ -13,11 +15,19 @@ public class OrderState {
         this.id = id;
     }
 
-    public String getOsvalue() {
-        return osvalue;
+    public String getFaultid() {
+        return faultid;
     }
 
-    public void setOsvalue(String osvalue) {
-        this.osvalue = osvalue == null ? null : osvalue.trim();
+    public void setFaultid(String faultid) {
+        this.faultid = faultid == null ? null : faultid.trim();
+    }
+
+    public String getOrderstate() {
+        return orderstate;
+    }
+
+    public void setOrderstate(String orderstate) {
+        this.orderstate = orderstate == null ? null : orderstate.trim();
     }
 }

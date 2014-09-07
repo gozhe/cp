@@ -2,13 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jckjkj.mybatis.dao.CompactMapper" >
   <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.Compact" >
-    <id column="id" property="id" jdbcType="VARCHAR" />
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="compid" property="compid" jdbcType="VARCHAR" />
+    <result column="compactname" property="compactname" jdbcType="VARCHAR" />
     <result column="dptid" property="dptid" jdbcType="VARCHAR" />
     <result column="starttime" property="starttime" jdbcType="DATE" />
     <result column="endtime" property="endtime" jdbcType="DATE" />
     <result column="monthcount" property="monthcount" jdbcType="INTEGER" />
     <result column="contractamount" property="contractamount" jdbcType="VARCHAR" />
     <result column="cameracount" property="cameracount" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -69,7 +72,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, dptid, starttime, endtime, monthcount, contractamount, cameracount
+    id, compid, compactname, dptid, starttime, endtime, monthcount, contractamount, cameracount, 
+    state
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jckjkj.mybatis.model.CompactExample" >
     select
@@ -85,15 +89,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from x_compact
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from x_compact
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.jckjkj.mybatis.model.CompactExample" >
     delete from x_compact
@@ -102,18 +106,26 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.jckjkj.mybatis.model.Compact" >
-    insert into x_compact (id, dptid, starttime, 
-      endtime, monthcount, contractamount, 
-      cameracount)
-    values (#{id,jdbcType=VARCHAR}, #{dptid,jdbcType=VARCHAR}, #{starttime,jdbcType=DATE}, 
-      #{endtime,jdbcType=DATE}, #{monthcount,jdbcType=INTEGER}, #{contractamount,jdbcType=VARCHAR}, 
-      #{cameracount,jdbcType=INTEGER})
+    insert into x_compact (id, compid, compactname, 
+      dptid, starttime, endtime, 
+      monthcount, contractamount, cameracount, 
+      state)
+    values (#{id,jdbcType=INTEGER}, #{compid,jdbcType=VARCHAR}, #{compactname,jdbcType=VARCHAR}, 
+      #{dptid,jdbcType=VARCHAR}, #{starttime,jdbcType=DATE}, #{endtime,jdbcType=DATE}, 
+      #{monthcount,jdbcType=INTEGER}, #{contractamount,jdbcType=VARCHAR}, #{cameracount,jdbcType=INTEGER}, 
+      #{state,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.Compact" >
     insert into x_compact
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
+      </if>
+      <if test="compid != null" >
+        compid,
+      </if>
+      <if test="compactname != null" >
+        compactname,
       </if>
       <if test="dptid != null" >
         dptid,
@@ -133,10 +145,19 @@
       <if test="cameracount != null" >
         cameracount,
       </if>
+      <if test="state != null" >
+        state,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=VARCHAR},
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="compid != null" >
+        #{compid,jdbcType=VARCHAR},
+      </if>
+      <if test="compactname != null" >
+        #{compactname,jdbcType=VARCHAR},
       </if>
       <if test="dptid != null" >
         #{dptid,jdbcType=VARCHAR},
@@ -156,6 +177,9 @@
       <if test="cameracount != null" >
         #{cameracount,jdbcType=INTEGER},
       </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.jckjkj.mybatis.model.CompactExample" resultType="java.lang.Integer" >
@@ -168,7 +192,13 @@
     update x_compact
     <set >
       <if test="record.id != null" >
-        id = #{record.id,jdbcType=VARCHAR},
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.compid != null" >
+        compid = #{record.compid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.compactname != null" >
+        compactname = #{record.compactname,jdbcType=VARCHAR},
       </if>
       <if test="record.dptid != null" >
         dptid = #{record.dptid,jdbcType=VARCHAR},
@@ -188,6 +218,9 @@
       <if test="record.cameracount != null" >
         cameracount = #{record.cameracount,jdbcType=INTEGER},
       </if>
+      <if test="record.state != null" >
+        state = #{record.state,jdbcType=INTEGER},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -195,13 +228,16 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update x_compact
-    set id = #{record.id,jdbcType=VARCHAR},
+    set id = #{record.id,jdbcType=INTEGER},
+      compid = #{record.compid,jdbcType=VARCHAR},
+      compactname = #{record.compactname,jdbcType=VARCHAR},
       dptid = #{record.dptid,jdbcType=VARCHAR},
       starttime = #{record.starttime,jdbcType=DATE},
       endtime = #{record.endtime,jdbcType=DATE},
       monthcount = #{record.monthcount,jdbcType=INTEGER},
       contractamount = #{record.contractamount,jdbcType=VARCHAR},
-      cameracount = #{record.cameracount,jdbcType=INTEGER}
+      cameracount = #{record.cameracount,jdbcType=INTEGER},
+      state = #{record.state,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -209,6 +245,12 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.jckjkj.mybatis.model.Compact" >
     update x_compact
     <set >
+      <if test="compid != null" >
+        compid = #{compid,jdbcType=VARCHAR},
+      </if>
+      <if test="compactname != null" >
+        compactname = #{compactname,jdbcType=VARCHAR},
+      </if>
       <if test="dptid != null" >
         dptid = #{dptid,jdbcType=VARCHAR},
       </if>
@@ -227,17 +269,23 @@
       <if test="cameracount != null" >
         cameracount = #{cameracount,jdbcType=INTEGER},
       </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
     </set>
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.Compact" >
     update x_compact
-    set dptid = #{dptid,jdbcType=VARCHAR},
+    set compid = #{compid,jdbcType=VARCHAR},
+      compactname = #{compactname,jdbcType=VARCHAR},
+      dptid = #{dptid,jdbcType=VARCHAR},
       starttime = #{starttime,jdbcType=DATE},
       endtime = #{endtime,jdbcType=DATE},
       monthcount = #{monthcount,jdbcType=INTEGER},
       contractamount = #{contractamount,jdbcType=VARCHAR},
-      cameracount = #{cameracount,jdbcType=INTEGER}
-    where id = #{id,jdbcType=VARCHAR}
+      cameracount = #{cameracount,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

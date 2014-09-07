@@ -5,9 +5,9 @@ import java.util.Date;
 public class OrderList {
     private Integer id;
 
-    private String equid;
-
     private String faultid;
+
+    private String equid;
 
     private String faulttitle;
 
@@ -17,17 +17,17 @@ public class OrderList {
 
     private String faultclass;
 
+    private String faultclass1;
+
+    private String creater;
+
     private Date createtime;
 
     private Date estcomptime;
 
     private Integer orderstate;
 
-    private String faultclass1;
-
     private Integer ordersource;
-
-    private String creater;
 
     public Integer getId() {
         return id;
@@ -37,20 +37,20 @@ public class OrderList {
         this.id = id;
     }
 
-    public String getEquid() {
-        return equid;
-    }
-
-    public void setEquid(String equid) {
-        this.equid = equid == null ? null : equid.trim();
-    }
-
     public String getFaultid() {
         return faultid;
     }
 
     public void setFaultid(String faultid) {
         this.faultid = faultid == null ? null : faultid.trim();
+    }
+
+    public String getEquid() {
+        return equid;
+    }
+
+    public void setEquid(String equid) {
+        this.equid = equid == null ? null : equid.trim();
     }
 
     public String getFaulttitle() {
@@ -85,6 +85,22 @@ public class OrderList {
         this.faultclass = faultclass == null ? null : faultclass.trim();
     }
 
+    public String getFaultclass1() {
+        return faultclass1;
+    }
+
+    public void setFaultclass1(String faultclass1) {
+        this.faultclass1 = faultclass1 == null ? null : faultclass1.trim();
+    }
+
+    public String getCreater() {
+        return creater;
+    }
+
+    public void setCreater(String creater) {
+        this.creater = creater == null ? null : creater.trim();
+    }
+
     public Date getCreatetime() {
         return createtime;
     }
@@ -109,27 +125,11 @@ public class OrderList {
         this.orderstate = orderstate;
     }
 
-    public String getFaultclass1() {
-        return faultclass1;
-    }
-
-    public void setFaultclass1(String faultclass1) {
-        this.faultclass1 = faultclass1 == null ? null : faultclass1.trim();
-    }
-
     public Integer getOrdersource() {
         return ordersource;
     }
 
     public void setOrdersource(Integer ordersource) {
         this.ordersource = ordersource;
-    }
-
-    public String getCreater() {
-        return creater;
-    }
-
-    public void setCreater(String creater) {
-        this.creater = creater == null ? null : creater.trim();
     }
 }

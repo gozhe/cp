@@ -1,30 +1,32 @@
 package com.jckjkj.mybatis.model;
 
 public class Department {
-    private String id;
+    private Integer id;
 
-    private String dptdescription;
+    private String dptid;
 
     private String dptname;
 
-    private String dptsuperior;
-
     private Integer dpttype;
 
-    public String getId() {
+    private String dptsuperior;
+
+    private String dptdescription;
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getDptdescription() {
-        return dptdescription;
+    public String getDptid() {
+        return dptid;
     }
 
-    public void setDptdescription(String dptdescription) {
-        this.dptdescription = dptdescription == null ? null : dptdescription.trim();
+    public void setDptid(String dptid) {
+        this.dptid = dptid == null ? null : dptid.trim();
     }
 
     public String getDptname() {
@@ -35,6 +37,14 @@ public class Department {
         this.dptname = dptname == null ? null : dptname.trim();
     }
 
+    public Integer getDpttype() {
+        return dpttype;
+    }
+
+    public void setDpttype(Integer dpttype) {
+        this.dpttype = dpttype;
+    }
+
     public String getDptsuperior() {
         return dptsuperior;
     }
@@ -43,11 +53,11 @@ public class Department {
         this.dptsuperior = dptsuperior == null ? null : dptsuperior.trim();
     }
 
-    public Integer getDpttype() {
-        return dpttype;
+    public String getDptdescription() {
+        return dptdescription;
     }
 
-    public void setDpttype(Integer dpttype) {
-        this.dpttype = dpttype;
+    public void setDptdescription(String dptdescription) {
+        this.dptdescription = dptdescription == null ? null : dptdescription.trim();
     }
 }

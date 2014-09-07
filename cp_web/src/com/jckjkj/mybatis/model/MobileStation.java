@@ -3,7 +3,7 @@ package com.jckjkj.mybatis.model;
 public class MobileStation {
     private Integer id;
 
-    private Integer mid;
+    private String mid;
 
     private Integer stationid;
 
@@ -15,12 +15,12 @@ public class MobileStation {
         this.id = id;
     }
 
-    public Integer getMid() {
+    public String getMid() {
         return mid;
     }
 
-    public void setMid(Integer mid) {
-        this.mid = mid;
+    public void setMid(String mid) {
+        this.mid = mid == null ? null : mid.trim();
     }
 
     public Integer getStationid() {

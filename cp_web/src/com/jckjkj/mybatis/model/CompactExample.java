@@ -142,63 +142,193 @@ public class CompactExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualTo(String value) {
+        public Criteria andIdEqualTo(Integer value) {
             addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualTo(String value) {
+        public Criteria andIdNotEqualTo(Integer value) {
             addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThan(String value) {
+        public Criteria andIdGreaterThan(Integer value) {
             addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(String value) {
+        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
             addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThan(String value) {
+        public Criteria andIdLessThan(Integer value) {
             addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(String value) {
+        public Criteria andIdLessThanOrEqualTo(Integer value) {
             addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLike(String value) {
-            addCriterion("id like", value, "id");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdNotLike(String value) {
-            addCriterion("id not like", value, "id");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdIn(List<String> values) {
+        public Criteria andIdIn(List<Integer> values) {
             addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotIn(List<String> values) {
+        public Criteria andIdNotIn(List<Integer> values) {
             addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdBetween(String value1, String value2) {
+        public Criteria andIdBetween(Integer value1, Integer value2) {
             addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotBetween(String value1, String value2) {
+        public Criteria andIdNotBetween(Integer value1, Integer value2) {
             addCriterion("id not between", value1, value2, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompidIsNull() {
+            addCriterion("compid is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompidIsNotNull() {
+            addCriterion("compid is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompidEqualTo(String value) {
+            addCriterion("compid =", value, "compid");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompidNotEqualTo(String value) {
+            addCriterion("compid <>", value, "compid");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompidGreaterThan(String value) {
+            addCriterion("compid >", value, "compid");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompidGreaterThanOrEqualTo(String value) {
+            addCriterion("compid >=", value, "compid");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompidLessThan(String value) {
+            addCriterion("compid <", value, "compid");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompidLessThanOrEqualTo(String value) {
+            addCriterion("compid <=", value, "compid");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompidLike(String value) {
+            addCriterion("compid like", value, "compid");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompidNotLike(String value) {
+            addCriterion("compid not like", value, "compid");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompidIn(List<String> values) {
+            addCriterion("compid in", values, "compid");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompidNotIn(List<String> values) {
+            addCriterion("compid not in", values, "compid");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompidBetween(String value1, String value2) {
+            addCriterion("compid between", value1, value2, "compid");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompidNotBetween(String value1, String value2) {
+            addCriterion("compid not between", value1, value2, "compid");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompactnameIsNull() {
+            addCriterion("compactname is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompactnameIsNotNull() {
+            addCriterion("compactname is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompactnameEqualTo(String value) {
+            addCriterion("compactname =", value, "compactname");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompactnameNotEqualTo(String value) {
+            addCriterion("compactname <>", value, "compactname");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompactnameGreaterThan(String value) {
+            addCriterion("compactname >", value, "compactname");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompactnameGreaterThanOrEqualTo(String value) {
+            addCriterion("compactname >=", value, "compactname");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompactnameLessThan(String value) {
+            addCriterion("compactname <", value, "compactname");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompactnameLessThanOrEqualTo(String value) {
+            addCriterion("compactname <=", value, "compactname");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompactnameLike(String value) {
+            addCriterion("compactname like", value, "compactname");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompactnameNotLike(String value) {
+            addCriterion("compactname not like", value, "compactname");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompactnameIn(List<String> values) {
+            addCriterion("compactname in", values, "compactname");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompactnameNotIn(List<String> values) {
+            addCriterion("compactname not in", values, "compactname");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompactnameBetween(String value1, String value2) {
+            addCriterion("compactname between", value1, value2, "compactname");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompactnameNotBetween(String value1, String value2) {
+            addCriterion("compactname not between", value1, value2, "compactname");
             return (Criteria) this;
         }
 
@@ -579,6 +709,66 @@ public class CompactExample {
 
         public Criteria andCameracountNotBetween(Integer value1, Integer value2) {
             addCriterion("cameracount not between", value1, value2, "cameracount");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateIsNull() {
+            addCriterion("state is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateIsNotNull() {
+            addCriterion("state is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateEqualTo(Integer value) {
+            addCriterion("state =", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateNotEqualTo(Integer value) {
+            addCriterion("state <>", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateGreaterThan(Integer value) {
+            addCriterion("state >", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateGreaterThanOrEqualTo(Integer value) {
+            addCriterion("state >=", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateLessThan(Integer value) {
+            addCriterion("state <", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateLessThanOrEqualTo(Integer value) {
+            addCriterion("state <=", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateIn(List<Integer> values) {
+            addCriterion("state in", values, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateNotIn(List<Integer> values) {
+            addCriterion("state not in", values, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateBetween(Integer value1, Integer value2) {
+            addCriterion("state between", value1, value2, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateNotBetween(Integer value1, Integer value2) {
+            addCriterion("state not between", value1, value2, "state");
             return (Criteria) this;
         }
     }

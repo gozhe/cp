@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jckjkj.mybatis.dao.EquipmentMapper" >
   <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.Equipment" >
-    <id column="id" property="id" jdbcType="VARCHAR" />
+    <id column="id" property="id" jdbcType="INTEGER" />
     <result column="equid" property="equid" jdbcType="VARCHAR" />
     <result column="stationid" property="stationid" jdbcType="INTEGER" />
     <result column="equtype" property="equtype" jdbcType="VARCHAR" />
@@ -103,15 +103,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from x_equipment
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from x_equipment
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.jckjkj.mybatis.model.EquipmentExample" >
     delete from x_equipment
@@ -128,7 +128,7 @@
       equsoftwarename, equbrand, equmodel, 
       equclass, equadmissiondate, equdevorg, 
       equremarks, equremarks2)
-    values (#{id,jdbcType=VARCHAR}, #{equid,jdbcType=VARCHAR}, #{stationid,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=INTEGER}, #{equid,jdbcType=VARCHAR}, #{stationid,jdbcType=INTEGER}, 
       #{equtype,jdbcType=VARCHAR}, #{equip,jdbcType=VARCHAR}, #{equname,jdbcType=VARCHAR}, 
       #{equsubnetmask,jdbcType=VARCHAR}, #{equgateway,jdbcType=VARCHAR}, #{equos,jdbcType=VARCHAR}, 
       #{equosuser,jdbcType=VARCHAR}, #{equospwd,jdbcType=VARCHAR}, #{equsoftwareuser,jdbcType=VARCHAR}, 
@@ -212,7 +212,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=VARCHAR},
+        #{id,jdbcType=INTEGER},
       </if>
       <if test="equid != null" >
         #{equid,jdbcType=VARCHAR},
@@ -292,7 +292,7 @@
     update x_equipment
     <set >
       <if test="record.id != null" >
-        id = #{record.id,jdbcType=VARCHAR},
+        id = #{record.id,jdbcType=INTEGER},
       </if>
       <if test="record.equid != null" >
         equid = #{record.equid,jdbcType=VARCHAR},
@@ -367,7 +367,7 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update x_equipment
-    set id = #{record.id,jdbcType=VARCHAR},
+    set id = #{record.id,jdbcType=INTEGER},
       equid = #{record.equid,jdbcType=VARCHAR},
       stationid = #{record.stationid,jdbcType=INTEGER},
       equtype = #{record.equtype,jdbcType=VARCHAR},
@@ -464,7 +464,7 @@
         equremarks2 = #{equremarks2,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.Equipment" >
     update x_equipment
@@ -490,6 +490,6 @@
       equdevorg = #{equdevorg,jdbcType=VARCHAR},
       equremarks = #{equremarks,jdbcType=VARCHAR},
       equremarks2 = #{equremarks2,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

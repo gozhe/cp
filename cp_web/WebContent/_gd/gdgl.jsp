@@ -57,7 +57,7 @@
 			<table id="dgrid" cellspacing="0" cellpadding="0">
 				<thead>
 					<tr>
-						<th field="equid" width="100">设备标识</th>
+						<th field="equid" width="80">设备标识</th>
 						<th field="faultid" width="140">故障编号</th>
 						<th field="faulttitle" width="100">故障标题</th>
 						<th field="faultgrade" width="60">故障级别</th>

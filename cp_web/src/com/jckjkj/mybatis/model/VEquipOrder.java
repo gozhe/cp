@@ -2,12 +2,12 @@ package com.jckjkj.mybatis.model;
 
 import java.util.Date;
 
-public class VOrderRepair {
+public class VEquipOrder {
     private Integer id;
 
-    private String equid;
-
     private String faultid;
+
+    private String equid;
 
     private String faulttitle;
 
@@ -29,17 +29,9 @@ public class VOrderRepair {
 
     private Integer ordersource;
 
-    private String material;
+    private Integer stationId;
 
-    private String count;
-
-    private String repairer;
-
-    private Date repairtime;
-
-    private String repaircontent;
-
-    private byte[] repairphoto;
+    private String mid;
 
     public Integer getId() {
         return id;
@@ -49,20 +41,20 @@ public class VOrderRepair {
         this.id = id;
     }
 
-    public String getEquid() {
-        return equid;
-    }
-
-    public void setEquid(String equid) {
-        this.equid = equid == null ? null : equid.trim();
-    }
-
     public String getFaultid() {
         return faultid;
     }
 
     public void setFaultid(String faultid) {
         this.faultid = faultid == null ? null : faultid.trim();
+    }
+
+    public String getEquid() {
+        return equid;
+    }
+
+    public void setEquid(String equid) {
+        this.equid = equid == null ? null : equid.trim();
     }
 
     public String getFaulttitle() {
@@ -145,51 +137,19 @@ public class VOrderRepair {
         this.ordersource = ordersource;
     }
 
-    public String getMaterial() {
-        return material;
+    public Integer getStationId() {
+        return stationId;
     }
 
-    public void setMaterial(String material) {
-        this.material = material == null ? null : material.trim();
+    public void setStationId(Integer stationId) {
+        this.stationId = stationId;
     }
 
-    public String getCount() {
-        return count;
+    public String getMid() {
+        return mid;
     }
 
-    public void setCount(String count) {
-        this.count = count == null ? null : count.trim();
-    }
-
-    public String getRepairer() {
-        return repairer;
-    }
-
-    public void setRepairer(String repairer) {
-        this.repairer = repairer == null ? null : repairer.trim();
-    }
-
-    public Date getRepairtime() {
-        return repairtime;
-    }
-
-    public void setRepairtime(Date repairtime) {
-        this.repairtime = repairtime;
-    }
-
-    public String getRepaircontent() {
-        return repaircontent;
-    }
-
-    public void setRepaircontent(String repaircontent) {
-        this.repaircontent = repaircontent == null ? null : repaircontent.trim();
-    }
-
-    public byte[] getRepairphoto() {
-        return repairphoto;
-    }
-
-    public void setRepairphoto(byte[] repairphoto) {
-        this.repairphoto = repairphoto;
+    public void setMid(String mid) {
+        this.mid = mid == null ? null : mid.trim();
     }
 }

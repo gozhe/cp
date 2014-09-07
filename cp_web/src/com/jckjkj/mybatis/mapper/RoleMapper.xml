@@ -3,9 +3,10 @@
 <mapper namespace="com.jckjkj.mybatis.dao.RoleMapper" >
   <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.Role" >
     <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="roleid" property="roleid" jdbcType="VARCHAR" />
     <result column="rolename" property="rolename" jdbcType="VARCHAR" />
     <result column="roledescription" property="roledescription" jdbcType="VARCHAR" />
-    <result column="moduleid" property="moduleid" jdbcType="INTEGER" />
+    <result column="moduleid" property="moduleid" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -66,7 +67,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, rolename, roledescription, moduleid
+    id, roleid, rolename, roledescription, moduleid
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jckjkj.mybatis.model.RoleExample" >
     select
@@ -99,16 +100,19 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.jckjkj.mybatis.model.Role" >
-    insert into x_role (id, rolename, roledescription, 
-      moduleid)
-    values (#{id,jdbcType=INTEGER}, #{rolename,jdbcType=VARCHAR}, #{roledescription,jdbcType=VARCHAR}, 
-      #{moduleid,jdbcType=INTEGER})
+    insert into x_role (id, roleid, rolename, 
+      roledescription, moduleid)
+    values (#{id,jdbcType=INTEGER}, #{roleid,jdbcType=VARCHAR}, #{rolename,jdbcType=VARCHAR}, 
+      #{roledescription,jdbcType=VARCHAR}, #{moduleid,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.Role" >
     insert into x_role
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
+      </if>
+      <if test="roleid != null" >
+        roleid,
       </if>
       <if test="rolename != null" >
         rolename,
@@ -124,6 +128,9 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
+      <if test="roleid != null" >
+        #{roleid,jdbcType=VARCHAR},
+      </if>
       <if test="rolename != null" >
         #{rolename,jdbcType=VARCHAR},
       </if>
@@ -131,7 +138,7 @@
         #{roledescription,jdbcType=VARCHAR},
       </if>
       <if test="moduleid != null" >
-        #{moduleid,jdbcType=INTEGER},
+        #{moduleid,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -147,6 +154,9 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
+      <if test="record.roleid != null" >
+        roleid = #{record.roleid,jdbcType=VARCHAR},
+      </if>
       <if test="record.rolename != null" >
         rolename = #{record.rolename,jdbcType=VARCHAR},
       </if>
@@ -154,7 +164,7 @@
         roledescription = #{record.roledescription,jdbcType=VARCHAR},
       </if>
       <if test="record.moduleid != null" >
-        moduleid = #{record.moduleid,jdbcType=INTEGER},
+        moduleid = #{record.moduleid,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -164,9 +174,10 @@
   <update id="updateByExample" parameterType="map" >
     update x_role
     set id = #{record.id,jdbcType=INTEGER},
+      roleid = #{record.roleid,jdbcType=VARCHAR},
       rolename = #{record.rolename,jdbcType=VARCHAR},
       roledescription = #{record.roledescription,jdbcType=VARCHAR},
-      moduleid = #{record.moduleid,jdbcType=INTEGER}
+      moduleid = #{record.moduleid,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -174,6 +185,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.jckjkj.mybatis.model.Role" >
     update x_role
     <set >
+      <if test="roleid != null" >
+        roleid = #{roleid,jdbcType=VARCHAR},
+      </if>
       <if test="rolename != null" >
         rolename = #{rolename,jdbcType=VARCHAR},
       </if>
@@ -181,16 +195,17 @@
         roledescription = #{roledescription,jdbcType=VARCHAR},
       </if>
       <if test="moduleid != null" >
-        moduleid = #{moduleid,jdbcType=INTEGER},
+        moduleid = #{moduleid,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.Role" >
     update x_role
-    set rolename = #{rolename,jdbcType=VARCHAR},
+    set roleid = #{roleid,jdbcType=VARCHAR},
+      rolename = #{rolename,jdbcType=VARCHAR},
       roledescription = #{roledescription,jdbcType=VARCHAR},
-      moduleid = #{moduleid,jdbcType=INTEGER}
+      moduleid = #{moduleid,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

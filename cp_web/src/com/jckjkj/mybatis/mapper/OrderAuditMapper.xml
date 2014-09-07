@@ -4,10 +4,10 @@
   <resultMap id="BaseResultMap" type="com.jckjkj.mybatis.model.OrderAudit" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="faultid" property="faultid" jdbcType="VARCHAR" />
-    <result column="aoopinion" property="aoopinion" jdbcType="VARCHAR" />
-    <result column="aodate" property="aodate" jdbcType="TIMESTAMP" />
-    <result column="completedate" property="completedate" jdbcType="TIMESTAMP" />
-    <result column="repairresult" property="repairresult" jdbcType="VARCHAR" />
+    <result column="auditopinion" property="auditopinion" jdbcType="INTEGER" />
+    <result column="audittime" property="audittime" jdbcType="TIME" />
+    <result column="repairresult" property="repairresult" jdbcType="INTEGER" />
+    <result column="completetime" property="completetime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -68,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, faultid, aoopinion, aodate, completedate, repairresult
+    id, faultid, auditopinion, audittime, repairresult, completetime
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.jckjkj.mybatis.model.OrderAuditExample" >
     select
@@ -101,11 +101,11 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.jckjkj.mybatis.model.OrderAudit" >
-    insert into x_orderaudit (id, faultid, aoopinion, 
-      aodate, completedate, repairresult
+    insert into x_orderaudit (id, faultid, auditopinion, 
+      audittime, repairresult, completetime
       )
-    values (#{id,jdbcType=INTEGER}, #{faultid,jdbcType=VARCHAR}, #{aoopinion,jdbcType=VARCHAR}, 
-      #{aodate,jdbcType=TIMESTAMP}, #{completedate,jdbcType=TIMESTAMP}, #{repairresult,jdbcType=VARCHAR}
+    values (#{id,jdbcType=INTEGER}, #{faultid,jdbcType=VARCHAR}, #{auditopinion,jdbcType=INTEGER}, 
+      #{audittime,jdbcType=TIME}, #{repairresult,jdbcType=INTEGER}, #{completetime,jdbcType=TIMESTAMP}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.jckjkj.mybatis.model.OrderAudit" >
@@ -117,17 +117,17 @@
       <if test="faultid != null" >
         faultid,
       </if>
-      <if test="aoopinion != null" >
-        aoopinion,
+      <if test="auditopinion != null" >
+        auditopinion,
       </if>
-      <if test="aodate != null" >
-        aodate,
-      </if>
-      <if test="completedate != null" >
-        completedate,
+      <if test="audittime != null" >
+        audittime,
       </if>
       <if test="repairresult != null" >
         repairresult,
+      </if>
+      <if test="completetime != null" >
+        completetime,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -137,17 +137,17 @@
       <if test="faultid != null" >
         #{faultid,jdbcType=VARCHAR},
       </if>
-      <if test="aoopinion != null" >
-        #{aoopinion,jdbcType=VARCHAR},
+      <if test="auditopinion != null" >
+        #{auditopinion,jdbcType=INTEGER},
       </if>
-      <if test="aodate != null" >
-        #{aodate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="completedate != null" >
-        #{completedate,jdbcType=TIMESTAMP},
+      <if test="audittime != null" >
+        #{audittime,jdbcType=TIME},
       </if>
       <if test="repairresult != null" >
-        #{repairresult,jdbcType=VARCHAR},
+        #{repairresult,jdbcType=INTEGER},
+      </if>
+      <if test="completetime != null" >
+        #{completetime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -166,17 +166,17 @@
       <if test="record.faultid != null" >
         faultid = #{record.faultid,jdbcType=VARCHAR},
       </if>
-      <if test="record.aoopinion != null" >
-        aoopinion = #{record.aoopinion,jdbcType=VARCHAR},
+      <if test="record.auditopinion != null" >
+        auditopinion = #{record.auditopinion,jdbcType=INTEGER},
       </if>
-      <if test="record.aodate != null" >
-        aodate = #{record.aodate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.completedate != null" >
-        completedate = #{record.completedate,jdbcType=TIMESTAMP},
+      <if test="record.audittime != null" >
+        audittime = #{record.audittime,jdbcType=TIME},
       </if>
       <if test="record.repairresult != null" >
-        repairresult = #{record.repairresult,jdbcType=VARCHAR},
+        repairresult = #{record.repairresult,jdbcType=INTEGER},
+      </if>
+      <if test="record.completetime != null" >
+        completetime = #{record.completetime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -187,10 +187,10 @@
     update x_orderaudit
     set id = #{record.id,jdbcType=INTEGER},
       faultid = #{record.faultid,jdbcType=VARCHAR},
-      aoopinion = #{record.aoopinion,jdbcType=VARCHAR},
-      aodate = #{record.aodate,jdbcType=TIMESTAMP},
-      completedate = #{record.completedate,jdbcType=TIMESTAMP},
-      repairresult = #{record.repairresult,jdbcType=VARCHAR}
+      auditopinion = #{record.auditopinion,jdbcType=INTEGER},
+      audittime = #{record.audittime,jdbcType=TIME},
+      repairresult = #{record.repairresult,jdbcType=INTEGER},
+      completetime = #{record.completetime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -201,17 +201,17 @@
       <if test="faultid != null" >
         faultid = #{faultid,jdbcType=VARCHAR},
       </if>
-      <if test="aoopinion != null" >
-        aoopinion = #{aoopinion,jdbcType=VARCHAR},
+      <if test="auditopinion != null" >
+        auditopinion = #{auditopinion,jdbcType=INTEGER},
       </if>
-      <if test="aodate != null" >
-        aodate = #{aodate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="completedate != null" >
-        completedate = #{completedate,jdbcType=TIMESTAMP},
+      <if test="audittime != null" >
+        audittime = #{audittime,jdbcType=TIME},
       </if>
       <if test="repairresult != null" >
-        repairresult = #{repairresult,jdbcType=VARCHAR},
+        repairresult = #{repairresult,jdbcType=INTEGER},
+      </if>
+      <if test="completetime != null" >
+        completetime = #{completetime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -219,10 +219,10 @@
   <update id="updateByPrimaryKey" parameterType="com.jckjkj.mybatis.model.OrderAudit" >
     update x_orderaudit
     set faultid = #{faultid,jdbcType=VARCHAR},
-      aoopinion = #{aoopinion,jdbcType=VARCHAR},
-      aodate = #{aodate,jdbcType=TIMESTAMP},
-      completedate = #{completedate,jdbcType=TIMESTAMP},
-      repairresult = #{repairresult,jdbcType=VARCHAR}
+      auditopinion = #{auditopinion,jdbcType=INTEGER},
+      audittime = #{audittime,jdbcType=TIME},
+      repairresult = #{repairresult,jdbcType=INTEGER},
+      completetime = #{completetime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
