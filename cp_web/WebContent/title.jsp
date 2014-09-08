@@ -32,12 +32,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 		<div style="float: left;height: 26px;line-height: 26px;margin-left: 40px;">
-			<span>最新通告：</span>
-			<marquee id="marquee" direction="left" behavior="scroll" width="500" height="26" 
-			 scrollamount="2" scrolldelay="150" style="float: right;">
+			最新通告：<marquee id="marquee" direction="left" behavior="scroll" width="500" height="26" 
+			 scrollamount="2" scrolldelay="150" style="float: right;color: red;">
 			 系统上线测试，望各部门做好测试及结果反馈工作！中心处下发！2014-07-31</marquee>
 		</div>
-		<div style="float: right;height: 26px;line-height: 26px;margin-right: 20px;padding-left: 10px;">
+		<div style="float: right;height: 26px;line-height: 26px;margin-right: 25px;padding-left: 10px;">
 			<span>欢迎您:</span>
 			<span>尹新东</span>
 			<span>部门:</span>

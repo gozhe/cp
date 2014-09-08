@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.jckjkj.mybatis.model.Department;
 import com.jckjkj.mybatis.model.Equipment;
 import com.jckjkj.mybatis.model.EquipmentState;
 import com.jckjkj.mybatis.model.OrderList;
@@ -48,43 +49,46 @@ public class BaseController {
 	}
 
 	/*-----------------登录验证----------------------*/
-	/**---------------------------------------
-	 * 登录，成功就写入session，失败返回json
-	 * @param request 
+	/**
+	 * --------------------------------------- 登录，成功就写入session，失败返回json
+	 * 
+	 * @param request
 	 * @return
 	 */
 	@RequestMapping("login")
-	public void login(HttpServletRequest request,HttpServletResponse response) {
-		String username=request.getParameter("username");
-		String password=request.getParameter("password");
-		User session =new User();
+	public void login(HttpServletRequest request, HttpServletResponse response) {
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		User session = new User();
 		System.out.println(username);
-		List<User> list = baseService.login(username,password);
+		List<User> list = baseService.login(username, password);
 		try {
-			if(list.size()>0){
+			if (list.size() > 0) {
 				session = list.get(0);
-				request.getSession().setAttribute("user", session);//如果成功就写入session
+				request.getSession().setAttribute("user", session);// 如果成功就写入session
 			}
-			String result=JsonUtils.bean2json(session);
+			String result = JsonUtils.bean2json(session);
 			response.setCharacterEncoding("utf-8");
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter printWriter = response.getWriter();
 			printWriter.write(result);
 			printWriter.flush();
 			printWriter.close();
-		}
-		catch(IOException ex){
+		} catch (IOException ex) {
 			ex.printStackTrace();
 		}
 	}
 
 	/*-----------------设备分组----------------------*/
-	
+
 	@RequestMapping("getStationTree.do")
-	public void getStationTree(@RequestParam("dptid") String dptid,
+	public void getStationTree(HttpServletRequest request,
 			HttpServletResponse response) {
-		List<TreeJson> list = TreeJson.formatTree(baseService
-				.getStationTree(dptid));
+		
+		User user=(User)request.getSession().getAttribute("user");
+		String dptid = user.getDptid();
+		
+		List<TreeJson> list = TreeJson.formatTree(baseService.getStationTree(dptid));
 		String result = JsonUtils.collection2json(list);
 		System.out.println(result);
 
@@ -100,14 +104,18 @@ public class BaseController {
 	}
 
 	/*-----------------设备监控----------------------*/
-	
+
 	@RequestMapping(value = "getEquipmentStateList.do", method = RequestMethod.GET)
-	public void getEquipmentStateList(@RequestParam("dptid") String dptid,
+	public void getEquipmentStateList(
 			@RequestParam("rows") String rows,
 			@RequestParam("page") String page, HttpServletRequest request,
 			HttpServletResponse response) {
 		try {
 			// easyui datagrid 自身会通过 post 的形式传递 rows and page
+			
+			User user=(User)request.getSession().getAttribute("user");
+			String dptid = user.getDptid();
+			
 			int intPage = Integer.parseInt(page);
 			int number = Integer.parseInt(rows);
 			System.out.println(intPage);
@@ -155,15 +163,59 @@ public class BaseController {
 			return "error";
 		}
 	}
-	
-	/*--------------------巡检-----------------*/
-	
-	
-	
 
+	/*--------------------巡检-----------------*/
+
+	@RequestMapping("getRoutingInspectionList")
+	public void getRoutingInspectionList(HttpServletRequest request,
+			HttpServletResponse response) {
+		try {
+			
+			User user=(User)request.getSession().getAttribute("user");
+			String dptid = user.getDptid();
+			
+			String page = request.getParameter("page");
+			String rows = request.getParameter("rows");
+			int intPage = Integer.parseInt(page);
+			int number = Integer.parseInt(rows);
+			int start = (intPage - 1) * number;
+			List<RoutingInspection> list = baseService.getRoutingInspectionList(dptid, start, number);
+			int total = baseService.getRoutingInspectionList().size();
+			Map<String, Object> jsonMap = new HashMap<String, Object>();// 定义map
+			jsonMap.put("total", total);
+			jsonMap.put("rows", list);
+			String results = JsonUtils.map2json(jsonMap);// 格式化result
+			System.out.println(results);
+			response.setCharacterEncoding("utf-8");
+			response.setContentType("text/html; charset=UTF-8");
+			response.getWriter().write(results);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	@RequestMapping("getRoutingInspectionDetail")
+	public String getRoutingInspectionDetail(HttpServletRequest request,
+			HttpServletResponse response) {
+		try {
+			int rouid =Integer.valueOf(request.getParameter("id").toString());
+			RoutingInspection routingInsp = baseService.getRoutingInspectionDetail(rouid);
+			response.setCharacterEncoding("utf-8");
+			response.setContentType("text/html; charset=UTF-8");
+			request.setAttribute("ResultList", routingInsp);
+			return "_xj/xjxq";
+		} catch (Exception e) {
+			e.printStackTrace();
+			request.setAttribute("InfoMessage", "error" + e.getMessage());
+			return "error";
+		}
+		
+	}
 	
 	/*-----------------工单管理----------------------*/
-	
+
 	@RequestMapping("InitWhenCreatOrder.do")
 	public String InitWhenCreatOrder(HttpServletRequest request) {
 		try {
@@ -188,11 +240,14 @@ public class BaseController {
 	}
 
 	@RequestMapping("getOrderList.do")
-	public void getOrderList(@RequestParam("dptid") String dptid,
+	public void getOrderList(
 			@RequestParam("rows") String rows,
 			@RequestParam("page") String page, HttpServletRequest request,
 			HttpServletResponse response) {
 		try {
+			User user=(User)request.getSession().getAttribute("user");
+			String dptid = user.getDptid();
+			
 			int intPage = Integer.parseInt(page);
 			int number = Integer.parseInt(rows);
 			int start = (intPage - 1) * number;

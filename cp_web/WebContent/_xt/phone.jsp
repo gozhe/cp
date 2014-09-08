@@ -143,11 +143,11 @@ function loadData(pageNumber, pageSize) {
 			<table id="dgrid" cellspacing="0" cellpadding="0">
 				<thead>
 					<tr>
-						<th field="mid" width="140">手机编号</th>
-						<th field="imei" width="200">手机串号</th>
-						<th field="phonenumber" width="160">手机号码</th>
-						<th field="phonestyle" width="140">手机型号</th>
-						<th field="dptid" width="120">所在部门</th>
+						<th field="mid" width="140" align="center">手机编号</th>
+						<th field="imei" width="200" align="center">手机串号</th>
+						<th field="phonenumber" width="160" align="center">手机号码</th>
+						<th field="phonestyle" width="140" align="center">手机型号</th>
+						<th field="dptid" width="120" align="center">所在部门</th>
 					</tr>
 				</thead>
 			</table>

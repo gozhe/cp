@@ -160,6 +160,13 @@ public interface BaseService {
 	
 	
 	/**
+	 * 获取巡检记录列表
+	 * @return
+	 */
+	List<RoutingInspection> getRoutingInspectionList(String dptid,int start,int rows);
+	
+	
+	/**
 	 * 条件查询巡检记录列表
 	 * @param params
 	 * [0]分组查询
@@ -175,7 +182,7 @@ public interface BaseService {
 	 * @param rouid 巡检ID
 	 * @return
 	 */
-	RoutingInspection getRoutingInspectionDetail(String rouid);
+	RoutingInspection getRoutingInspectionDetail(int id);
 	
 	
 	/**

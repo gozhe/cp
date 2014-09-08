@@ -45,7 +45,7 @@
 						<li class="button"><a href="#" class="blue"><img alt="" src="img/xj.png" class="img">巡检管理 <span></span></a></li>
 						<li class="dropdown">
 							<ul>
-								<li><a class="submenu"  href="_xj/main2.jsp"  target="right">巡检管理</a></li>
+								<li><a class="submenu"  href="_xj/xjgl.jsp"  target="right">巡检管理</a></li>
 								<li><a class="submenu"  href="#" >审核管理</a></li>
 
 							</ul>

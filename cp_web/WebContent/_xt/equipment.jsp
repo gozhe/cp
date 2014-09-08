@@ -156,16 +156,16 @@
 		<table id="dgrid" cellspacing="0" cellpadding="0">
 			<thead>
 				<tr>
-					<th field="equid" width="80">设备编号</th>
-					<th field="stationid" width="80">分区编号</th>
-					<th field="equtype" width="80">组别属性</th>
-					<th field="equip" width="100">设备IP地址</th>
-					<th field="equname" width="80">设备名称</th>
-					<th field="equbrand" width="80">设备品牌</th>
-					<th field="equmodel" width="80">设备型号</th>
-					<th field="equclass" width="80">设备类型</th>
-					<th field="equadminssiondate" width="80">入网如期</th>
-					<th field="equdevorg" width="200">建设单位</th>
+					<th field="equid" width="80" align="center">设备编号</th>
+					<th field="stationid" width="80" align="center">分区编号</th>
+					<th field="equtype" width="80" align="center">组别属性</th>
+					<th field="equip" width="100" align="center">设备IP地址</th>
+					<th field="equname" width="80" align="center">设备名称</th>
+					<th field="equbrand" width="80" align="center">设备品牌</th>
+					<th field="equmodel" width="80" align="center">设备型号</th>
+					<th field="equclass" width="80" align="center">设备类型</th>
+					<th field="equadminssiondate" width="80" align="center">入网如期</th>
+					<th field="equdevorg" width="200" align="center">建设单位</th>
 				</tr>
 			</thead>
 		</table>

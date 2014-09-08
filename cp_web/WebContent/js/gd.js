@@ -81,8 +81,7 @@ var _pageNumber=0;
 function loadData(pageNumber, pageSize) {
 	_pageNumber = pageNumber;
 	var _pageSize = pageSize;
-	var filter = "dptid=001";
-	var url = url_orderlist + filter + "&page=" + _pageNumber + "&rows="
+	var url = url_orderlist + "&page=" + _pageNumber + "&rows="
 			+ _pageSize;
 	$.ajax({
 		url : url,

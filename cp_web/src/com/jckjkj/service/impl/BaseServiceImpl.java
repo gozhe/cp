@@ -181,15 +181,22 @@ public class BaseServiceImpl implements BaseService {
 	}
 
 	@Override
+	public List<RoutingInspection> getRoutingInspectionList(String dptid,
+			int start, int rows) {
+		// TODO Auto-generated method stub
+		return routingInspectionMapper.selectByLimit(start, rows);
+	}
+	
+	@Override
 	public List<RoutingInspection> getRoutingInspectionByQuery(String[] params) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public RoutingInspection getRoutingInspectionDetail(String rouid) {
+	public RoutingInspection getRoutingInspectionDetail(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return routingInspectionMapper.selectByPrimaryKey(id);
 	}
 
 	@Override
@@ -282,5 +289,6 @@ public class BaseServiceImpl implements BaseService {
 			RoutingInspectionMapper routingInspectionMapper) {
 		this.routingInspectionMapper = routingInspectionMapper;
 	}
+
 
 }

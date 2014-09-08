@@ -148,15 +148,15 @@
 		<table id="dgrid" cellspacing="0" cellpadding="0">
 			<thead>
 				<tr>
-					<th field="userid" width="80">用户编号</th>
-					<th field="username" width="100">用户名</th>
-					<th field="password" width="100">用户密码</th>
-					<th field="cnname" width="100">用户姓名</th>
-					<th field="dptid" width="80">所在部门</th>
-					<th field="roleid" width="80">用户角色</th>
-					<th field="tel" width="120">联系方式</th>
-					<th field="email" width="120">电子邮件</th>
-					<th field="logintime" width="120">最近一次登录时间</th>
+					<th field="userid" width="80" align="center">用户编号</th>
+					<th field="username" width="100" align="center">用户名</th>
+					<th field="password" width="100" align="center">用户密码</th>
+					<th field="cnname" width="100" align="center">用户姓名</th>
+					<th field="dptid" width="80" align="center">所在部门</th>
+					<th field="roleid" width="80" align="center">用户角色</th>
+					<th field="tel" width="120" align="center">联系方式</th>
+					<th field="email" width="120" align="center">电子邮件</th>
+					<th field="logintime" width="120" align="center">最近一次登录时间</th>
 				</tr>
 			</thead>
 		</table>

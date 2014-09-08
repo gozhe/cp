@@ -147,11 +147,11 @@
 		<table id="dgrid" cellspacing="0" cellpadding="0">
 			<thead>
 				<tr>
-					<th field="dptid" width="140">部门编号</th>
-					<th field="dptname" width="160">部门名称</th>
-					<th field="dpttype" width="160">部门类型</th>
-					<th field="dptsuperior" width="160">父级部门</th>
-					<th field="dptdescription" width="300">部门描述</th>
+					<th field="dptid" width="140" align="center">部门编号</th>
+					<th field="dptname" width="160" align="center">部门名称</th>
+					<th field="dpttype" width="160" align="center">部门类型</th>
+					<th field="dptsuperior" width="160" align="center">父级部门</th>
+					<th field="dptdescription" width="300" align="center">部门描述</th>
 				</tr>
 			</thead>
 		</table>

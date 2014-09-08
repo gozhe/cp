@@ -2,8 +2,11 @@ package com.jckjkj.mybatis.dao;
 
 import com.jckjkj.mybatis.model.RoutingInspection;
 import com.jckjkj.mybatis.model.RoutingInspectionExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 public interface RoutingInspectionMapper {
     int countByExample(RoutingInspectionExample example);
@@ -27,4 +30,7 @@ public interface RoutingInspectionMapper {
     int updateByPrimaryKeySelective(RoutingInspection record);
 
     int updateByPrimaryKey(RoutingInspection record);
+    
+    @Select("select * from x_routinginspection limit #{1} offset #{0}")
+    List<RoutingInspection> selectByLimit(int start,int rows);
 }
