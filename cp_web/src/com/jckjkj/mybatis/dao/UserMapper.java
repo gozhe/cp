@@ -1,5 +1,6 @@
 package com.jckjkj.mybatis.dao;
 
+import com.jckjkj.mybatis.model.Role;
 import com.jckjkj.mybatis.model.User;
 import com.jckjkj.mybatis.model.UserExample;
 
@@ -34,6 +35,9 @@ public interface UserMapper {
     
     @Select("select t1.*,t2.*,t3.* from x_user t1,x_department t2,x_role t3 where t1.dptid=t2.dptid and t1.roleid=t3.roleid and t1.username = #{0} and t1.password=#{1}")
     List<Map<String,Object>> queryByLogin(String username,String password);
+    
+    @Select("select * from x_user limit #{1} offset #{0}")
+    List<User> selectByLimit(int start,int rows);
     
     List<User> joinLogin(User user); 
 }

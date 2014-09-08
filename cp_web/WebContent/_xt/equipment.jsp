@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>用户管理</title>
+<title>部门管理</title>
 <link rel="stylesheet" type="text/css"
 	href="../jquery.easyui/themes/default/easyui.css">
 <link rel="stylesheet" type="text/css"
@@ -23,7 +23,7 @@
 <script type="text/javascript">
 	$(function() {
 		$('#dgrid').datagrid({
-			title : '用户管理',
+			title : '设备管理',
 			iconCls : '',// 图标
 			width : 'auto',
 			height : 370,
@@ -92,7 +92,7 @@
 	});
 
 	var _pageNumber = 0;
-	var url_getdptment = "<%=path%>/system/getUserList.do?";
+	var url_getdptment = "<%=path%>/system/getEquipmentList.do?";
 
 	function loadData(pageNumber, pageSize) {
 		_pageNumber = pageNumber;
@@ -119,13 +119,11 @@
 		data-options="iconCls:'icon-search'" style="padding: 5px;">
 		<table>
 			<tr>
-				<td>用户编号:</td>
+				<td>设备编号:</td>
 				<td><input id="dptid" class="easyui-textbox"></td>
-				<td>用户名:</td>
+				<td>设备名称:</td>
 				<td><input id="dptname" class="easyui-textbox"></td>
-				<td>用户姓名:</td>
-				<td><input id="dptname" class="easyui-textbox"></td>
-				<td>所在部门:</td>
+				<td>设备类型:</td>
 				<td><select id="dpttype" class="easyui-combobox" name="sbtype"
 					style="width: 150px;">
 						<option value="tp1">---请选择---</option>
@@ -134,6 +132,16 @@
 						<option value="tp2">类型3</option>
 						<option value="tp2">类型4</option>
 						<option value="tp2">类型5</option>
+				</select></td>
+				<td>设备型号:</td>
+				<td><select id="dpttype" class="easyui-combobox" name="sbtype"
+					style="width: 150px;">
+						<option value="tp1">---请选择---</option>
+						<option value="tp1">型号1</option>
+						<option value="tp2">型号2</option>
+						<option value="tp2">型号3</option>
+						<option value="tp2">型号4</option>
+						<option value="tp2">型号5</option>
 				</select></td>
 			</tr>
 		</table>
@@ -148,15 +156,16 @@
 		<table id="dgrid" cellspacing="0" cellpadding="0">
 			<thead>
 				<tr>
-					<th field="userid" width="80">用户编号</th>
-					<th field="username" width="100">用户名</th>
-					<th field="password" width="100">用户密码</th>
-					<th field="cnname" width="100">用户姓名</th>
-					<th field="dptid" width="80">所在部门</th>
-					<th field="roleid" width="80">用户角色</th>
-					<th field="tel" width="120">联系方式</th>
-					<th field="email" width="120">电子邮件</th>
-					<th field="logintime" width="120">最近一次登录时间</th>
+					<th field="equid" width="80">设备编号</th>
+					<th field="stationid" width="80">分区编号</th>
+					<th field="equtype" width="80">组别属性</th>
+					<th field="equip" width="100">设备IP地址</th>
+					<th field="equname" width="80">设备名称</th>
+					<th field="equbrand" width="80">设备品牌</th>
+					<th field="equmodel" width="80">设备型号</th>
+					<th field="equclass" width="80">设备类型</th>
+					<th field="equadminssiondate" width="80">入网如期</th>
+					<th field="equdevorg" width="200">建设单位</th>
 				</tr>
 			</thead>
 		</table>

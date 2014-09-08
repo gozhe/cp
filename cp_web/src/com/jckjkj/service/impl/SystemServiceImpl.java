@@ -44,6 +44,12 @@ public class SystemServiceImpl implements SystemService{
 	}
 
 	@Override
+	public List<Department> getDepartmentList(int start, int rows) {
+		// TODO Auto-generated method stub
+		return departmentMapper.selectByLimit(start, rows);
+	}
+	
+	@Override
 	public int deleteDepartment(int id) {
 		// TODO Auto-generated method stub
 		return departmentMapper.deleteByPrimaryKey((id));
@@ -64,6 +70,12 @@ public class SystemServiceImpl implements SystemService{
 	}
 
 	@Override
+	public List<Mobile> getMobileList(int start, int rows) {
+		// TODO Auto-generated method stub
+		return mobileMapper.selectByLimit(start, rows);
+	}
+	
+	@Override
 	public int deleteMobile(int id) {
 		// TODO Auto-generated method stub
 		return mobileMapper.deleteByPrimaryKey(id);
@@ -81,6 +93,13 @@ public class SystemServiceImpl implements SystemService{
 		PersonExample example = new PersonExample();
 		example.createCriteria().andIdIsNotNull();
 		return personMapper.selectByExample(example);
+	}
+	
+
+	@Override
+	public List<Person> getPersonList(int start, int rows) {
+		// TODO Auto-generated method stub
+		return personMapper.selectByLimit(start, rows);
 	}
 
 	@Override
@@ -102,6 +121,12 @@ public class SystemServiceImpl implements SystemService{
 		example.createCriteria().andIdIsNotNull();
 		return equipmentMapper.selectByExample(example);
 	}
+	
+	@Override
+	public List<Equipment> getEquipmentList(int start, int rows) {
+		// TODO Auto-generated method stub
+		return equipmentMapper.selectByLimit(start, rows);
+	}
 
 	@Override
 	public int deleteEquipment(int id) {
@@ -121,6 +146,12 @@ public class SystemServiceImpl implements SystemService{
 		UserExample example = new UserExample();
 		example.createCriteria().andIdIsNotNull();
 		return userMapper.selectByExample(example);
+	}
+	
+	@Override
+	public List<User> getUserList(int start, int rows) {
+		// TODO Auto-generated method stub
+		return userMapper.selectByLimit(start, rows);
 	}
 
 	@Override
@@ -143,6 +174,12 @@ public class SystemServiceImpl implements SystemService{
 		return roleMapper.selectByExample(example);
 	}
 
+	@Override
+	public List<Role> getRoleList(int start, int rows) {
+		// TODO Auto-generated method stub
+		return roleMapper.selectByLimit(start, rows);
+	}
+	
 	@Override
 	public int deleteRole(int id) {
 		// TODO Auto-generated method stub
@@ -210,5 +247,4 @@ public class SystemServiceImpl implements SystemService{
 	public void setRoleMapper(RoleMapper roleMapper) {
 		this.roleMapper = roleMapper;
 	}
-
 }

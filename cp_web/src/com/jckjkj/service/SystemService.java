@@ -13,11 +13,15 @@ public interface SystemService {
 
 	List<Department> getDepartmentList();
 	
+	List<Department> getDepartmentList(int start,int rows);
+	
 	int deleteDepartment(int id);
 	
 	int updateDepartment(Department department);
 	
 	List<Mobile> getMobileList();
+	
+	List<Mobile> getMobileList(int start,int rows);
 
 	int deleteMobile(int id);
 
@@ -25,11 +29,15 @@ public interface SystemService {
 	
 	List<Person> getPersonList();
 	
+	List<Person> getPersonList(int start,int rows);
+	
 	int deletePerson(int id);
 	
 	int updatePerson(Person person);
 	
 	List<Equipment> getEquipmentList();
+	
+	List<Equipment> getEquipmentList(int start,int rows);
 	
 	int deleteEquipment(int id);
 	
@@ -37,11 +45,15 @@ public interface SystemService {
 	
 	List<User> getUserList();
 	
+	List<User> getUserList(int start,int rows);
+	
 	int deleteUser(int id);
 	
 	int updateUser(User user);
 	
 	List<Role> getRoleList();
+	
+	List<Role> getRoleList(int start,int rows);
 	
 	int deleteRole(int id);
 	

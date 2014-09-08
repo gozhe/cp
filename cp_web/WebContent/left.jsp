@@ -83,12 +83,13 @@
 						<li class="button"><a href="#" class="blue"><img alt="" src="img/xt.png" class="img">系统管理 <span></span></a></li>
 						<li class="dropdown">
 							<ul>
-								<li><a class="submenu" href="#">部门管理</a></li>
-								<li><a class="submenu" href="#">手机管理</a></li>
-								<li><a class="submenu" href="#">人员管理</a></li>
-								<li><a class="submenu" href="#">设备管理</a></li>
-								<li><a class="submenu" href="#">角色管理</a></li>
-								<li><a class="submenu" href="#">字典管理</a></li>
+								<li><a class="submenu" href="_xt/user.jsp" target="right">用户管理</a></li>
+								<li><a class="submenu" href="_xt/dept.jsp" target="right">部门管理</a></li>
+								<li><a class="submenu" href="_xt/phone.jsp" target="right">手机管理</a></li>
+								<li><a class="submenu" href="_xt/person.jsp" target="right">人员管理</a></li>
+								<li><a class="submenu" href="_xt/equipment.jsp" target="right">设备管理</a></li>
+								<li><a class="submenu" href="_xt/role.jsp" target="right">角色管理</a></li>
+								<li><a class="submenu" href="#" target="right">字典管理</a></li>
 							</ul>
 						</li>
 					</ul>

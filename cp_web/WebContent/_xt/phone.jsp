@@ -87,7 +87,7 @@ $(function() {
 	loadData(1, 10);
 });
 
-var url_phonelist = "<%=path%>/base/getPhoneList.do?";
+var url_phonelist = "<%=path%>/system/getPhoneList.do?";
 var _pageNumber= 0;
 
 function loadData(pageNumber, pageSize) {
@@ -143,10 +143,11 @@ function loadData(pageNumber, pageSize) {
 			<table id="dgrid" cellspacing="0" cellpadding="0">
 				<thead>
 					<tr>
-						<th field="equid" width="140">手机串号</th>
-						<th field="faultid" width="140">手机号码</th>
-						<th field="faulttitle" width="100">所在部门</th>
-						<th field="faultgrade" width="140">备注</th>
+						<th field="mid" width="140">手机编号</th>
+						<th field="imei" width="200">手机串号</th>
+						<th field="phonenumber" width="160">手机号码</th>
+						<th field="phonestyle" width="140">手机型号</th>
+						<th field="dptid" width="120">所在部门</th>
 					</tr>
 				</thead>
 			</table>
