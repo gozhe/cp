@@ -69,7 +69,7 @@
 		<table schema="" tableName="v_equip_order" domainObjectName="VEquipOrder" />
 		<table schema="" tableName="v_order_repair" domainObjectName="VOrderRepair" />
 	-->
-		<table schema="" tableName="x_user" domainObjectName="User" />
+		<table schema="" tableName="t_camera" domainObjectName="Camera" />
 	</context>
 
 </generatorConfiguration>

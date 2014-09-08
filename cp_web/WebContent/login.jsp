@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -28,6 +31,13 @@ body {
 <script type="text/javascript">
 	$(function() {
 		$(window).resize();
+		
+		document.onkeydown = function(e){ 
+			var ev = document.all ? window.event : e; 
+			if(ev.keyCode==13) { 
+				submitLogin();
+			}
+		};
 	});
 
 	$(window).resize(function() {
@@ -38,10 +48,10 @@ body {
 		});
 	});
 	
-	function submitForm() {
+	function submitLogin() {
 		$.messager.progress(); // display the progress bar
 		$('#ff').form('submit', {
-			url : url_ordersubmit,
+			url : "<%=path%>/base/login.do",
 			onSubmit : function() {
 				var isValid = $(this).form('validate');
 				if (!isValid) {
@@ -49,12 +59,14 @@ body {
 				}
 				return isValid; // return false will stop the form submission
 			},
-			success : function() {
+			success : function(objs) {
+				//data=eval("("+objs+")");//转换为json对象
+				//setTimeout("javascript:location.href='index.html'", 5000); 
 				$.messager.progress('close'); // hide progress bar while submit
+				window.location.href = "index.html";
 				// successfully
 				//$.messager.alert("提示", "操作成功！", "info");
-				window.location.href="index.html";
-			}
+			},
 		});
 	}
 </script>
@@ -65,24 +77,24 @@ body {
 			style="width: 100%; height: 100%; padding: 30px 70px 20px 70px"">
 			<form id="ff" method="post">
 				<div style="margin-bottom: 10px">
-					<input class="easyui-textbox"
+					<input class="easyui-textbox" name="username"
 						style="width: 100%; height: 40px; padding: 12px"
 						data-options="prompt:'Username',iconCls:'icon-man',iconWidth:38">
 				</div>
 				<div style="margin-bottom: 20px">
-					<input class="easyui-textbox" type="password"
+					<input class="easyui-textbox" type="password" name="password"
 						style="width: 100%; height: 40px; padding: 12px"
 						data-options="prompt:'Password',iconCls:'icon-lock',iconWidth:38">
 				</div>
 				<div style="margin-bottom: 20px">
-					<input type="checkbox" checked="checked"> <span>记住我</span>
+					<input type="checkbox" checked="checked"><span>记住我</span>
 				</div>
 			</form>
 			<div>
-				<a href="#" class="easyui-linkbutton"
+				<a href="javascript:void(0);" class="easyui-linkbutton" id="loginme"
 					data-options="iconCls:'icon-ok'"
 					style="padding: 5px 0px; width: 100%;"> <span
-					style="font-size: 14px;" onclick="submitForm();">Login</span>
+					style="font-size: 14px;" onclick="submitLogin();">Login</span>
 				</a>
 			</div>
 		</div>

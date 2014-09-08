@@ -13,6 +13,40 @@
     <result column="email" property="email" jdbcType="VARCHAR" />
     <result column="logintime" property="logintime" jdbcType="TIMESTAMP" />
   </resultMap>
+  
+  <resultMap id="LoginResultMap" type="com.jckjkj.mybatis.model.User" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="userid" property="userid" jdbcType="VARCHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="cnname" property="cnname" jdbcType="VARCHAR" />
+    <result column="dptid" property="dptid" jdbcType="VARCHAR" />
+    <result column="roleid" property="roleid" jdbcType="VARCHAR" />
+    <result column="tel" property="tel" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="logintime" property="logintime" jdbcType="TIMESTAMP" />
+    <association property="department"  javaType="com.jckjkj.mybatis.model.Department">
+	    <result column="dptid" property="dptid" jdbcType="VARCHAR" />
+	    <result column="dptname" property="dptname" jdbcType="VARCHAR" />
+	    <result column="dpttype" property="dpttype" jdbcType="INTEGER" />
+	    <result column="dptsuperior" property="dptsuperior" jdbcType="VARCHAR" />
+	    <result column="dptdescription" property="dptdescription" jdbcType="VARCHAR" />
+    </association>  
+    <association property="role"  javaType="com.jckjkj.mybatis.model.Role">
+	    <result column="roleid" property="roleid" jdbcType="VARCHAR" />
+	    <result column="rolename" property="rolename" jdbcType="VARCHAR" />
+	    <result column="roledescription" property="roledescription" jdbcType="VARCHAR" />
+	    <result column="moduleid" property="moduleid" jdbcType="VARCHAR" />
+    </association>  
+  </resultMap>
+  <select id="joinLogin" resultMap="LoginResultMap" parameterType="com.jckjkj.mybatis.model.User">  
+         select t1.*,t2.*,t3.* 
+         from x_user t1 
+         left join x_department t2 on t1.dptid = t2.dptid 
+         left join x_role t3 on t3.roleid=t1.roleid
+         where t1.username  = #{username} and t1.password=#{password}
+    </select> 
+  
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

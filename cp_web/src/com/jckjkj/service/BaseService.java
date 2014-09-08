@@ -24,7 +24,7 @@ public interface BaseService {
 	 * @param password
 	 * @return
 	 */
-	User login(String username,String password);
+	List<User> login(String username,String password);
 	
 	/**
 	 * 用户登出

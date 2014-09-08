@@ -22,6 +22,10 @@ public class User {
     private String email;
 
     private Date logintime;
+    
+    private Department department;
+    
+    private Role role;
 
     public Integer getId() {
         return id;
@@ -102,4 +106,21 @@ public class User {
     public void setLogintime(Date logintime) {
         this.logintime = logintime;
     }
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+    
 }

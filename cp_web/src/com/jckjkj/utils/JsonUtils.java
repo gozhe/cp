@@ -78,9 +78,7 @@ public class JsonUtils {
 		// 设置javabean中日期转换时的格式
 		JsonConfig jsonConfig = new JsonConfig();
 		jsonConfig.registerJsonValueProcessor(Date.class,new JsonDateValueProcessor("yyyy-MM-dd HH:mm:ss"));
-
 		JSONObject jsonObject = JSONObject.fromObject(object,jsonConfig);
-		
 		return jsonObject.toString();
 	}
 

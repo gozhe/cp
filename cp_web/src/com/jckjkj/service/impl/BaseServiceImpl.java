@@ -9,9 +9,11 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.jckjkj.mybatis.dao.DepartmentMapper;
 import com.jckjkj.mybatis.dao.EquipmentMapper;
 import com.jckjkj.mybatis.dao.EquipmentStateMapper;
 import com.jckjkj.mybatis.dao.OrderListMapper;
+import com.jckjkj.mybatis.dao.RoleMapper;
 import com.jckjkj.mybatis.dao.RoutingInspectionMapper;
 import com.jckjkj.mybatis.dao.StationMapper;
 import com.jckjkj.mybatis.dao.UserMapper;
@@ -27,6 +29,7 @@ import com.jckjkj.mybatis.model.RoutingInspection;
 import com.jckjkj.mybatis.model.RoutingInspectionExample;
 import com.jckjkj.mybatis.model.Station;
 import com.jckjkj.mybatis.model.User;
+import com.jckjkj.mybatis.model.UserExample;
 import com.jckjkj.mybatis.model.VOrderRepair;
 import com.jckjkj.mybatis.model.VOrderRepairExample;
 import com.jckjkj.service.BaseService;
@@ -36,6 +39,8 @@ import com.jckjkj.utils.TreeJson;
 public class BaseServiceImpl implements BaseService {
 
 	private UserMapper userMapper;
+	private DepartmentMapper departmentMapper;
+	private RoleMapper roleMapper;
 	private StationMapper stationMapper;
 	private EquipmentStateMapper equipmentStateMapper;
 	private EquipmentMapper equipmentMapper;
@@ -43,14 +48,15 @@ public class BaseServiceImpl implements BaseService {
 	private VOrderRepairMapper vOrderRepairMapper;
 	private RoutingInspectionMapper routingInspectionMapper;
 
-	private SqlSessionFactory sqlSessionFactory;
-
 	// TODO ------------接口实现-----------
 
 	@Override
-	public User login(String username, String password) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<User> login(String username, String password) {
+
+		User userModel=new User();
+		userModel.setUsername(username);
+		userModel.setPassword(password);
+		return userMapper.joinLogin(userModel);
 	}
 
 	@Override
@@ -180,7 +186,6 @@ public class BaseServiceImpl implements BaseService {
 		return null;
 	}
 
-
 	@Override
 	public RoutingInspection getRoutingInspectionDetail(String rouid) {
 		// TODO Auto-generated method stub
@@ -206,6 +211,24 @@ public class BaseServiceImpl implements BaseService {
 
 	public StationMapper getStationMapper() {
 		return stationMapper;
+	}
+
+	public DepartmentMapper getDepartmentMapper() {
+		return departmentMapper;
+	}
+
+	@Autowired
+	public void setDepartmentMapper(DepartmentMapper departmentMapper) {
+		this.departmentMapper = departmentMapper;
+	}
+
+	public RoleMapper getRoleMapper() {
+		return roleMapper;
+	}
+
+	@Autowired
+	public void setRoleMapper(RoleMapper roleMapper) {
+		this.roleMapper = roleMapper;
 	}
 
 	@Autowired
@@ -258,15 +281,6 @@ public class BaseServiceImpl implements BaseService {
 	public void setRoutingInspectionMapper(
 			RoutingInspectionMapper routingInspectionMapper) {
 		this.routingInspectionMapper = routingInspectionMapper;
-	}
-
-	public SqlSessionFactory getSqlSessionFactory() {
-		return sqlSessionFactory;
-	}
-
-	@Autowired
-	public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
-		this.sqlSessionFactory = sqlSessionFactory;
 	}
 
 }

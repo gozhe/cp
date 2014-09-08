@@ -57,15 +57,18 @@ public class BaseController {
 	public void login(HttpServletRequest request,HttpServletResponse response) {
 		String username=request.getParameter("username");
 		String password=request.getParameter("password");
-		User userModel=new User();
+		User session =new User();
 		System.out.println(username);
-		User user = baseService.login(username,password);
+		List<User> list = baseService.login(username,password);
 		try {
-			PrintWriter printWriter = response.getWriter();
-			if(user!=null){
-				request.getSession().setAttribute("user", userModel);//如果成功就写入session
+			if(list.size()>0){
+				session = list.get(0);
+				request.getSession().setAttribute("user", session);//如果成功就写入session
 			}
-			String result=JsonUtils.bean2json(userModel);
+			String result=JsonUtils.bean2json(session);
+			response.setCharacterEncoding("utf-8");
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter printWriter = response.getWriter();
 			printWriter.write(result);
 			printWriter.flush();
 			printWriter.close();
