@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <%
 	String path = request.getContextPath();
 %>
@@ -8,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>巡检管理</title>
+<title>设备完好率统计</title>
 <link rel="stylesheet" type="text/css"
 	href="../jquery.easyui/themes/default/easyui.css">
 <link rel="stylesheet" type="text/css"
@@ -20,32 +19,11 @@
 body {
 	font-family: 微软雅黑;
 }
-.cs1 {
-	width: 80px;
-	height: 24px;
-	background-color: #F4F4F4;
-	padding-left: 4px;
-	text-align: left;
-}
-
-.cs2 {
-	width: 120px;
-	height: 24px;
-	padding-left: 2px;
-	text-align: center;
-}
-
-hr {
-	height: 0.1px;
-	border: none;
-	border-top: 1px dashed #0066CC;
-}
-
 </style>
 <script type="text/javascript">
 	$(function() {
 		$('#dgrid').datagrid({
-			title : '巡检管理',
+			title : '设备完好率统计',
 			iconCls : '',// 图标
 			width : 'auto',
 			height : 370,
@@ -63,7 +41,7 @@ hr {
 				checkbox : true
 			} ] ],
 			toolbar : [ {
-				text : '查看详情',
+				text : '柱状图',
 				iconCls : 'icon-add',
 				handler : function() {
 					var row = $('#dgrid').datagrid('getSelected');
@@ -73,8 +51,31 @@ hr {
 						$.messager.alert('消息', '请选择一条记录', '消息');
 					}
 				}
-			}]
+			}, '-', {
+				text : '饼状图',
+				iconCls : 'icon-edit',
+				handler : function() {
+					var row = $('#dgrid').datagrid('getSelected');
+					if (row) {
+						//auditOrder(row.faultid);
+					} else {
+						$.messager.alert('消息', '请选择一条记录', '消息');
+					}
+				}
+			}, '-', {
+				text : '折线图',
+				iconCls : 'icon-edit',
+				handler : function() {
+					var row = $('#dgrid').datagrid('getSelected');
+					if (row) {
+						//auditOrder(row.faultid);
+					} else {
+						$.messager.alert('消息', '请选择一条记录', '消息');
+					}
+				}
+			} ]
 		});
+		
 		// 设置分页控件
 		var p = $('#dgrid').datagrid('getPager');
 		$(p).pagination({
@@ -112,7 +113,6 @@ hr {
 			}
 		});
 	};
-	
 	
 	function doSelect() {
 		$('#dlg').dialog({
@@ -166,41 +166,68 @@ hr {
 </head>
 <body>
 	<div>
-		<div class="easyui-panel" title="巡检记录查询"
+		<div class="easyui-panel" title="统计查询"
 			data-options="iconCls:'icon-search'" style="padding: 5px;">
 			<table>
 				<tr>
-					<td>设备编号:</td>
-					<td><input id="id" class="easyui-textbox"></td>
-					<td>设备分组:</td>
-					<td><input id="station" class="easyui-searchbox"
-						data-options="prompt:'-请选择-',searcher:doSelect"
-						style="width: 150px;"></td>
-					<td>开始日期:</td>
-					<td><input id="begindate" class="easyui-datetimebox">
-					<td>
+					<td>组织结构:</td>
+					<td><select id="type" class="easyui-combobox" name="sbtype"
+						style="width: 150px;">		
+							<option value="tp1">昌平分局</option>
+							<option value="tp2">类型2</option>
+							<option value="tp2">类型3</option>
+							<option value="tp2">类型4</option>
+							<option value="tp2">类型5</option>
+					</select></td>
+					<td>统计方式:</td>
+					<td><select id="type" class="easyui-combobox" name="sbtype"
+						style="width: 150px;">		
+							<option value="tp1">按组织结构</option>
+							<option value="tp2">按维修单位</option>
+							<option value="tp2">按维修厂家</option>
+							<option value="tp2">按设备大类</option>
+					</select></td>
+					<td>起始日期:</td>
+					<td><input id="begindate" class="easyui-datetimebox"><td>
+					<td><a href="#" class="easyui-linkbutton" onclick="queryMe();"
+					data-options="iconCls:'icon-search'" style="width: 80px">查询</a></td>
+				</tr>
+				<tr>
+					<td>统计累加:</td>
+					<td><select id="type" class="easyui-combobox" name="sbtype"
+						style="width: 150px;">		
+							<option value="tp1">仅本组织</option>
+							<option value="tp2">含下级组织</option>
+					</select></td>
+					<td>统计级别:</td>
+					<td><select id="type" class="easyui-combobox" name="sbtype"
+						style="width: 150px;">		
+							<option value="tp1">当前级</option>
+							<option value="tp2">下一级</option>
+							<option value="tp2">下二级</option>
+							<option value="tp2">下三级</option>
+							<option value="tp2">下四级</option>
+					</select></td>
 					<td>结束日期:</td>
 					<td><input id="enddate" class="easyui-datetimebox"></td>
+					<td><a href="#" class="easyui-linkbutton"
+					data-options="iconCls:'icon-reload'" style="width: 80px">重置</a></td>
 				</tr>
 			</table>
-			<div style="margin-top: 5px; float: right;">
-				<a href="#" class="easyui-linkbutton" onclick="queryMe();"
-					data-options="iconCls:'icon-search'" style="width: 80px">查询</a> <a
-					href="#" class="easyui-linkbutton"
-					data-options="iconCls:'icon-reload'" style="width: 80px">重置</a>
-			</div>
 		</div>
 		<div class="dlist" style="margin-top: 20px;">
 			<table id="dgrid" cellspacing="0" cellpadding="0">
 				<thead>
 					<tr>
-						<th field="equid" width="80" align="center">设备编号</th>
-						<th field="equstate" width="100" align="center">设备状态</th>
-						<th field="personid" width="100" align="center">签到人</th>
-						<th field="signintime" width="180" align="center">签到时间</th>
-						<th field="singinlongitude" width="150" align="center">签到经度</th>
-						<th field="singinlatitude" width="150" align="center">签到纬度</th>
-						<th field="roudescription" width="200" align="center">巡检描述</th>
+						<th data-options="field:'id',align:'center',resizable:false" width="10%">组织编号</th>
+				        <th data-options="field:'name2',align:'center',resizable:false" width="28%">组织名称</th>
+				        <th data-options="field:'zczs',align:'center',resizable:false" width="10%">资产总数</th>
+				        <th data-options="field:'gzs',align:'center',resizable:false" width="8%">故障数</th>
+				        <th data-options="field:'bxcs',align:'center',resizable:false" width="8%">报修次数</th>
+				        <th data-options="field:'bxgs',align:'center',resizable:false" width="8%">报修个数</th>
+				        <th data-options="field:'xhcs',align:'center',resizable:false" width="8%">修好次数</th>
+				        <th data-options="field:'xhl',align:'center',resizable:false" width="10%">修好率</th>
+				        <th data-options="field:'whl',align:'center',resizable:false" width="10%">完好率</th>
 					</tr>
 				</thead>
 			</table>

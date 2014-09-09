@@ -33,7 +33,7 @@ public interface PdaService {
 	 * @param mid
 	 * @return
 	 */
-	List<VEquipRouting> getRoutingInspInfo(int mid);
+	List<VEquipRouting> getRoutingInspInfo(String mid);
 
 	/**
 	 * 提交巡检签到表单
@@ -50,7 +50,7 @@ public interface PdaService {
 	 * @param dptid
 	 * @return
 	 */
-	List<OrderList> getOrderInfo(int mid);
+	List<OrderList> getOrderInfo(String mid);
 
 	/**
 	 * 巡检员创建工单

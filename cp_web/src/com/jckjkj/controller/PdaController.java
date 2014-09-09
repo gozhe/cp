@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jckjkj.mybatis.model.EquipmentState;
 import com.jckjkj.mybatis.model.Person;
+import com.jckjkj.mybatis.model.RoutingInspection;
+import com.jckjkj.mybatis.model.VEquipRouting;
 import com.jckjkj.service.PdaService;
 import com.jckjkj.utils.JsonUtils;
 
@@ -56,35 +58,79 @@ public class PdaController {
 	}
 
 	@RequestMapping("personRegiste.do")
-	@ResponseBody//@RequestBody 注解自动装配对象
-	public void personRegiste(@RequestBody Person[] person) {
-		for(Person p:person){
-			System.out.println(p.getPername());
-			if(pdaService.register(p)){
-				System.out.println("Success");
+	public void personRegiste(HttpServletRequest request,
+			HttpServletResponse response) {
+		Person entity = new Person();
+		try {
+			response.setContentType("text/html;charset=utf-8");
+			response.setCharacterEncoding("utf-8");
+			request.setCharacterEncoding("utf-8");
+			PrintWriter out = response.getWriter();
+			String pername = request.getParameter("pername");
+			String dptid = request.getParameter("dptid");
+			String tel = request.getParameter("tel");
+			int sex = Integer.valueOf(request.getParameter("sex"));
+			entity.setDptid(dptid);
+			entity.setPername(pername);
+			entity.setSex(sex);
+			entity.setTel(tel);
+
+			boolean result = pdaService.register(entity);
+			if (result) {
+				out.print("succeeded!");
+			} else {
+				out.print("error!");
 			}
+			out.flush();
+			out.close();
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
 		}
 	}
 
-	// @RequestMapping("personRegiste.do")
-	// public void personRegiste(HttpServletRequest request,
-	// HttpServletResponse response) {
-	// System.out.println("personRegiste.do");
-	// StringBuffer jb = new StringBuffer();
-	// String line = null;
-	// try {
-	// BufferedReader reader = request.getReader();
-	// while ((line = reader.readLine()) != null)
-	// jb.append(line);
-	// } catch (Exception e) { /* report an error */
-	// e.printStackTrace();
-	// }
-	// try {
-	// Person person = JsonUtils.toBean(jb.toString(), Person.class);
-	// pdaService.register(person);
-	// } catch (Exception ex) {
-	// ex.printStackTrace();
-	// }
-	// }
+	@RequestMapping("getRoutingInspInfo")
+	public void getRoutingInspInfo(HttpServletRequest request,
+			HttpServletResponse response) {
+		try {
+			response.setContentType("text/html;charset=utf-8");
+			response.setCharacterEncoding("utf-8");
+			request.setCharacterEncoding("utf-8");
+			PrintWriter out = response.getWriter();
+			String mid = request.getParameter("mid");
+			List<VEquipRouting> list = pdaService.getRoutingInspInfo(mid);
+			String result = JsonUtils.collection2json(list);
+			out.print(result);
+			out.flush();
+			out.close();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
+	
+	@RequestMapping("uploadRoutingInsp")
+	public void uploadRoutingInsp(HttpServletRequest request,
+			HttpServletResponse response){
+		RoutingInspection entity = new RoutingInspection();
+		try{
+			request.setCharacterEncoding("utf-8");
+			response.setContentType("text/html;charset=utf-8");
+			response.setCharacterEncoding("utf-8");
+			PrintWriter out = response.getWriter();
+			
+			String equid= request.getParameter("equid");
+			String signintime = request.getParameter("signintime");
+			String signinlongitude = request.getParameter("signinlongitude");
+			String signinlatitude = request.getParameter("signinlatitude");
+			String equstate= request.getParameter("equstate");
+			String roudescription = request.getParameter("roudescription");
+			String personid = request.getParameter("personid");
+			
+			
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+		
+	}
 
 }

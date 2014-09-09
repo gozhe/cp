@@ -23,7 +23,6 @@
 						<li class="dropdown">
 							<ul>
 								<li><a class="submenu" href="_sb/sbgl.jsp" target="right">监控管理</a></li>
-								<li><a class="submenu" href="#">告警历史</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -47,7 +46,6 @@
 							<ul>
 								<li><a class="submenu"  href="_xj/xjgl.jsp"  target="right">巡检管理</a></li>
 								<li><a class="submenu"  href="#" >审核管理</a></li>
-
 							</ul>
 						</li>
 					</ul>
